@@ -376,6 +376,7 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
             Spacer(Modifier.height(16.dp))
             VmExportSection(img, s, resetting) { resetting = it }
             VmImportSection(img, resetting, { resetting = it }) { s = it }
+            ApkInstallSection(img, resetting, { resetting = it })
             VmFilesSection(img, resetting)
             TextButton(enabled = !resetting, onClick = { resetConfirm = true }, modifier = Modifier.fillMaxWidth()) {
                 Text(stringResource(R.string.vm_reset_data))
