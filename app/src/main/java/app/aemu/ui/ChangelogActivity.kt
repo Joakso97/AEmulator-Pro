@@ -77,8 +77,8 @@ private fun ChangelogScreen(onBack: () -> Unit) {
         state = ChangelogState.Loaded(listOf(
             ChangelogEntry(
                 id = 1L,
-                tagName = "v0.0.0.3.15",
-                title = "Release 0.0.0.3.15",
+                tagName = "v0.0.0.3.16",
+                title = "Release 0.0.0.3.16",
                 body = "- **Added: Changelog the version latest**\n" +
                         "A new Changelog section to keep track of the latest updates.\n" +
                         "- **Added: Android 1.0 Supported boot the HTC**\n" +
