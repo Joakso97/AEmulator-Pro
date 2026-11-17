@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Klasik Android yazılımları — HTC Sense, TouchWiz, MIUI, AOSP — modern bir telefonda. Root ve PC gerekmez.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus gerçek bir Android 2.3–7.x sistemini doğrudan yazılım dosyasından başlatır: recovery ZIP, Odin arşivi veya Google fabrika imajı. Eski ARM kodu değiştirilmiş QEMU ile çevrilir, çekirdeğin binder’ı taklit edilir, grafikler telefonun GPU’sunu, ses Android’in ses altyapısını kullanır — hepsi sıradan bir uygulamanın içinde.
+AEmulator Pro gerçek bir Android 2.3–7.x sistemini doğrudan yazılım dosyasından başlatır: recovery ZIP, Odin arşivi veya Google fabrika imajı. Eski ARM kodu değiştirilmiş QEMU ile çevrilir, çekirdeğin binder’ı taklit edilir, grafikler telefonun GPU’sunu, ses Android’in ses altyapısını kullanır — hepsi sıradan bir uygulamanın içinde.
 
 ## ✨ Özellikler
 
@@ -26,7 +26,7 @@ AEmulator Plus gerçek bir Android 2.3–7.x sistemini doğrudan yazılım dosya
 ## 🚀 Hızlı başlangıç
 
 1. APK’yı [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) sayfasından indirip kurun.
-2. AEmulator Plus’ı açın → **Yazılım ekle** ve dosyayı seçin. İçe aktarma birkaç dakika sürer.
+2. AEmulator Pro’ı açın → **Yazılım ekle** ve dosyayı seçin. İçe aktarma birkaç dakika sürer.
 3. **Başlat**’a basın. İlk açılış daha uzundur: sistem uygulamaları optimize eder.
 4. ⋮ menüsü: ses, güç düğmesi ve günlük; ⚙️ ayarları ve dili açar.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Teşekkürler
 
-AEmulator Plus, [ilk geliştiricinin](https://t.me/istratiit_ech) HTC Desire HD ve HTC One M7 emülatörlerinden doğdu — onun motoru olmadan bu proje olmazdı.
+AEmulator Pro, [ilk geliştiricinin](https://t.me/istratiit_ech) HTC Desire HD ve HTC One M7 emülatörlerinden doğdu — onun motoru olmadan bu proje olmazdı.
 
 Bu, kendisi de [uxazu/AEmulator](https://github.com/uxazu/AEmulator) deposunun değiştirilmiş bir çatalı olan [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) deposunun değiştirilmiş bir çatalıdır.
 

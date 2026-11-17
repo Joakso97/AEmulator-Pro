@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Старые прошивки Android — HTC Sense, TouchWiz, MIUI, AOSP — на современном телефоне. Без root и без ПК.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus загружает настоящую систему Android 2.3–7.x прямо из файла прошивки: ZIP для рекавери, архива Odin или factory-образа Google. Старый ARM-код транслирует доработанный QEMU, binder ядра эмулируется, графика идёт через GPU телефона, звук — через аудиосистему Android. Всё работает внутри обычного приложения.
+AEmulator Pro загружает настоящую систему Android 2.3–7.x прямо из файла прошивки: ZIP для рекавери, архива Odin или factory-образа Google. Старый ARM-код транслирует доработанный QEMU, binder ядра эмулируется, графика идёт через GPU телефона, звук — через аудиосистему Android. Всё работает внутри обычного приложения.
 
 ## ✨ Возможности
 
@@ -26,7 +26,7 @@ AEmulator Plus загружает настоящую систему Android 2.3�
 ## 🚀 Быстрый старт
 
 1. Скачайте APK из [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) и установите.
-2. Откройте AEmulator Plus → **Добавить прошивку** и выберите файл. Импорт занимает несколько минут.
+2. Откройте AEmulator Pro → **Добавить прошивку** и выберите файл. Импорт занимает несколько минут.
 3. Нажмите **Запустить**. Первая загрузка дольше: система оптимизирует приложения.
 4. Меню ⋮ — громкость, кнопка питания и журнал; кнопка ⚙️ — настройки приложения и язык.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Благодарности
 
-AEmulator Plus вырос из эмуляторов HTC Desire HD и HTC One M7 [первого автора](https://t.me/istratiit_ech) — без его движка проекта бы не было.
+AEmulator Pro вырос из эмуляторов HTC Desire HD и HTC One M7 [первого автора](https://t.me/istratiit_ech) — без его движка проекта бы не было.
 
 Это модифицированный форк [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), который, в свою очередь, является модифицированным форком [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

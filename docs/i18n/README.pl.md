@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Klasyczne firmware Androida — HTC Sense, TouchWiz, MIUI, AOSP — na nowoczesnym telefonie. Bez roota, bez PC.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus uruchamia prawdziwy system Android 2.3–7.x prosto z pliku firmware: ZIP do recovery, archiwum Odin lub obraz fabryczny Google. Stary kod ARM tłumaczy zmodyfikowane QEMU, binder jądra jest emulowany, grafika korzysta z GPU telefonu, a dźwięk z systemu audio Androida — wszystko w zwykłej aplikacji.
+AEmulator Pro uruchamia prawdziwy system Android 2.3–7.x prosto z pliku firmware: ZIP do recovery, archiwum Odin lub obraz fabryczny Google. Stary kod ARM tłumaczy zmodyfikowane QEMU, binder jądra jest emulowany, grafika korzysta z GPU telefonu, a dźwięk z systemu audio Androida — wszystko w zwykłej aplikacji.
 
 ## ✨ Funkcje
 
@@ -26,7 +26,7 @@ AEmulator Plus uruchamia prawdziwy system Android 2.3–7.x prosto z pliku firmw
 ## 🚀 Szybki start
 
 1. Pobierz APK z [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) i zainstaluj.
-2. Otwórz AEmulator Plus → **Dodaj firmware** i wybierz plik. Import trwa kilka minut.
+2. Otwórz AEmulator Pro → **Dodaj firmware** i wybierz plik. Import trwa kilka minut.
 3. Naciśnij **Uruchom**. Pierwszy start trwa dłużej: system optymalizuje aplikacje.
 4. Menu ⋮ — głośność, przycisk zasilania i dziennik; ⚙️ — ustawienia i język.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Podziękowania
 
-AEmulator Plus wyrósł z emulatorów HTC Desire HD i HTC One M7 [pierwotnego autora](https://t.me/istratiit_ech) — bez jego silnika tego projektu by nie było.
+AEmulator Pro wyrósł z emulatorów HTC Desire HD i HTC One M7 [pierwotnego autora](https://t.me/istratiit_ech) — bez jego silnika tego projektu by nie było.
 
 To zmodyfikowany fork [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), który sam jest zmodyfikowanym forkiem [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

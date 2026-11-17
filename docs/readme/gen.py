@@ -10,7 +10,7 @@ from texts import T  # noqa
 from texts_plus import P  # noqa
 
 RTL = {"ar", "fa"}
-BRAND = "AEmulator Plus"
+BRAND = "AEmulator Pro"
 
 
 def path_of(code, from_code):

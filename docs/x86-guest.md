@@ -1,6 +1,6 @@
 # x86-32 guest firmware
 
-AEmulator Plus runs an x86-32 Android firmware on the **same universal engine** as ARM firmware. The only
+AEmulator Pro runs an x86-32 Android firmware on the **same universal engine** as ARM firmware. The only
 architecture-specific host binary is the translator: `libqemu_kk_i386.so` (QEMU 8.2.4 `i386-linux-user` with the SENSES
 patches) instead of `libqemu_kk.so`. x86-64 and the native engine are not covered.
 

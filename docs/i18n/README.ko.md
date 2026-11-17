@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **클래식 Android 펌웨어 — HTC Sense, TouchWiz, MIUI, AOSP — 를 최신 휴대폰에서. 루팅도 PC도 필요 없습니다.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus는 펌웨어 파일에서 진짜 Android 2.3–7.x 시스템을 바로 부팅합니다: 리커버리 ZIP, Odin 아카이브, Google 팩토리 이미지. 오래된 ARM 코드는 수정된 QEMU가 변환하고, 커널 binder를 에뮬레이션하며, 그래픽은 휴대폰 GPU로, 소리는 Android 오디오로 처리합니다. 모두 평범한 앱 안에서 동작합니다.
+AEmulator Pro는 펌웨어 파일에서 진짜 Android 2.3–7.x 시스템을 바로 부팅합니다: 리커버리 ZIP, Odin 아카이브, Google 팩토리 이미지. 오래된 ARM 코드는 수정된 QEMU가 변환하고, 커널 binder를 에뮬레이션하며, 그래픽은 휴대폰 GPU로, 소리는 Android 오디오로 처리합니다. 모두 평범한 앱 안에서 동작합니다.
 
 ## ✨ 기능
 
@@ -26,7 +26,7 @@ AEmulator Plus는 펌웨어 파일에서 진짜 Android 2.3–7.x 시스템을 �
 ## 🚀 빠른 시작
 
 1. [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)에서 APK를 받아 설치합니다.
-2. AEmulator Plus → **펌웨어 추가**에서 파일을 고릅니다. 가져오기는 몇 분 걸립니다.
+2. AEmulator Pro → **펌웨어 추가**에서 파일을 고릅니다. 가져오기는 몇 분 걸립니다.
 3. **시작**을 누릅니다. 첫 부팅은 앱 최적화로 더 오래 걸립니다.
 4. ⋮ 메뉴에서 볼륨·전원 버튼·로그, ⚙️에서 설정과 언어.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 감사의 말
 
-AEmulator Plus는 [원작자](https://t.me/istratiit_ech)의 HTC Desire HD·HTC One M7 에뮬레이터에서 시작되었습니다. 그의 엔진이 없었다면 이 프로젝트도 없었습니다.
+AEmulator Pro는 [원작자](https://t.me/istratiit_ech)의 HTC Desire HD·HTC One M7 에뮬레이터에서 시작되었습니다. 그의 엔진이 없었다면 이 프로젝트도 없었습니다.
 
 이 프로젝트는 [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)의 수정된 포크이며, 해당 프로젝트 역시 [uxazu/AEmulator](https://github.com/uxazu/AEmulator)의 수정된 포크입니다.
 

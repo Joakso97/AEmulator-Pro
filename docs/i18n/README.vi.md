@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Firmware Android cổ điển — HTC Sense, TouchWiz, MIUI, AOSP — trên điện thoại hiện đại. Không root, không cần PC.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus khởi động một hệ thống Android 2.3–7.x thật trực tiếp từ tệp firmware: ZIP recovery, gói Odin hoặc factory image của Google. Mã ARM cũ được dịch bằng QEMU đã chỉnh sửa, binder của nhân được giả lập, đồ họa dùng GPU điện thoại và âm thanh đi qua hệ thống âm thanh Android — tất cả trong một ứng dụng bình thường.
+AEmulator Pro khởi động một hệ thống Android 2.3–7.x thật trực tiếp từ tệp firmware: ZIP recovery, gói Odin hoặc factory image của Google. Mã ARM cũ được dịch bằng QEMU đã chỉnh sửa, binder của nhân được giả lập, đồ họa dùng GPU điện thoại và âm thanh đi qua hệ thống âm thanh Android — tất cả trong một ứng dụng bình thường.
 
 ## ✨ Tính năng
 
@@ -26,7 +26,7 @@ AEmulator Plus khởi động một hệ thống Android 2.3–7.x thật trực
 ## 🚀 Bắt đầu nhanh
 
 1. Tải APK từ [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) và cài đặt.
-2. Mở AEmulator Plus → **Thêm firmware** và chọn tệp. Việc nhập mất vài phút.
+2. Mở AEmulator Pro → **Thêm firmware** và chọn tệp. Việc nhập mất vài phút.
 3. Nhấn **Chạy**. Lần khởi động đầu chậm hơn: hệ thống tối ưu ứng dụng.
 4. Menu ⋮ để chỉnh âm lượng, nút nguồn và nhật ký; ⚙️ mở cài đặt và ngôn ngữ.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Ghi công
 
-AEmulator Plus phát triển từ trình giả lập HTC Desire HD và HTC One M7 của [tác giả gốc](https://t.me/istratiit_ech) — không có engine của anh ấy thì không có dự án này.
+AEmulator Pro phát triển từ trình giả lập HTC Desire HD và HTC One M7 của [tác giả gốc](https://t.me/istratiit_ech) — không có engine của anh ấy thì không có dự án này.
 
 Đây là bản fork đã chỉnh sửa của [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), vốn cũng là bản fork đã chỉnh sửa của [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

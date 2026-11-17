@@ -1,6 +1,6 @@
-# Building AEmulator Plus
+# Building AEmulator Pro
 
-Updated 2026-10-11. AEmulator Plus is a modified fork of
+Updated 2026-10-11. AEmulator Pro is a modified fork of
 [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) (itself a fork of
 [uxazu/AEmulator](https://github.com/uxazu/AEmulator)); see [NOTICE.md](../NOTICE.md).
 Replace `<tag>` below with the Plus release tag you want to build.

@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Старі прошивки Android — HTC Sense, TouchWiz, MIUI, AOSP — на сучасному телефоні. Без root і без ПК.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus завантажує справжню систему Android 2.3–7.x прямо з файлу прошивки: ZIP для рекавері, архіву Odin або factory-образу Google. Старий ARM-код транслює доопрацьований QEMU, binder ядра емулюється, графіка йде через GPU телефона, звук — через аудіосистему Android. Усе працює всередині звичайного застосунку.
+AEmulator Pro завантажує справжню систему Android 2.3–7.x прямо з файлу прошивки: ZIP для рекавері, архіву Odin або factory-образу Google. Старий ARM-код транслює доопрацьований QEMU, binder ядра емулюється, графіка йде через GPU телефона, звук — через аудіосистему Android. Усе працює всередині звичайного застосунку.
 
 ## ✨ Можливості
 
@@ -26,7 +26,7 @@ AEmulator Plus завантажує справжню систему Android 2.3�
 ## 🚀 Швидкий старт
 
 1. Завантажте APK з [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) і встановіть.
-2. Відкрийте AEmulator Plus → **Додати прошивку** й виберіть файл. Імпорт триває кілька хвилин.
+2. Відкрийте AEmulator Pro → **Додати прошивку** й виберіть файл. Імпорт триває кілька хвилин.
 3. Натисніть **Запустити**. Перше завантаження довше: система оптимізує застосунки.
 4. Меню ⋮ — гучність, кнопка живлення й журнал; кнопка ⚙️ — налаштування й мова.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Подяки
 
-AEmulator Plus виріс з емуляторів HTC Desire HD та HTC One M7 [першого автора](https://t.me/istratiit_ech) — без його рушія проєкту б не було.
+AEmulator Pro виріс з емуляторів HTC Desire HD та HTC One M7 [першого автора](https://t.me/istratiit_ech) — без його рушія проєкту б не було.
 
 Це модифікований форк [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), який, своєю чергою, є модифікованим форком [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

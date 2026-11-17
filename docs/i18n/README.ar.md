@@ -2,9 +2,9 @@
 
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **شغّل برامج أندرويد الكلاسيكية — HTC Sense وTouchWiz وMIUI وAOSP — على هاتف حديث. بلا روت وبلا حاسوب.**
 
@@ -14,7 +14,7 @@
 
 ---
 
-يقلع AEmulator Plus نظام أندرويد 2.3–7.x حقيقيًا مباشرة من ملف البرنامج الثابت: ملف ZIP للريكفري أو أرشيف Odin أو صورة مصنع Google. تُترجم شفرة ARM القديمة عبر QEMU معدّل، ويُحاكى binder النواة، وتُرسم الواجهة بمعالج رسومات الهاتف ويمر الصوت عبر نظام صوت أندرويد — كل ذلك داخل تطبيق عادي.
+يقلع AEmulator Pro نظام أندرويد 2.3–7.x حقيقيًا مباشرة من ملف البرنامج الثابت: ملف ZIP للريكفري أو أرشيف Odin أو صورة مصنع Google. تُترجم شفرة ARM القديمة عبر QEMU معدّل، ويُحاكى binder النواة، وتُرسم الواجهة بمعالج رسومات الهاتف ويمر الصوت عبر نظام صوت أندرويد — كل ذلك داخل تطبيق عادي.
 
 ## ✨ المزايا
 
@@ -28,7 +28,7 @@
 ## 🚀 البدء السريع
 
 1. نزّل ملف APK من [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) وثبّته.
-2. افتح AEmulator Plus ← **إضافة برنامج ثابت** واختر الملف. يستغرق الاستيراد بضع دقائق.
+2. افتح AEmulator Pro ← **إضافة برنامج ثابت** واختر الملف. يستغرق الاستيراد بضع دقائق.
 3. اضغط **تشغيل**. الإقلاع الأول أبطأ: النظام يحسّن التطبيقات.
 4. القائمة ⋮ للصوت وزر التشغيل والسجل؛ وزر ⚙️ للإعدادات واللغة.
 
@@ -54,7 +54,7 @@ cd AEmulator-Plus
 
 ## 🙏 شكر وتقدير
 
-نشأ AEmulator Plus من محاكيات HTC Desire HD وHTC One M7 التي صنعها [المطوّر الأصلي](https://t.me/istratiit_ech)، ولولا محركه ما وُجد هذا المشروع.
+نشأ AEmulator Pro من محاكيات HTC Desire HD وHTC One M7 التي صنعها [المطوّر الأصلي](https://t.me/istratiit_ech)، ولولا محركه ما وُجد هذا المشروع.
 
 هذا فرع معدَّل من [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)، وهو بدوره فرع معدَّل من [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

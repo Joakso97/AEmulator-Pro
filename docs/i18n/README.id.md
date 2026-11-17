@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Firmware Android klasik — HTC Sense, TouchWiz, MIUI, AOSP — di ponsel modern. Tanpa root, tanpa PC.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus mem-boot sistem Android 2.3–7.x asli langsung dari file firmware: ZIP recovery, arsip Odin, atau factory image Google. Kode ARM lama diterjemahkan oleh QEMU yang dimodifikasi, binder kernel diemulasikan, grafis memakai GPU ponsel, dan suara lewat sistem audio Android — semuanya di dalam aplikasi biasa.
+AEmulator Pro mem-boot sistem Android 2.3–7.x asli langsung dari file firmware: ZIP recovery, arsip Odin, atau factory image Google. Kode ARM lama diterjemahkan oleh QEMU yang dimodifikasi, binder kernel diemulasikan, grafis memakai GPU ponsel, dan suara lewat sistem audio Android — semuanya di dalam aplikasi biasa.
 
 ## ✨ Fitur
 
@@ -26,7 +26,7 @@ AEmulator Plus mem-boot sistem Android 2.3–7.x asli langsung dari file firmwar
 ## 🚀 Mulai cepat
 
 1. Unduh APK dari [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) lalu pasang.
-2. Buka AEmulator Plus → **Tambah firmware** lalu pilih file. Impor butuh beberapa menit.
+2. Buka AEmulator Pro → **Tambah firmware** lalu pilih file. Impor butuh beberapa menit.
 3. Tekan **Mulai**. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi.
 4. Menu ⋮ untuk volume, tombol daya, dan log; ⚙️ membuka setelan dan bahasa.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Kredit
 
-AEmulator Plus tumbuh dari emulator HTC Desire HD dan HTC One M7 karya [pembuat asli](https://t.me/istratiit_ech) — tanpa mesinnya proyek ini tidak akan ada.
+AEmulator Pro tumbuh dari emulator HTC Desire HD dan HTC One M7 karya [pembuat asli](https://t.me/istratiit_ech) — tanpa mesinnya proyek ini tidak akan ada.
 
 Ini adalah fork yang dimodifikasi dari [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), yang sendiri merupakan fork yang dimodifikasi dari [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

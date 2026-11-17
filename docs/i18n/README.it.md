@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Firmware Android classici — HTC Sense, TouchWiz, MIUI, AOSP — su un telefono moderno. Senza root, senza PC.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus avvia un vero sistema Android 2.3–7.x direttamente da un file firmware: ZIP per recovery, archivio Odin o immagine di fabbrica Google. Il vecchio codice ARM passa da un QEMU modificato, il binder del kernel è emulato, la grafica usa la GPU del telefono e l’audio passa per lo stack audio di Android — tutto in una normale app.
+AEmulator Pro avvia un vero sistema Android 2.3–7.x direttamente da un file firmware: ZIP per recovery, archivio Odin o immagine di fabbrica Google. Il vecchio codice ARM passa da un QEMU modificato, il binder del kernel è emulato, la grafica usa la GPU del telefono e l’audio passa per lo stack audio di Android — tutto in una normale app.
 
 ## ✨ Funzionalità
 
@@ -26,7 +26,7 @@ AEmulator Plus avvia un vero sistema Android 2.3–7.x direttamente da un file f
 ## 🚀 Avvio rapido
 
 1. Scarica l’APK da [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) e installalo.
-2. Apri AEmulator Plus → **Aggiungi firmware** e scegli il file. L’importazione richiede qualche minuto.
+2. Apri AEmulator Pro → **Aggiungi firmware** e scegli il file. L’importazione richiede qualche minuto.
 3. Premi **Avvia**. Il primo avvio è più lento: il sistema ottimizza le app.
 4. Menu ⋮ per volume, tasto di accensione e registro; ⚙️ apre impostazioni e lingua.
 
@@ -52,7 +52,7 @@ cd AEmulator-Plus
 
 ## 🙏 Ringraziamenti
 
-AEmulator Plus nasce dagli emulatori HTC Desire HD e HTC One M7 dell’[autore originale](https://t.me/istratiit_ech); senza il suo motore questo progetto non esisterebbe.
+AEmulator Pro nasce dagli emulatori HTC Desire HD e HTC One M7 dell’[autore originale](https://t.me/istratiit_ech); senza il suo motore questo progetto non esisterebbe.
 
 Questo è un fork modificato di [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), che a sua volta è un fork modificato di [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 

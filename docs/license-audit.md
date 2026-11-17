@@ -1,6 +1,6 @@
 # Source and licensing audit — 2026-10-02
 
-Scope: the AEmulator Plus checkout (derived from Sunset through sunset.30), its
+Scope: the AEmulator Pro checkout (derived from Sunset through sunset.30), its
 build scripts and release packaging. Findings inherited from Sunset apply to Plus.
 This is a technical inventory, not a legal compliance certification.
 
