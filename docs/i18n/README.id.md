@@ -27,7 +27,7 @@ AEmulator Pro mem-boot image sistem Android 1.0–17 asli langsung dari file fir
 
 ## Mulai cepat
 
-1. Unduh APK dari [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) lalu pasang.
+1. Unduh APK dari [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) lalu pasang.
 2. Buka AEmulator Pro → **Tambah firmware** dan pilih file. Impor memakan waktu beberapa menit.
 3. Tekan **Mulai**. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi-aplikasinya.
 4. Gunakan menu ⋮ untuk volume, tombol daya, dan log; tombol ⚙️ membuka pengaturan dan bahasa.
@@ -56,7 +56,7 @@ Ini adalah fork modifikasi dari [uxazu/AEmulator](https://github.com/uxazu/AEmul
 
 ## Tautan
 
-- Fork saya: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- Fork saya: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (kredit besar untuk banyak fitur): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Penulis: [somerandomusername2](https://github.com/somerandomusernam2)

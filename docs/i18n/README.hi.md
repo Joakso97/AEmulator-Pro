@@ -27,7 +27,7 @@ AEmulator Pro आपके पास पहले से मौजूद फ़�
 
 ## त्वरित शुरुआत
 
-1. [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) से APK डाउनलोड करें और इंस्टॉल करें।
+1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) से APK डाउनलोड करें और इंस्टॉल करें।
 2. AEmulator Pro खोलें → **फ़र्मवेयर जोड़ें** और फ़ाइल चुनें। आयात में कुछ मिनट लगते हैं।
 3. **स्टार्ट** दबाएँ। पहला बूट धीमा होता है: सिस्टम अपने ऐप्स को अनुकूलित करता है।
 4. वॉल्यूम, पावर बटन और लॉग के लिए ⋮ मेनू उपयोग करें; ⚙️ बटन ऐप सेटिंग्स और भाषा खोलता है।
@@ -56,7 +56,7 @@ AEmulator Pro [मूल लेखक](https://t.me/istratiit_ech) के HTC De
 
 ## लिंक
 
-- मेरा फ़ोर्क: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- मेरा फ़ोर्क: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - अपस्ट्रीम: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (कई सुविधाओं के लिए बहुत-बहुत श्रेय): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - लेखक: [somerandomusername2](https://github.com/somerandomusernam2)

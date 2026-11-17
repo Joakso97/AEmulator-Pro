@@ -76,7 +76,7 @@ import app.aemu.R
 
 
 object Links {
-    const val GITHUB = "https://github.com/somerandomusernam2/AEmulator-Plus"
+    const val GITHUB = "https://github.com/Joakso97/AEmulator-Pro"
     const val AUTHOR = "https://github.com/somerandomusernam2"
     const val SUNSET = "https://github.com/drel4/AEmulator-Sunset"
     const val UPSTREAM = "https://github.com/uxazu/AEmulator"

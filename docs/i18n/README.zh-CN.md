@@ -27,7 +27,7 @@ AEmulator Pro 直接从你已有的固件文件启动真正的 Android 1.0–17 
 
 ## 快速开始
 
-1. 从 [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) 下载 APK 并安装。
+1. 从 [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) 下载 APK 并安装。
 2. 打开 AEmulator Pro → **添加固件**并选择文件。导入需要几分钟。
 3. 按 **启动**。首次开机较慢：系统会优化其应用。
 4. ⋮ 菜单提供音量、电源键和日志；⚙️ 按钮打开应用设置和语言。
@@ -56,7 +56,7 @@ AEmulator Pro 源自[原作者](https://t.me/istratiit_ech)的 HTC Desire HD 和
 
 ## 链接
 
-- 我的分支: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- 我的分支: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - 上游: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset（众多功能，特别致谢）: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - 作者: [somerandomusername2](https://github.com/somerandomusernam2)

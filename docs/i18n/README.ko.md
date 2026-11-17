@@ -27,7 +27,7 @@ AEmulator Pro는 이미 가지고 있는 펌웨어 파일에서 진짜 Android 1
 
 ## 빠른 시작
 
-1. [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)에서 APK를 다운로드해 설치하세요.
+1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases)에서 APK를 다운로드해 설치하세요.
 2. AEmulator Pro 열기 → **펌웨어 추가**에서 파일을 선택하세요. 가져오기는 몇 분 걸립니다.
 3. **시작**을 누르세요. 첫 부팅은 더 느립니다: 시스템이 앱을 최적화합니다.
 4. ⋮ 메뉴로 볼륨, 전원 버튼, 로그를 조작하고 ⚙️ 버튼으로 앱 설정과 언어를 엽니다.
@@ -56,7 +56,7 @@ AEmulator Pro는 [원작자](https://t.me/istratiit_ech)의 HTC Desire HD 및 HT
 
 ## 링크
 
-- 내 포크: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- 내 포크: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - 업스트림: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset(많은 기능에 큰 감사): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - 작성자: [somerandomusername2](https://github.com/somerandomusernam2)

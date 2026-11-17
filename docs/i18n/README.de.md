@@ -27,7 +27,7 @@ AEmulator Pro bootet ein echtes Android-1.0–17-System-Image direkt aus einer F
 
 ## Schnellstart
 
-1. APK unter [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) herunterladen und installieren.
+1. APK unter [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) herunterladen und installieren.
 2. AEmulator Pro öffnen → **Firmware hinzufügen** und die Datei wählen. Der Import dauert einige Minuten.
 3. **Starten** drücken. Der erste Start dauert länger: Das System optimiert seine Apps.
 4. Menü ⋮ für Lautstärke, Ein/Aus und Protokolle; die ⚙️-Schaltfläche öffnet Einstellungen und Sprache.
@@ -56,7 +56,7 @@ Dies ist ein modifizierter Fork von [uxazu/AEmulator](https://github.com/uxazu/A
 
 ## Links
 
-- Mein Fork: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- Mein Fork: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (großer Dank für viele Funktionen): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Autor: [somerandomusername2](https://github.com/somerandomusernam2)

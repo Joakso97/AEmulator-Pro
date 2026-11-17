@@ -22,7 +22,7 @@ is claimed for Plus's additions.
 Source code for AEmulator Plus releases, including the exact tagged revision
 used to build each APK, is published at:
 
-<https://github.com/somerandomusernam2/AEmulator-Plus>
+<https://github.com/Joakso97/AEmulator-Pro>
 
 The Plus and Sunset application and fork-owned modifications are released under GPL-3.0.
 This does not relicense independently licensed dependencies or user firmware.

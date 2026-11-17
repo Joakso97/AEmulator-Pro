@@ -29,7 +29,7 @@
 
 ## البداية السريعة
 
-1. نزّل ملف APK من [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) وثبّته.
+1. نزّل ملف APK من [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) وثبّته.
 2. افتح AEmulator Pro ← **إضافة برنامج ثابت** واختر الملف. يستغرق الاستيراد بضع دقائق.
 3. اضغط **بدء**. الإقلاع الأول أبطأ: النظام يحسّن تطبيقاته.
 4. استخدم قائمة ⋮ للصوت وزر الطاقة والسجلات؛ زر ⚙️ يفتح الإعدادات واللغة.
@@ -58,7 +58,7 @@ cd AEmulator-Pro
 
 ## روابط
 
-- نسختي المتفرعة: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- نسختي المتفرعة: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - المنبع: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (شكر جزيل على العديد من الميزات): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - المؤلف: [somerandomusername2](https://github.com/somerandomusernam2)

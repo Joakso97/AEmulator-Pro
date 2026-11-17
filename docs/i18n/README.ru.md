@@ -27,7 +27,7 @@ AEmulator Pro загружает настоящий образ системы An
 
 ## Быстрый старт
 
-1. Скачайте APK из [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) и установите.
+1. Скачайте APK из [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) и установите.
 2. Откройте AEmulator Pro → **Добавить прошивку** и выберите файл. Импорт занимает несколько минут.
 3. Нажмите **Старт**. Первая загрузка медленнее: система оптимизирует приложения.
 4. Меню ⋮ — громкость, кнопка питания и логи; кнопка ⚙️ открывает настройки и язык.
@@ -56,7 +56,7 @@ AEmulator Pro вырос из эмуляторов HTC Desire HD и HTC One M7 [
 
 ## Ссылки
 
-- Мой форк: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- Мой форк: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - Апстрим: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (огромная благодарность за множество функций): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Автор: [somerandomusername2](https://github.com/somerandomusernam2)

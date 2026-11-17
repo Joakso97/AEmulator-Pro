@@ -57,15 +57,15 @@ sealed interface UpdateState {
 
 
 object AppUpdateManager {
-    private const val RELEASES_API = "https://api.github.com/repos/somerandomusernam2/AEmulator-Plus/releases"
-    private const val GITHUB_REPO_URL = "https://github.com/somerandomusernam2/AEmulator-Plus"
+    private const val RELEASES_API = "https://api.github.com/repos/Joakso97/AEmulator-Pro/releases"
+    private const val GITHUB_REPO_URL = "https://github.com/Joakso97/AEmulator-Pro"
 
     suspend fun loadChangelog(): List<ChangelogEntry> = withContext(Dispatchers.IO) {
         val conn = URL("$RELEASES_API?per_page=30").openConnection() as HttpURLConnection
         conn.connectTimeout = 15000
         conn.readTimeout = 15000
         conn.setRequestProperty("Accept", "application/vnd.github+json")
-        conn.setRequestProperty("User-Agent", "AEmulator-Plus-App")
+        conn.setRequestProperty("User-Agent", "AEmulator-Pro-App")
         try {
             currentCoroutineContext().ensureActive()
             if (conn.responseCode != HttpURLConnection.HTTP_OK) {
@@ -101,7 +101,7 @@ object AppUpdateManager {
             conn.connectTimeout = 15000
             conn.readTimeout = 15000
             conn.setRequestProperty("Accept", "application/vnd.github+json")
-            conn.setRequestProperty("User-Agent", "AEmulator-Plus-App")
+            conn.setRequestProperty("User-Agent", "AEmulator-Pro-App")
 
             if (conn.responseCode != HttpURLConnection.HTTP_OK) {
                 throw Exception("HTTP ${conn.responseCode}: ${conn.responseMessage}")
@@ -182,7 +182,7 @@ object AppUpdateManager {
         
         updatesDir.listFiles()?.forEach { if (it.extension.equals("apk", ignoreCase = true)) it.delete() }
 
-        val targetFile = File(updatesDir, "aemulator-plus-${release.versionName}.apk")
+        val targetFile = File(updatesDir, "aemulator-pro-${release.versionName}.apk")
 
         
         
@@ -207,7 +207,7 @@ object AppUpdateManager {
                         conn.connectTimeout = 15000
                         conn.readTimeout = 30000
                         conn.instanceFollowRedirects = true
-                        conn.setRequestProperty("User-Agent", "AEmulator-Plus-App")
+                        conn.setRequestProperty("User-Agent", "AEmulator-Pro-App")
 
                         val code = conn.responseCode
                         if (code in listOf(HttpURLConnection.HTTP_MOVED_PERM, HttpURLConnection.HTTP_MOVED_TEMP, 307, 308)) {

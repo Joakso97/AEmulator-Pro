@@ -64,7 +64,7 @@ def render(code):
     L.append(t["credits_text"].format(orig=ORIGINAL) + "\n")
     L.append(t["fork_line"].format(**rel) + "\n")
     L.append(f"## 🔗 {t['links_title']}\n")
-    L.append(f"- {t['l_fork']}: [somerandomusernam2/AEmulator-Plus]({REPO})")
+    L.append(f"- {t['l_fork']}: [Joakso97/AEmulator-Pro]({REPO})")
     L.append(f"- {t['l_upstream']}: [drel4/AEmulator-Sunset]({SUNSET})")
     L.append(f"- {t['l_original']}: [uxazu/AEmulator]({UPSTREAM})")
     L.append(f"- {t['l_author']}: [{AUTHOR_NAME}]({AUTHOR})")

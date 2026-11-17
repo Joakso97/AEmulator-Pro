@@ -29,7 +29,7 @@ AEmulator Pro یک ایمیج واقعی سیستم اندروید 1.0–17 را
 
 ## شروع سریع
 
-1. APK را از [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) دانلود و نصب کنید.
+1. APK را از [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) دانلود و نصب کنید.
 2. AEmulator Pro را باز کنید ← **افزودن فرم‌ور** و فایل را انتخاب کنید. درون‌ریزی چند دقیقه طول می‌کشد.
 3. **شروع** را بزنید. بوت اول کندتر است: سیستم اپ‌هایش را بهینه می‌کند.
 4. منوی ⋮ برای صدا، دکمه روشن/خاموش و گزارش‌هاست؛ دکمه ⚙️ تنظیمات و زبان را باز می‌کند.
@@ -58,7 +58,7 @@ AEmulator Pro از شبیه‌سازهای HTC Desire HD و HTC One M7 ساخت�
 
 ## پیوندها
 
-- انشعاب من: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- انشعاب من: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - بالادست: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (قدردانی فراوان برای بسیاری از امکانات): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - نویسنده: [somerandomusername2](https://github.com/somerandomusernam2)

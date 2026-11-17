@@ -27,7 +27,7 @@ AEmulator Pro khởi động một image hệ thống Android 1.0–17 thật ng
 
 ## Bắt đầu nhanh
 
-1. Tải APK từ [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) và cài đặt.
+1. Tải APK từ [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) và cài đặt.
 2. Mở AEmulator Pro → **Thêm firmware** và chọn tệp. Việc nhập mất vài phút.
 3. Nhấn **Bắt đầu**. Lần khởi động đầu chậm hơn: hệ thống tối ưu hóa các ứng dụng của nó.
 4. Dùng menu ⋮ cho âm lượng, nút nguồn và nhật ký; nút ⚙️ mở cài đặt và ngôn ngữ.
@@ -56,7 +56,7 @@ AEmulator Pro lớn lên từ các trình giả lập HTC Desire HD và HTC One 
 
 ## Liên kết
 
-- Fork của tôi: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- Fork của tôi: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (ghi công lớn cho nhiều tính năng): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Tác giả: [somerandomusername2](https://github.com/somerandomusernam2)

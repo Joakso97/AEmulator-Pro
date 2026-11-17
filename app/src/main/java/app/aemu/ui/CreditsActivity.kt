@@ -73,7 +73,7 @@ private fun CreditsScreen(onBack: () -> Unit) {
                 Section(stringResource(R.string.as_links)) {
                     Row_(Icons.Rounded.Person, stringResource(R.string.as_author), "somerandomusername2") { open(Links.AUTHOR) }
                     Row_(Icons.Rounded.History, stringResource(R.string.as_orig), "t.me/istratiit_ech") { open(Links.ORIGINAL) }
-                    Row_(Icons.Rounded.Code, stringResource(R.string.as_github), "github.com/somerandomusernam2/AEmulator-Plus") { open(Links.GITHUB) }
+                    Row_(Icons.Rounded.Code, stringResource(R.string.as_github), "github.com/Joakso97/AEmulator-Pro") { open(Links.GITHUB) }
                     Row_(Icons.Rounded.History, stringResource(R.string.as_upstream_row, "AEmulator Sunset"), "github.com/drel4/AEmulator-Sunset") { open(Links.SUNSET) }
                     Row_(Icons.Rounded.History, stringResource(R.string.as_original_row, "AEmulator"), "github.com/uxazu/AEmulator") { open(Links.UPSTREAM) }
                 }

@@ -27,7 +27,7 @@ AEmulator Pro boots a real Android 1.0–17 system image straight from a firmwar
 
 ## Quick start
 
-1. Download the APK from [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) and install it.
+1. Download the APK from [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) and install it.
 2. Open AEmulator Pro → **Add firmware** and pick the file. Import takes a few minutes.
 3. Press **Start**. The first boot is slower: the system optimises its apps.
 4. Use the ⋮ menu for volume, power button and logs; the ⚙️ button opens app settings and language.
@@ -55,7 +55,7 @@ AEmulator Pro grew out of the HTC Desire HD and HTC One M7 emulators by [the ori
 This is a modified fork of [uxazu/AEmulator](https://github.com/uxazu/AEmulator), which additionally uses many features from [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset).
 ## Links
 
-- My fork: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- My fork: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (huge credits for many features): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Author: [somerandomusername2](https://github.com/somerandomusernam2)

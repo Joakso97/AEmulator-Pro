@@ -27,7 +27,7 @@ AEmulator Pro, zaten sahip olduğunuz bir firmware dosyasından gerçek bir Andr
 
 ## Hızlı başlangıç
 
-1. APK'yı [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) sayfasından indirin ve kurun.
+1. APK'yı [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) sayfasından indirin ve kurun.
 2. AEmulator Pro'yu açın → **Firmware ekle** ve dosyayı seçin. İçe aktarma birkaç dakika sürer.
 3. **Başlat**'a basın. İlk açılış daha yavaştır: sistem uygulamalarını optimize eder.
 4. ⋮ menüsü ses, güç düğmesi ve günlükler içindir; ⚙️ düğmesi ayarları ve dili açar.
@@ -56,7 +56,7 @@ Bu, [uxazu/AEmulator](https://github.com/uxazu/AEmulator)'un değiştirilmiş bi
 
 ## Bağlantılar
 
-- Çatalım: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- Çatalım: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset (birçok özellik için büyük teşekkürler): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Yazar: [somerandomusername2](https://github.com/somerandomusernam2)

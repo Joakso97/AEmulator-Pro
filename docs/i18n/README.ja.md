@@ -27,7 +27,7 @@ AEmulator Pro は、手持ちのファームウェアファイルから本物の
 
 ## クイックスタート
 
-1. [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) から APK をダウンロードしてインストール。
+1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) から APK をダウンロードしてインストール。
 2. AEmulator Pro を開く → **ファームウェアを追加** でファイルを選択。取り込みには数分かかります。
 3. **起動** を押します。初回起動は遅めです：システムがアプリを最適化します。
 4. ⋮ メニューで音量・電源ボタン・ログを操作。⚙️ ボタンでアプリ設定と言語を開きます。
@@ -56,7 +56,7 @@ AEmulator Pro は[原作者](https://t.me/istratiit_ech)の HTC Desire HD と HT
 
 ## リンク
 
-- 自分のフォーク: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
+- 自分のフォーク: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
 - アップストリーム: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - AEmulator-Sunset（多くの機能に多大な感謝）: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - 作者: [somerandomusername2](https://github.com/somerandomusernam2)
