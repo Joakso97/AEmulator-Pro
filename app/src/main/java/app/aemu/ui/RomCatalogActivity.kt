@@ -213,8 +213,13 @@ private fun CatalogScreen(onBack: () -> Unit) {
                     Text(stringResource(R.string.catalog_download_checking_desc), style = MaterialTheme.typography.bodyMedium)
                 }
                 Spacer(Modifier.height(12.dp))
-                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    LoadingIndicator(Modifier.size(48.dp))
+                if (d.total > 0) {
+                    LinearProgressIndicator(
+                        progress = { (d.done.toFloat() / d.total.toFloat()).coerceIn(0f, 1f) },
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                } else {
+                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                 }
                 if (d.name.isNotEmpty()) {
                     Spacer(Modifier.height(8.dp))
