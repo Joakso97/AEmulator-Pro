@@ -39,7 +39,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -70,59 +69,36 @@ private sealed interface ChangelogState {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ChangelogScreen(onBack: () -> Unit) {
-    val ctx = LocalContext.current
     var revision by remember { mutableIntStateOf(0) }
     var state by remember { mutableStateOf<ChangelogState>(ChangelogState.Loading) }
 
     LaunchedEffect(revision) {
         state = ChangelogState.Loading
-        state = try {
-            val text = runCatching {
-                ctx.assets.open("changelog.txt").let { it.bufferedReader().use { r -> r.readText() } }
-            }.getOrDefault(
-                "v0.0.0.3.15\n" +
-                "Release 0.0.0.3.15\n" +
-                "- **Added: Changelog the version latest**\n" +
-                "A new Changelog section to keep track of the latest updates."
+        state = ChangelogState.Loaded(listOf(
+            ChangelogEntry(
+                id = 1L,
+                tagName = "v0.0.0.3.15",
+                title = "Release 0.0.0.3.15",
+                body = "- **Added: Changelog the version latest**\n" +
+                        "A new Changelog section to keep track of the latest updates.\n" +
+                        "- **Added: Android 1.0 Supported boot the HTC**\n" +
+                        "Feature new supported for booting Android 1.x versions.\n" +
+                        "- **Added: Fab Toggle Background**\n" +
+                        "New a background toggle option the Action Button\n" +
+                        "- **Updated: APIs**\n" +
+                        "Changed API with the update API functionality.\n" +
+                        "- **Removed VM Tab Bar**\n" +
+                        "Layout the VM session tab bar from the interface.\n" +
+                        "- **Updated Settings**\n" +
+                        "Added changelog the settings."
+            ),
+            ChangelogEntry(
+                id = 2L,
+                tagName = "v0.0.0.3.14",
+                title = "Release 0.0.0.3.14",
+                body = "- **Small hotfix:** fixed audio HAL 2.0 being installed when it shouldn't."
             )
-            val chunks = text.split(Regex("(?m)^---\\s*$"))
-            val entries = chunks.mapIndexedNotNull { index, chunk ->
-                val lines = chunk.lines().filter { it.isNotBlank() }
-                if (lines.isEmpty()) return@mapIndexedNotNull null
-                val tagName = lines.getOrNull(0)?.trim() ?: "v0.0.0.3.15"
-                val title = lines.getOrNull(1)?.trim() ?: tagName
-                val body = lines.drop(2).joinToString("\n").trim()
-                ChangelogEntry(
-                    id = (index + 1).toLong(),
-                    tagName = tagName,
-                    title = title,
-                    body = body
-                )
-            }
-            ChangelogState.Loaded(entries.ifEmpty {
-                listOf(ChangelogEntry(1L, "v0.0.0.3.15", "Release 0.0.0.3.15", text))
-            })
-        } catch (e: Exception) {
-            ChangelogState.Loaded(listOf(
-                ChangelogEntry(
-                    id = 1L,
-                    tagName = "v0.0.0.3.15",
-                    title = "Release 0.0.0.3.15",
-                    body = "- **Added: Changelog the version latest**\n" +
-                            "A new Changelog section to keep track of the latest updates.\n" +
-                            "- **Added: Android 1.0 Supported boot the HTC**\n" +
-                            "Feature new supported for booting Android 1.x versions.\n" +
-                            "- **Added: Fab Toggle Background**\n" +
-                            "New a background toggle option the Action Button\n" +
-                            "- **Updated: APIs**\n" +
-                            "Changed API with the update API functionality.\n" +
-                            "- **Removed VM Tab Bar**\n" +
-                            "Layout the VM session tab bar from the interface.\n" +
-                            "- **Updated Settings**\n" +
-                            "Added changelog the settings."
-                )
-            ))
-        }
+        ))
     }
 
     Scaffold(
