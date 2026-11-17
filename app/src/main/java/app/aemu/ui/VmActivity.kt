@@ -414,15 +414,11 @@ open class VmActivity : ComponentActivity() {
         }
         root.addView(resizeOverlay, FrameLayout.LayoutParams(-1, -1))
         
-        val strip = ComposeView(this).apply {
-            setContent { AemuTheme(forceDark = true) { TabBarHost() } }
-        }
-        tabStripView = strip
+        tabStripView = null
         val wrapper = android.widget.LinearLayout(this).apply {
             orientation = android.widget.LinearLayout.VERTICAL
             setBackgroundColor(0xff000000.toInt())
-            addView(strip, android.widget.LinearLayout.LayoutParams(-1, -2))
-            addView(root, android.widget.LinearLayout.LayoutParams(-1, 0, 1f))
+            addView(root, android.widget.LinearLayout.LayoutParams(-1, -1))
         }
         androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(wrapper) { _, insets ->
             cutoutInsets = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.displayCutout())

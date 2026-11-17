@@ -1006,11 +1006,7 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
     
     LaunchedEffect(s.log.size, showLog) { if (showLog) logScroll.scrollTo(logScroll.maxValue) }
     AlertDialog(
-        
         onDismissRequest = { if (!s.active) onDismiss() },
-        icon = {
-            Icon(Icons.Rounded.Android, null, tint = MaterialTheme.colorScheme.primary)
-        },
         title = { Text(stringResource(if (s.active) R.string.import_running else R.string.import_done)) },
         text = {
             Column {
@@ -1030,7 +1026,10 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
                         }
                     }
                     if (s.log.isNotEmpty()) {
-                        TextButton(onClick = { showLog = !showLog }) { Text(stringResource(R.string.log)) }
+                        TextButton(
+                            onClick = { showLog = !showLog },
+                            contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp),
+                        ) { Text(stringResource(R.string.log)) }
                         if (showLog) Surface(shape = MaterialTheme.shapes.medium, color = MaterialTheme.colorScheme.surfaceContainerHighest) {
                             Column(Modifier.fillMaxWidth().height(140.dp).verticalScroll(logScroll).padding(10.dp)) {
                                 s.log.forEach { Text(it, style = MaterialTheme.typography.bodySmall, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) }
