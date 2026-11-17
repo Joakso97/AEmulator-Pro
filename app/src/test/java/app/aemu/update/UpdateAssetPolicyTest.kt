@@ -14,7 +14,7 @@ class UpdateAssetPolicyTest {
     @Test fun acceptsPublishedApkNameCaseInsensitively() {
         assertTrue(UpdateAssetPolicy.matches(publishedApk, "app.aemu.plus"))
         assertTrue(UpdateAssetPolicy.matches(publishedApk.uppercase(), "app.aemu.plus"))
-        assertTrue(UpdateAssetPolicy.matches("AEmulator-Pro-0.0.0.3.16-app.aemu.plus.apk", "app.aemu.plus"))
+        assertTrue(UpdateAssetPolicy.matches("AEmulator-Pro-0.0.0.3.20-app.aemu.plus.apk", "app.aemu.plus"))
     }
     @Test fun choosesPublishedApkRegardlessOfAssetOrder() {
         val unrelated = listOf("other.apk", "source.zip", "$publishedApk.asc")

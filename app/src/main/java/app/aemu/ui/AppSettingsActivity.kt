@@ -227,13 +227,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
                     ) {
                         checkForUpdates()
                     }
-                    Row_(
-                        Icons.Rounded.History,
-                        stringResource(R.string.changelog_title),
-                        "",
-                    ) {
-                        ctx.startActivity(Intent(ctx, ChangelogActivity::class.java))
-                    }
+
                 }
             }
 
