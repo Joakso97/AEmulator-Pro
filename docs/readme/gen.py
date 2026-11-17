@@ -59,7 +59,7 @@ def render(code):
     L.append(t["how_text"] + "\n")
     L.append(f"## 🛠️ {t['build_title']}\n")
     L.append(t["build_text"].format(**rel) + "\n")
-    L.append("```bash\ngit clone https://github.com/somerandomusernam2/AEmulator-Plus.git\ncd AEmulator-Plus\n./gradlew copyReleaseApks\n```\n")
+    L.append("```bash\ngit clone https://github.com/Joakso97/AEmulator-Pro.git\ncd AEmulator-Pro\n./gradlew copyReleaseApks\n```\n")
     L.append(f"## 🙏 {t['credits_title']}\n")
     L.append(t["credits_text"].format(orig=ORIGINAL) + "\n")
     L.append(t["fork_line"].format(**rel) + "\n")

@@ -43,8 +43,8 @@ AEmulator Pro आपके पास पहले से मौजूद फ़�
 ऐप का परीक्षण किया गया release बिल्ड JDK 21 और Android SDK 36 उपयोग करता है। [बिल्ड/स्रोत निर्देश](../build-source.md) देखें, जिसमें नेटिव टूलचेन और हस्ताक्षर का विवरण शामिल है।
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

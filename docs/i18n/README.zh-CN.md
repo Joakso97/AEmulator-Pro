@@ -43,8 +43,8 @@ AEmulator Pro 直接从你已有的固件文件启动真正的 Android 1.0–17 
 经过测试的应用 release 构建使用 JDK 21 和 Android SDK 36。参见[构建/源码说明](../build-source.md)，包括原生工具链细节与签名。
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

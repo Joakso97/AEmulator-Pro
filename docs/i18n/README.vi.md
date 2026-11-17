@@ -43,8 +43,8 @@ AEmulator Pro khởi động một image hệ thống Android 1.0–17 thật ng
 Bản build release đã kiểm thử của ứng dụng dùng JDK 21 và Android SDK 36. Xem [hướng dẫn build/mã nguồn](../build-source.md), gồm chi tiết toolchain native và ký.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

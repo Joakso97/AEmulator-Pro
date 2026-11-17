@@ -45,8 +45,8 @@ AEmulator Pro یک ایمیج واقعی سیستم اندروید 1.0–17 را
 ساخت release آزمایش‌شده اپ از JDK 21 و Android SDK 36 استفاده می‌کند. به [دستورالعمل ساخت/سورس](../build-source.md) مراجعه کنید، شامل جزئیات زنجیره‌ابزار بومی و امضا.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

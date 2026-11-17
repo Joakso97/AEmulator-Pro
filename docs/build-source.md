@@ -17,8 +17,8 @@ bytecode targets Java 17. First-time builds need network access to resolve the
 dependencies pinned in `build.gradle.kts` and `app/build.gradle.kts`.
 
 ```sh
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 git checkout <tag>
 export JAVA_HOME=/path/to/jdk-21
 export ANDROID_HOME=/path/to/Android/Sdk

@@ -43,8 +43,8 @@ AEmulator Pro, zaten sahip olduğunuz bir firmware dosyasından gerçek bir Andr
 Test edilen uygulama release derlemesi JDK 21 ve Android SDK 36 kullanır. Yerel araç zinciri ve imzalama ayrıntıları dahil [derleme/kaynak talimatlarına](../build-source.md) bakın.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

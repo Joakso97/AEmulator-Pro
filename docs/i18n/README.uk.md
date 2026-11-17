@@ -43,8 +43,8 @@ AEmulator Pro завантажує справжній образ системи 
 Перевірена release-збірка застосунку використовує JDK 21 і Android SDK 36. Див. [інструкції зі збірки](../build-source.md), включно з деталями нативного тулчейну та підпису.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

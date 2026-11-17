@@ -43,8 +43,8 @@ AEmulator Pro mem-boot image sistem Android 1.0–17 asli langsung dari file fir
 Build release aplikasi yang teruji memakai JDK 21 dan Android SDK 36. Lihat [instruksi build/sumber](../build-source.md), termasuk detail toolchain native dan penandatanganan.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

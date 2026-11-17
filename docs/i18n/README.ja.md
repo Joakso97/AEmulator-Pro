@@ -43,8 +43,8 @@ AEmulator Pro は、手持ちのファームウェアファイルから本物の
 テスト済みのアプリ release ビルドは JDK 21 と Android SDK 36 を使用します。ネイティブツールチェーンと署名の詳細を含む[ビルド/ソース手順](../build-source.md)を参照してください。
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

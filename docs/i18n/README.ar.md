@@ -45,8 +45,8 @@
 بناء الإصدار المختبر للتطبيق يستخدم JDK 21 وAndroid SDK 36. راجع [تعليمات البناء/المصدر](../build-source.md)، بما في ذلك تفاصيل سلسلة الأدوات الأصلية والتوقيع.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 

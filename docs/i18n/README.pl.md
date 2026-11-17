@@ -43,8 +43,8 @@ AEmulator Pro uruchamia prawdziwy obraz systemu Android 1.0–17 prosto z pliku 
 Testowana wersja release aplikacji używa JDK 21 i Android SDK 36. Zobacz [instrukcje budowania/źródeł](../build-source.md), w tym szczegóły natywnego toolchainu i podpisywania.
 
 ```bash
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
