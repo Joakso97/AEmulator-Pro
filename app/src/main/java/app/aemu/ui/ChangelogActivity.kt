@@ -83,30 +83,25 @@ private fun ChangelogScreen(onBack: () -> Unit) {
                 "v0.0.0.3.15\n" +
                 "Release 0.0.0.3.15\n" +
                 "- **Added: Changelog the version latest**\n" +
-                "A new Changelog section to keep track of the latest updates.\n" +
-                "- **Added: Android 1.0 Supported boot the HTC**\n" +
-                "Feature new supported for booting Android 1.x versions.\n" +
-                "- **Added: Fab Toggle Background**\n" +
-                "New a background toggle option the Action Button\n" +
-                "- **Updated: APIs**\n" +
-                "Changed API with the update API functionality.\n" +
-                "- **Removed VM Tab Bar**\n" +
-                "Layout the VM session tab bar from the interface.\n" +
-                "- **Updated Settings**\n" +
-                "Added changelog the settings."
+                "A new Changelog section to keep track of the latest updates."
             )
-            val lines = text.lines()
-            val tagName = lines.getOrNull(0)?.trim() ?: "v0.0.0.3.15"
-            val title = lines.getOrNull(1)?.trim() ?: "Release 0.0.0.3.15"
-            val body = lines.drop(2).joinToString("\n").trim()
-            ChangelogState.Loaded(listOf(
+            val chunks = text.split(Regex("(?m)^---\\s*$"))
+            val entries = chunks.mapIndexedNotNull { index, chunk ->
+                val lines = chunk.lines().filter { it.isNotBlank() }
+                if (lines.isEmpty()) return@mapIndexedNotNull null
+                val tagName = lines.getOrNull(0)?.trim() ?: "v0.0.0.3.15"
+                val title = lines.getOrNull(1)?.trim() ?: tagName
+                val body = lines.drop(2).joinToString("\n").trim()
                 ChangelogEntry(
-                    id = 1L,
+                    id = (index + 1).toLong(),
                     tagName = tagName,
                     title = title,
                     body = body
                 )
-            ))
+            }
+            ChangelogState.Loaded(entries.ifEmpty {
+                listOf(ChangelogEntry(1L, "v0.0.0.3.15", "Release 0.0.0.3.15", text))
+            })
         } catch (e: Exception) {
             ChangelogState.Loaded(listOf(
                 ChangelogEntry(

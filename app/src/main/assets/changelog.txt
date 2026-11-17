@@ -12,3 +12,9 @@ Changed API with the update API functionality.
 Layout the VM session tab bar from the interface.
 - **Updated Settings**
 Added changelog the settings.
+---
+v0.0.0.3.14
+Release 0.0.0.3.14
+- **Added: Stable execution core and improved VM performance.**
+- **Fixed: Audio synchronization and storage permissions.**
+- **Added: Material 3 adaptive UI layouts and tablet navigation rail support.**
