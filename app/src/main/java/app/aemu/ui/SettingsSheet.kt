@@ -256,16 +256,6 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
             if (s.radio) NetworkTypePicker(s.networkType, img.api, cdmaOn, cdmaOn && fwLteOnCdma) { s = s.copy(networkType = it) }
             if (s.radio) SimSection(img, s) { s = it }
 
-            Spacer(Modifier.height(8.dp))
-            Text(stringResource(R.string.vs_device_id), style = MaterialTheme.typography.titleMedium)
-            OutlinedTextField(value = s.serial, onValueChange = { v -> s = s.copy(serial = VmSettings.cleanSerial(v)) },
-                label = { Text(stringResource(R.string.vs_serial)) }, placeholder = { Text(VmSettings.DEFAULT_SERIAL) },
-                supportingText = { Text(stringResource(R.string.vs_serial_sub)) }, singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii), modifier = Modifier.fillMaxWidth().padding(top = 4.dp))
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                TextButton(onClick = { s = s.copy(serial = VmSettings.randomSerial()) }) { Text(stringResource(R.string.vs_random)) }
-            }
-            Spacer(Modifier.height(4.dp))
             var basebandDialog by remember { mutableStateOf(false) }
             ListItem(
                 headlineContent = { Text(stringResource(R.string.vs_baseband)) },
@@ -342,6 +332,17 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
                     modifier = Modifier.weight(1f))
             }
             Text(stringResource(R.string.vs_kernel_preview) + " " + VmSettings.procVersion(s).trim(), style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 4.dp))
+
+            Spacer(Modifier.height(8.dp))
+            Text(stringResource(R.string.vs_device_id), style = MaterialTheme.typography.titleMedium)
+            OutlinedTextField(value = s.serial, onValueChange = { v -> s = s.copy(serial = VmSettings.cleanSerial(v)) },
+                label = { Text(stringResource(R.string.vs_serial)) }, placeholder = { Text(VmSettings.DEFAULT_SERIAL) },
+                supportingText = { Text(stringResource(R.string.vs_serial_sub)) }, singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii), modifier = Modifier.fillMaxWidth().padding(top = 4.dp))
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                TextButton(onClick = { s = s.copy(serial = VmSettings.randomSerial()) }) { Text(stringResource(R.string.vs_random)) }
+            }
+            Spacer(Modifier.height(4.dp))
 
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_advanced), style = MaterialTheme.typography.titleMedium)
