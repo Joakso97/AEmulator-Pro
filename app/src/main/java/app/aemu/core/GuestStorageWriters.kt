@@ -1,0 +1,29 @@
+
+package app.aemu.core
+
+import app.aemu.R
+import android.content.Context
+import android.os.Process
+import android.system.Os
+import java.io.File
+
+
+internal object GuestStorageWriters {
+    fun requireIdle(ctx: Context) {
+        val proc = File("/proc").listFiles() ?: localizedError("Cannot inspect guest processes", R.string.err_cannot_inspect_guest_processes)
+        for (entry in proc) {
+            val pid = entry.name.toIntOrNull() ?: continue
+            if (pid == Process.myPid()) continue
+            val uid = try { Os.stat(entry.path).st_uid } catch (t: Exception) {
+                if (!entry.exists()) continue else throw t
+            }
+            if (uid != Process.myUid()) continue
+            val command = try { File(entry, "cmdline").readBytes().toString(Charsets.ISO_8859_1).replace('\u0000', ' ') }
+                catch (t: Exception) { if (!entry.exists()) continue else throw t }
+            check(!(GuestWriterPolicy.matches(command, ctx.packageName, ImageStore.imagesDir(ctx).path) ||
+                    GuestWriterPolicy.matches(command, ctx.packageName, File(ctx.filesDir, "images").path))) {
+                "Guest helper still running; shut down the VM first"
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+cc_library_shared {
+    name: "android.hardware.graphics.composer@2.1-impl-aemu",
+    stem: "android.hardware.graphics.composer@2.1-impl",
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "32",
+    srcs: ["composer_impl.cpp"],
+    header_libs: ["android.hardware.graphics.composer@2.1-passthrough"],
+    shared_libs: [
+        "android.hardware.graphics.composer@2.1",
+        "android.hardware.graphics.composer@2.1-resources",
+        "libhidlbase",
+        "libhwc2on1adapter",
+        "libhwc2onfbadapter",
+        "libhardware",
+        "libutils",
+        "libcutils",
+        "liblog",
+    ],
+}
+
+cc_binary {
+    name: "android.hardware.graphics.composer@2.1-service-aemu",
+    stem: "android.hardware.graphics.composer@2.1-service",
+    relative_install_path: "hw",
+    vendor: true,
+    compile_multilib: "32",
+    srcs: ["composer_service.cpp"],
+    shared_libs: ["liblog"],
+     
+}

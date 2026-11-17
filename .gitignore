@@ -1,0 +1,15 @@
+*.apk
+*_apktool/
+*_jadx/
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+/dist/
+.claude/
+__pycache__/
+keystore/
+keystore.properties
+*.jks
+*.keystore
