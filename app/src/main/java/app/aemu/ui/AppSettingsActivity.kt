@@ -95,11 +95,13 @@ class AppSettingsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AemuTheme {
-                AppSettings(
-                    onBack = ::finish,
-                    onRestyle = ::restart,
-                    onLanguage = { languagePicker.launch(Intent(this, LanguageActivity::class.java)) },
-                )
+                TabletRailLayout(TabletRailDestination.SETTINGS) {
+                    AppSettings(
+                        onBack = ::finish,
+                        onRestyle = ::restart,
+                        onLanguage = { languagePicker.launch(Intent(this, LanguageActivity::class.java)) },
+                    )
+                }
             }
         }
     }

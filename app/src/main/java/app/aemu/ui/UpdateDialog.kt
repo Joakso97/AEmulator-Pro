@@ -281,7 +281,7 @@ fun UpdateDialog(
                     }
                 },
                 dismissButton = {
-                    TextButton(onClick = { onOpenUrl(Links.GITHUB) }) {
+                    TextButton(onClick = { onOpenUrl(AppUpdateManager.GITHUB_RELEASES_URL) }) {
                         Text(stringResource(R.string.update_open_github))
                     }
                 }

@@ -58,7 +58,7 @@ sealed interface UpdateState {
 
 object AppUpdateManager {
     private const val RELEASES_API = "https://api.github.com/repos/Joakso97/AEmulator-Pro/releases"
-    private const val GITHUB_REPO_URL = "https://github.com/Joakso97/AEmulator-Pro"
+    const val GITHUB_RELEASES_URL = "https://github.com/Joakso97/AEmulator-Pro/releases"
 
     suspend fun loadChangelog(): List<ChangelogEntry> = withContext(Dispatchers.IO) {
         val conn = URL("$RELEASES_API?per_page=30").openConnection() as HttpURLConnection

@@ -43,7 +43,13 @@ class RomCatalogActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        setContent { AemuTheme { CatalogScreen(::finish) } }
+        setContent {
+            AemuTheme {
+                TabletRailLayout(TabletRailDestination.CATALOG) {
+                    CatalogScreen(::finish)
+                }
+            }
+        }
     }
 }
 

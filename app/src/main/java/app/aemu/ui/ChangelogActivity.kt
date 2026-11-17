@@ -64,7 +64,7 @@ private sealed interface ChangelogState {
     data class Loaded(val entries: List<ChangelogEntry>) : ChangelogState
 }
 
-@OptIn(ExperimentalMaterial3Api::class) move settings supported flmare
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ChangelogScreen(onBack: () -> Unit) {
     var revision by remember { mutableIntStateOf(0) }

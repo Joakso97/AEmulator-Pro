@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -85,7 +86,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
 import app.aemu.importer.PartitionChooser
 import app.aemu.importer.PartitionPrompt
 import androidx.compose.runtime.Composable
@@ -114,6 +118,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.aemu.core.GuestImage
@@ -156,13 +161,7 @@ class MainActivity : ComponentActivity() {
         askPermissions()
         handleView(intent)
         
-        onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (app.aemu.core.TabRegistry.live(applicationContext).isNotEmpty()) moveTaskToBack(true)
-                else { isEnabled = false; onBackPressedDispatcher.onBackPressed() }
-            }
-        })
-        setContent { AemuTheme { HomeWithTabs(model) } }
+        setContent { AemuTheme { Library(model) } }
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -211,13 +210,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun HomeWithTabs(model: LibraryModel) {
-    val tabs by rememberVmTabs()
-    val bar = tabs.isNotEmpty()
-    Column(Modifier.fillMaxSize()) {
-        if (bar) VmTabStrip(tabs = tabs, current = null, topInset = true)
-        Box(Modifier.weight(1f).fillMaxWidth()
-            .then(if (bar) Modifier.consumeWindowInsets(WindowInsets.statusBars) else Modifier)) { Library(model) }
-    }
+    Library(model)
 }
 
 @Composable
@@ -225,6 +218,7 @@ fun Library(model: LibraryModel) {
     val images by model.images.collectAsState()
     val imp by model.import.collectAsState()
     val ctx = LocalContext.current
+    val tablet = LocalConfiguration.current.smallestScreenWidthDp >= 600
     val lifecycleOwner = LocalLifecycleOwner.current
     var activeVmIds by remember { mutableStateOf<Set<String>>(emptySet()) }
     LaunchedEffect(lifecycleOwner) {
@@ -255,7 +249,8 @@ fun Library(model: LibraryModel) {
         lifecycleOwner.lifecycle.addObserver(obs)
         onDispose { lifecycleOwner.lifecycle.removeObserver(obs) }
     }
-    val scroll = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    val scroll = if (tablet) TopAppBarDefaults.pinnedScrollBehavior()
+        else TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
     
     val arranger = remember { LibraryArranger(ctx) }
@@ -315,19 +310,30 @@ fun Library(model: LibraryModel) {
     }
 
     Box(Modifier.fillMaxSize()) {
-        Scaffold(
+        Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+            if (tablet) TabletRail()
+            Box(Modifier.weight(1f).fillMaxSize()) {
+            Scaffold(
             modifier = Modifier.nestedScroll(scroll.nestedScrollConnection),
             topBar = {
-                LargeFlexibleTopAppBar(
-                    title = { SunsetTitle() },
-                    actions = {
-                        IconButton(onClick = { ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) }) {
-                            Icon(Icons.Rounded.List, stringResource(R.string.catalog_title))
-                        }
-                        IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
-                        IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) } },
-                    scrollBehavior = scroll,
-                )
+                if (tablet) {
+                    TopAppBar(
+                        title = { SunsetTitle() },
+                        scrollBehavior = scroll,
+                    )
+                } else {
+                    LargeFlexibleTopAppBar(
+                        title = { SunsetTitle() },
+                        actions = {
+                            IconButton(onClick = { ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) }) {
+                                Icon(Icons.Rounded.List, stringResource(R.string.catalog_title))
+                            }
+                            IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
+                            IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) }
+                        },
+                        scrollBehavior = scroll,
+                    )
+                }
             },
             floatingActionButton = {
                 if (!newHome) ExtendedFloatingActionButton(
@@ -339,15 +345,31 @@ fun Library(model: LibraryModel) {
             },
         ) { pad ->
             if (images.isEmpty() && !imp.active) {
-                Box(Modifier.fillMaxSize().padding(pad), contentAlignment = Alignment.Center) {
+                Box(
+                    Modifier.fillMaxSize().padding(pad),
+                    contentAlignment = if (tablet) Alignment.TopCenter else Alignment.Center,
+                ) {
                     Column(
-                        Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp),
+                        Modifier.fillMaxWidth()
+                            .then(if (tablet) Modifier.fillMaxHeight() else Modifier.verticalScroll(rememberScrollState()))
+                            .padding(horizontal = 16.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center
+                        verticalArrangement = if (tablet) Arrangement.Top else Arrangement.Center
                     ) {
                         StorageAccessCard()
-                        Spacer(Modifier.height(16.dp))
-                        EmptyState(onHelp = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) })
+                        if (tablet) {
+                            Box(
+                                Modifier.weight(1f).fillMaxWidth(),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState())) {
+                                    EmptyState(onHelp = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) })
+                                }
+                            }
+                        } else {
+                            Spacer(Modifier.height(16.dp))
+                            EmptyState(onHelp = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) })
+                        }
                     }
                 }
             } else if (newHome) {
@@ -481,16 +503,19 @@ fun Library(model: LibraryModel) {
                 }
             }
         }
+        }
+        }
 
-        AnimatedVisibility(
+        androidx.compose.animation.AnimatedVisibility(
             visible = newHome && addMenu,
+            modifier = Modifier.fillMaxSize(),
             enter = fadeIn(),
             exit = fadeOut(),
         ) {
             Box(
                 Modifier
                     .fillMaxSize()
-                    .background(androidx.compose.ui.graphics.Color.Black.copy(alpha = 0.32f))
+                    .background(androidx.compose.ui.graphics.Color.Black.copy(alpha = 0.5f))
                     .clickable(
                         interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() },
                         indication = null,
@@ -615,6 +640,81 @@ fun Library(model: LibraryModel) {
     )
 }
 
+
+internal enum class TabletRailDestination(val activityClass: Class<out ComponentActivity>) {
+    CATALOG(RomCatalogActivity::class.java),
+    SUPPORTED_FILES(SupportedFirmwareActivity::class.java),
+    SETTINGS(AppSettingsActivity::class.java),
+}
+
+@Composable
+internal fun TabletRailLayout(selected: TabletRailDestination, content: @Composable () -> Unit) {
+    if (LocalConfiguration.current.smallestScreenWidthDp >= 600) {
+        Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+            TabletRail(selected)
+            Box(Modifier.weight(1f).fillMaxSize()) { content() }
+        }
+    } else {
+        content()
+    }
+}
+
+@Composable
+private fun TabletRail(selected: TabletRailDestination? = null) {
+    val ctx = LocalContext.current
+    fun navigateTo(destination: TabletRailDestination) {
+        if (destination != selected) {
+            ctx.startActivity(Intent(ctx, destination.activityClass).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+        }
+    }
+    NavigationRail(
+        modifier = Modifier.fillMaxHeight(),
+        containerColor = androidx.compose.ui.graphics.Color.Transparent,
+    ) {
+        NavigationRailItem(
+            selected = selected == TabletRailDestination.CATALOG,
+            onClick = { navigateTo(TabletRailDestination.CATALOG) },
+            icon = { Icon(Icons.Rounded.List, null) },
+            label = {
+                Text(
+                    stringResource(R.string.catalog_title),
+                    style = MaterialTheme.typography.labelSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+        )
+        NavigationRailItem(
+            selected = selected == TabletRailDestination.SUPPORTED_FILES,
+            onClick = { navigateTo(TabletRailDestination.SUPPORTED_FILES) },
+            icon = { Icon(Icons.Rounded.Info, null) },
+            label = {
+                Text(
+                    stringResource(R.string.help),
+                    style = MaterialTheme.typography.labelSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+        )
+        NavigationRailItem(
+            selected = selected == TabletRailDestination.SETTINGS,
+            onClick = { navigateTo(TabletRailDestination.SETTINGS) },
+            icon = { Icon(Icons.Rounded.Settings, null) },
+            label = {
+                Text(
+                    stringResource(R.string.settings),
+                    style = MaterialTheme.typography.labelSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+        )
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

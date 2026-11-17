@@ -53,7 +53,13 @@ class SupportedFirmwareActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        setContent { AemuTheme { SupportedFirmwareScreen(onBack = ::finish) } }
+        setContent {
+            AemuTheme {
+                TabletRailLayout(TabletRailDestination.SUPPORTED_FILES) {
+                    SupportedFirmwareScreen(onBack = ::finish)
+                }
+            }
+        }
     }
 }
 
