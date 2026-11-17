@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.getValue
@@ -86,7 +84,6 @@ class TabDialogActivity : ComponentActivity() {
                         TextButton(onClick = { finish() }) { Text(stringResource(R.string.cancel)) }
                         TextButton(
                             onClick = { TabActions.shutdown(app, t.id); finish() },
-                            colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
                         ) { Text(stringResource(R.string.tab_shutdown)) }
                         TextButton(onClick = { TabActions.minimize(app, t.id); finish() }) { Text(stringResource(R.string.tab_minimize)) }
                     }

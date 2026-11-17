@@ -567,7 +567,7 @@ fun Library(model: LibraryModel) {
                 resetFor = null
                 if (model.vmRunning()) android.widget.Toast.makeText(ctx, R.string.reset_running, android.widget.Toast.LENGTH_LONG).show()
                 else model.resetData(img)
-            }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)) { Text(stringResource(R.string.reset_data)) } },
+            }) { Text(stringResource(R.string.reset_data)) } },
             dismissButton = { TextButton(onClick = { resetFor = null }) { Text(stringResource(R.string.cancel)) } },
         )
     }
@@ -577,8 +577,7 @@ fun Library(model: LibraryModel) {
             icon = { Icon(Icons.Rounded.Delete, null) },
             title = { Text(stringResource(R.string.delete_title, img.name)) },
             text = { Text(stringResource(R.string.delete_text, Formatter.formatShortFileSize(ctx, img.sizeBytes))) },
-            confirmButton = { Button(onClick = { model.delete(img); deleteFor = null },
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)) { Text(stringResource(R.string.delete)) } },
+            confirmButton = { Button(onClick = { model.delete(img); deleteFor = null }) { Text(stringResource(R.string.delete)) } },
             dismissButton = { TextButton(onClick = { deleteFor = null }) { Text(stringResource(R.string.cancel)) } },
         )
     }
@@ -1025,15 +1024,9 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
                             Text("${(s.progress * 100).toInt()}%", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
                         }
                     }
-                    if (s.log.isNotEmpty()) {
-                        TextButton(
-                            onClick = { showLog = !showLog },
-                            contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp),
-                        ) { Text(stringResource(R.string.log)) }
-                        if (showLog) Surface(shape = MaterialTheme.shapes.medium, color = MaterialTheme.colorScheme.surfaceContainerHighest) {
-                            Column(Modifier.fillMaxWidth().height(140.dp).verticalScroll(logScroll).padding(10.dp)) {
-                                s.log.forEach { Text(it, style = MaterialTheme.typography.bodySmall, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) }
-                            }
+                    if (showLog && s.log.isNotEmpty()) Surface(shape = MaterialTheme.shapes.medium, color = MaterialTheme.colorScheme.surfaceContainerHighest) {
+                        Column(Modifier.fillMaxWidth().height(140.dp).verticalScroll(logScroll).padding(10.dp)) {
+                            s.log.forEach { Text(it, style = MaterialTheme.typography.bodySmall, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) }
                         }
                     }
                 } else s.done?.let { done ->
@@ -1054,7 +1047,15 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
                 else -> TextButton(onClick = onDismiss) { Text(stringResource(R.string.ok)) }
             }
         },
-        dismissButton = if (s.done != null) ({ TextButton(onClick = onDismiss) { Text(stringResource(R.string.ok)) } }) else null,
+        dismissButton = when {
+            s.active && s.log.isNotEmpty() -> ({
+                TextButton(onClick = { showLog = !showLog }) {
+                    Text(stringResource(if (showLog) R.string.close else R.string.log))
+                }
+            })
+            s.done != null -> ({ TextButton(onClick = onDismiss) { Text(stringResource(R.string.ok)) } })
+            else -> null
+        },
     )
 }
 

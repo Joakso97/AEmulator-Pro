@@ -298,7 +298,7 @@ private fun VmFileBrowserDialog(img: GuestImage, onDismiss: () -> Unit) {
                                 Text(stringResource(R.string.rename))
                             }
                             TextButton(enabled = canChange, onClick = { deleting = selected.toList() }) {
-                                val c = if (canChange) MaterialTheme.colorScheme.error else Color.Unspecified
+                                val c = if (canChange) MaterialTheme.colorScheme.primary else Color.Unspecified
                                 Icon(Icons.Rounded.Delete, null, Modifier.size(18.dp), tint = c); Spacer(Modifier.size(6.dp))
                                 Text(stringResource(R.string.delete), color = c)
                             }
@@ -359,7 +359,7 @@ private fun VmFileBrowserDialog(img: GuestImage, onDismiss: () -> Unit) {
                     runOp(ctx.getString(R.string.vmf_working_delete)) {
                         ctx.getString(R.string.vmf_result_deleted, VmFileOps.delete(ctx, img.id, files) { progress = it })
                     }
-                }) { Text(stringResource(R.string.delete), color = MaterialTheme.colorScheme.error) }
+                }) { Text(stringResource(R.string.delete)) }
             },
         )
     }
@@ -459,7 +459,7 @@ private fun PreviewDialog(
                     IconButton(onClick = onCopy) { Icon(Icons.Rounded.ContentCopy, stringResource(R.string.vmf_copy)) }
                     if (canChange) {
                         IconButton(onClick = onRename) { Icon(Icons.Rounded.DriveFileRenameOutline, stringResource(R.string.rename)) }
-                        IconButton(onClick = onDelete) { Icon(Icons.Rounded.Delete, stringResource(R.string.delete), tint = MaterialTheme.colorScheme.error) }
+                        IconButton(onClick = onDelete) { Icon(Icons.Rounded.Delete, stringResource(R.string.delete), tint = MaterialTheme.colorScheme.primary) }
                     }
                 }
                 HorizontalDivider()

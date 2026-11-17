@@ -137,7 +137,7 @@ object AppPrefs {
     fun accentColor(ctx: Context): Int = sp(ctx).getInt("accent_color", 0)
     fun setAccentColor(ctx: Context, argb: Int) = sp(ctx).edit().putInt("accent_color", argb).apply()
 
-    fun dynamicColor(ctx: Context): Boolean = sp(ctx).getBoolean("dynamic", true)
+    fun dynamicColor(ctx: Context): Boolean = sp(ctx).getBoolean("dynamic", false)
     fun setDynamicColor(ctx: Context, v: Boolean) = sp(ctx).edit().putBoolean("dynamic", v).apply()
 
     

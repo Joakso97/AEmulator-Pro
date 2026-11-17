@@ -246,6 +246,7 @@ KEYS = [
     "sf_v50_sub",
     "sf_v70_sub",
     "sf_v80_sub",
+    "sf_v80_tv_sub",
     "sf_versions",
     "sf_versions_sub",
     "shutdown",

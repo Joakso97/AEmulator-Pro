@@ -415,7 +415,7 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
         overrides["ro.aemu.host"] = "qemu-user"
         overrides["ro.serialno"] = serial
         overrides["ro.boot.serialno"] = serial
-        VmSettings.cleanBaseband(settings.baseband).takeIf { it.isNotEmpty() }?.let { overrides["gsm.version.baseband"] = it }
+        overrides["gsm.version.baseband"] = VmSettings.cleanBaseband(settings.baseband).ifBlank { VmSettings.DEFAULT_BASEBAND }
         overrides["persist.sys.timezone"] = gmtZone()
         
         File(paths.bin, "props.extra").takeIf { it.isFile }?.readLines()?.forEach { l ->
@@ -816,7 +816,7 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
         overrides["ro.serialno"] = serial
         overrides["ro.boot.serialno"] = serial
         
-        VmSettings.cleanBaseband(s.baseband).takeIf { it.isNotEmpty() }?.let { overrides["gsm.version.baseband"] = it }
+        overrides["gsm.version.baseband"] = VmSettings.cleanBaseband(s.baseband).ifBlank { VmSettings.DEFAULT_BASEBAND }
         
         VmSettings.cleanHardware(s.hardware).takeIf { it.isNotEmpty() }?.let {
             overrides["ro.hardware"] = it

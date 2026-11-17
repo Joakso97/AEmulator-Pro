@@ -72,8 +72,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
@@ -83,32 +81,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.aemu.R
 import app.aemu.core.GuestImage
-
-
-private fun skinColors(img: GuestImage): List<Color> {
-    val skin = img.skin.lowercase()
-    val s = (img.skin + " " + img.brand).lowercase()
-    return when {
-        
-        skin == "wear" || skin.startsWith("wear ") -> listOf(Color(0xFFFFCA28), Color(0xFFC77800))      
-        skin.endsWith(" tv") -> listOf(Color(0xFFD65DB1), Color(0xFF6A1B6E))                              
-        skin.startsWith("glass") -> listOf(Color(0xFF90A4AE), Color(0xFF37474F))                          
-        skin == "desktop" -> listOf(Color(0xFF00ACC1), Color(0xFF1A237E))                                 
-        "miui" in s || "hyperos" in s -> listOf(Color(0xFFFF8A3D), Color(0xFFE2462E))
-        "touchwiz" in s || "one ui" in s || "samsung" in s -> listOf(Color(0xFF3D7BFF), Color(0xFF1B2F9E))
-        "sense" in s || "htc" in s -> listOf(Color(0xFF7BC74D), Color(0xFF2E7D32))
-        "xperia" in s || "sony" in s -> listOf(Color(0xFF8E7CFF), Color(0xFF3B2A8F))
-        "coloros" in s || "realme" in s || "oppo" in s -> listOf(Color(0xFF2FD6A7), Color(0xFF0E7C68))
-        "xos" in s || "xui" in s || "hios" in s || "infinix" in s || "tecno" in s -> listOf(Color(0xFF39C8F0), Color(0xFF1765B5))
-        "motoblur" in s || "motorola" in s -> listOf(Color(0xFF5C6BC0), Color(0xFF263238))
-        "emui" in s || "huawei" in s || "honor" in s -> listOf(Color(0xFFFF5252), Color(0xFF9B0F1B))      
-        "funtouch" in s || "originos" in s || "vivo" in s -> listOf(Color(0xFF536DFE), Color(0xFF1A237E)) 
-        "flyme" in s || "meizu" in s -> listOf(Color(0xFF4FC3F7), Color(0xFF01579B))                      
-        "cyanogen" in s || "lineage" in s -> listOf(Color(0xFF9CCC65), Color(0xFF33691E))                 
-        "lg" in s -> listOf(Color(0xFFE5486B), Color(0xFF8E1F3E))
-        else -> listOf(Color(0xFF34C08E), Color(0xFF0B6E66))   
-    }
-}
 
 
 @Composable
@@ -139,13 +111,13 @@ fun MachineCard(
     ) {
         Box(
             Modifier.padding(8.dp).fillMaxWidth().aspectRatio(0.9f).clip(RoundedCornerShape(24.dp))
-                .background(Brush.linearGradient(skinColors(img))),
+                .background(MaterialTheme.colorScheme.primaryContainer),
         ) {
-            Text(img.skin, style = MaterialTheme.typography.labelLarge, color = Color.White.copy(alpha = 0.9f),
+            Text(img.skin, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.9f),
                 maxLines = 1, overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.align(Alignment.TopStart).padding(start = 14.dp, top = 14.dp, end = 48.dp))
             Box(Modifier.align(Alignment.TopEnd)) {
-                IconButton(onClick = { menu = true }) { Icon(Icons.Rounded.MoreVert, stringResource(R.string.menu), tint = Color.White) }
+                IconButton(onClick = { menu = true }) { Icon(Icons.Rounded.MoreVert, stringResource(R.string.menu), tint = MaterialTheme.colorScheme.onPrimaryContainer) }
                 DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
                     DropdownMenuItem(text = { Text(stringResource(R.string.settings)) }, leadingIcon = { Icon(Icons.Rounded.Tune, null) },
                         onClick = { menu = false; onSettings() })
@@ -164,17 +136,20 @@ fun MachineCard(
             }
             Column(Modifier.align(Alignment.Center).padding(bottom = 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(img.release.substringBefore(' ').take(5), style = MaterialTheme.typography.displaySmall,
-                    fontWeight = FontWeight.Bold, color = Color.White)
-                Text("API ${img.api}", style = MaterialTheme.typography.labelMedium, color = Color.White.copy(alpha = 0.8f))
+                    fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onPrimaryContainer)
+                Text("API ${img.api}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f))
             }
             FilledIconButton(
                 onClick = onStart,
                 shapes = IconButtonDefaults.shapes(),
-                colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color.White, contentColor = skinColors(img).last()),
+                colors = IconButtonDefaults.filledIconButtonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary,
+                ),
                 modifier = Modifier.align(Alignment.BottomEnd).padding(10.dp).size(44.dp),
             ) { Icon(Icons.Rounded.PlayArrow, stringResource(if (active) R.string.open_vm else R.string.start)) }
             
-            if (active) Box(Modifier.align(Alignment.TopStart).padding(12.dp).size(10.dp).background(Color(0xFF4CAF50), CircleShape))
+            if (active) Box(Modifier.align(Alignment.TopStart).padding(12.dp).size(10.dp).background(MaterialTheme.colorScheme.primary, CircleShape))
         }
         Column(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 14.dp)) {
             Text(img.name, style = MaterialTheme.typography.titleMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
@@ -347,14 +322,14 @@ fun LibrarySheet(
                                 Modifier
                                     .size(52.dp)
                                     .clip(RoundedCornerShape(16.dp))
-                                    .background(Brush.linearGradient(skinColors(fw))),
+                                    .background(MaterialTheme.colorScheme.primaryContainer),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
                                     fw.release.take(4),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color.White
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer
                                 )
                             }
                             Column(Modifier.weight(1f)) {

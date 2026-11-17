@@ -90,7 +90,6 @@ private fun SupportedFirmwareScreen(onBack: () -> Unit) {
                     FwRow("Android 4.0–4.4", stringResource(R.string.sf_v40_sub))
                     FwRow("Android 5.x–6.x", stringResource(R.string.sf_v50_sub))
                     FwRow("Android 7.x", stringResource(R.string.sf_v70_sub))
-                    FwRow("Android 8.0+", stringResource(R.string.sf_v80_sub))
                 }
             }
 

@@ -105,6 +105,13 @@ android {
     tasks.withType<JavaCompile>().configureEach {
         options.compilerArgs.add("-Xlint:deprecation")
     }
+    tasks.withType<Test> {
+        maxParallelForks = 1
+        val systemRoot = System.getenv("SystemRoot") ?: "C:\\WINDOWS"
+        environment.clear()
+        environment("SystemRoot", systemRoot)
+        environment("PATH", "$systemRoot\\system32;$systemRoot")
+    }
     kotlin {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
@@ -143,12 +150,11 @@ tasks.named("preBuild") { dependsOn(copyLegalNotices) }
 
 tasks.register<Copy>("copyReleaseApks") {
     dependsOn("assembleRelease")
-    val v = android.defaultConfig.versionName
     from(layout.buildDirectory.dir("outputs/apk/release")) {
         include("*.apk")
-        rename { "AEmulator-Plus-app.aemu.plus.apk" }
+        rename { "AEmulatorPro.apk" }
     }
-    into(rootProject.layout.projectDirectory.dir("release-apks/$v"))
+    into(rootProject.layout.projectDirectory.dir("dist"))
 }
 
 tasks.register<Copy>("copyDebugApk") {
