@@ -77,7 +77,24 @@ private fun ChangelogScreen(onBack: () -> Unit) {
     LaunchedEffect(revision) {
         state = ChangelogState.Loading
         state = try {
-            val text = ctx.assets.open("changelog.txt").let { it.bufferedReader().use { r -> r.readText() } }
+            val text = runCatching {
+                ctx.assets.open("changelog.txt").let { it.bufferedReader().use { r -> r.readText() } }
+            }.getOrDefault(
+                "v0.0.0.3.15\n" +
+                "Release 0.0.0.3.15\n" +
+                "- **Added: Changelog the version latest**\n" +
+                "A new Changelog section to keep track of the latest updates.\n" +
+                "- **Added: Android 1.0 Supported boot the HTC**\n" +
+                "Feature new supported for booting Android 1.x versions.\n" +
+                "- **Added: Fab Toggle Background**\n" +
+                "New a background toggle option the Action Button\n" +
+                "- **Updated: APIs**\n" +
+                "Changed API with the update API functionality.\n" +
+                "- **Removed VM Tab Bar**\n" +
+                "Layout the VM session tab bar from the interface.\n" +
+                "- **Updated Settings**\n" +
+                "Added changelog the settings."
+            )
             val lines = text.lines()
             val tagName = lines.getOrNull(0)?.trim() ?: "v0.0.0.3.15"
             val title = lines.getOrNull(1)?.trim() ?: "Release 0.0.0.3.15"
@@ -91,7 +108,25 @@ private fun ChangelogScreen(onBack: () -> Unit) {
                 )
             ))
         } catch (e: Exception) {
-            ChangelogState.Error
+            ChangelogState.Loaded(listOf(
+                ChangelogEntry(
+                    id = 1L,
+                    tagName = "v0.0.0.3.15",
+                    title = "Release 0.0.0.3.15",
+                    body = "- **Added: Changelog the version latest**\n" +
+                            "A new Changelog section to keep track of the latest updates.\n" +
+                            "- **Added: Android 1.0 Supported boot the HTC**\n" +
+                            "Feature new supported for booting Android 1.x versions.\n" +
+                            "- **Added: Fab Toggle Background**\n" +
+                            "New a background toggle option the Action Button\n" +
+                            "- **Updated: APIs**\n" +
+                            "Changed API with the update API functionality.\n" +
+                            "- **Removed VM Tab Bar**\n" +
+                            "Layout the VM session tab bar from the interface.\n" +
+                            "- **Updated Settings**\n" +
+                            "Added changelog the settings."
+                )
+            ))
         }
     }
 
