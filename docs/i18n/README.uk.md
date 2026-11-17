@@ -4,7 +4,7 @@
 
 # AEmulator Pro
 
-**Старі прошивки Android — HTC Sense, TouchWiz, MIUI, AOSP — на сучасному телефоні. Без root і без ПК.**
+**Емулюйте майже будь-яку прошивку Android — HTC Sense, TouchWiz, MIUI, AOSP — на сучасному телефоні.** Форк [AEmulator](https://github.com/uxazu/AEmulator) з новими можливостями та виправленнями.
 
 [🇬🇧 English](../../README.md) · [🇷🇺 Русский](README.ru.md) · **🇺🇦 Українська** · [🇩🇪 Deutsch](README.de.md) · [🇫🇷 Français](README.fr.md) · [🇪🇸 Español](README.es.md) · [🇧🇷 Português](README.pt-BR.md) · [🇮🇹 Italiano](README.it.md) · [🇵🇱 Polski](README.pl.md) · [🇹🇷 Türkçe](README.tr.md) · [🇸🇦 العربية](README.ar.md) · [🇮🇷 فارسی](README.fa.md) · [🇮🇳 हिन्दी](README.hi.md) · [🇮🇩 Indonesia](README.id.md) · [🇻🇳 Tiếng Việt](README.vi.md) · [🇨🇳 简体中文](README.zh-CN.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md)
 
@@ -12,37 +12,35 @@
 
 ---
 
-AEmulator Pro завантажує справжню систему Android 2.3–7.x прямо з файлу прошивки: ZIP для рекавері, архіву Odin або factory-образу Google. Старий ARM-код транслює доопрацьований QEMU, binder ядра емулюється, графіка йде через GPU телефона, звук — через аудіосистему Android. Усе працює всередині звичайного застосунку.
+AEmulator Pro завантажує справжній образ системи Android 1.0–17 прямо з файла прошивки, який у вас уже є. Старий ARM-код транслюється патченим QEMU, binder ядра емулюється, графіка малюється GPU вашого телефона, а звук іде через аудіостек Android — усе всередині звичайного застосунку. Цей проєкт майже повністю створено за допомогою Claude Sonnet 5.5 (а оригінальний емулятор — за допомогою Opus 5.5).
 
-## ✨ Можливості
+## Можливості
 
-- Імпорт майже будь-яких форматів: ZIP для CWM/TWRP, Odin `.tar.md5` від Samsung, factory `.tgz` від Google, `system.img`, OTA `system.new.dat.br`
-- Оболонки виробників працюють як є: HTC Sense, Samsung TouchWiz, MIUI, AOSP
+- Імпорт майже будь-яких форматів прошивок: Android-x86 `.iso`, CWM/TWRP ZIP, Samsung Odin `.tar.md5`, Google factory `.tgz`, `system.img`, OTA `system.new.dat.br`, Motorola `.sbf`, sparse-образи, EDL-образи, Spreadtrum `.pac`, HTC `.nbh`, HTC `RUU.exe` та багато інших
+- Фірмові оболонки працюють як є, якщо сумісні: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Апаратна графіка через GL-міст, звук, дотики й мультитач, мережа із сучасним TLS-проксі
-- Спільна папка «карти пам’яті» для APK, музики й фото
-- Інтерфейс Material 3 Expressive 18 мовами
-- Безкоштовно й з відкритим кодом (GPL-3.0)
+- Спільна папка карти пам'яті для APK, музики та фото
+- **Теми екрана ВМ і редактор тем**: панель навігації та рамка навколо екрана гостя дотримуються теми — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x або Lollipop 5.x — чи вашої власної, створеної в редакторі з живим попереднім переглядом (форма й розмір клавіш, кольори панелі/клавіш/натискання/рамки, світіння та ореол, плаваюча чи пласка панель, зображення рамки, заокруглені кути екрана). Темами можна ділитися як файлами `.aetheme`. Налаштування застосунку › Оформлення › Тема екрана ВМ.
+- **Упорядкуйте бібліотеку**: натисніть і утримуйте ROM та перетягніть його вгору або вниз (класичний список і сітка 0.0.0.3), групуйте ROM в іменовані папки, що відкриваються й закриваються — киньте ROM на папку або скористайтеся меню ⋮ › Перемістити до папки
+- Інтерфейс Material 3 Expressive 19 мовами
+- Безкоштовно та з відкритим кодом (GPL-3.0)
 
-## 🚀 Швидкий старт
+## Швидкий старт
 
 1. Завантажте APK з [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) і встановіть.
-2. Відкрийте AEmulator Pro → **Додати прошивку** й виберіть файл. Імпорт триває кілька хвилин.
-3. Натисніть **Запустити**. Перше завантаження довше: система оптимізує застосунки.
-4. Меню ⋮ — гучність, кнопка живлення й журнал; кнопка ⚙️ — налаштування й мова.
+2. Відкрийте AEmulator Pro → **Додати прошивку** та виберіть файл. Імпорт триває кілька хвилин.
+3. Натисніть **Старт**. Перше завантаження повільніше: система оптимізує застосунки.
+4. Меню ⋮ — гучність, кнопка живлення та логи; кнопка ⚙️ відкриває налаштування й мову.
 
-## 📋 Вимоги
+## Вимоги
 
 - Android 8.0+ на 64-бітному ARM-телефоні (arm64-v8a)
-- Близько 1–3 ГБ вільного місця на прошивку
-- Рекомендовано сучасний Snapdragon / Dimensity / Tensor
+- Близько 1–3 ГБ вільного місця на кожну прошивку
+- Рекомендується SoC Snapdragon через низку проблем із GPU Mali
 
-## ⚙️ Як це влаштовано
+## Збірка з вихідного коду
 
-Кожен процес гостя працює під доопрацьованим QEMU в режимі користувача. Демон binder замінює драйвер ядра, GL-міст передає виклики OpenGL ES на GPU телефона, а невеликі гостьові бібліотеки (звуковий HAL, обгортка audio policy, прошарок LD_PRELOAD) підлаштовують код виробників під емулятор. Імпортер читає прошивку, знаходить init-скрипти в boot-образі й будує план запуску системних служб.
-
-## 🛠️ Збирання з вихідного коду
-
-Перевірена збірка релізного застосунку використовує JDK 21 та Android SDK 36. Див. [інструкцію зі збірки та вихідного коду](../build-source.md), зокрема подробиці про нативний тулчейн і підпис. **Для успадкованих готових бінарників рушія досі немає підтвердженого повного походження вихідного коду та збірки**; див. [аудит](../license-audit.md).
+Перевірена release-збірка застосунку використовує JDK 21 і Android SDK 36. Див. [інструкції зі збірки](../build-source.md), включно з деталями нативного тулчейну та підпису.
 
 ```bash
 git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
@@ -50,22 +48,22 @@ cd AEmulator-Plus
 ./gradlew copyReleaseApks
 ```
 
-## 🙏 Подяки
+## Подяки
 
-AEmulator Pro виріс з емуляторів HTC Desire HD та HTC One M7 [першого автора](https://t.me/istratiit_ech) — без його рушія проєкту б не було.
+AEmulator Pro виріз з емуляторів HTC Desire HD і HTC One M7 [оригінального автора](https://t.me/istratiit_ech) — його рушій уможливив цей проєкт.
 
-Це модифікований форк [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), який, своєю чергою, є модифікованим форком [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
+Це модифікований форк [uxazu/AEmulator](https://github.com/uxazu/AEmulator), який також використовує багато можливостей із [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset).
 
-## 🔗 Посилання
+## Посилання
 
 - Мій форк: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
-- Апстрим: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
-- Оригінал: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
+- Апстрім: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
+- AEmulator-Sunset (величезна подяка за багато функцій): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Автор: [somerandomusername2](https://github.com/somerandomusernam2)
-- Перший автор: [t.me/istratiit_ech](https://t.me/istratiit_ech)
+- Оригінальний автор: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## 📄 Ліцензія
+## Ліцензія
 
-GPL-3.0. Android, торговельні марки й прошивки належать їхнім власникам.
+GPL-3.0. Android, торговельні марки та прошивки належать їхнім власникам.
 
-Див. [датовані повідомлення про зміни](../../NOTICE.md) та [відкритий аудит вихідного коду й ліцензій](../license-audit.md). Позначка GPL не гарантує, що для кожного вбудованого готового бінарника є повний відповідний вихідний код.
+Див. [датовані повідомлення про зміни](../../NOTICE.md) та [незавершений аудит вихідного коду/ліцензій](../license-audit.md). Позначка GPL не гарантує, що для кожного вбудованого бінарника є повний відповідний вихідний код.

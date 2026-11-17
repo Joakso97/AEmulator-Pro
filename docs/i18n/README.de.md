@@ -4,7 +4,7 @@
 
 # AEmulator Pro
 
-**Klassische Android-Firmware — HTC Sense, TouchWiz, MIUI, AOSP — auf einem modernen Handy. Ohne Root, ohne PC.**
+**Emuliere fast jede Android-Firmware — HTC Sense, TouchWiz, MIUI, AOSP — auf einem modernen Handy.** Ein Fork von [AEmulator](https://github.com/uxazu/AEmulator) mit mehr Funktionen und Fehlerbehebungen.
 
 [🇬🇧 English](../../README.md) · [🇷🇺 Русский](README.ru.md) · [🇺🇦 Українська](README.uk.md) · **🇩🇪 Deutsch** · [🇫🇷 Français](README.fr.md) · [🇪🇸 Español](README.es.md) · [🇧🇷 Português](README.pt-BR.md) · [🇮🇹 Italiano](README.it.md) · [🇵🇱 Polski](README.pl.md) · [🇹🇷 Türkçe](README.tr.md) · [🇸🇦 العربية](README.ar.md) · [🇮🇷 فارسی](README.fa.md) · [🇮🇳 हिन्दी](README.hi.md) · [🇮🇩 Indonesia](README.id.md) · [🇻🇳 Tiếng Việt](README.vi.md) · [🇨🇳 简体中文](README.zh-CN.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md)
 
@@ -12,37 +12,35 @@
 
 ---
 
-AEmulator Pro startet ein echtes Android-2.3–7.x-System direkt aus einer Firmware-Datei: Recovery-ZIP, Odin-Archiv oder Google-Factory-Image. Der alte ARM-Code läuft über ein angepasstes QEMU, der Binder des Kernels wird emuliert, die Grafik läuft über die GPU des Handys und der Ton über Androids Audiosystem — alles in einer normalen App.
+AEmulator Pro bootet ein echtes Android-1.0–17-System-Image direkt aus einer Firmware-Datei, die du bereits hast. Der alte ARM-Code läuft über ein angepasstes QEMU, der Binder des Kernels wird emuliert, die Grafik läuft über die GPU des Handys und der Ton über Androids Audiosystem — alles in einer normalen App. Dieses Projekt entstand fast vollständig mit Claude Sonnet 5.5 (und der ursprüngliche Emulator mit Opus 5.5).
 
-## ✨ Funktionen
+## Funktionen
 
-- Import fast aller Formate: CWM/TWRP-ZIP, Samsung Odin `.tar.md5`, Google Factory `.tgz`, `system.img`, OTA `system.new.dat.br`
-- Hersteller-Oberflächen laufen unverändert: HTC Sense, Samsung TouchWiz, MIUI, AOSP
+- Import fast aller Firmware-Formate: Android-x86 `.iso`, CWM/TWRP-ZIP, Samsung Odin `.tar.md5`, Google Factory `.tgz`, `system.img`, OTA `system.new.dat.br`, Motorola `.sbf`, Sparse-Images, EDL-Images, Spreadtrum `.pac`, HTC `.nbh`, HTC `RUU.exe` und viele mehr
+- Hersteller-Oberflächen laufen unverändert, sofern kompatibel: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Hardwaregrafik über die GL-Brücke, Ton, Touch und Multitouch, Netzwerk mit modernem TLS-Proxy
 - Gemeinsamer Speicherkarten-Ordner für APKs, Musik und Fotos
-- Material-3-Expressive-Oberfläche in 18 Sprachen
+- **VM-Bildschirmthemen und Themen-Editor**: Navigationsleiste und Rahmen um den Gast-Bildschirm folgen einem Thema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x oder Lollipop 5.x — oder deinem eigenen, im Editor mit Live-Vorschau erstellt (Tastenformen und -größe, Farben für Leiste/Tasten/Druck/Rahmen, Leuchten und Halo, schwebende oder flache Leiste, Rahmenbild, abgerundete Bildschirmecken). Themen lassen sich als `.aetheme`-Dateien teilen. App-Einstellungen › Darstellung › VM-Bildschirmthema.
+- **Bibliothek ordnen**: ROM gedrückt halten und nach oben oder unten ziehen, um es umzusortieren (klassische Liste und 0.0.0.3-Raster), und ROMs in benannte Ordner gruppieren, die sich öffnen und schließen lassen — ROM auf einen Ordner ziehen oder das ⋮-Menü › In Ordner verschieben nutzen
+- Material-3-Expressive-Oberfläche in 19 Sprachen
 - Kostenlos und quelloffen (GPL-3.0)
 
-## 🚀 Schnellstart
+## Schnellstart
 
 1. APK unter [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) herunterladen und installieren.
 2. AEmulator Pro öffnen → **Firmware hinzufügen** und die Datei wählen. Der Import dauert einige Minuten.
-3. **Starten** drücken. Der erste Start dauert länger: Das System optimiert Apps.
-4. Menü ⋮ für Lautstärke, Ein/Aus und Protokoll; ⚙️ öffnet Einstellungen und Sprache.
+3. **Starten** drücken. Der erste Start dauert länger: Das System optimiert seine Apps.
+4. Menü ⋮ für Lautstärke, Ein/Aus und Protokolle; die ⚙️-Schaltfläche öffnet Einstellungen und Sprache.
 
-## 📋 Voraussetzungen
+## Voraussetzungen
 
 - Android 8.0+ auf einem 64-Bit-ARM-Handy (arm64-v8a)
 - Etwa 1–3 GB freier Speicher pro Firmware
-- Empfohlen: aktueller Snapdragon / Dimensity / Tensor
+- Ein Snapdragon-SoC wird empfohlen, wegen einiger Probleme mit Mali-GPUs
 
-## ⚙️ So funktioniert es
+## Aus dem Quellcode bauen
 
-Jeder Gastprozess läuft unter einem angepassten User-Mode-QEMU. Ein Binder-Daemon ersetzt den Kernel-Treiber, eine GL-Brücke leitet OpenGL-ES-Aufrufe an die GPU weiter, und kleine Gast-Bibliotheken (Audio-HAL, Audio-Policy-Wrapper, LD_PRELOAD-Shim) passen Herstellercode an den Emulator an. Der Importer liest die Firmware, findet die Init-Skripte im Boot-Image und erstellt einen Startplan für die Systemdienste.
-
-## 🛠️ Aus dem Quellcode bauen
-
-Der getestete Release-Build der App verwendet JDK 21 und Android SDK 36. Siehe die [Build-/Quellcode-Anleitung](../build-source.md) mit Details zur nativen Toolchain und zum Signieren. **Für die geerbten Engine-Binärdateien ist die vollständige Herkunft von Quellcode und Build noch nicht verifiziert**; siehe [das Audit](../license-audit.md).
+Der getestete Release-Build der App verwendet JDK 21 und Android SDK 36. Siehe die [Build-/Quellcode-Anleitung](../build-source.md) mit Details zur nativen Toolchain und zum Signieren.
 
 ```bash
 git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
@@ -50,21 +48,21 @@ cd AEmulator-Plus
 ./gradlew copyReleaseApks
 ```
 
-## 🙏 Dank
+## Dank
 
-AEmulator Pro ist aus den Emulatoren für HTC Desire HD und HTC One M7 [des Originalautors](https://t.me/istratiit_ech) hervorgegangen — ohne seine Engine gäbe es dieses Projekt nicht.
+AEmulator Pro ist aus den Emulatoren für HTC Desire HD und HTC One M7 [des Originalautors](https://t.me/istratiit_ech) hervorgegangen — seine Engine machte dieses Projekt möglich.
 
-Dies ist ein modifizierter Fork von [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), das wiederum ein modifizierter Fork von [uxazu/AEmulator](https://github.com/uxazu/AEmulator) ist.
+Dies ist ein modifizierter Fork von [uxazu/AEmulator](https://github.com/uxazu/AEmulator), der zusätzlich viele Funktionen aus [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) nutzt.
 
-## 🔗 Links
+## Links
 
 - Mein Fork: [somerandomusernam2/AEmulator-Plus](https://github.com/somerandomusernam2/AEmulator-Plus)
-- Upstream: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
-- Original: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
+- Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
+- AEmulator-Sunset (großer Dank für viele Funktionen): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
 - Autor: [somerandomusername2](https://github.com/somerandomusernam2)
 - Originalautor: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## 📄 Lizenz
+## Lizenz
 
 GPL-3.0. Android, Marken und Firmware gehören ihren Inhabern.
 
