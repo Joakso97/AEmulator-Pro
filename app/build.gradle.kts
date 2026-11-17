@@ -20,6 +20,8 @@ val signProps = Properties().apply {
     rootProject.file("keystore.properties").takeIf { it.isFile }?.inputStream()?.use { load(it) }
 }
 val canSign = signProps.getProperty("storeFile")?.let { rootProject.file(it).isFile } == true
+val debugStore = File(System.getProperty("user.home"), ".android/debug.keystore")
+val hasSignStore = canSign || debugStore.isFile
 
  
  
@@ -63,23 +65,23 @@ android {
     }
 
     signingConfigs {
-        if (canSign) create("release") {
-            storeFile = rootProject.file(signProps.getProperty("storeFile"))
-            storePassword = signProps.getProperty("storePassword")
-            keyAlias = signProps.getProperty("keyAlias")
-            keyPassword = signProps.getProperty("keyPassword")
+        if (hasSignStore) create("release") {
+            storeFile = if (canSign) rootProject.file(signProps.getProperty("storeFile")) else debugStore
+            storePassword = if (canSign) signProps.getProperty("storePassword") else "android"
+            keyAlias = if (canSign) signProps.getProperty("keyAlias") else "androiddebugkey"
+            keyPassword = if (canSign) signProps.getProperty("keyPassword") else "android"
         }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            if (canSign) signingConfig = signingConfigs.getByName("release")
+            if (hasSignStore) signingConfig = signingConfigs.getByName("release")
         }
         debug {
             applicationIdSuffix = ""
              
-            if (canSign) signingConfig = signingConfigs.getByName("release")
+            if (hasSignStore) signingConfig = signingConfigs.getByName("release")
         }
     }
 
