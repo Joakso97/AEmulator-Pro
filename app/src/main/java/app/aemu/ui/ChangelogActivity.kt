@@ -40,13 +40,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import app.aemu.AppPrefs
 import app.aemu.R
-import app.aemu.update.AppUpdateManager
 import app.aemu.update.ChangelogEntry
-import kotlinx.coroutines.CancellationException
 
 class ChangelogActivity : ComponentActivity() {
     override fun attachBaseContext(base: Context) = super.attachBaseContext(AppPrefs.wrap(base))
@@ -57,6 +58,7 @@ class ChangelogActivity : ComponentActivity() {
         setContent { AemuTheme { ChangelogScreen(onBack = ::finish) } }
     }
 }
+
 
 private sealed interface ChangelogState {
     object Loading : ChangelogState
@@ -72,13 +74,25 @@ private fun ChangelogScreen(onBack: () -> Unit) {
 
     LaunchedEffect(revision) {
         state = ChangelogState.Loading
-        state = try {
-            ChangelogState.Loaded(AppUpdateManager.loadChangelog())
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            ChangelogState.Error
-        }
+        state = ChangelogState.Loaded(listOf(
+            ChangelogEntry(
+                id = 1L,
+                tagName = "v0.0.0.3.15",
+                title = "Release 0.0.0.3.15",
+                body = "- **Added: Changelog the version latest**\n" +
+                        "A new Changelog section to keep track of the latest updates.\n" +
+                        "- **Added: Android 1.0 Supported boot the HTC**\n" +
+                        "Feature new supported for booting Android 1.x versions.\n" +
+                        "- **Added: Fab Toggle Background**\n" +
+                        "New a background toggle option the Action Button\n" +
+                        "- **Updated: APIs**\n" +
+                        "Changed API with the update API functionality.\n" +
+                        "- **Removed VM Tab Bar**\n" +
+                        "Layout the VM session tab bar from the interface.\n" +
+                        "- **Updated Settings**\n" +
+                        "Added changelog the settings."
+            )
+        ))
     }
 
     Scaffold(
@@ -154,7 +168,8 @@ private fun ChangelogScreen(onBack: () -> Unit) {
                                             )
                                         }
                                         Text(
-                                            entry.body.ifBlank { stringResource(R.string.changelog_no_notes) },
+                                            if (entry.body.isBlank()) AnnotatedString(stringResource(R.string.changelog_no_notes))
+                                            else parseMarkdown(entry.body),
                                             style = MaterialTheme.typography.bodyMedium,
                                         )
                                     }
@@ -167,3 +182,31 @@ private fun ChangelogScreen(onBack: () -> Unit) {
         }
     }
 }
+
+private fun parseMarkdown(text: String): AnnotatedString {
+    val builder = AnnotatedString.Builder()
+    val lines = text.lines()
+    for ((index, line) in lines.withIndex()) {
+        var trimmed = line.trim()
+        if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+            trimmed = "• " + trimmed.removePrefix("- ").removePrefix("* ")
+        }
+        val parts = trimmed.split("**")
+        for (i in parts.indices) {
+            val part = parts[i]
+            if (part.isEmpty()) continue
+            if (i % 2 == 1) {
+                builder.pushStyle(SpanStyle(fontWeight = FontWeight.Bold))
+                builder.append(part)
+                builder.pop()
+            } else {
+                builder.append(part)
+            }
+        }
+        if (index < lines.size - 1) {
+            builder.append("\n")
+        }
+    }
+    return builder.toAnnotatedString()
+}
+
