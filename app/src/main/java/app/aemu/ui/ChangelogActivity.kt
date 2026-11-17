@@ -105,13 +105,11 @@ private fun ChangelogScreen(onBack: () -> Unit) {
         ) {
             when (val current = state) {
                 ChangelogState.Loading -> item {
-                    Column(
+                    Box(
                         modifier = Modifier.fillParentMaxSize(),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+                        contentAlignment = Alignment.Center,
                     ) {
                         LoadingIndicator(Modifier.size(48.dp))
-                        Text(stringResource(R.string.changelog_loading), textAlign = TextAlign.Center)
                     }
                 }
                 ChangelogState.Error -> item {

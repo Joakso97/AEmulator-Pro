@@ -649,14 +649,7 @@ internal enum class TabletRailDestination(val activityClass: Class<out Component
 
 @Composable
 internal fun TabletRailLayout(selected: TabletRailDestination, content: @Composable () -> Unit) {
-    if (LocalConfiguration.current.smallestScreenWidthDp >= 600) {
-        Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
-            TabletRail(selected)
-            Box(Modifier.weight(1f).fillMaxSize()) { content() }
-        }
-    } else {
-        content()
-    }
+    content()
 }
 
 @Composable
