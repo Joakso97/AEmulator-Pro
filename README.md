@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="docs/assets/logo.png" width="128" alt="AEmulator Plus logo"/>
+<img src="docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
 
-# AEmulator Plus
+# AEmulator Pro
 
 **Emulate almost any Android firmware — HTC Sense, TouchWiz, MIUI, AOSP — on a modern phone.** A fork of [AEmulator](https://github.com/uxazu/AEmulator) with more features and fixes.
 
@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Plus boots a real Android 1.0–17 system image straight from a firmware file you already have. It translates the old ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack — everything runs inside a normal app. This project was made almost entirely with Claude Sonnet 5.5 (and the original emulator with Opus 5.5).
+AEmulator Pro boots a real Android 1.0–17 system image straight from a firmware file you already have. It translates the old ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack — everything runs inside a normal app. This project was made almost entirely with Claude Sonnet 5.5 (and the original emulator with Opus 5.5).
 
 ## Features
 
@@ -28,7 +28,7 @@ AEmulator Plus boots a real Android 1.0–17 system image straight from a firmwa
 ## Quick start
 
 1. Download the APK from [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases) and install it.
-2. Open AEmulator Plus → **Add firmware** and pick the file. Import takes a few minutes.
+2. Open AEmulator Pro → **Add firmware** and pick the file. Import takes a few minutes.
 3. Press **Start**. The first boot is slower: the system optimises its apps.
 4. Use the ⋮ menu for volume, power button and logs; the ⚙️ button opens app settings and language.
 
@@ -50,7 +50,7 @@ cd AEmulator-Plus
 
 ## Credits
 
-AEmulator Plus grew out of the HTC Desire HD and HTC One M7 emulators by [the original author](https://t.me/istratiit_ech) — their engine made this project possible.
+AEmulator Pro grew out of the HTC Desire HD and HTC One M7 emulators by [the original author](https://t.me/istratiit_ech) — their engine made this project possible.
 
 This is a modified fork of [uxazu/AEmulator](https://github.com/uxazu/AEmulator), which additionally uses many features from [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset).
 ## Links
