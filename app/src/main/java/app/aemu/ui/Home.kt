@@ -47,6 +47,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonMenu
 import androidx.compose.material3.FloatingActionButtonMenuItem
 import androidx.compose.material3.HorizontalDivider
@@ -59,21 +60,19 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.ToggleFloatingActionButton
-import androidx.compose.material3.ToggleFloatingActionButtonDefaults.animateIcon
 import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -173,9 +172,8 @@ fun HomeFab(expanded: Boolean, onToggle: (Boolean) -> Unit, onImport: () -> Unit
     FloatingActionButtonMenu(
         expanded = expanded,
         button = {
-            ToggleFloatingActionButton(checked = expanded, onCheckedChange = onToggle) {
-                val icon by remember { derivedStateOf { if (checkedProgress > 0.5f) Icons.Rounded.Close else Icons.Rounded.Add } }
-                Icon(rememberVectorPainter(icon), stringResource(R.string.add_firmware), Modifier.animateIcon({ checkedProgress }))
+            FloatingActionButton(onClick = { onToggle(!expanded) }) {
+                Icon(if (expanded) Icons.Rounded.Close else Icons.Rounded.Add, stringResource(R.string.add_firmware))
             }
         },
     ) {
@@ -230,22 +228,18 @@ fun LibrarySheet(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
-                FilledIconButton(
-                    onClick = onDismiss,
-                    colors = IconButtonDefaults.filledIconButtonColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
-                ) {
-                    Icon(Icons.Rounded.Close, stringResource(R.string.close))
-                }
             }
 
             
-            ElevatedCard(
+            Surface(
                 onClick = onImportFile,
                 shape = MaterialTheme.shapes.extraLarge,
-                colors = androidx.compose.material3.CardDefaults.elevatedCardColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
-                ),
-                modifier = Modifier.fillMaxWidth()
+                color = Color.Transparent,
+                modifier = Modifier.fillMaxWidth().shadow(
+                    2.dp, MaterialTheme.shapes.extraLarge,
+                    ambientColor = Color.Black.copy(alpha = 0.03f),
+                    spotColor = Color.Black.copy(alpha = 0.03f),
+                )
             ) {
                 Row(
                     Modifier.padding(16.dp),
@@ -271,12 +265,12 @@ fun LibrarySheet(
                             stringResource(R.string.add_import),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                         Text(
                             stringResource(R.string.add_import_sub),
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -305,13 +299,15 @@ fun LibrarySheet(
                 }
             } else {
                 for (fw in firmwares) {
-                    ElevatedCard(
+                    Surface(
                         onClick = { onNewMachine(fw) },
                         shape = MaterialTheme.shapes.large,
-                        colors = androidx.compose.material3.CardDefaults.elevatedCardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
-                        ),
-                        modifier = Modifier.fillMaxWidth()
+                        color = Color.Transparent,
+                        modifier = Modifier.fillMaxWidth().shadow(
+                            2.dp, MaterialTheme.shapes.large,
+                            ambientColor = Color.Black.copy(alpha = 0.03f),
+                            spotColor = Color.Black.copy(alpha = 0.03f),
+                        )
                     ) {
                         Row(
                             Modifier.padding(14.dp),

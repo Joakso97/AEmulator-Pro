@@ -97,13 +97,6 @@ internal fun PhantomProcessWarning() {
 
     AlertDialog(
         onDismissRequest = { show = false },
-        icon = {
-            Icon(
-                imageVector = Icons.Rounded.Warning,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.error
-            )
-        },
         title = {
             Text(
                 text = stringResource(R.string.phantom_title),
@@ -146,10 +139,10 @@ internal fun PhantomProcessWarning() {
                     containerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
                     contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Button(
                         onClick = { show = false },
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.fillMaxWidth(),
                         colors = darker,
                         contentPadding = ButtonDefaults.ContentPadding
                     ) {
@@ -164,7 +157,7 @@ internal fun PhantomProcessWarning() {
                             AppPrefs.setPhantomWarningDisabled(ctx, true)
                             show = false
                         },
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.fillMaxWidth(),
                         colors = darker
                     ) {
                         Text(

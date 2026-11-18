@@ -622,10 +622,10 @@ private fun FolderChooserDialog(
             }) { Text(stringResource(R.string.vmf_create)) }
         },
     )
-    error?.let { text ->
+    error?.let {
         ErrorDialog(
             title = stringResource(R.string.update_error_title),
-            message = text,
+            message = stringResource(R.string.vmf_error_desc),
             onDismiss = { error = null }
         )
     }

@@ -24,6 +24,8 @@
     <string name="submit_another">Submit another</string>
     <string name="submit_close">Close</string>
     <string name="submit_categories_failed">Couldn\'t load categories: %1$s</string>
+    <string name="submit_categories_title">Couldn\'t load categories</string>
+    <string name="submit_categories_desc">The submission form could not be loaded. Check your internet connection and try again.</string>
     <string name="submit_err_duplicate">This download link has already been submitted.</string>
     <string name="submit_err_rate_limited">Too many submissions. Try again in about %1$d min.</string>
     <string name="submit_err_rejected">The server rejected the submission: %1$s</string>

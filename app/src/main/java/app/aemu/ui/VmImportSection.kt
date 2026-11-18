@@ -3,13 +3,16 @@ package app.aemu.ui
 
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import app.aemu.R
 import app.aemu.core.*
 import kotlinx.coroutines.Dispatchers
@@ -161,11 +164,16 @@ internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean
     val scope = rememberCoroutineScope()
     var message by remember { mutableStateOf<String?>(null) }
     var picking by remember { mutableStateOf(false) }
+    var installing by remember { mutableStateOf(false) }
+    var finished by remember { mutableStateOf<String?>(null) }
+    var installOk by remember { mutableStateOf(false) }
     val pickApk = rememberSingleFilePicker { uri ->
         picking = false
         if (uri != null) {
             setBusy(true)
-            message = ctx.getString(R.string.m_install_apk_start)
+            installing = true
+            finished = null
+            message = null
             scope.launch {
                 val result = withContext(Dispatchers.IO) {
                     runCatching {
@@ -175,11 +183,16 @@ internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean
                         val guestVm = GuestVm(ctx, ImageStore.get(ctx, img.id) ?: img)
                         val out = guestVm.guestShell("pm install -r ${img.sdcardPath.trimEnd('/')}/aemu-install.apk", 300_000)
                         TreeFixer(ctx, VmPaths(ctx, img.id), img) {}.seedOwners()
-                        out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: "Success"
+                        out
                     }
                 }
                 setBusy(false)
-                message = result.fold({ it }, { ctx.getString(R.string.vm_import_failed, it.userMessage(ctx)) })
+                installing = false
+                installOk = result.getOrNull()?.contains("Success") == true
+                finished = if (installOk) ctx.getString(R.string.m_install_apk_done)
+                    else result.fold(
+                        { out -> out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: ctx.getString(R.string.m_failed) },
+                        { ctx.getString(R.string.vm_import_failed, it.userMessage(ctx)) })
             }
         }
     }
@@ -187,4 +200,26 @@ internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean
         picking = true; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*"))
     }) { Text(stringResource(R.string.m_install_apk)) }
     message?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
+    if (installing || finished != null) AlertDialog(
+        onDismissRequest = { finished = null },
+        title = { Text(stringResource(if (installing) R.string.m_install_apk_start else if (installOk) R.string.m_install_apk_done else R.string.m_install_apk_failed)) },
+        text = {
+            Column {
+                Text(stringResource(if (installing) R.string.m_install_apk_start_desc else if (installOk) R.string.m_install_apk_done_desc else R.string.m_install_apk_failed_desc),
+                    style = MaterialTheme.typography.bodyMedium)
+                if (!installing && !installOk && !finished.isNullOrBlank()) {
+                    Spacer(Modifier.height(8.dp))
+                    Text(finished.orEmpty(), style = MaterialTheme.typography.bodySmall)
+                }
+                if (installing || installOk) {
+                    Spacer(Modifier.height(12.dp))
+                    if (installing) LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                    else LinearProgressIndicator(progress = { 1f }, modifier = Modifier.fillMaxWidth())
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { finished = null }) { Text(stringResource(if (installing) R.string.cancel else R.string.ok)) }
+        }
+    )
 }

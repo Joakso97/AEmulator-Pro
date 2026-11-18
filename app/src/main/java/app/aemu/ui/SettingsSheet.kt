@@ -246,12 +246,6 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_radio_title), style = MaterialTheme.typography.titleMedium)
             Toggle(stringResource(R.string.vs_radio), stringResource(R.string.vs_radio_sub), s.radio) { s = s.copy(radio = it) }
-            if (s.radio) Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-                OutlinedTextField(value = s.imei, onValueChange = { v -> s = s.copy(imei = v.filter(Char::isDigit).take(15)) },
-                    label = { Text("IMEI") }, placeholder = { Text(VmSettings.DEFAULT_IMEI) }, singleLine = true,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), modifier = Modifier.weight(1f))
-                TextButton(onClick = { s = s.copy(imei = VmSettings.randomImei()) }) { Text(stringResource(R.string.vs_random)) }
-            }
             if (s.radio && CdmaMode.supported(img.api)) CdmaToggle(s, fwLteOnCdma) { s = it }
             if (s.radio) NetworkTypePicker(s.networkType, img.api, cdmaOn, cdmaOn && fwLteOnCdma) { s = s.copy(networkType = it) }
             if (s.radio) SimSection(img, s) { s = it }

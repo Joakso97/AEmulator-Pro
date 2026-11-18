@@ -7,6 +7,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.ArrowDropDown
+import androidx.compose.material.icons.rounded.CloudOff
 import androidx.compose.material3.*
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.runtime.*
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
@@ -107,9 +109,18 @@ fun SubmitRomDialog(apiBase: String, onDismiss: () -> Unit) {
                         }
                         variants == null -> {
                             if (loadError == null) Box(Modifier.fillMaxWidth().height(120.dp), contentAlignment = Alignment.Center) { LoadingIndicator(Modifier.size(48.dp)) }
-                            else {
-                                Text(stringResource(R.string.submit_categories_failed, loadError.orEmpty()), color = MaterialTheme.colorScheme.error)
-                                TextButton(onClick = { revision++ }) { Text(stringResource(R.string.catalog_retry)) }
+                            else Column(Modifier.fillMaxWidth().heightIn(min = 420.dp),
+                                verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+                                Icon(Icons.Rounded.CloudOff, null, Modifier.size(64.dp), tint = MaterialTheme.colorScheme.primary)
+                                Spacer(Modifier.height(20.dp))
+                                Text(stringResource(R.string.submit_categories_title),
+                                    style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
+                                Spacer(Modifier.height(8.dp))
+                                Text(stringResource(R.string.submit_categories_desc),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
+                                Spacer(Modifier.height(20.dp))
+                                Button(onClick = { revision++ }) { Text(stringResource(R.string.catalog_retry)) }
                             }
                         }
                         else -> {

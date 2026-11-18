@@ -59,6 +59,7 @@ import androidx.compose.material.icons.rounded.Code
 import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
@@ -1058,7 +1059,6 @@ open class VmActivity : ComponentActivity() {
         recorder = r; recOn = true
     }
 
-    
     private var shellOut by mutableStateOf("")
     private var guestShellSession: app.aemu.core.GuestShell? = null
     private fun shellSession(): app.aemu.core.GuestShell =
@@ -1078,19 +1078,24 @@ open class VmActivity : ComponentActivity() {
     }
 
     
+    
+    private data class ApkInstallUi(val installing: Boolean, val message: String, val ok: Boolean = false)
+    private var apkInstall by mutableStateOf<ApkInstallUi?>(null)
     private val pickApk = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if (uri == null) return@registerForActivityResult
         val dir = app.aemu.core.Sdcard.hostDir(vm.paths)
         if (dir == null) { toast(getString(R.string.m_failed)); return@registerForActivityResult }
-        toast(getString(R.string.m_install_apk_start))
+        apkInstall = ApkInstallUi(true, "")
         thread {
             val ok = runCatching {
                 contentResolver.openInputStream(uri)!!.use { i -> java.io.File(dir, "aemu-install.apk").outputStream().use { o -> i.copyTo(o) } }
             }.isSuccess
-            if (!ok) { toast(getString(R.string.m_failed)); return@thread }
+            if (!ok) { runOnUiThread { apkInstall = ApkInstallUi(false, getString(R.string.m_failed)) }; return@thread }
             val out = runCatching { vm.guestShell("pm install -r " + vm.img.sdcardPath.trimEnd('/') + "/aemu-install.apk", 300_000) }.getOrElse { it.toString() }
             runCatching { app.aemu.core.TreeFixer(this@VmActivity, vm.paths, vm.img, vm::log).seedOwners() }
-            toast(out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed))
+            val installed = out.contains("Success")
+            val message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed)
+            runOnUiThread { apkInstall = ApkInstallUi(false, message, installed) }
         }
     }
 
@@ -1539,6 +1544,31 @@ open class VmActivity : ComponentActivity() {
                 Dlg.NONE -> {}
             }
 
+            apkInstall?.let { st ->
+                AlertDialog(
+                    onDismissRequest = { apkInstall = null },
+                    title = { Text(stringResource(if (st.installing) R.string.m_install_apk_start else if (st.ok) R.string.m_install_apk_done else R.string.m_install_apk_failed)) },
+                    text = {
+                        Column {
+                            Text(stringResource(if (st.installing) R.string.m_install_apk_start_desc else if (st.ok) R.string.m_install_apk_done_desc else R.string.m_install_apk_failed_desc),
+                                style = MaterialTheme.typography.bodyMedium)
+                            if (!st.installing && !st.ok && st.message.isNotBlank()) {
+                                Spacer(Modifier.height(8.dp))
+                                Text(st.message, style = MaterialTheme.typography.bodySmall)
+                            }
+                            if (st.installing || st.ok) {
+                                Spacer(Modifier.height(12.dp))
+                                if (st.installing) LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                                else LinearProgressIndicator(progress = { 1f }, modifier = Modifier.fillMaxWidth())
+                            }
+                        }
+                    },
+                    confirmButton = {
+                        TextButton(onClick = { apkInstall = null }) { Text(stringResource(if (st.installing) R.string.cancel else R.string.ok)) }
+                    }
+                )
+            }
+
             
             
             val navSetting = when {
@@ -1744,15 +1774,17 @@ open class VmActivity : ComponentActivity() {
                 contentColor = MaterialTheme.colorScheme.onSurface),
             shape = MaterialTheme.shapes.extraLarge,
         ) {
-            Column(Modifier.padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(Modifier.padding(24.dp),
+                horizontalAlignment = if (state == GuestVm.State.FAILED) Alignment.Start else Alignment.CenterHorizontally) {
                 if (state == GuestVm.State.FAILED) {
-                    Text(stringResource(R.string.failed_start), style = MaterialTheme.typography.headlineSmall)
+                    Text(stringResource(R.string.failed_start), style = MaterialTheme.typography.titleLarge)
                     Spacer(Modifier.height(8.dp))
-                    Text(vm.failure?.text(androidx.compose.ui.platform.LocalContext.current) ?: "", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.error)
-                    Spacer(Modifier.height(16.dp))
+                    Text(stringResource(R.string.vm_start_failed_desc), style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Spacer(Modifier.height(20.dp))
                     if (vm.recoveryMode) {
                         
-                        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Column(horizontalAlignment = Alignment.Start, verticalArrangement = Arrangement.spacedBy(8.dp)) {
                             Button(onClick = { thread { vm.stop(); vm.boot() } }, modifier = Modifier.fillMaxWidth()) {
                                 Text(stringResource(R.string.vm_recovery_retry))
                             }
@@ -1764,9 +1796,9 @@ open class VmActivity : ComponentActivity() {
                                 OutlinedButton(onClick = { stopVm() }) { Text(stringResource(R.string.close)) }
                             }
                         }
-                    } else Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        OutlinedButton(onClick = { stopVm() }) { Text(stringResource(R.string.close)) }
-                        Button(onClick = { thread { vm.stop(); vm.boot() } }) { Text(stringResource(R.string.retry)) }
+                    } else Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutlinedButton(onClick = { stopVm() }, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.close)) }
+                        Button(onClick = { thread { vm.stop(); vm.boot() } }, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.retry)) }
                     }
                 } else {
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
@@ -1774,7 +1806,6 @@ open class VmActivity : ComponentActivity() {
                             Icon(Icons.Rounded.Minimize, contentDescription = stringResource(R.string.boot_minimize))
                         }
                     }
-                    LoadingIndicator(Modifier.size(64.dp))
                     Spacer(Modifier.height(16.dp))
                     Text(vm.img.name, style = MaterialTheme.typography.titleLarge, maxLines = 2, overflow = TextOverflow.Ellipsis)
                     Text(vm.img.displayVersion, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)

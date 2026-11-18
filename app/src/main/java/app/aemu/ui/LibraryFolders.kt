@@ -112,7 +112,6 @@ internal fun FolderNameDialog(title: Int, initial: String, onDismiss: () -> Unit
     val fallback = stringResource(R.string.folder_default_name)
     AlertDialog(
         onDismissRequest = onDismiss,
-        icon = { Icon(Icons.Rounded.CreateNewFolder, null) },
         title = { Text(stringResource(title)) },
         text = {
             OutlinedTextField(value = name, onValueChange = { name = it }, singleLine = true,
@@ -136,7 +135,6 @@ internal fun MoveToFolderDialog(
     val transparent = ListItemDefaults.colors(containerColor = Color.Transparent)
     AlertDialog(
         onDismissRequest = onDismiss,
-        icon = { Icon(Icons.Rounded.FolderOpen, null) },
         title = { Text(img.name, maxLines = 2, overflow = TextOverflow.Ellipsis) },
         text = {
             Column(Modifier.verticalScroll(rememberScrollState())) {

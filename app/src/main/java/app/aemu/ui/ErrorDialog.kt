@@ -51,21 +51,13 @@ fun ErrorDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        icon = {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.error,
-                modifier = Modifier.size(32.dp)
-            )
-        },
         title = {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(horizontalAlignment = Alignment.Start) {
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
+                    textAlign = TextAlign.Start,
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 if (!subtitle.isNullOrBlank()) {
@@ -74,7 +66,7 @@ fun ErrorDialog(
                         text = subtitle,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Start
                     )
                 }
             }
@@ -82,14 +74,14 @@ fun ErrorDialog(
         text = {
             Column(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.Start
             ) {
                 SelectionContainer {
                     Text(
                         text = message,
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Start
                     )
                 }
                 if (!logText.isNullOrEmpty()) {

@@ -36,12 +36,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -54,6 +56,7 @@ import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -78,7 +81,7 @@ import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeFlexibleTopAppBar
-import androidx.compose.material3.LinearWavyProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -133,6 +136,10 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.rounded.FolderOpen
+import androidx.compose.material.icons.rounded.CreateNewFolder
+import androidx.compose.material.icons.rounded.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -485,6 +492,7 @@ fun Library(model: LibraryModel) {
                                                         onRename = { renameFor = img },
                                                         onDelete = { deleteFor = img },
                                                         onMoveToFolder = { moveFor = img },
+                                                        onNewFolder = { openNewFolder(img.id) },
                                                         baseName = images.firstOrNull { it.id == img.baseId }?.name,
                                                         active = img.id in activeVmIds,
                                                         modifier = if (row.folderId != null) Modifier.border(2.dp, folderEdge, MaterialTheme.shapes.large) else Modifier,
@@ -558,7 +566,6 @@ fun Library(model: LibraryModel) {
     resetFor?.let { img ->
         AlertDialog(
             onDismissRequest = { resetFor = null },
-            icon = { Icon(Icons.Rounded.Delete, null) },
             title = { Text(stringResource(R.string.reset_title, img.name)) },
             text = { Text(stringResource(R.string.reset_text)) },
             confirmButton = { Button(onClick = {
@@ -572,7 +579,6 @@ fun Library(model: LibraryModel) {
     deleteFor?.let { img ->
         AlertDialog(
             onDismissRequest = { deleteFor = null },
-            icon = { Icon(Icons.Rounded.Delete, null) },
             title = { Text(stringResource(R.string.delete_title, img.name)) },
             text = { Text(stringResource(R.string.delete_text, Formatter.formatShortFileSize(ctx, img.sizeBytes))) },
             confirmButton = { Button(onClick = { model.delete(img); deleteFor = null }) { Text(stringResource(R.string.delete)) } },
@@ -723,25 +729,30 @@ private fun AddSheet(images: List<GuestImage>, onDismiss: () -> Unit, onImport: 
                     ListItem(headlineContent = { Text(img.name) },
                         supportingContent = { Text("${img.displayVersion} · ${img.skin}") },
                         leadingContent = { Icon(Icons.Rounded.ContentCopy, null) },
-                        modifier = Modifier.clip(MaterialTheme.shapes.large).clickable { onContainer(img) })
+                        colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                modifier = Modifier.clip(MaterialTheme.shapes.large).clickable { onContainer(img) })
                 }
             }
         } else Column(Modifier.padding(start = 16.dp, end = 16.dp, bottom = 32.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             ListItem(headlineContent = { Text(stringResource(R.string.add_import)) },
                 supportingContent = { Text(stringResource(R.string.add_import_sub)) },
                 leadingContent = { Icon(Icons.Rounded.FileOpen, null) },
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clip(MaterialTheme.shapes.large).clickable(onClick = onImport))
             ListItem(headlineContent = { Text(stringResource(R.string.catalog_title)) },
                 leadingContent = { Icon(Icons.Rounded.List, null) },
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clip(MaterialTheme.shapes.large).clickable(onClick = onCatalog))
             ListItem(headlineContent = { Text(stringResource(R.string.add_container)) },
                 supportingContent = { Text(stringResource(R.string.add_container_sub)) },
                 leadingContent = { Icon(Icons.Rounded.ContentCopy, null) },
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clip(MaterialTheme.shapes.large).clickable {
                     if (images.size <= 1) images.firstOrNull()?.let(onContainer) else choosing = true
                 })
             if (onNewFolder != null) ListItem(headlineContent = { Text(stringResource(R.string.folder_new)) },
                 leadingContent = { Icon(Icons.Rounded.FolderOpen, null) },
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clip(MaterialTheme.shapes.large).clickable(onClick = onNewFolder))
         }
     }
@@ -772,7 +783,6 @@ private fun ContainerDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        icon = { Icon(Icons.Rounded.ContentCopy, null, tint = MaterialTheme.colorScheme.primary) },
         title = {
             Text(
                 stringResource(R.string.vmos_add_title),
@@ -826,27 +836,24 @@ private fun ContainerDialog(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
                     FilterChip(
                         selected = preset == 0,
                         onClick = { applyPreset(0) },
-                        label = { Text(stringResource(R.string.vmos_preset_perf)) },
+                        label = { Text(stringResource(R.string.vmos_preset_perf), maxLines = 1) },
                         leadingIcon = { Icon(Icons.Rounded.PlayArrow, null, Modifier.size(16.dp)) },
-                        modifier = Modifier.weight(1f)
                     )
                     FilterChip(
                         selected = preset == 1,
                         onClick = { applyPreset(1) },
-                        label = { Text(stringResource(R.string.vmos_preset_balanced)) },
-                        modifier = Modifier.weight(1f)
+                        label = { Text(stringResource(R.string.vmos_preset_balanced), maxLines = 1) },
                     )
                     FilterChip(
                         selected = preset == 2,
                         onClick = { applyPreset(2) },
-                        label = { Text(stringResource(R.string.vmos_preset_lite)) },
-                        modifier = Modifier.weight(1f)
+                        label = { Text(stringResource(R.string.vmos_preset_lite), maxLines = 1) },
                     )
                 }
 
@@ -994,7 +1001,7 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
         ErrorDialog(
             title = stringResource(R.string.import_failed),
             subtitle = s.file,
-            message = s.error,
+            message = stringResource(R.string.import_error_desc),
             onDismiss = onDismiss,
             logText = s.log.takeIf { it.isNotEmpty() }?.joinToString("\n")
         )
@@ -1014,8 +1021,8 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
                     maxLines = 2, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(12.dp))
                 if (s.active) {
-                    if (s.progress in 0f..1f) LinearWavyProgressIndicator(progress = { s.progress }, modifier = Modifier.fillMaxWidth())
-                    else LinearWavyProgressIndicator(modifier = Modifier.fillMaxWidth())
+                    if (s.progress in 0f..1f) LinearProgressIndicator(progress = { s.progress }, modifier = Modifier.fillMaxWidth())
+                    else LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                     Spacer(Modifier.height(8.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(s.step, style = MaterialTheme.typography.bodySmall, maxLines = 1, overflow = TextOverflow.Ellipsis,
@@ -1062,29 +1069,23 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
 
 @Composable
 @OptIn(ExperimentalFoundationApi::class)
-private fun ImageCard(img: GuestImage, onStart: () -> Unit, onSettings: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onMoveToFolder: () -> Unit, baseName: String? = null, active: Boolean = false, modifier: Modifier = Modifier) {
+private fun ImageCard(img: GuestImage, onStart: () -> Unit, onSettings: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onMoveToFolder: () -> Unit, onNewFolder: (String) -> Unit, baseName: String? = null, active: Boolean = false, modifier: Modifier = Modifier) {
     val ctx = LocalContext.current
+    var moreOpen by remember { mutableStateOf(false) }
     val lowPowerLabel = stringResource(R.string.lpm_start)
     Card(modifier = modifier, shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) {
-        Column(Modifier.padding(20.dp)) {
+        Column(Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(shape = CircleShape, color = MaterialTheme.colorScheme.primaryContainer, modifier = Modifier.size(52.dp)) {
+                Surface(shape = CircleShape, color = MaterialTheme.colorScheme.primaryContainer, modifier = Modifier.size(44.dp).clip(CircleShape)) {
                     Box(contentAlignment = Alignment.Center) {
-                        Text(img.release.take(3), style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onPrimaryContainer)
+                        Text(img.release.take(3), style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.onPrimaryContainer)
                     }
                 }
-                Spacer(Modifier.width(14.dp))
+                Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
-                    Text(img.name, style = MaterialTheme.typography.titleLarge, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                    Text(img.displayVersion, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(img.name, style = MaterialTheme.typography.titleMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                    Text(img.displayVersion, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
-            }
-            Spacer(Modifier.height(10.dp))
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                AssistChip(onClick = {}, label = { Text(LibraryLabels.compactSkin(img.skin), maxLines = 1, overflow = TextOverflow.Ellipsis) })
-
-                AssistChip(onClick = {}, label = { Text("${img.settings.width}×${img.settings.height}", maxLines = 1, overflow = TextOverflow.Ellipsis) })
-                AssistChip(onClick = {}, label = { Text(Formatter.formatShortFileSize(ctx, img.sizeBytes), maxLines = 1, overflow = TextOverflow.Ellipsis) })
             }
             if (baseName != null) Text(stringResource(R.string.container_of, baseName), style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -1095,22 +1096,40 @@ private fun ImageCard(img: GuestImage, onStart: () -> Unit, onSettings: () -> Un
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Surface(shape = ButtonDefaults.shape, color = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier.height(48.dp).combinedClickable(role = Role.Button,
+                    modifier = Modifier.height(42.dp).combinedClickable(role = Role.Button,
                         onClick = onStart, onLongClickLabel = if (!active) lowPowerLabel else null,
                         onLongClick = if (!active) ({
                             VmActivity.start(ctx, img.id, lowPower = true)
                         }) else null)) {
-                    Row(Modifier.padding(ButtonDefaults.ButtonWithIconContentPadding), verticalAlignment = Alignment.CenterVertically) {
-                    Icon(Icons.Rounded.PlayArrow, null)
+                    Row(Modifier.padding(horizontal = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Rounded.PlayArrow, null, Modifier.size(20.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text(stringResource(if (active) R.string.open_vm else R.string.start))
+                    Text(stringResource(if (active) R.string.open_vm else R.string.start), style = MaterialTheme.typography.labelLarge)
                     }
                 }
                 Spacer(Modifier.weight(1f))
-                FilledTonalIconButton(onClick = onSettings) { Icon(Icons.Rounded.Tune, stringResource(R.string.settings)) }
-                FilledTonalIconButton(onClick = onRename) { Icon(Icons.Rounded.Edit, stringResource(R.string.rename)) }
-                FilledTonalIconButton(onClick = onMoveToFolder) { Icon(Icons.Rounded.FolderOpen, stringResource(R.string.folder_move)) }
-                FilledTonalIconButton(onClick = onDelete) { Icon(Icons.Rounded.Delete, stringResource(R.string.delete)) }
+                Box {
+                    FilledTonalIconButton(onClick = { moreOpen = true }, modifier = Modifier.size(42.dp)) {
+                        Icon(Icons.Rounded.MoreVert, stringResource(R.string.vm_more), Modifier.size(20.dp))
+                    }
+                    DropdownMenu(expanded = moreOpen, onDismissRequest = { moreOpen = false }) {
+                        DropdownMenuItem(text = { Text(stringResource(R.string.vm_more_move)) },
+                            leadingIcon = { Icon(Icons.Rounded.ContentCopy, null) },
+                            onClick = { moreOpen = false; onMoveToFolder() })
+                        DropdownMenuItem(text = { Text(stringResource(R.string.settings)) },
+                            leadingIcon = { Icon(Icons.Rounded.Tune, null) },
+                            onClick = { moreOpen = false; onSettings() })
+                        DropdownMenuItem(text = { Text(stringResource(R.string.vm_more_name)) },
+                            leadingIcon = { Icon(Icons.Rounded.Edit, null) },
+                            onClick = { moreOpen = false; onRename() })
+                        DropdownMenuItem(text = { Text(stringResource(R.string.vm_more_folder)) },
+                            leadingIcon = { Icon(Icons.Rounded.CreateNewFolder, null) },
+                            onClick = { moreOpen = false; onNewFolder(img.id) })
+                        DropdownMenuItem(text = { Text(stringResource(R.string.delete)) },
+                            leadingIcon = { Icon(Icons.Rounded.Delete, null) },
+                            onClick = { moreOpen = false; onDelete() })
+                    }
+                }
             }
         }
     }

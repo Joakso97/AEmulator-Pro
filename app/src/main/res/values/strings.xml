@@ -65,6 +65,9 @@
     <string name="catalog_download_rom">Download %1$s</string>
     <string name="catalog_download_title">Downloading ROM</string>
     <string name="catalog_load_failed">Could not load the catalog: %1$s</string>
+    <string name="catalog_error_title">Catalog unavailable</string>
+    <string name="catalog_error_desc">The ROM catalog could not be reached. Check your internet connection and try again.</string>
+    <string name="catalog_empty_hint">Check back later or refresh the catalog.</string>
     <string name="catalog_no_roms">No ROMs right now.</string>
     <string name="catalog_no_url">The ROM download URL is not available right now.</string>
     <string name="catalog_open">Open ROM catalog</string>
@@ -99,6 +102,7 @@
     <string name="empty_text">Add an ARM firmware for Android 2.3–6.0: a recovery ZIP, an Odin archive (.tar.md5), system.img or a factory image.</string>
     <string name="empty_title">No systems yet</string>
     <string name="failed_start">Failed to start</string>
+    <string name="vm_start_failed_desc">The virtual machine could not start. Check the guest log for details.</string>
     <string name="first_boot_hint">The first boot takes longer: the system optimizes apps.</string>
     <string name="folder_close">Close folder</string>
     <string name="folder_default_name">Folder</string>
@@ -106,6 +110,10 @@
     <string name="folder_empty">Empty — drop ROMs here</string>
     <string name="folder_move">Move to folder</string>
     <string name="folder_new">New folder</string>
+    <string name="vm_more">More</string>
+    <string name="vm_more_move">Move</string>
+    <string name="vm_more_name">Name</string>
+    <string name="vm_more_folder">Folder</string>
     <string name="folder_new_dots">New folder…</string>
     <string name="folder_none">Not in a folder</string>
     <string name="folder_open">Open folder</string>
@@ -119,6 +127,7 @@
     <string name="host">Host</string>
     <string name="import_done">Firmware added</string>
     <string name="import_failed">Import failed</string>
+    <string name="import_error_desc">The firmware could not be imported. Check the file and try again.</string>
     <string name="import_ready">Done</string>
     <string name="import_running">Importing firmware</string>
     <string name="import_start">Starting</string>
@@ -150,6 +159,11 @@
     <string name="m_failed">Failed</string>
     <string name="m_install_apk">Install APK…</string>
     <string name="m_install_apk_start">Installing…</string>
+    <string name="m_install_apk_start_desc">Copying the APK to the guest and installing it with the package manager.</string>
+    <string name="m_install_apk_done">App installed</string>
+    <string name="m_install_apk_done_desc">The app is now installed in the guest.</string>
+    <string name="m_install_apk_failed">Installation failed</string>
+    <string name="m_install_apk_failed_desc">The package manager could not install this APK.</string>
     <string name="m_keyboard">Show/hide keyboard</string>
     <string name="m_minimize">Minimize</string>
     <string name="m_netdebug">HTTP debugger</string>
@@ -342,6 +356,8 @@
     <string name="update_download_failed_generic">Download error</string>
     <string name="update_downloading">Downloading update…</string>
     <string name="update_error">Could not check for updates: %1$s</string>
+    <string name="update_error_desc">Could not check for updates. Check your internet connection and try again.</string>
+    <string name="download_error_desc">Download failed. Check your internet connection and try again.</string>
     <string name="update_error_title">Error</string>
     <string name="update_install">Install</string>
     <string name="update_later">Later</string>
@@ -405,7 +421,7 @@
     <string name="vs_awake">Keep screen on</string>
     <string name="vs_awake_sub">While the system is open.</string>
     <string name="vs_baseband">Baseband version</string>
-    <string name="vs_baseband_sub">Reported as gsm.version.baseband and by the modem. Applies at the next start. Empty = default</string>
+    <string name="vs_baseband_sub">Reported as gsm.version.baseband. Applies at the next start. Empty = default</string>
     <string name="vs_camera">Host camera (experimental)</string>
     <string name="vs_camera_sub">HAL1 ROMs: 640×480 preview and photos, back/front camera. Requires permission and a full VM restart. The camera closes when AEmulator goes to the background; reopen the guest camera app. Video records at 640×480.</string>
     <string name="vs_controls">Controls</string>

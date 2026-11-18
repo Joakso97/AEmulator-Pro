@@ -54,13 +54,6 @@ fun UpdateDialog(
         is UpdateState.Checking -> {
             AlertDialog(
                 onDismissRequest = onDismiss,
-                icon = {
-                    Icon(
-                        imageVector = Icons.Rounded.Sync,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
                 title = {
                     Text(
                         text = stringResource(R.string.as_check_updates),
@@ -96,13 +89,6 @@ fun UpdateDialog(
             val rel = state.release
             AlertDialog(
                 onDismissRequest = onDismiss,
-                icon = {
-                    Icon(
-                        imageVector = Icons.Rounded.SystemUpdate,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
                 title = {
                     Text(
                         text = stringResource(R.string.update_available_title),
@@ -168,13 +154,6 @@ fun UpdateDialog(
             val rel = state.release
             AlertDialog(
                 onDismissRequest = onCancelDownload,
-                icon = {
-                    Icon(
-                        imageVector = Icons.Rounded.Download,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
                 title = {
                     Text(
                         text = stringResource(R.string.update_downloading),
@@ -213,13 +192,6 @@ fun UpdateDialog(
         is UpdateState.ReadyToInstall -> {
             AlertDialog(
                 onDismissRequest = onDismiss,
-                icon = {
-                    Icon(
-                        imageVector = Icons.Rounded.CheckCircle,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
                 title = {
                     Text(
                         text = stringResource(R.string.update_ready_title),
@@ -249,13 +221,6 @@ fun UpdateDialog(
         is UpdateState.UpToDate -> {
             AlertDialog(
                 onDismissRequest = onDismiss,
-                icon = {
-                    Icon(
-                        imageVector = Icons.Rounded.CheckCircle,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                },
                 title = {
                     Text(
                         text = stringResource(R.string.update_none_title),
@@ -295,7 +260,7 @@ fun UpdateDialog(
         is UpdateState.Error -> {
             ErrorDialog(
                 title = stringResource(R.string.update_error_title),
-                message = stringResource(R.string.update_error, state.message),
+                message = stringResource(R.string.update_error_desc),
                 onDismiss = onDismiss
             )
         }

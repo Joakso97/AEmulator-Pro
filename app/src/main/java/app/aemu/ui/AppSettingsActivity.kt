@@ -77,7 +77,7 @@ import app.aemu.R
 
 object Links {
     const val GITHUB = "https://github.com/Joakso97/AEmulator-Pro"
-    const val AUTHOR = "https://github.com/somerandomusernam2"
+    const val AUTHOR = "https://github.com/Joakso97"
     const val SUNSET = "https://github.com/drel4/AEmulator-Sunset"
     const val UPSTREAM = "https://github.com/uxazu/AEmulator"
     const val ORIGINAL = "https://t.me/istratiit_ech"
@@ -200,8 +200,6 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
             contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = pad.calculateTopPadding() + 8.dp, bottom = pad.calculateBottomPadding() + 32.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            item { AboutCard { ctx.startActivity(Intent(ctx, CreditsActivity::class.java)) } }
-
             item {
                 Section(stringResource(R.string.catalog_title)) {
                     Row_(Icons.Rounded.List, stringResource(R.string.catalog_open), "") {
@@ -366,13 +364,13 @@ internal fun Section(title: String, subtitle: String? = null, content: @Composab
 }
 
 @Composable
-internal fun Row_(icon: ImageVector, title: String, sub: String, mono: Boolean = false, onClick: () -> Unit) {
+internal fun Row_(icon: ImageVector?, title: String, sub: String, mono: Boolean = false, onClick: () -> Unit) {
     val supporting: (@Composable () -> Unit)? =
         if (sub.isEmpty()) null else ({ Text(sub, fontFamily = if (mono) FontFamily.Monospace else null, maxLines = 2) })
     ListItem(
         headlineContent = { Text(title) },
         supportingContent = supporting,
-        leadingContent = { Icon(icon, null, tint = MaterialTheme.colorScheme.primary) },
+        leadingContent = icon?.let { { Icon(it, null, tint = MaterialTheme.colorScheme.primary) } },
         colors = ListItemDefaults.colors(containerColor = Color.Transparent),
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
     )

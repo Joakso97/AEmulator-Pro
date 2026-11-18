@@ -12,6 +12,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
@@ -19,6 +20,8 @@ import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.Download
+import androidx.compose.material.icons.rounded.CloudOff
+import androidx.compose.material.icons.rounded.Inbox
 
 import androidx.compose.material.icons.rounded.ChevronRight
 
@@ -32,6 +35,7 @@ import androidx.compose.ui.platform.LocalContext
 import android.text.format.Formatter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.aemu.AppPrefs
@@ -56,6 +60,37 @@ class RomCatalogActivity : ComponentActivity() {
 
 
 private data class DownloadUi(val name: String = "", val done: Long = 0L, val total: Long = -1L, val speed: Long = 0L)
+
+@Composable
+private fun EmptyState(
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    title: String,
+    message: String,
+    actionLabel: String? = null,
+    onAction: (() -> Unit)? = null,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier.padding(32.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Surface(shape = CircleShape, color = Color.Transparent, modifier = Modifier.size(88.dp)) {
+            Box(contentAlignment = Alignment.Center) {
+                Icon(icon, null, Modifier.size(64.dp), tint = MaterialTheme.colorScheme.primary)
+            }
+        }
+        Spacer(Modifier.height(20.dp))
+        Text(title, style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
+        Spacer(Modifier.height(8.dp))
+        Text(message, style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
+        if (actionLabel != null && onAction != null) {
+            Spacer(Modifier.height(20.dp))
+            Button(onClick = onAction) { Text(actionLabel) }
+        }
+    }
+}
 
 
 private class SpeedMeter {
@@ -89,6 +124,7 @@ private fun CatalogScreen(onBack: () -> Unit) {
     var submitting by rememberSaveable { mutableStateOf(false) }
     var download by remember { mutableStateOf<DownloadUi?>(null) }
     var downloadError by remember { mutableStateOf<String?>(null) }
+    var downloadCancelled by remember { mutableStateOf(false) }
     var downloadJob by remember { mutableStateOf<Job?>(null) }
     val scope = rememberCoroutineScope()
     val apiBase = CatalogUrls.apiBase(source)
@@ -98,6 +134,8 @@ private fun CatalogScreen(onBack: () -> Unit) {
         if (downloadJob?.isActive == true) return@start
         val appContext = ctx.applicationContext
         download = DownloadUi()
+        downloadError = null
+        downloadCancelled = false
         downloadJob = scope.launch {
             try {
                 RomDownloader.purgeStale(appContext)
@@ -114,7 +152,7 @@ private fun CatalogScreen(onBack: () -> Unit) {
             } catch (e: CancellationException) { download = null; throw e }
             catch (e: Exception) {
                 download = null
-                downloadError = appContext.getString(R.string.catalog_download_failed, e.userMessage(appContext))
+                if (!downloadCancelled) downloadError = appContext.getString(R.string.catalog_download_failed, e.userMessage(appContext))
             }
         }
     }
@@ -148,13 +186,15 @@ private fun CatalogScreen(onBack: () -> Unit) {
             LazyColumn(modifier = Modifier.fillMaxSize().padding(pad), state = rememberLazyListState(),
             contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             if (loading) item { Box(Modifier.fillParentMaxSize(), contentAlignment = Alignment.Center) { LoadingIndicator(Modifier.size(48.dp)) } }
-            error?.let { problem -> item {
-                Card {
-                    Column(Modifier.padding(16.dp)) {
-                        Text(stringResource(R.string.catalog_load_failed, problem), color = MaterialTheme.colorScheme.error)
-                        TextButton(onClick = { revision++ }, enabled = !loading) { Text(stringResource(R.string.catalog_retry)) }
-                    }
-                }
+            error?.let { item {
+                EmptyState(
+                    icon = Icons.Rounded.CloudOff,
+                    title = stringResource(R.string.catalog_error_title),
+                    message = stringResource(R.string.catalog_error_desc),
+                    actionLabel = stringResource(R.string.catalog_retry),
+                    onAction = { revision++ },
+                    modifier = Modifier.fillParentMaxSize(),
+                )
             } }
             catalog?.let { list ->
                 if (selectedSection < 0 && list.motd.isNotEmpty()) item {
@@ -167,7 +207,10 @@ private fun CatalogScreen(onBack: () -> Unit) {
                         if (list.warningLines.size > 10) "…" else ""),
                         color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
                 }
-                if (list.sections.isEmpty()) item { Text(stringResource(R.string.catalog_no_roms)) }
+                if (list.sections.isEmpty()) item {
+                    EmptyState(Icons.Rounded.Inbox, stringResource(R.string.catalog_no_roms),
+                        stringResource(R.string.catalog_empty_hint), modifier = Modifier.fillParentMaxSize())
+                }
                 if (section == null) list.sections.forEachIndexed { sectionIndex, entry ->
                     item(key = "section-$sectionIndex") {
                         Card(Modifier.fillMaxWidth()) {
@@ -229,13 +272,16 @@ private fun CatalogScreen(onBack: () -> Unit) {
                         style = MaterialTheme.typography.bodySmall)
                 }
             } },
-            confirmButton = { TextButton(onClick = { downloadJob?.cancel(); download = null }) { Text(stringResource(R.string.cancel)) } },
+            confirmButton = { TextButton(onClick = {
+                downloadCancelled = true
+                downloadJob?.cancel(); download = null; downloadError = null
+            }) { Text(stringResource(R.string.cancel)) } },
         )
     }
-    downloadError?.let { problem ->
+    downloadError?.let {
         ErrorDialog(
             title = stringResource(R.string.update_error_title),
-            message = problem,
+            message = stringResource(R.string.download_error_desc),
             onDismiss = { downloadError = null }
         )
     }

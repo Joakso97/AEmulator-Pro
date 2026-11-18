@@ -16,9 +16,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.Code
-import androidx.compose.material.icons.rounded.History
-import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -71,11 +68,8 @@ private fun CreditsScreen(onBack: () -> Unit) {
         ) {
             item {
                 Section(stringResource(R.string.as_links)) {
-                    Row_(Icons.Rounded.Person, stringResource(R.string.as_author), "somerandomusername2") { open(Links.AUTHOR) }
-                    Row_(Icons.Rounded.History, stringResource(R.string.as_orig), "t.me/istratiit_ech") { open(Links.ORIGINAL) }
-                    Row_(Icons.Rounded.Code, stringResource(R.string.as_github), "github.com/Joakso97/AEmulator-Pro") { open(Links.GITHUB) }
-                    Row_(Icons.Rounded.History, stringResource(R.string.as_upstream_row, "AEmulator Sunset"), "github.com/drel4/AEmulator-Sunset") { open(Links.SUNSET) }
-                    Row_(Icons.Rounded.History, stringResource(R.string.as_original_row, "AEmulator"), "github.com/uxazu/AEmulator") { open(Links.UPSTREAM) }
+                    Row_(null, stringResource(R.string.as_author), "Joakso97") { open(Links.AUTHOR) }
+                    Row_(null, stringResource(R.string.as_github), "github.com/Joakso97/AEmulator-Pro") { open(Links.GITHUB) }
                 }
             }
 
