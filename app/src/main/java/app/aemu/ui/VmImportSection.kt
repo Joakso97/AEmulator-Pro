@@ -154,3 +154,37 @@ internal fun CscImportSection(img: GuestImage, busy: Boolean, setBusy: (Boolean)
     }) { Text(stringResource(if (present) R.string.vm_import_csc_replace else R.string.vm_import_csc)) }
     message?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
 }
+
+@Composable
+internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean) -> Unit) {
+    val ctx = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var message by remember { mutableStateOf<String?>(null) }
+    var picking by remember { mutableStateOf(false) }
+    val pickApk = rememberSingleFilePicker { uri ->
+        picking = false
+        if (uri != null) {
+            setBusy(true)
+            message = ctx.getString(R.string.m_install_apk_start)
+            scope.launch {
+                val result = withContext(Dispatchers.IO) {
+                    runCatching {
+                        val dir = Sdcard.hostDir(VmPaths(ctx, img.id)) ?: throw Exception("SD card not available")
+                        val apkFile = java.io.File(dir, "aemu-install.apk")
+                        ctx.contentResolver.openInputStream(uri)!!.use { i -> apkFile.outputStream().use { o -> i.copyTo(o) } }
+                        val guestVm = GuestVm(ctx, ImageStore.get(ctx, img.id) ?: img)
+                        val out = guestVm.guestShell("pm install -r ${img.sdcardPath.trimEnd('/')}/aemu-install.apk", 300_000)
+                        TreeFixer(ctx, VmPaths(ctx, img.id), img) {}.seedOwners()
+                        out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: "Success"
+                    }
+                }
+                setBusy(false)
+                message = result.fold({ it }, { ctx.getString(R.string.vm_import_failed, it.userMessage(ctx)) })
+            }
+        }
+    }
+    TextButton(enabled = !busy && !picking, modifier = Modifier.fillMaxWidth(), onClick = {
+        picking = true; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*"))
+    }) { Text(stringResource(R.string.m_install_apk)) }
+    message?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
+}

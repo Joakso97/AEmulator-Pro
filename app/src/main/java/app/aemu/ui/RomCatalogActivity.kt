@@ -19,8 +19,9 @@ import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.Download
+
 import androidx.compose.material.icons.rounded.ChevronRight
-import androidx.compose.material.icons.rounded.Warning
+
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -43,7 +44,13 @@ class RomCatalogActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        setContent { AemuTheme { CatalogScreen(::finish) } }
+        setContent {
+            AemuTheme {
+                TabletRailLayout(TabletRailDestination.CATALOG) {
+                    CatalogScreen(::finish)
+                }
+            }
+        }
     }
 }
 
@@ -89,24 +96,25 @@ private fun CatalogScreen(onBack: () -> Unit) {
     
     val startDownload: (String) -> Unit = start@{ url ->
         if (downloadJob?.isActive == true) return@start
+        val appContext = ctx.applicationContext
         download = DownloadUi()
         downloadJob = scope.launch {
             try {
-                RomDownloader.purgeStale(ctx)
+                RomDownloader.purgeStale(appContext)
                 val meter = SpeedMeter()
-                val file = RomDownloader.fetch(ctx, url,
+                val file = RomDownloader.fetch(appContext, url,
                     onFile = { name, total -> download = DownloadUi(name = name, total = total) },
                     onProgress = { done, total -> download = download?.copy(done = done, total = total, speed = meter.update(done)) })
                 download = null
-                ctx.startActivity(Intent(ctx, MainActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                appContext.startActivity(Intent(appContext, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                     .putExtra(EXTRA_IMPORT, file.absolutePath)
                     .putExtra(EXTRA_IMPORT_DELETE, true))
                 (ctx as? android.app.Activity)?.finish()
             } catch (e: CancellationException) { download = null; throw e }
             catch (e: Exception) {
                 download = null
-                downloadError = ctx.getString(R.string.catalog_download_failed, e.userMessage(ctx))
+                downloadError = appContext.getString(R.string.catalog_download_failed, e.userMessage(appContext))
             }
         }
     }
@@ -170,7 +178,6 @@ private fun CatalogScreen(onBack: () -> Unit) {
                                     Column {
                                         Text(if (entry.roms.isEmpty()) stringResource(R.string.catalog_no_roms)
                                             else pluralStringResource(R.plurals.catalog_rom_count, entry.roms.size, entry.roms.size))
-                                        if (entry.comment.isNotEmpty()) Text(entry.comment, maxLines = 2, overflow = TextOverflow.Ellipsis)
                                     }
                                 },
                                 trailingContent = { Icon(Icons.Rounded.ChevronRight, null) })
@@ -179,7 +186,6 @@ private fun CatalogScreen(onBack: () -> Unit) {
                 } else {
                     item(key = "section-info") {
                         Column {
-                            if (section.comment.isNotEmpty()) Text(section.comment, style = MaterialTheme.typography.bodyMedium)
                             section.source?.let { url -> TextButton(onClick = { openBrowser(ctx, url) }) {
                                 Text(stringResource(R.string.catalog_section_source))
                             } }
@@ -207,8 +213,13 @@ private fun CatalogScreen(onBack: () -> Unit) {
                     Text(stringResource(R.string.catalog_download_checking_desc), style = MaterialTheme.typography.bodyMedium)
                 }
                 Spacer(Modifier.height(12.dp))
-                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    LoadingIndicator(Modifier.size(48.dp))
+                if (d.total > 0) {
+                    LinearProgressIndicator(
+                        progress = { (d.done.toFloat() / d.total.toFloat()).coerceIn(0f, 1f) },
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                } else {
+                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                 }
                 if (d.name.isNotEmpty()) {
                     Spacer(Modifier.height(8.dp))
@@ -266,12 +277,7 @@ private fun CatalogRomCard(rom: CatalogRom, onDownload: (String) -> Unit) {
                     Icon(Icons.Rounded.Download, stringResource(R.string.catalog_download_rom, rom.device))
                 } }
             }
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                if (rom.status == 0 || rom.status == 1)
-                    Icon(Icons.Rounded.Warning, null, tint = statusColor, modifier = Modifier.size(18.dp))
-                Text(stringResource(status), color = statusColor, style = MaterialTheme.typography.labelLarge)
-            }
-            if (rom.comment.isNotEmpty()) Text(rom.comment, style = MaterialTheme.typography.bodyMedium)
+            Text(stringResource(status), color = statusColor, style = MaterialTheme.typography.labelLarge)
             if (rom.url == null) Text(stringResource(R.string.catalog_no_url), style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
@@ -305,7 +311,6 @@ private fun SubmittedRomCard(rom: CatalogRom, d: RomDetails, onDownload: (String
                 d.emulatorVersion?.let { stringResource(R.string.catalog_tested_on, it) })
             if (extras.isNotEmpty()) Text(extras.joinToString(" · "), style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
-            d.notes?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
             if (rom.url == null) Text(stringResource(R.string.catalog_no_url), style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (d.submittedBy.isNotBlank()) {

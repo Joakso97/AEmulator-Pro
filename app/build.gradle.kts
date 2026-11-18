@@ -20,6 +20,8 @@ val signProps = Properties().apply {
     rootProject.file("keystore.properties").takeIf { it.isFile }?.inputStream()?.use { load(it) }
 }
 val canSign = signProps.getProperty("storeFile")?.let { rootProject.file(it).isFile } == true
+val debugStore = File(System.getProperty("user.home"), ".android/debug.keystore")
+val hasSignStore = canSign || debugStore.isFile
 
  
  
@@ -57,29 +59,29 @@ android {
          
         //noinspection ExpiredTargetSdkVersion
         targetSdk = 28
-        versionCode = 317
-        versionName = "0.0.0.3.15"  
+        versionCode = 321
+        versionName = "0.0.0.3.21"  
         ndk { abiFilters += listOf("arm64-v8a") }
     }
 
     signingConfigs {
-        if (canSign) create("release") {
-            storeFile = rootProject.file(signProps.getProperty("storeFile"))
-            storePassword = signProps.getProperty("storePassword")
-            keyAlias = signProps.getProperty("keyAlias")
-            keyPassword = signProps.getProperty("keyPassword")
+        if (hasSignStore) create("release") {
+            storeFile = if (canSign) rootProject.file(signProps.getProperty("storeFile")) else debugStore
+            storePassword = if (canSign) signProps.getProperty("storePassword") else "android"
+            keyAlias = if (canSign) signProps.getProperty("keyAlias") else "androiddebugkey"
+            keyPassword = if (canSign) signProps.getProperty("keyPassword") else "android"
         }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            if (canSign) signingConfig = signingConfigs.getByName("release")
+            if (hasSignStore) signingConfig = signingConfigs.getByName("release")
         }
         debug {
             applicationIdSuffix = ""
              
-            if (canSign) signingConfig = signingConfigs.getByName("release")
+            if (hasSignStore) signingConfig = signingConfigs.getByName("release")
         }
     }
 
@@ -104,6 +106,13 @@ android {
     }
     tasks.withType<JavaCompile>().configureEach {
         options.compilerArgs.add("-Xlint:deprecation")
+    }
+    tasks.withType<Test> {
+        maxParallelForks = 1
+        val systemRoot = System.getenv("SystemRoot") ?: "C:\\WINDOWS"
+        environment.clear()
+        environment("SystemRoot", systemRoot)
+        environment("PATH", "$systemRoot\\system32;$systemRoot")
     }
     kotlin {
         compilerOptions {
@@ -143,12 +152,11 @@ tasks.named("preBuild") { dependsOn(copyLegalNotices) }
 
 tasks.register<Copy>("copyReleaseApks") {
     dependsOn("assembleRelease")
-    val v = android.defaultConfig.versionName
     from(layout.buildDirectory.dir("outputs/apk/release")) {
         include("*.apk")
-        rename { "AEmulator-Plus-app.aemu.plus.apk" }
+        rename { "AEmulatorPro.apk" }
     }
-    into(rootProject.layout.projectDirectory.dir("release-apks/$v"))
+    into(rootProject.layout.projectDirectory.dir("dist"))
 }
 
 tasks.register<Copy>("copyDebugApk") {

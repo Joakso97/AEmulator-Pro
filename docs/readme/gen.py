@@ -10,7 +10,7 @@ from texts import T  # noqa
 from texts_plus import P  # noqa
 
 RTL = {"ar", "fa"}
-BRAND = "AEmulator Plus"
+BRAND = "AEmulator Pro"
 
 
 def path_of(code, from_code):
@@ -59,12 +59,12 @@ def render(code):
     L.append(t["how_text"] + "\n")
     L.append(f"## 🛠️ {t['build_title']}\n")
     L.append(t["build_text"].format(**rel) + "\n")
-    L.append("```bash\ngit clone https://github.com/somerandomusernam2/AEmulator-Plus.git\ncd AEmulator-Plus\n./gradlew copyReleaseApks\n```\n")
+    L.append("```bash\ngit clone https://github.com/Joakso97/AEmulator-Pro.git\ncd AEmulator-Pro\n./gradlew copyReleaseApks\n```\n")
     L.append(f"## 🙏 {t['credits_title']}\n")
     L.append(t["credits_text"].format(orig=ORIGINAL) + "\n")
     L.append(t["fork_line"].format(**rel) + "\n")
     L.append(f"## 🔗 {t['links_title']}\n")
-    L.append(f"- {t['l_fork']}: [somerandomusernam2/AEmulator-Plus]({REPO})")
+    L.append(f"- {t['l_fork']}: [Joakso97/AEmulator-Pro]({REPO})")
     L.append(f"- {t['l_upstream']}: [drel4/AEmulator-Sunset]({SUNSET})")
     L.append(f"- {t['l_original']}: [uxazu/AEmulator]({UPSTREAM})")
     L.append(f"- {t['l_author']}: [{AUTHOR_NAME}]({AUTHOR})")

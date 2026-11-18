@@ -414,15 +414,11 @@ open class VmActivity : ComponentActivity() {
         }
         root.addView(resizeOverlay, FrameLayout.LayoutParams(-1, -1))
         
-        val strip = ComposeView(this).apply {
-            setContent { AemuTheme(forceDark = true) { TabBarHost() } }
-        }
-        tabStripView = strip
+        tabStripView = null
         val wrapper = android.widget.LinearLayout(this).apply {
             orientation = android.widget.LinearLayout.VERTICAL
             setBackgroundColor(0xff000000.toInt())
-            addView(strip, android.widget.LinearLayout.LayoutParams(-1, -2))
-            addView(root, android.widget.LinearLayout.LayoutParams(-1, 0, 1f))
+            addView(root, android.widget.LinearLayout.LayoutParams(-1, -1))
         }
         androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(wrapper) { _, insets ->
             cutoutInsets = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.displayCutout())
@@ -1283,11 +1279,11 @@ open class VmActivity : ComponentActivity() {
                         TextButton(onClick = { shellOut = "" }) { Text(stringResource(R.string.m_shell_clear)) }
                         IconButton(onClick = onDone) { Icon(Icons.Rounded.Close, stringResource(R.string.close)) }
                     }
-                    Surface(Modifier.weight(1f).fillMaxWidth(), color = Color(0xFF101010), shape = MaterialTheme.shapes.medium) {
+                    Surface(Modifier.weight(1f).fillMaxWidth(), color = MaterialTheme.colorScheme.surfaceContainer, shape = MaterialTheme.shapes.medium) {
                         SelectionContainer {
                             Text(shellOut.ifEmpty { stringResource(R.string.m_shell_hint) },
                                 Modifier.verticalScroll(scroll).padding(8.dp),
-                                color = Color(0xFFD0D0D0), fontSize = 12.sp, lineHeight = 15.sp,
+                                color = MaterialTheme.colorScheme.primary, fontSize = 12.sp, lineHeight = 15.sp,
                                 fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
                         }
                     }
@@ -1837,32 +1833,34 @@ open class VmActivity : ComponentActivity() {
             }
         }
         val list = if (guestTab) guestLines else logLines
-        Surface(Modifier.fillMaxSize(), color = Color(0xF0101410), contentColor = Color(0xFFE2E3DD)) {
-            Column(Modifier.statusBarsPadding().navigationBarsPadding().imePadding().padding(12.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(stringResource(R.string.log), style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f),
-                        maxLines = 1, overflow = TextOverflow.Ellipsis)
-                    IconButton(onClick = { copyLog(list.toList()) }) { Icon(Icons.Rounded.ContentCopy, stringResource(R.string.log_copy)) }
-                    IconButton(onClick = { pendingGuestExport = guestTab; exportLog.launch("aemu-${vm.img.id}-${if (guestTab) "logcat" else "host"}.log") }) {
-                        Icon(Icons.Rounded.Download, stringResource(R.string.log_export))
+        AemuTheme(forceDark = true) {
+            Surface(Modifier.fillMaxSize(), color = Color(0xFF101410), contentColor = Color(0xFFE2E3DD)) {
+                Column(Modifier.statusBarsPadding().navigationBarsPadding().imePadding().padding(12.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(stringResource(R.string.log), style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f),
+                            maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        IconButton(onClick = { copyLog(list.toList()) }) { Icon(Icons.Rounded.ContentCopy, stringResource(R.string.log_copy)) }
+                        IconButton(onClick = { pendingGuestExport = guestTab; exportLog.launch("aemu-${vm.img.id}-${if (guestTab) "logcat" else "host"}.log") }) {
+                            Icon(Icons.Rounded.Download, stringResource(R.string.log_export))
+                        }
+                        FilledTonalIconButton(onClick = onClose) { Icon(Icons.Rounded.Close, stringResource(R.string.close)) }
                     }
-                    FilledTonalIconButton(onClick = onClose) { Icon(Icons.Rounded.Close, stringResource(R.string.close)) }
-                }
-                Spacer(Modifier.height(8.dp))
-                SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
-                    SegmentedButton(selected = !guestTab, onClick = { guestTab = false }, shape = SegmentedButtonDefaults.itemShape(0, 2)) {
-                        Text(stringResource(R.string.host), maxLines = 1)
+                    Spacer(Modifier.height(8.dp))
+                    SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                        SegmentedButton(selected = !guestTab, onClick = { guestTab = false }, shape = SegmentedButtonDefaults.itemShape(0, 2)) {
+                            Text(stringResource(R.string.host), maxLines = 1)
+                        }
+                        SegmentedButton(selected = guestTab, onClick = { guestTab = true }, shape = SegmentedButtonDefaults.itemShape(1, 2)) {
+                            Text(stringResource(R.string.guest_log), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        }
                     }
-                    SegmentedButton(selected = guestTab, onClick = { guestTab = true }, shape = SegmentedButtonDefaults.itemShape(1, 2)) {
-                        Text(stringResource(R.string.guest_log), maxLines = 1, overflow = TextOverflow.Ellipsis)
-                    }
-                }
-                Spacer(Modifier.height(8.dp))
-                val st = rememberLazyListState()
-                LaunchedEffect(list.size) { if (list.isNotEmpty()) st.scrollToItem(list.size - 1) }
-                SelectionContainer {
-                    LazyColumn(state = st, modifier = Modifier.fillMaxSize()) {
-                        items(list) { Text(it, style = Mono, color = Color(0xFFCFE8CF)) }
+                    Spacer(Modifier.height(8.dp))
+                    val st = rememberLazyListState()
+                    LaunchedEffect(list.size) { if (list.isNotEmpty()) st.scrollToItem(list.size - 1) }
+                    SelectionContainer {
+                        LazyColumn(state = st, modifier = Modifier.fillMaxSize()) {
+                            items(list) { Text(it, style = Mono, color = Color(0xFFCFE8CF)) }
+                        }
                     }
                 }
             }

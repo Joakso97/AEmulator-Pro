@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -255,14 +256,42 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
             if (s.radio) NetworkTypePicker(s.networkType, img.api, cdmaOn, cdmaOn && fwLteOnCdma) { s = s.copy(networkType = it) }
             if (s.radio) SimSection(img, s) { s = it }
 
-            Spacer(Modifier.height(8.dp))
-            Text(stringResource(R.string.vs_device_id), style = MaterialTheme.typography.titleMedium)
-            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(top = 4.dp)) {
-                OutlinedTextField(value = s.serial, onValueChange = { v -> s = s.copy(serial = VmSettings.cleanSerial(v)) },
-                    label = { Text(stringResource(R.string.vs_serial)) }, placeholder = { Text(VmSettings.DEFAULT_SERIAL) },
-                    supportingText = { Text(stringResource(R.string.vs_serial_sub)) }, singleLine = true,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii), modifier = Modifier.weight(1f))
-                TextButton(onClick = { s = s.copy(serial = VmSettings.randomSerial()) }) { Text(stringResource(R.string.vs_random)) }
+            var basebandDialog by remember { mutableStateOf(false) }
+            ListItem(
+                headlineContent = { Text(stringResource(R.string.vs_baseband)) },
+                supportingContent = { Text(s.baseband.ifBlank { VmSettings.DEFAULT_BASEBAND }) },
+                trailingContent = {
+                    TextButton(onClick = { basebandDialog = true }) { Text(stringResource(R.string.th_edit)) }
+                },
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                modifier = Modifier.fillMaxWidth().clickable { basebandDialog = true },
+            )
+            if (basebandDialog) {
+                var tempBaseband by remember { mutableStateOf(s.baseband.ifBlank { VmSettings.DEFAULT_BASEBAND }) }
+                AlertDialog(
+                    onDismissRequest = { basebandDialog = false },
+                    title = { Text(stringResource(R.string.vs_baseband)) },
+                    text = {
+                        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                            OutlinedTextField(
+                                value = tempBaseband,
+                                onValueChange = { tempBaseband = VmSettings.cleanBaseband(it) },
+                                label = { Text(stringResource(R.string.vs_baseband)) },
+                                placeholder = { Text(VmSettings.DEFAULT_BASEBAND) },
+                                supportingText = { Text(stringResource(R.string.vs_baseband_sub)) },
+                                singleLine = true,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
+                    },
+                    dismissButton = { TextButton(onClick = { basebandDialog = false }) { Text(stringResource(R.string.cancel)) } },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            s = s.copy(baseband = tempBaseband.ifBlank { VmSettings.DEFAULT_BASEBAND })
+                            basebandDialog = false
+                        }) { Text(stringResource(R.string.ok)) }
+                    }
+                )
             }
             OutlinedTextField(value = s.kernel, onValueChange = { v -> s = s.copy(kernel = VmSettings.cleanKernel(v)) },
                 label = { Text(stringResource(R.string.vs_kernel)) }, placeholder = { Text(VmSettings.DEFAULT_KERNEL) },
@@ -303,10 +332,17 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
                     modifier = Modifier.weight(1f))
             }
             Text(stringResource(R.string.vs_kernel_preview) + " " + VmSettings.procVersion(s).trim(), style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 4.dp))
-            OutlinedTextField(value = s.baseband, onValueChange = { v -> s = s.copy(baseband = VmSettings.cleanBaseband(v)) },
-                label = { Text(stringResource(R.string.vs_baseband)) }, placeholder = { Text(VmSettings.DEFAULT_BASEBAND) },
-                supportingText = { Text(stringResource(R.string.vs_baseband_sub)) }, singleLine = true,
-                modifier = Modifier.fillMaxWidth().padding(top = 4.dp))
+
+            Spacer(Modifier.height(8.dp))
+            Text(stringResource(R.string.vs_device_id), style = MaterialTheme.typography.titleMedium)
+            OutlinedTextField(value = s.serial, onValueChange = { v -> s = s.copy(serial = VmSettings.cleanSerial(v)) },
+                label = { Text(stringResource(R.string.vs_serial)) }, placeholder = { Text(VmSettings.DEFAULT_SERIAL) },
+                supportingText = { Text(stringResource(R.string.vs_serial_sub)) }, singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii), modifier = Modifier.fillMaxWidth().padding(top = 4.dp))
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                TextButton(onClick = { s = s.copy(serial = VmSettings.randomSerial()) }) { Text(stringResource(R.string.vs_random)) }
+            }
+            Spacer(Modifier.height(4.dp))
 
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_advanced), style = MaterialTheme.typography.titleMedium)
@@ -341,9 +377,10 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
             Spacer(Modifier.height(16.dp))
             VmExportSection(img, s, resetting) { resetting = it }
             VmImportSection(img, resetting, { resetting = it }) { s = it }
+            ApkInstallSection(img, resetting, { resetting = it })
             VmFilesSection(img, resetting)
             TextButton(enabled = !resetting, onClick = { resetConfirm = true }, modifier = Modifier.fillMaxWidth()) {
-                Text(stringResource(R.string.vm_reset_data), color = MaterialTheme.colorScheme.error)
+                Text(stringResource(R.string.vm_reset_data))
             }
             resetMessage?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
             

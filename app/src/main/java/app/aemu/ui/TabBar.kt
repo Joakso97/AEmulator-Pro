@@ -226,7 +226,7 @@ internal fun VmTabStrip(
             confirmButton = {
                 FlowRow(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End)) {
                     TextButton(onClick = { closing = null }) { Text(stringResource(R.string.cancel)) }
-                    TextButton(onClick = { answer(true) }, colors = ButtonDefaults.textButtonColors(contentColor = cs.error)) {
+                    TextButton(onClick = { answer(true) }) {
                         Text(stringResource(R.string.tab_shutdown))
                     }
                     TextButton(onClick = { answer(false) }) {

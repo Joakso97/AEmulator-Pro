@@ -15,6 +15,12 @@ class FormFactorSkinTest {
     @Test fun tvFromApi18IsAndroidTv() {
         assertEquals("Android TV", skin("tv", 18))
         assertEquals("Android TV", skin("tablet,tv", 22))
+        assertEquals("Android TV", skin("tv", 26))
+        assertEquals("Android TV", skin("tv", 29))
+    }
+    @Test fun tvFromFlavorOrProductIsAndroidTv() {
+        assertEquals("Android TV", Analyzer.formFactorSkin(mapOf("ro.build.flavor" to "sdk_google_atv_x86-userdebug"), 26))
+        assertEquals("Android TV", Analyzer.formFactorSkin(mapOf("ro.product.name" to "androidtv"), 26))
     }
     @Test fun watchIsWear() {
         assertEquals("Wear", skin("watch", 19))

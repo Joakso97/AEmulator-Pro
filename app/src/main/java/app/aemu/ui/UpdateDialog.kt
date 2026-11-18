@@ -28,6 +28,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.aemu.R
 import app.aemu.update.AppUpdateManager
@@ -138,7 +142,7 @@ fun UpdateDialog(
                                         .verticalScroll(rememberScrollState())
                                 ) {
                                     Text(
-                                        text = rel.body,
+                                        text = renderMarkdown(rel.body),
                                         style = MaterialTheme.typography.bodySmall,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
@@ -281,7 +285,7 @@ fun UpdateDialog(
                     }
                 },
                 dismissButton = {
-                    TextButton(onClick = { onOpenUrl(Links.GITHUB) }) {
+                    TextButton(onClick = { onOpenUrl(AppUpdateManager.GITHUB_RELEASES_URL) }) {
                         Text(stringResource(R.string.update_open_github))
                     }
                 }
@@ -296,4 +300,50 @@ fun UpdateDialog(
             )
         }
     }
+}
+
+private fun renderMarkdown(text: String): AnnotatedString {
+    val builder = AnnotatedString.Builder()
+    val lines = text.lines()
+    lines.forEachIndexed { index, line ->
+        var trimmed = line.trim()
+        val isBullet = trimmed.startsWith("- ") || trimmed.startsWith("* ")
+        if (isBullet) {
+            builder.append("• ")
+            trimmed = trimmed.substring(2).trim()
+        }
+
+        var i = 0
+        while (i < trimmed.length) {
+            if (trimmed.startsWith("**", i)) {
+                val end = trimmed.indexOf("**", i + 2)
+                if (end != -1) {
+                    val content = trimmed.substring(i + 2, end)
+                    builder.pushStyle(SpanStyle(fontWeight = FontWeight.Bold))
+                    builder.append(content)
+                    builder.pop()
+                    i = end + 2
+                    continue
+                }
+            }
+            if (trimmed[i] == '`') {
+                val end = trimmed.indexOf('`', i + 1)
+                if (end != -1) {
+                    val content = trimmed.substring(i + 1, end)
+                    builder.pushStyle(SpanStyle(fontFamily = FontFamily.Monospace))
+                    builder.append(content)
+                    builder.pop()
+                    i = end + 1
+                    continue
+                }
+            }
+            builder.append(trimmed[i])
+            i++
+        }
+
+        if (index < lines.size - 1) {
+            builder.append("\n")
+        }
+    }
+    return builder.toAnnotatedString()
 }

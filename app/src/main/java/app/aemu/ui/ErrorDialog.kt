@@ -97,7 +97,7 @@ fun ErrorDialog(
                     TextButton(onClick = { showLog = !showLog }) {
                         Text(
                             stringResource(if (showLog) R.string.close else R.string.log),
-                            color = MaterialTheme.colorScheme.error
+                            color = MaterialTheme.colorScheme.primary
                         )
                     }
                     if (showLog) {

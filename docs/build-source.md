@@ -1,6 +1,6 @@
-# Building AEmulator Plus
+# Building AEmulator Pro
 
-Updated 2026-10-11. AEmulator Plus is a modified fork of
+Updated 2026-10-11. AEmulator Pro is a modified fork of
 [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) (itself a fork of
 [uxazu/AEmulator](https://github.com/uxazu/AEmulator)); see [NOTICE.md](../NOTICE.md).
 Replace `<tag>` below with the Plus release tag you want to build.
@@ -17,8 +17,8 @@ bytecode targets Java 17. First-time builds need network access to resolve the
 dependencies pinned in `build.gradle.kts` and `app/build.gradle.kts`.
 
 ```sh
-git clone https://github.com/somerandomusernam2/AEmulator-Plus.git
-cd AEmulator-Plus
+git clone https://github.com/Joakso97/AEmulator-Pro.git
+cd AEmulator-Pro
 git checkout <tag>
 export JAVA_HOME=/path/to/jdk-21
 export ANDROID_HOME=/path/to/Android/Sdk

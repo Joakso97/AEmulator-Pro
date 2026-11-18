@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- создано app/l10n/gen.py, правьте langs/*.py -->
 <resources>
     <string name="add_firmware">Yazılım ekle</string>
     <string name="allow">İzin ver</string>

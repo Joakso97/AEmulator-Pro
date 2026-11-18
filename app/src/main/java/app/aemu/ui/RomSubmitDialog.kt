@@ -8,6 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.ArrowDropDown
 import androidx.compose.material3.*
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -105,7 +106,7 @@ fun SubmitRomDialog(apiBase: String, onDismiss: () -> Unit) {
                             TextButton(onClick = onDismiss, Modifier.fillMaxWidth()) { Text(stringResource(R.string.submit_close)) }
                         }
                         variants == null -> {
-                            if (loadError == null) LinearProgressIndicator(Modifier.fillMaxWidth())
+                            if (loadError == null) Box(Modifier.fillMaxWidth().height(120.dp), contentAlignment = Alignment.Center) { LoadingIndicator(Modifier.size(48.dp)) }
                             else {
                                 Text(stringResource(R.string.submit_categories_failed, loadError.orEmpty()), color = MaterialTheme.colorScheme.error)
                                 TextButton(onClick = { revision++ }) { Text(stringResource(R.string.catalog_retry)) }

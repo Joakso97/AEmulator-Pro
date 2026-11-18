@@ -1,6 +1,6 @@
 # Firmware import format coverage
 
-AEmulator Plus imports firmware into the guest filesystem; it is not a general-purpose file manager. The importer now handles these archive/container paths:
+AEmulator Pro imports firmware into the guest filesystem; it is not a general-purpose file manager. The importer now handles these archive/container paths:
 
 - ZIP and nested ZIP firmware bundles.
 - 7z, including sequential/solid archives. Entries are read through `SevenZFile.read()` while the current entry is active, then nested images/archives are processed after the archive pass.

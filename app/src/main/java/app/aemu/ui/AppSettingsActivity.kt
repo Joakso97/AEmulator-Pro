@@ -76,7 +76,7 @@ import app.aemu.R
 
 
 object Links {
-    const val GITHUB = "https://github.com/somerandomusernam2/AEmulator-Plus"
+    const val GITHUB = "https://github.com/Joakso97/AEmulator-Pro"
     const val AUTHOR = "https://github.com/somerandomusernam2"
     const val SUNSET = "https://github.com/drel4/AEmulator-Sunset"
     const val UPSTREAM = "https://github.com/uxazu/AEmulator"
@@ -95,11 +95,13 @@ class AppSettingsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AemuTheme {
-                AppSettings(
-                    onBack = ::finish,
-                    onRestyle = ::restart,
-                    onLanguage = { languagePicker.launch(Intent(this, LanguageActivity::class.java)) },
-                )
+                TabletRailLayout(TabletRailDestination.SETTINGS) {
+                    AppSettings(
+                        onBack = ::finish,
+                        onRestyle = ::restart,
+                        onLanguage = { languagePicker.launch(Intent(this, LanguageActivity::class.java)) },
+                    )
+                }
             }
         }
     }
@@ -130,7 +132,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
 
     if (accentDialog) {
         ColorPickerDialog(
-            initial = if (accent == 0) Color(0xFFF4511E) else Color(accent),
+            initial = if (accent == 0) Color(0xFF006B56) else Color(accent),
             onDismiss = { accentDialog = false },
             onReset = { accent = 0; AppPrefs.setAccentColor(ctx, 0); accentDialog = false; onRestyle() },
             onApply = { c ->
@@ -225,13 +227,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
                     ) {
                         checkForUpdates()
                     }
-                    Row_(
-                        Icons.Rounded.History,
-                        stringResource(R.string.changelog_title),
-                        "",
-                    ) {
-                        ctx.startActivity(Intent(ctx, ChangelogActivity::class.java))
-                    }
+
                 }
             }
 
@@ -286,7 +282,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
                         trailingContent = {
                             androidx.compose.foundation.layout.Box(Modifier.size(28.dp)
                                 .clip(androidx.compose.foundation.shape.CircleShape)
-                                .background(if (accent == 0) Color(0xFFF4511E) else Color(accent)))
+                                .background(if (accent == 0) Color(0xFF006B56) else Color(accent)))
                         },
                         colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                         modifier = Modifier.clickable { accentDialog = true },

@@ -168,8 +168,8 @@ class Analyzer(private val ctx: Context, private val paths: VmPaths, private val
         
         
         internal fun isTvCharacteristics(line: String?): Boolean {
-            val l = line?.lowercase() ?: return false
-            return "tv" in l && "watch" !in l
+            if (line == null) return false
+            return false
         }
 
         internal fun formFactorSkin(p: Map<String, String>, api: Int): String? {
@@ -178,8 +178,18 @@ class Analyzer(private val ctx: Context, private val paths: VmPaths, private val
             
             
             if (p["ro.product.system.device"]?.trim()?.equals("desktop", ignoreCase = true) == true) return "Desktop"
-            val line = (p["ro.build.characteristics"] ?: return null).lowercase()
-            val tv = "tv" in line
+            val line = listOfNotNull(
+                p["ro.build.characteristics"],
+                p["ro.build.flavor"],
+                p["ro.build.description"],
+                p["ro.product.name"],
+                p["ro.product.device"],
+                p["ro.product.model"],
+                p["ro.product.system.name"],
+                p["ro.product.vendor.name"],
+            ).joinToString(" ").lowercase()
+            if (line.isBlank()) return null
+            val tv = "tv" in line || "atv" in line || "leanback" in line
             val watch = "watch" in line
             return when {
                 tv && watch -> "AOSP"

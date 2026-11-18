@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -85,7 +86,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
 import app.aemu.importer.PartitionChooser
 import app.aemu.importer.PartitionPrompt
 import androidx.compose.runtime.Composable
@@ -114,6 +118,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.aemu.core.GuestImage
@@ -156,13 +161,7 @@ class MainActivity : ComponentActivity() {
         askPermissions()
         handleView(intent)
         
-        onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (app.aemu.core.TabRegistry.live(applicationContext).isNotEmpty()) moveTaskToBack(true)
-                else { isEnabled = false; onBackPressedDispatcher.onBackPressed() }
-            }
-        })
-        setContent { AemuTheme { HomeWithTabs(model) } }
+        setContent { AemuTheme { Library(model) } }
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -211,13 +210,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun HomeWithTabs(model: LibraryModel) {
-    val tabs by rememberVmTabs()
-    val bar = tabs.isNotEmpty()
-    Column(Modifier.fillMaxSize()) {
-        if (bar) VmTabStrip(tabs = tabs, current = null, topInset = true)
-        Box(Modifier.weight(1f).fillMaxWidth()
-            .then(if (bar) Modifier.consumeWindowInsets(WindowInsets.statusBars) else Modifier)) { Library(model) }
-    }
+    Library(model)
 }
 
 @Composable
@@ -225,6 +218,7 @@ fun Library(model: LibraryModel) {
     val images by model.images.collectAsState()
     val imp by model.import.collectAsState()
     val ctx = LocalContext.current
+    val tablet = LocalConfiguration.current.smallestScreenWidthDp >= 600
     val lifecycleOwner = LocalLifecycleOwner.current
     var activeVmIds by remember { mutableStateOf<Set<String>>(emptySet()) }
     LaunchedEffect(lifecycleOwner) {
@@ -255,7 +249,8 @@ fun Library(model: LibraryModel) {
         lifecycleOwner.lifecycle.addObserver(obs)
         onDispose { lifecycleOwner.lifecycle.removeObserver(obs) }
     }
-    val scroll = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    val scroll = if (tablet) TopAppBarDefaults.pinnedScrollBehavior()
+        else TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
     
     val arranger = remember { LibraryArranger(ctx) }
@@ -315,19 +310,30 @@ fun Library(model: LibraryModel) {
     }
 
     Box(Modifier.fillMaxSize()) {
-        Scaffold(
+        Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+            if (tablet) TabletRail()
+            Box(Modifier.weight(1f).fillMaxSize()) {
+            Scaffold(
             modifier = Modifier.nestedScroll(scroll.nestedScrollConnection),
             topBar = {
-                LargeFlexibleTopAppBar(
-                    title = { SunsetTitle() },
-                    actions = {
-                        IconButton(onClick = { ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) }) {
-                            Icon(Icons.Rounded.List, stringResource(R.string.catalog_title))
-                        }
-                        IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
-                        IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) } },
-                    scrollBehavior = scroll,
-                )
+                if (tablet) {
+                    TopAppBar(
+                        title = { SunsetTitle() },
+                        scrollBehavior = scroll,
+                    )
+                } else {
+                    LargeFlexibleTopAppBar(
+                        title = { SunsetTitle() },
+                        actions = {
+                            IconButton(onClick = { ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) }) {
+                                Icon(Icons.Rounded.List, stringResource(R.string.catalog_title))
+                            }
+                            IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
+                            IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) }
+                        },
+                        scrollBehavior = scroll,
+                    )
+                }
             },
             floatingActionButton = {
                 if (!newHome) ExtendedFloatingActionButton(
@@ -338,159 +344,176 @@ fun Library(model: LibraryModel) {
                 )
             },
         ) { pad ->
-            if (images.isEmpty() && !imp.active) {
-                Box(Modifier.fillMaxSize().padding(pad), contentAlignment = Alignment.Center) {
-                    Column(
-                        Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        StorageAccessCard()
-                        Spacer(Modifier.height(16.dp))
-                        EmptyState(onHelp = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) })
-                    }
-                }
-            } else if (newHome) {
-                val full: androidx.compose.foundation.lazy.grid.LazyGridItemSpanScope.() -> androidx.compose.foundation.lazy.grid.GridItemSpan =
-                    { androidx.compose.foundation.lazy.grid.GridItemSpan(maxLineSpan) }
-                val gridState = rememberLazyGridState()
-                val controller = remember(gridState, arranger, drag) { LibraryDragController(drag, gridState.dragHost(), arranger) }
-                LibraryDragAutoScroll(controller)
-                androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
-                    state = gridState,
-                    columns = androidx.compose.foundation.lazy.grid.GridCells.Adaptive(148.dp),
-                    modifier = Modifier.fillMaxSize().padding(pad)
-                        .libraryDragGesture(controller) { haptic.performHapticFeedback(HapticFeedbackType.LongPress) },
-                    contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 120.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                ) {
-                    item(span = full) { StorageAccessCard() }
-                    items(rows.size, key = { rows[it].key },
-                        span = { i -> if (rows[i] is FolderRow) GridItemSpan(maxLineSpan) else GridItemSpan(1) }) { i ->
-                        when (val row = rows[i]) {
-                            is FolderRow -> FolderHeader(
-                                row.folder,
-                                hovered = drag.hoverFolder == row.id,
-                                modifier = (if (drag.key == row.id) Modifier else Modifier.animateItem())
-                                    .libraryDragVisual(controller, row.id, lockX = false),
-                                onToggle = { toggleFolder(row.id) },
-                                onRename = { renameFolderId = row.id },
-                                onDelete = { deleteFolder(row.id) },
-                            )
-                            is RomRow -> {
-                                val img = row.img
-                                MachineCard(
-                                    img,
-                                    baseName = images.firstOrNull { it.id == img.baseId }?.name,
-                                    modifier = (if (drag.key == img.id) Modifier else Modifier.animateItem())
-                                        .libraryDragVisual(controller, img.id, lockX = false)
-                                        .then(if (row.folderId != null) Modifier.border(2.dp, folderEdge, MaterialTheme.shapes.extraLarge) else Modifier),
-                                    active = img.id in activeVmIds,
-                                    onStart = { VmActivity.start(ctx, img.id) },
-                                    onSettings = { settingsFor = img },
-                                    onRename = { renameFor = img },
-                                    onNewMachine = { containerFrom = img },
-                                    onReset = { resetFor = img },
-                                    onDelete = { deleteFor = img },
-                                    onMoveToFolder = { moveFor = img },
-                                )
+            Column(Modifier.fillMaxSize().padding(pad)) {
+                StorageAccessCard()
+                Box(Modifier.weight(1f).fillMaxWidth()) {
+                    if (images.isEmpty() && !imp.active) {
+                        Box(
+                            Modifier.fillMaxSize(),
+                            contentAlignment = if (tablet) Alignment.TopCenter else Alignment.Center,
+                        ) {
+                            Column(
+                                Modifier.fillMaxWidth()
+                                    .then(if (tablet) Modifier.fillMaxHeight() else Modifier.verticalScroll(rememberScrollState()))
+                                    .padding(horizontal = 16.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = if (tablet) Arrangement.Top else Arrangement.Center
+                            ) {
+                                if (tablet) {
+                                    Box(
+                                        Modifier.weight(1f).fillMaxWidth(),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState())) {
+                                            EmptyState(onHelp = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) })
+                                        }
+                                    }
+                                } else {
+                                    Spacer(Modifier.height(16.dp))
+                                    EmptyState(onHelp = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) })
+                                }
                             }
                         }
-                    }
-                }
-            } else {
-                Box(Modifier.fillMaxSize().padding(pad)) {
-                    if (view3d && images.isNotEmpty()) Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())
-                        .padding(start = 16.dp, end = 16.dp, bottom = 120.dp)) {
-                        StorageAccessCard()
-                        if (!imp.active) FirmwareFolderCard(onImport = { f -> model.import(android.net.Uri.fromFile(f)) })
-                        
-                        
-                        val ordered = remember(images) { images.filter { it.baseId.isEmpty() } + images.filter { it.baseId.isNotEmpty() } }
-                        Library3D(
-                            ordered,
-                            activeVmIds,
-                            baseNameOf = { img -> images.firstOrNull { it.id == img.baseId }?.name },
-                            onStart = { img, lowPower -> VmActivity.start(ctx, img.id, lowPower = lowPower) },
-                            onSettings = { settingsFor = it },
-                            onRename = { renameFor = it },
-                            onDelete = { deleteFor = it },
-                        )
-                    } else {
-                        val listState = rememberLazyListState()
-                        
-                        val keepForCard = with(LocalDensity.current) { 88.dp.toPx() }
-                        val controller = remember(listState, arranger, drag, keepForCard) {
-                            LibraryDragController(drag, listState.dragHost(), arranger, keepForCard)
-                        }
+                    } else if (newHome) {
+                        val full: androidx.compose.foundation.lazy.grid.LazyGridItemSpanScope.() -> androidx.compose.foundation.lazy.grid.GridItemSpan =
+                            { androidx.compose.foundation.lazy.grid.GridItemSpan(maxLineSpan) }
+                        val gridState = rememberLazyGridState()
+                        val controller = remember(gridState, arranger, drag) { LibraryDragController(drag, gridState.dragHost(), arranger) }
                         LibraryDragAutoScroll(controller)
-                        
-                        
-                        
-                        androidx.compose.runtime.CompositionLocalProvider(androidx.compose.foundation.LocalOverscrollFactory provides null) {
-                        LazyColumn(
-                            state = listState,
-                            modifier = Modifier.fillMaxSize().clipToBounds()
+                        androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
+                            state = gridState,
+                            columns = androidx.compose.foundation.lazy.grid.GridCells.Adaptive(148.dp),
+                            modifier = Modifier.fillMaxSize()
                                 .libraryDragGesture(controller) { haptic.performHapticFeedback(HapticFeedbackType.LongPress) },
-                            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 120.dp),
+                            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 120.dp),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp),
                         ) {
-                            item { StorageAccessCard() }
-                            item { if (!imp.active) FirmwareFolderCard(onImport = { f -> model.import(android.net.Uri.fromFile(f)) }) }
-                            
-                            items(rows, key = { it.key }) { row ->
-                                when (row) {
-                                    is FolderRow -> Box(
-                                        (if (drag.key == row.id) Modifier else Modifier.animateItem())
-                                            .libraryDragVisual(controller, row.id, lockX = true)
-                                            .padding(bottom = 12.dp),
-                                    ) {
-                                        FolderHeader(
-                                            row.folder,
-                                            hovered = drag.hoverFolder == row.id,
-                                            onToggle = { toggleFolder(row.id) },
-                                            onRename = { renameFolderId = row.id },
-                                            onDelete = { deleteFolder(row.id) },
-                                        )
-                                    }
+                            items(rows.size, key = { rows[it].key },
+                                span = { i -> if (rows[i] is FolderRow) GridItemSpan(maxLineSpan) else GridItemSpan(1) }) { i ->
+                                when (val row = rows[i]) {
+                                    is FolderRow -> FolderHeader(
+                                        row.folder,
+                                        hovered = drag.hoverFolder == row.id,
+                                        modifier = (if (drag.key == row.id) Modifier else Modifier.animateItem())
+                                            .libraryDragVisual(controller, row.id, lockX = false),
+                                        onToggle = { toggleFolder(row.id) },
+                                        onRename = { renameFolderId = row.id },
+                                        onDelete = { deleteFolder(row.id) },
+                                    )
                                     is RomRow -> {
                                         val img = row.img
-                                        Box(
-                                            (if (drag.key == img.id) Modifier else Modifier.animateItem())
-                                                .libraryDragVisual(controller, img.id, lockX = true)
-                                                .padding(start = if (row.folderId != null) 20.dp else 0.dp, bottom = 12.dp),
-                                        ) {
-                                            ImageCard(
-                                                img,
-                                                onStart = { VmActivity.start(ctx, img.id) },
-                                                onSettings = { settingsFor = img },
-                                                onRename = { renameFor = img },
-                                                onDelete = { deleteFor = img },
-                                                onMoveToFolder = { moveFor = img },
-                                                baseName = images.firstOrNull { it.id == img.baseId }?.name,
-                                                active = img.id in activeVmIds,
-                                                modifier = if (row.folderId != null) Modifier.border(2.dp, folderEdge, MaterialTheme.shapes.large) else Modifier,
-                                            )
-                                        }
+                                        MachineCard(
+                                            img,
+                                            baseName = images.firstOrNull { it.id == img.baseId }?.name,
+                                            modifier = (if (drag.key == img.id) Modifier else Modifier.animateItem())
+                                                .libraryDragVisual(controller, img.id, lockX = false)
+                                                .then(if (row.folderId != null) Modifier.border(2.dp, folderEdge, MaterialTheme.shapes.extraLarge) else Modifier),
+                                            active = img.id in activeVmIds,
+                                            onStart = { VmActivity.start(ctx, img.id) },
+                                            onSettings = { settingsFor = img },
+                                            onRename = { renameFor = img },
+                                            onNewMachine = { containerFrom = img },
+                                            onReset = { resetFor = img },
+                                            onDelete = { deleteFor = img },
+                                            onMoveToFolder = { moveFor = img },
+                                        )
                                     }
                                 }
                             }
                         }
+                    } else {
+                        Box(Modifier.fillMaxSize()) {
+                            if (view3d && images.isNotEmpty()) Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())
+                                .padding(start = 16.dp, end = 16.dp, bottom = 120.dp)) {
+                                if (!imp.active) FirmwareFolderCard(onImport = { f -> model.import(android.net.Uri.fromFile(f)) })
+                                
+                                val ordered = remember(images) { images.filter { it.baseId.isEmpty() } + images.filter { it.baseId.isNotEmpty() } }
+                                Library3D(
+                                    ordered,
+                                    activeVmIds,
+                                    baseNameOf = { img -> images.firstOrNull { it.id == img.baseId }?.name },
+                                    onStart = { img, lowPower -> VmActivity.start(ctx, img.id, lowPower = lowPower) },
+                                    onSettings = { settingsFor = it },
+                                    onRename = { renameFor = it },
+                                    onDelete = { deleteFor = it },
+                                )
+                            } else {
+                                val listState = rememberLazyListState()
+                                
+                                val keepForCard = with(LocalDensity.current) { 88.dp.toPx() }
+                                val controller = remember(listState, arranger, drag, keepForCard) {
+                                    LibraryDragController(drag, listState.dragHost(), arranger, keepForCard)
+                                }
+                                LibraryDragAutoScroll(controller)
+                                
+                                androidx.compose.runtime.CompositionLocalProvider(androidx.compose.foundation.LocalOverscrollFactory provides null) {
+                                LazyColumn(
+                                    state = listState,
+                                    modifier = Modifier.fillMaxSize().clipToBounds()
+                                        .libraryDragGesture(controller) { haptic.performHapticFeedback(HapticFeedbackType.LongPress) },
+                                    contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 120.dp),
+                                ) {
+                                    item { if (!imp.active) FirmwareFolderCard(onImport = { f -> model.import(android.net.Uri.fromFile(f)) }) }
+                                    
+                                    items(rows, key = { it.key }) { row ->
+                                        when (row) {
+                                            is FolderRow -> Box(
+                                                (if (drag.key == row.id) Modifier else Modifier.animateItem())
+                                                    .libraryDragVisual(controller, row.id, lockX = true)
+                                                    .padding(bottom = 12.dp),
+                                            ) {
+                                                FolderHeader(
+                                                    row.folder,
+                                                    hovered = drag.hoverFolder == row.id,
+                                                    onToggle = { toggleFolder(row.id) },
+                                                    onRename = { renameFolderId = row.id },
+                                                    onDelete = { deleteFolder(row.id) },
+                                                )
+                                            }
+                                            is RomRow -> {
+                                                val img = row.img
+                                                Box(
+                                                    (if (drag.key == img.id) Modifier else Modifier.animateItem())
+                                                        .libraryDragVisual(controller, img.id, lockX = true)
+                                                        .padding(start = if (row.folderId != null) 20.dp else 0.dp, bottom = 12.dp),
+                                                ) {
+                                                    ImageCard(
+                                                        img,
+                                                        onStart = { VmActivity.start(ctx, img.id) },
+                                                        onSettings = { settingsFor = img },
+                                                        onRename = { renameFor = img },
+                                                        onDelete = { deleteFor = img },
+                                                        onMoveToFolder = { moveFor = img },
+                                                        baseName = images.firstOrNull { it.id == img.baseId }?.name,
+                                                        active = img.id in activeVmIds,
+                                                        modifier = if (row.folderId != null) Modifier.border(2.dp, folderEdge, MaterialTheme.shapes.large) else Modifier,
+                                                    )
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+        }
+        }
 
-        AnimatedVisibility(
+        androidx.compose.animation.AnimatedVisibility(
             visible = newHome && addMenu,
+            modifier = Modifier.fillMaxSize(),
             enter = fadeIn(),
             exit = fadeOut(),
         ) {
             Box(
                 Modifier
                     .fillMaxSize()
-                    .background(androidx.compose.ui.graphics.Color.Black.copy(alpha = 0.32f))
+                    .background(androidx.compose.ui.graphics.Color.Black.copy(alpha = 0.5f))
                     .clickable(
                         interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() },
                         indication = null,
@@ -542,7 +565,7 @@ fun Library(model: LibraryModel) {
                 resetFor = null
                 if (model.vmRunning()) android.widget.Toast.makeText(ctx, R.string.reset_running, android.widget.Toast.LENGTH_LONG).show()
                 else model.resetData(img)
-            }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)) { Text(stringResource(R.string.reset_data)) } },
+            }) { Text(stringResource(R.string.reset_data)) } },
             dismissButton = { TextButton(onClick = { resetFor = null }) { Text(stringResource(R.string.cancel)) } },
         )
     }
@@ -552,8 +575,7 @@ fun Library(model: LibraryModel) {
             icon = { Icon(Icons.Rounded.Delete, null) },
             title = { Text(stringResource(R.string.delete_title, img.name)) },
             text = { Text(stringResource(R.string.delete_text, Formatter.formatShortFileSize(ctx, img.sizeBytes))) },
-            confirmButton = { Button(onClick = { model.delete(img); deleteFor = null },
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)) { Text(stringResource(R.string.delete)) } },
+            confirmButton = { Button(onClick = { model.delete(img); deleteFor = null }) { Text(stringResource(R.string.delete)) } },
             dismissButton = { TextButton(onClick = { deleteFor = null }) { Text(stringResource(R.string.cancel)) } },
         )
     }
@@ -615,6 +637,74 @@ fun Library(model: LibraryModel) {
     )
 }
 
+
+internal enum class TabletRailDestination(val activityClass: Class<out ComponentActivity>) {
+    CATALOG(RomCatalogActivity::class.java),
+    SUPPORTED_FILES(SupportedFirmwareActivity::class.java),
+    SETTINGS(AppSettingsActivity::class.java),
+}
+
+@Composable
+internal fun TabletRailLayout(selected: TabletRailDestination, content: @Composable () -> Unit) {
+    content()
+}
+
+@Composable
+private fun TabletRail(selected: TabletRailDestination? = null) {
+    val ctx = LocalContext.current
+    fun navigateTo(destination: TabletRailDestination) {
+        if (destination != selected) {
+            ctx.startActivity(Intent(ctx, destination.activityClass).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+        }
+    }
+    NavigationRail(
+        modifier = Modifier.fillMaxHeight(),
+        containerColor = androidx.compose.ui.graphics.Color.Transparent,
+    ) {
+        NavigationRailItem(
+            selected = selected == TabletRailDestination.CATALOG,
+            onClick = { navigateTo(TabletRailDestination.CATALOG) },
+            icon = { Icon(Icons.Rounded.List, null) },
+            label = {
+                Text(
+                    stringResource(R.string.catalog_title),
+                    style = MaterialTheme.typography.labelSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+        )
+        NavigationRailItem(
+            selected = selected == TabletRailDestination.SUPPORTED_FILES,
+            onClick = { navigateTo(TabletRailDestination.SUPPORTED_FILES) },
+            icon = { Icon(Icons.Rounded.Info, null) },
+            label = {
+                Text(
+                    stringResource(R.string.help),
+                    style = MaterialTheme.typography.labelSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+        )
+        NavigationRailItem(
+            selected = selected == TabletRailDestination.SETTINGS,
+            onClick = { navigateTo(TabletRailDestination.SETTINGS) },
+            icon = { Icon(Icons.Rounded.Settings, null) },
+            label = {
+                Text(
+                    stringResource(R.string.settings),
+                    style = MaterialTheme.typography.labelSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+        )
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -808,7 +898,7 @@ private fun StorageAccessCard() {
     if (Build.VERSION.SDK_INT < 30) return
     val ctx = LocalContext.current
     var granted by remember { mutableStateOf(android.os.Environment.isExternalStorageManager()) }
-    var dismissed by rememberSaveable { mutableStateOf(false) }
+    var dismissed by remember { mutableStateOf(AppPrefs.storageBannerDismissed(ctx)) }
     val life = androidx.lifecycle.compose.LocalLifecycleOwner.current
     androidx.compose.runtime.DisposableEffect(life) {
         val obs = androidx.lifecycle.LifecycleEventObserver { _, e ->
@@ -822,7 +912,7 @@ private fun StorageAccessCard() {
         enter = fadeIn() + expandVertically(),
         exit = fadeOut() + shrinkVertically()
     ) {
-        Card(modifier = Modifier.padding(bottom = 12.dp), shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
+        Card(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
             Box(Modifier.fillMaxWidth().padding(20.dp)) {
                 Column(Modifier.padding(end = 32.dp)) {
                     Text(stringResource(R.string.storage_title), style = MaterialTheme.typography.titleMedium)
@@ -837,7 +927,10 @@ private fun StorageAccessCard() {
                     }) { Text(stringResource(R.string.allow)) }
                 }
                 IconButton(
-                    onClick = { dismissed = true },
+                    onClick = {
+                        dismissed = true
+                        AppPrefs.setStorageBannerDismissed(ctx, true)
+                    },
                     modifier = Modifier.align(Alignment.TopEnd).size(24.dp)
                 ) {
                     Icon(
@@ -913,11 +1006,7 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
     
     LaunchedEffect(s.log.size, showLog) { if (showLog) logScroll.scrollTo(logScroll.maxValue) }
     AlertDialog(
-        
         onDismissRequest = { if (!s.active) onDismiss() },
-        icon = {
-            Icon(Icons.Rounded.Android, null, tint = MaterialTheme.colorScheme.primary)
-        },
         title = { Text(stringResource(if (s.active) R.string.import_running else R.string.import_done)) },
         text = {
             Column {
@@ -936,12 +1025,9 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
                             Text("${(s.progress * 100).toInt()}%", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
                         }
                     }
-                    if (s.log.isNotEmpty()) {
-                        TextButton(onClick = { showLog = !showLog }) { Text(stringResource(R.string.log)) }
-                        if (showLog) Surface(shape = MaterialTheme.shapes.medium, color = MaterialTheme.colorScheme.surfaceContainerHighest) {
-                            Column(Modifier.fillMaxWidth().height(140.dp).verticalScroll(logScroll).padding(10.dp)) {
-                                s.log.forEach { Text(it, style = MaterialTheme.typography.bodySmall, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) }
-                            }
+                    if (showLog && s.log.isNotEmpty()) Surface(shape = MaterialTheme.shapes.medium, color = MaterialTheme.colorScheme.surfaceContainerHighest) {
+                        Column(Modifier.fillMaxWidth().height(140.dp).verticalScroll(logScroll).padding(10.dp)) {
+                            s.log.forEach { Text(it, style = MaterialTheme.typography.bodySmall, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) }
                         }
                     }
                 } else s.done?.let { done ->
@@ -962,7 +1048,15 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
                 else -> TextButton(onClick = onDismiss) { Text(stringResource(R.string.ok)) }
             }
         },
-        dismissButton = if (s.done != null) ({ TextButton(onClick = onDismiss) { Text(stringResource(R.string.ok)) } }) else null,
+        dismissButton = when {
+            s.active && s.log.isNotEmpty() -> ({
+                TextButton(onClick = { showLog = !showLog }) {
+                    Text(stringResource(if (showLog) R.string.close else R.string.log))
+                }
+            })
+            s.done != null -> ({ TextButton(onClick = onDismiss) { Text(stringResource(R.string.ok)) } })
+            else -> null
+        },
     )
 }
 
