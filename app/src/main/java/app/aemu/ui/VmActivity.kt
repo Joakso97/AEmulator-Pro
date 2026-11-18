@@ -817,7 +817,7 @@ open class VmActivity : ComponentActivity() {
         }
     }
 
-    private enum class Dlg { NONE, SMS, CALL, WEA, BATTERY, ADB, SHELL, DEVICE, THERMAL, NETDEBUG }
+    private enum class Dlg { NONE, SMS, CALL, WEA, BATTERY, SHELL, DEVICE, THERMAL, NETDEBUG }
 
     
     private var menuOffset by mutableStateOf(Offset.Zero)
@@ -1236,28 +1236,7 @@ open class VmActivity : ComponentActivity() {
             confirmButton = { Button(onClick = onDone) { Text(stringResource(R.string.close)) } })
     }
 
-    @Composable
-    private fun AdbDialog(onDone: () -> Unit) {
-        var on by remember { mutableStateOf(vm.adb.running) }
-        AlertDialog(onDismissRequest = onDone,
-            title = { Text(stringResource(R.string.m_adb)) },
-            text = {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(stringResource(R.string.m_adb_enable), Modifier.weight(1f))
-                        Switch(on, { v -> if (v) vm.adb.start() else vm.adb.stop(); on = vm.adb.running })
-                    }
-                    if (on) {
-                        val ips = app.aemu.core.AdbServer.addresses()
-                        for (ip in ips.ifEmpty { listOf("127.0.0.1") })
-                            Text("adb connect $ip:${vm.adb.port}", style = MaterialTheme.typography.bodyLarge,
-                                fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
-                    }
-                    Text(stringResource(R.string.m_adb_hint), style = MaterialTheme.typography.bodySmall)
-                }
-            },
-            confirmButton = { Button(onClick = onDone) { Text(stringResource(R.string.close)) } })
-    }
+
 
     @Composable
     private fun ShellDialog(onDone: () -> Unit) {
@@ -1508,7 +1487,7 @@ open class VmActivity : ComponentActivity() {
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_netdebug)) }, leadingIcon = { Icon(Icons.Rounded.Lan, null) },
                         enabled = vm.settings.netDebug, onClick = { menu = false; dialog = Dlg.NETDEBUG })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_adb)) }, leadingIcon = { Icon(Icons.Rounded.Lan, null) },
-                        enabled = adbReady, onClick = { menu = false; dialog = Dlg.ADB })
+                        enabled = adbReady, onClick = { menu = false; startActivity(Intent(this@VmActivity, AdbActivity::class.java)) })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_shell)) }, leadingIcon = { Icon(Icons.Rounded.Terminal, null) },
                         enabled = adbReady, onClick = { menu = false; dialog = Dlg.SHELL })
                     if (guest.autoPages) {
@@ -1553,7 +1532,6 @@ open class VmActivity : ComponentActivity() {
                 Dlg.CALL -> CallDialog { dialog = Dlg.NONE }
                 Dlg.WEA -> WeaDialog { dialog = Dlg.NONE }
                 Dlg.BATTERY -> BatteryDialog { dialog = Dlg.NONE }
-                Dlg.ADB -> AdbDialog { dialog = Dlg.NONE }
                 Dlg.SHELL -> ShellDialog { dialog = Dlg.NONE }
                 Dlg.DEVICE -> DeviceDialog { dialog = Dlg.NONE }
                 Dlg.THERMAL -> ThermalDialog(vm.img) { dialog = Dlg.NONE }

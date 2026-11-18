@@ -95,6 +95,12 @@
             android:parentActivityName=".ui.MainActivity" />
 
         <activity
+            android:name=".ui.AdbActivity"
+            android:exported="false"
+            android:process=":vm"
+            android:parentActivityName=".ui.VmActivity" />
+
+        <activity
             android:name=".ui.VmActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|density|uiMode|navigation"
             android:exported="false"
