@@ -12,7 +12,7 @@
 
 ---
 
-AEmulator Pro boots a real Android 1.0–17 system image straight from a firmware file you already have. It translates the old ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack — everything runs inside a normal app. This project was made almost entirely with Claude Sonnet 5.5 (and the original emulator with Opus 5.5).
+AEmulator Pro boots a real Android 1.0–17 system image straight from a firmware file you already have. It translates legacy ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack — everything runs inside a normal app.
 
 ## Features
 
