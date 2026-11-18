@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="../../docs/assets/logo.png" width="128" alt="AEmulator Pro logo"/>
+<img src="../../docs/assets/logo-rounded.png" width="128" alt="AEmulator Pro logo"/>
 
 # AEmulator Pro
 

@@ -35,7 +35,7 @@ def render(code):
     if code in RTL:
         L.append('<div dir="rtl">\n')
     L.append('<div align="center">\n')
-    L.append(f'<img src="{up}docs/assets/logo.png" width="128" alt="{BRAND} logo"/>\n')
+    L.append(f'<img src="{up}docs/assets/logo-rounded.png" width="128" alt="{BRAND} logo"/>\n')
     L.append(f"# {BRAND}\n")
     L.append(f"**{t['tagline']}**\n")
     L.append(" · ".join(
