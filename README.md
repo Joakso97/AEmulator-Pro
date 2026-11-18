@@ -52,6 +52,8 @@ cd AEmulator-Pro
 
 AEmulator Pro grew out of the HTC Desire HD and HTC One M7 emulators by [the original author](https://t.me/istratiit_ech) — their engine made this project possible.
 
+This fork is maintained by [Joakso97](https://github.com/Joakso97), who added the extra features and fixes.
+
 This is a modified fork of [uxazu/AEmulator](https://github.com/uxazu/AEmulator), which additionally uses many features from [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset).
 ## Links
 

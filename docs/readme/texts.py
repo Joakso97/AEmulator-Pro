@@ -33,7 +33,7 @@ T["en"] = dict(
     how_title="How it works",
     how_text="Each guest process runs under a patched user-mode QEMU. A binder daemon replaces the kernel driver, a GL bridge forwards OpenGL ES calls to the phone’s GPU, and small guest libraries (audio HAL, audio policy wrapper, LD_PRELOAD shim) adapt vendor code to the emulator. The importer reads the firmware, finds the init scripts in its boot image and builds a start plan for system services.",
     credits_title="Credits",
-    credits_text="AEmulator grew out of the HTC Desire HD and HTC One M7 emulators by [the original author]({orig}) — their engine made this project possible.",
+    credits_text="AEmulator grew out of the HTC Desire HD and HTC One M7 emulators by [the original author]({orig}) — their engine made this project possible. This fork is maintained by [Joakso97](https://github.com/Joakso97), who added the extra features and fixes.",
     links_title="Links",
     l_site="Website", l_channel="Telegram channel", l_author="Author", l_orig="Original author",
     license_title="License",
