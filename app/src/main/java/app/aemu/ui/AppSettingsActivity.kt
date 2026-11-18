@@ -132,7 +132,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
 
     if (accentDialog) {
         ColorPickerDialog(
-            initial = if (accent == 0) Color(0xFF006B56) else Color(accent),
+            initial = if (accent == 0) Color(0xFF0061A4) else Color(accent),
             onDismiss = { accentDialog = false },
             onReset = { accent = 0; AppPrefs.setAccentColor(ctx, 0); accentDialog = false; onRestyle() },
             onApply = { c ->
@@ -282,7 +282,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
                         trailingContent = {
                             androidx.compose.foundation.layout.Box(Modifier.size(28.dp)
                                 .clip(androidx.compose.foundation.shape.CircleShape)
-                                .background(if (accent == 0) Color(0xFF006B56) else Color(accent)))
+                                .background(if (accent == 0) Color(0xFF0061A4) else Color(accent)))
                         },
                         colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                         modifier = Modifier.clickable { accentDialog = true },

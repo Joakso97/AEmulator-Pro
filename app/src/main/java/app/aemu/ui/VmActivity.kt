@@ -1833,8 +1833,8 @@ open class VmActivity : ComponentActivity() {
             }
         }
         val list = if (guestTab) guestLines else logLines
-        AemuTheme(forceDark = true) {
-            Surface(Modifier.fillMaxSize(), color = Color(0xFF101410), contentColor = Color(0xFFE2E3DD)) {
+        AemuTheme {
+            Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.surface, contentColor = MaterialTheme.colorScheme.onSurface) {
                 Column(Modifier.statusBarsPadding().navigationBarsPadding().imePadding().padding(12.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(stringResource(R.string.log), style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f),
@@ -1859,7 +1859,7 @@ open class VmActivity : ComponentActivity() {
                     LaunchedEffect(list.size) { if (list.isNotEmpty()) st.scrollToItem(list.size - 1) }
                     SelectionContainer {
                         LazyColumn(state = st, modifier = Modifier.fillMaxSize()) {
-                            items(list) { Text(it, style = Mono, color = Color(0xFFCFE8CF)) }
+                            items(list) { Text(it, style = Mono, color = MaterialTheme.colorScheme.onSurface) }
                         }
                     }
                 }
