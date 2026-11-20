@@ -2,18 +2,14 @@
 package app.aemu.ui
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -42,41 +38,55 @@ internal fun SimSection(img: GuestImage, s: VmSettings, set: (VmSettings) -> Uni
     
     val apns = remember(img.id) { SimCards.apnOperators(VmPaths(ctx, img.id).root) }
     Text(stringResource(R.string.vs_sim_title), style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(top = 8.dp))
-    SimFields(stringResource(R.string.vs_sim_present), s.sim, apns) { set(s.copy(sim = it)) }
-    Toggle(stringResource(R.string.vs_dual_sim), stringResource(R.string.vs_dual_sim_sub), s.dualSim) { set(s.copy(dualSim = it)) }
-    if (s.dualSim) SimFields(stringResource(R.string.vs_sim2_present), s.sim2, apns) { set(s.copy(sim2 = it)) }
+    SimFields(stringResource(R.string.vs_sim_present), s.sim, apns, { set(s.copy(sim = it)) },
+        afterPresent = {
+            Toggle(stringResource(R.string.vs_dual_sim), stringResource(R.string.vs_dual_sim_sub), s.dualSim) { set(s.copy(dualSim = it)) }
+        })
+    if (s.dualSim) SimFields(stringResource(R.string.vs_sim2_present), s.sim2, apns, set = { set(s.copy(sim2 = it)) })
 }
 
 @Composable
-private fun SimFields(title: String, sim: SimCard, apns: Set<Pair<String, String>>, set: (SimCard) -> Unit) {
+private fun SimFields(
+    title: String,
+    sim: SimCard,
+    apns: Set<Pair<String, String>>,
+    set: (SimCard) -> Unit,
+    afterPresent: @Composable () -> Unit = {},
+) {
     Toggle(title, stringResource(R.string.vs_sim_present_sub), sim.present) { set(sim.copy(present = it)) }
+    afterPresent()
     if (!sim.present) return
     OperatorPicker(sim, apns) { p ->
         set(if (p == null) sim.copy(operator = "", mcc = "", mnc = "") else sim.copy(operator = p.name, mcc = p.mcc, mnc = p.mnc))
     }
-    OutlinedTextField(value = sim.operator, onValueChange = { set(sim.copy(operator = SimCard.cleanOperator(it))) },
-        label = { Text(stringResource(R.string.vs_sim_name)) }, placeholder = { Text(SimCard.DEFAULT_OPERATOR) }, singleLine = true,
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+    EditableSetting(
+        label = stringResource(R.string.vs_sim_name),
+        value = sim.operator,
+        placeholder = SimCard.DEFAULT_OPERATOR,
+        sanitize = { SimCard.cleanOperator(it) },
+    ) { set(sim.copy(operator = it)) }
     val partial = (sim.mcc.isNotEmpty() || sim.mnc.isNotEmpty()) && !SimCard.codeValid(sim.mcc, sim.mnc)
     val noApn = SimCard.codeValid(sim.mcc, sim.mnc) && apns.isNotEmpty() && (sim.mcc to sim.mnc) !in apns
-    Row(Modifier.fillMaxWidth()) {
-        OutlinedTextField(value = sim.mcc, onValueChange = { set(sim.copy(mcc = SimCard.cleanMcc(it))) },
-            label = { Text("MCC") }, singleLine = true, isError = partial,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), modifier = Modifier.weight(1f))
-        Spacer(Modifier.width(8.dp))
-        OutlinedTextField(value = sim.mnc, onValueChange = { set(sim.copy(mnc = SimCard.cleanMnc(it))) },
-            label = { Text("MNC") }, singleLine = true, isError = partial,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), modifier = Modifier.weight(1f))
-    }
+    EditableSetting("MCC", sim.mcc,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        sanitize = { SimCard.cleanMcc(it) },
+    ) { set(sim.copy(mcc = it)) }
+    EditableSetting("MNC", sim.mnc,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        sanitize = { SimCard.cleanMnc(it) },
+    ) { set(sim.copy(mnc = it)) }
     when {
         partial -> Text(stringResource(R.string.vs_sim_code_error), color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
         noApn -> Text(stringResource(R.string.vs_sim_no_apn), color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
     }
-    OutlinedTextField(value = sim.number, onValueChange = { set(sim.copy(number = SimCard.cleanNumber(it))) },
-        label = { Text(stringResource(R.string.vs_sim_number)) }, placeholder = { Text("+351912345678") }, singleLine = true,
-        supportingText = { Text(stringResource(R.string.vs_sim_number_sub)) },
+    EditableSetting(
+        label = stringResource(R.string.vs_sim_number),
+        value = sim.number,
+        placeholder = "+351912345678",
+        supportingText = stringResource(R.string.vs_sim_number_sub),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+        sanitize = { SimCard.cleanNumber(it) },
+    ) { set(sim.copy(number = it)) }
 }
 
 

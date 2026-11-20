@@ -287,66 +287,63 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
                     }
                 )
             }
-            OutlinedTextField(value = s.kernel, onValueChange = { v -> s = s.copy(kernel = VmSettings.cleanKernel(v)) },
-                label = { Text(stringResource(R.string.vs_kernel)) }, placeholder = { Text(VmSettings.DEFAULT_KERNEL) },
-                supportingText = { Text(stringResource(R.string.vs_kernel_sub)) }, singleLine = true,
-                modifier = Modifier.fillMaxWidth().padding(top = 4.dp))
-            Text(stringResource(R.string.vs_kernel_build), style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(top = 8.dp))
-            Text(stringResource(R.string.vs_kernel_build_sub), style = MaterialTheme.typography.bodySmall)
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth().padding(top = 4.dp)) {
-                OutlinedTextField(value = s.kernelBranch, onValueChange = { v -> s = s.copy(kernelBranch = VmSettings.cleanToken(v, VmSettings.TOKEN_MAX)) },
-                    label = { Text(stringResource(R.string.vs_kernel_branch), maxLines = 1) }, placeholder = { Text("master") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-                OutlinedTextField(value = s.kernelCommit, onValueChange = { v -> s = s.copy(kernelCommit = VmSettings.cleanToken(v, 40)) },
-                    label = { Text(stringResource(R.string.vs_kernel_commit), maxLines = 1) }, placeholder = { Text("1a2b3c4d") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
+            val kernelPreview = stringResource(R.string.vs_kernel_preview) + " " + VmSettings.procVersion(s).trim()
+            val previewExtra: @Composable (String, (String) -> Unit) -> Unit = { _, _ ->
+                Text(kernelPreview, style = MaterialTheme.typography.bodySmall, modifier = Modifier.fillMaxWidth())
             }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth().padding(top = 4.dp)) {
-                OutlinedTextField(value = s.kernelUser, onValueChange = { v -> s = s.copy(kernelUser = VmSettings.cleanToken(v, VmSettings.TOKEN_MAX)) },
-                    label = { Text(stringResource(R.string.vs_kernel_user), maxLines = 1) }, placeholder = { Text("aemu") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-                OutlinedTextField(value = s.kernelHost, onValueChange = { v -> s = s.copy(kernelHost = VmSettings.cleanToken(v, 64)) },
-                    label = { Text(stringResource(R.string.vs_kernel_host), maxLines = 1) }, placeholder = { Text("aemu") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth().padding(top = 4.dp)) {
-                OutlinedTextField(value = s.kernelBuild, onValueChange = { v -> s = s.copy(kernelBuild = v.filter { it in '0'..'9' }.take(6)) },
-                    label = { Text(stringResource(R.string.vs_kernel_number), maxLines = 1) }, placeholder = { Text("1") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-                OutlinedTextField(value = s.kernelFlags, onValueChange = { v -> s = s.copy(kernelFlags = VmSettings.cleanText(v, 40)) },
-                    label = { Text(stringResource(R.string.vs_kernel_flags), maxLines = 1) }, placeholder = { Text("SMP PREEMPT") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth().padding(top = 4.dp)) {
-                OutlinedTextField(value = s.kernelCompiler, onValueChange = { v -> s = s.copy(kernelCompiler = VmSettings.cleanCompiler(v)) },
-                    label = { Text(stringResource(R.string.vs_kernel_compiler), maxLines = 1) }, placeholder = { Text("gcc version 4.6") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-                OutlinedTextField(value = s.kernelDate, onValueChange = { v -> s = s.copy(kernelDate = VmSettings.cleanText(v, 40)) },
-                    label = { Text(stringResource(R.string.vs_kernel_date), maxLines = 1) }, placeholder = { Text("Thu Jan 1 00:00:00 UTC 2026") }, singleLine = true,
-                    modifier = Modifier.weight(1f))
-            }
-            Text(stringResource(R.string.vs_kernel_preview) + " " + VmSettings.procVersion(s).trim(), style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 4.dp))
+            EditableSetting(
+                label = stringResource(R.string.vs_kernel),
+                value = s.kernel,
+                placeholder = VmSettings.DEFAULT_KERNEL,
+                supportingText = stringResource(R.string.vs_kernel_sub),
+                sanitize = { VmSettings.cleanKernel(it) },
+            ) { s = s.copy(kernel = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_branch), s.kernelBranch, "master",
+                sanitize = { VmSettings.cleanToken(it, VmSettings.TOKEN_MAX) }) { s = s.copy(kernelBranch = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_commit), s.kernelCommit, "1a2b3c4d",
+                sanitize = { VmSettings.cleanToken(it, 40) }) { s = s.copy(kernelCommit = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_user), s.kernelUser, "aemu",
+                sanitize = { VmSettings.cleanToken(it, VmSettings.TOKEN_MAX) }) { s = s.copy(kernelUser = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_host), s.kernelHost, "aemu",
+                sanitize = { VmSettings.cleanToken(it, 64) }) { s = s.copy(kernelHost = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_number), s.kernelBuild, "1",
+                sanitize = { it.filter { c -> c in '0'..'9' }.take(6) }) { s = s.copy(kernelBuild = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_flags), s.kernelFlags, "SMP PREEMPT",
+                sanitize = { VmSettings.cleanText(it, 40) }) { s = s.copy(kernelFlags = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_compiler), s.kernelCompiler, "gcc version 4.6",
+                sanitize = { VmSettings.cleanCompiler(it) }) { s = s.copy(kernelCompiler = it) }
+            EditableSetting(stringResource(R.string.vs_kernel_date), s.kernelDate, "Thu Jan 1 00:00:00 UTC 2026",
+                sanitize = { VmSettings.cleanText(it, 40) }, dialogExtra = previewExtra) { s = s.copy(kernelDate = it) }
 
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_device_id), style = MaterialTheme.typography.titleMedium)
-            OutlinedTextField(value = s.serial, onValueChange = { v -> s = s.copy(serial = VmSettings.cleanSerial(v)) },
-                label = { Text(stringResource(R.string.vs_serial)) }, placeholder = { Text(VmSettings.DEFAULT_SERIAL) },
-                supportingText = { Text(stringResource(R.string.vs_serial_sub)) }, singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii), modifier = Modifier.fillMaxWidth().padding(top = 4.dp))
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                TextButton(onClick = { s = s.copy(serial = VmSettings.randomSerial()) }) { Text(stringResource(R.string.vs_random)) }
-            }
+            EditableSetting(
+                label = stringResource(R.string.vs_serial),
+                value = s.serial,
+                placeholder = VmSettings.DEFAULT_SERIAL,
+                supportingText = stringResource(R.string.vs_serial_sub),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii),
+                sanitize = { VmSettings.cleanSerial(it) },
+                dialogExtra = { _, update ->
+                    TextButton(onClick = { update(VmSettings.randomSerial()) }) { Text(stringResource(R.string.vs_random)) }
+                },
+            ) { s = s.copy(serial = it) }
             Spacer(Modifier.height(4.dp))
 
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_advanced), style = MaterialTheme.typography.titleMedium)
-            OutlinedTextField(value = s.qemuArgs, onValueChange = { s = s.copy(qemuArgs = it) },
-                label = { Text(stringResource(R.string.vs_qemu_args)) }, supportingText = { Text(stringResource(R.string.vs_qemu_args_sub)) },
-                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
-            OutlinedTextField(value = s.straceServices, onValueChange = { s = s.copy(straceServices = it) },
-                label = { Text(stringResource(R.string.vs_strace)) }, placeholder = { Text("mediaserver,zygote") },
-                supportingText = { Text(stringResource(R.string.vs_strace_sub)) }, singleLine = true,
-                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+            EditableSetting(
+                label = stringResource(R.string.vs_qemu_args),
+                value = s.qemuArgs,
+                supportingText = stringResource(R.string.vs_qemu_args_sub),
+                singleLine = false,
+            ) { s = s.copy(qemuArgs = it) }
+            EditableSetting(
+                label = stringResource(R.string.vs_strace),
+                value = s.straceServices,
+                placeholder = "mediaserver,zygote",
+                supportingText = stringResource(R.string.vs_strace_sub),
+            ) { s = s.copy(straceServices = it) }
             HardwarePicker(s.hardware) { s = s.copy(hardware = it) }
 
             Spacer(Modifier.height(8.dp))
@@ -542,22 +539,27 @@ private fun NetworkTypePicker(tech: Int, api: Int, cdma: Boolean, lteOnCdma: Boo
 
 @Composable
 private fun HardwarePicker(value: String, set: (String) -> Unit) {
-    var open by remember { mutableStateOf(false) }
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-        OutlinedTextField(value = value, onValueChange = { set(VmSettings.cleanHardware(it)) },
-            label = { Text(stringResource(R.string.vs_hardware)) }, placeholder = { Text(stringResource(R.string.vs_hardware_default)) },
-            supportingText = { Text(stringResource(R.string.vs_hardware_sub)) }, singleLine = true,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii), modifier = Modifier.weight(1f))
-        Box {
-            TextButton(onClick = { open = true }) { Text(stringResource(R.string.vs_hardware_pick)) }
-            DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-                DropdownMenuItem(text = { Text(stringResource(R.string.vs_hardware_default)) }, onClick = { open = false; set("") })
-                VmSettings.HARDWARE_PRESETS.forEach { hw ->
-                    DropdownMenuItem(text = { Text(hw) }, onClick = { open = false; set(hw) })
+    EditableSetting(
+        label = stringResource(R.string.vs_hardware),
+        value = value,
+        placeholder = stringResource(R.string.vs_hardware_default),
+        supportingText = stringResource(R.string.vs_hardware_sub),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii),
+        sanitize = { VmSettings.cleanHardware(it) },
+        dialogExtra = { _, update ->
+            var open by remember { mutableStateOf(false) }
+            Box {
+                TextButton(onClick = { open = true }) { Text(stringResource(R.string.vs_hardware_pick)) }
+                DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+                    DropdownMenuItem(text = { Text(stringResource(R.string.vs_hardware_default)) }, onClick = { open = false; update("") })
+                    VmSettings.HARDWARE_PRESETS.forEach { hw ->
+                        DropdownMenuItem(text = { Text(hw) }, onClick = { open = false; update(hw) })
+                    }
                 }
             }
-        }
-    }
+        },
+        onSave = set,
+    )
 }
 
 @Composable

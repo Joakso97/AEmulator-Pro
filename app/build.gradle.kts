@@ -59,8 +59,8 @@ android {
          
         //noinspection ExpiredTargetSdkVersion
         targetSdk = 28
-        versionCode = 326
-        versionName = "0.0.0.3.26"  
+        versionCode = 327
+        versionName = "0.0.0.3.27"  
         ndk { abiFilters += listOf("arm64-v8a") }
     }
 
