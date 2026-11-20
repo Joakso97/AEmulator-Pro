@@ -216,11 +216,11 @@
     <string name="lib3d_spec_screen">Экран</string>
     <string name="lib3d_spec_size">Өлчөмү</string>
     <string name="lib3d_spec_model">Модель</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Жогорку агым: %1$s</string>
     <string name="as_original_row">Баштапкы: %1$s</string>
     <string name="sms_default_body">AEmulator’дон салам</string>
     <string name="theme_original">Баштапкы</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Күндүн батышы</string>
     <string name="sim_country_emulator">Эмулятор</string>
     <string name="catalog_err_invalid_url">Каталог URL дареги жараксыз</string>
     <string name="catalog_err_too_many_redirects">Багыттоолор өтө көп</string>

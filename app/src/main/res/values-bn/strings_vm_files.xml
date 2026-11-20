@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vmf_browse">ভিএম ফাইল ব্রাউজ করুন</string>
+
+    <string name="vmf_unreadable">এই ফোল্ডার পড়া যাবে না.</string>
+    <string name="vmf_readonly_folder">শুধুমাত্র-পঠন: এই ফোল্ডারটি VM এর নিজস্ব ফাইলের অংশ নয়। আপনি দেখতে এবং অনুলিপি করতে পারেন, পরিবর্তন না.</string>
+    <string name="vmf_link">লিঙ্ক</string>
+    <string name="vmf_no_folders">এখানে কোনো ফোল্ডার নেই</string>
+
+    <string name="vmf_preview_failed">এই ফাইল পড়া যাবে না.</string>
+    <string name="vmf_preview_truncated">%2$s এর প্রথম %1$s দেখানো হচ্ছে</string>
+
+    <string name="vmf_copy">কপি</string>
+    <string name="vmf_copy_to">এতে কপি করুন</string>
+    <string name="vmf_copy_to_vm">এই ভিএম-এ আরেকটি জায়গা</string>
+    <string name="vmf_copy_to_device">VM এর বাইরে (ডিভাইস স্টোরেজ)</string>
+    <string name="vmf_copy_here">এখানে কপি করুন</string>
+    <string name="vmf_new_folder">নতুন ফোল্ডার</string>
+    <string name="vmf_folder_name">ফোল্ডারের নাম</string>
+    <string name="vmf_create">তৈরি করুন</string>
+    <string name="vmf_error_desc">অপারেশন সম্পন্ন করা যায়নি। আবার চেষ্টা করুন</string>
+    <string name="vmf_new_name">নতুন নাম</string>
+
+    <string name="vmf_delete_one">\\\"%1$s\\\" মুছবেন? এটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
+    <string name="vmf_delete_many">%1$d আইটেম মুছবেন? এটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
+    <string name="vmf_delete_core">এটি VM এর একটি মূল অংশ (একটি পার্টিশন বা একটি চিত্র)। এটি ছাড়া VM আর শুরু হতে পারে না।</string>
+
+    <string name="vmf_working_copy">অনুলিপি করা হচ্ছে...</string>
+    <string name="vmf_working_delete">মুছে ফেলা হচ্ছে...</string>
+    <string name="vmf_working_rename">নাম পরিবর্তন করা হচ্ছে...</string>
+    <string name="vmf_result_copied">অনুলিপি করা হয়েছে: %1$d</string>
+    <string name="vmf_result_copied_skipped">অনুলিপি করা হয়েছে: %1$d। বাদ দেওয়া হয়েছে: %2$d (ভিএম, সকেট এবং এর মতো বাইরের লিঙ্ক)।</string>
+    <string name="vmf_result_deleted">মুছে ফেলা হয়েছে: %1$d</string>
+    <string name="vmf_failed">ব্যর্থ হয়েছে: %1$s</string>
+
+    <string name="vmf_readonly">এই আইটেমটি VM এর নিজস্ব ফাইলের অংশ নয়, তাই এটি এখানে পরিবর্তন করা যাবে না।</string>
+    <string name="vmf_protected">এটি VM-এর নিজস্ব বইয়ের অংশ এবং এখানে পরিবর্তন করা যাবে না।</string>
+    <string name="vmf_bad_name">সেই নাম অনুমোদিত নয়।</string>
+    <string name="vmf_exists">এই নামের একটি আইটেম ইতিমধ্যেই বিদ্যমান৷</string>
+    <string name="vmf_no_space">পর্যাপ্ত খালি জায়গা নেই।</string>
+</resources>

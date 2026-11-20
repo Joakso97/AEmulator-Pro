@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">Importar partición</string>
+    <string name="vm_import_partition_working">Leyendo la partición %1$s… Detenga todas las máquinas virtuales antes de importar.</string>
+    <string name="vm_import_partition_done">%1$s partición importada y montada. El sistema y los datos no cambian.</string>
+    <string name="vm_import_partition_exists">Esta VM ya tiene una partición %1$s.</string>
+    <string name="vm_import_partition_conflict">El diseño de la carpeta de la VM no permite esta partición.</string>
+    <string name="vm_import_partition_unsupported">No se puede importar una imagen %1$s con esta opción.</string>
+    <string name="vm_import_partition_which">¿Qué partición es esta?</string>
+    <string name="vm_import_partition_which_info">El nombre del archivo no dice lo que contiene. Elige la partición.</string>
+    <string name="vm_import_partition_have">%1$s (ya en esta VM)</string>
+    <string name="vm_import_partition_headline">Importar una imagen de partición a esta VM</string>
+    <string name="vm_import_partition_sub">Arranque, recuperación (stock, TWRP, OrangeFox o CWM), OEM, proveedor, odm, producto o system_ext. El tipo se lee del archivo; se te pregunta cuando no puede ser. Sólo la recuperación reemplaza a la existente; el resto de la VM no cambia. Reinicie para recuperarse desde el menú ⋮.</string>
+    <string name="vm_import_partition_button">Importar…</string>
+    <string name="vm_import_recovery_done">Recuperación importada. Reinicie para recuperarse desde el menú ⋮ para usarlo.</string>
+</resources>

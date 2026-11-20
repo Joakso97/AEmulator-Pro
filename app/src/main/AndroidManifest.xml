@@ -91,9 +91,6 @@
             android:exported="false"
             android:parentActivityName=".ui.MainActivity" />
 
-        <activity android:name=".ui.RomCatalogActivity" android:exported="false"
-            android:parentActivityName=".ui.MainActivity" />
-
         <activity
             android:name=".ui.AdbActivity"
             android:exported="false"

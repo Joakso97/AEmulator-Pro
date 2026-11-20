@@ -18,7 +18,7 @@
     <string name="nav_left">D-pad αριστερά</string>
     <string name="nav_right">D-pad δεξιά</string>
     <string name="nav_center">D-pad κέντρο</string>
-    <string name="nav_trackball">Trackball</string>
+    <string name="nav_trackball">Τρακμπολ</string>
     <string name="nav_trackball_sub">Σύρετε στον κύκλο πάνω από τη γραμμή πλοήγησης για κύλιση· πατήστε για επιλογή.</string>
     <string name="nav_dpad_mode">Λειτουργία πλήκτρων βελών</string>
     <string name="nav_dpad_sub">Ανενεργή: πραγματικά σχετικά συμβάντα trackball για τις εφαρμογές επισκέπτη. Ενεργή: πατήματα πλήκτρων D-pad. Δεν στέλνει και τα δύο.</string>

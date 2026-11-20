@@ -208,11 +208,11 @@
     <string name="lib3d_spec_screen">Näyttö</string>
     <string name="lib3d_spec_size">Koko</string>
     <string name="lib3d_spec_model">Malli</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Ylävirtaan: %1$s</string>
     <string name="as_original_row">Alkuperäinen: %1$s</string>
     <string name="sms_default_body">Terveisiä AEmulatorista</string>
     <string name="theme_original">Alkuperäinen</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Auringonlasku</string>
     <string name="sim_country_emulator">Emulaattori</string>
     <string name="catalog_err_invalid_url">Virheellinen luettelon URL</string>
     <string name="catalog_err_too_many_redirects">Liian monta uudelleenohjausta</string>

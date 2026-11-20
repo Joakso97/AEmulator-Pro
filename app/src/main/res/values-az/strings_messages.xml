@@ -212,7 +212,7 @@
     <string name="as_original_row">Orijinal: %1$s</string>
     <string name="sms_default_body">AEmulator-dan salam</string>
     <string name="theme_original">Orijinal</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Gün batımı</string>
     <string name="sim_country_emulator">Emulyator</string>
     <string name="catalog_err_invalid_url">Yanlış kataloq URL-i</string>
     <string name="catalog_err_too_many_redirects">Həddindən artıq yönləndirmə</string>

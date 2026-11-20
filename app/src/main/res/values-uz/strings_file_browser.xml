@@ -16,7 +16,7 @@
     <string name="fb_hidden">Yashirin</string>
     <string name="fb_selected">%1$d ta tanlandi</string>
     <string name="fb_clear">Tozalash</string>
-    <string name="fb_import">Import</string>
+    <string name="fb_import">import</string>
     <string name="fb_empty">Bu yerda hech narsa yoʻq</string>
     <string name="fb_unreadable">Bu jildni oʻqib boʻlmaydi. Android baʼzi jildlarni (masalan, boshqa ilovalar maʼlumotlarini) barcha ilovalar uchun yopiq saqlaydi.</string>
     <string name="fb_access_title">Fayllarga kirishga ruxsat berish</string>

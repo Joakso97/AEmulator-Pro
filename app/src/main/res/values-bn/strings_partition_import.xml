@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">বিভাজন আমদানি করুন</string>
+    <string name="vm_import_partition_working">%1$s পার্টিশন পড়া হচ্ছে... আমদানি করার আগে সব VM বন্ধ করুন।</string>
+    <string name="vm_import_partition_done">%1$s পার্টিশন আমদানি করা এবং মাউন্ট করা হয়েছে। সিস্টেম এবং ডেটা অপরিবর্তিত।</string>
+    <string name="vm_import_partition_exists">এই VM এর ইতিমধ্যেই একটি %1$s পার্টিশন রয়েছে।</string>
+    <string name="vm_import_partition_conflict">VM এর ফোল্ডার লেআউট এই পার্টিশনের অনুমতি দেয় না।</string>
+    <string name="vm_import_partition_unsupported">এই বিকল্পের সাথে একটি %1$s ছবি আমদানি করা যাবে না।</string>
+    <string name="vm_import_partition_which">এটা কোন পার্টিশন?</string>
+    <string name="vm_import_partition_which_info">ফাইলের নাম এটি ধারণ করে তা বলে না। পার্টিশন বাছাই করুন।</string>
+    <string name="vm_import_partition_have">%1$s (ইতিমধ্যে এই VM এ)</string>
+    <string name="vm_import_partition_headline">এই VM এ একটি পার্টিশন ইমেজ ইমপোর্ট করুন</string>
+    <string name="vm_import_partition_sub">বুট, পুনরুদ্ধার (স্টক, TWRP, OrangeFox বা CWM), OEM, বিক্রেতা, odm, পণ্য বা system_ext। টাইপ ফাইল থেকে পড়া হয়; আপনাকে জিজ্ঞাসা করা হয় যখন এটি হতে পারে না। শুধুমাত্র পুনরুদ্ধার একটি বিদ্যমান একটি প্রতিস্থাপন; বাকি VM অপরিবর্তিত। ⋮ মেনু থেকে পুনরুদ্ধার করতে রিবুট করুন।</string>
+    <string name="vm_import_partition_button">আমদানি...</string>
+    <string name="vm_import_recovery_done">পুনরুদ্ধার আমদানি করা হয়েছে। এটি ব্যবহার করতে ⋮ মেনু থেকে পুনরুদ্ধার করতে রিবুট করুন।</string>
+</resources>

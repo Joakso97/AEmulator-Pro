@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">Importa partizione</string>
+    <string name="vm_import_partition_working">Lettura della partizione %1$s… Arresta tutte le VM prima dell\'importazione.</string>
+    <string name="vm_import_partition_done">%1$s partizione importata e montata. Il sistema e i dati rimangono invariati.</string>
+    <string name="vm_import_partition_exists">Questa VM ha già una partizione %1$s.</string>
+    <string name="vm_import_partition_conflict">Il layout delle cartelle della VM non consente questa partizione.</string>
+    <string name="vm_import_partition_unsupported">Con questa opzione non è possibile importare un\'immagine %1$s.</string>
+    <string name="vm_import_partition_which">Di quale partizione si tratta?</string>
+    <string name="vm_import_partition_which_info">Il nome del file non dice cosa contiene. Scegli la partizione.</string>
+    <string name="vm_import_partition_have">%1$s (già in questa VM)</string>
+    <string name="vm_import_partition_headline">Importa un\'immagine della partizione in questa VM</string>
+    <string name="vm_import_partition_sub">Avvio, ripristino (stock, TWRP, OrangeFox o CWM), OEM, fornitore, odm, prodotto o system_ext. Il tipo viene letto dal file; ti viene chiesto quando non può essere. Solo il ripristino ne sostituisce uno esistente; il resto della VM è invariato. Riavviare in ripristino dal menu ⋮.</string>
+    <string name="vm_import_partition_button">Importa…</string>
+    <string name="vm_import_recovery_done">Recupero importato. Riavviare in ripristino dal menu ⋮ per usarlo.</string>
+</resources>

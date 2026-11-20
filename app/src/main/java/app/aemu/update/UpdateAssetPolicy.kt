@@ -2,7 +2,7 @@ package app.aemu.update
 
 
 object UpdateAssetPolicy {
-    const val PACKAGE = "app.aemu.plus"
+    const val PACKAGE = "app.aemu.pro"
 
     fun matches(name: String, applicationId: String): Boolean =
         applicationId == PACKAGE && (

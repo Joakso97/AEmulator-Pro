@@ -212,7 +212,7 @@
     <string name="as_original_row">اصل: %1$s</string>
     <string name="sms_default_body">AEmulator کی طرف سے سلام</string>
     <string name="theme_original">اصل</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">غروب آفتاب</string>
     <string name="sim_country_emulator">ایمولیٹر</string>
     <string name="catalog_err_invalid_url">کیٹلاگ کا غلط URL</string>
     <string name="catalog_err_too_many_redirects">بہت زیادہ ری ڈائریکٹس</string>

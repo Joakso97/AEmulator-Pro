@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">Choisir des fichiers</string>
+    <string name="fb_title_single">Choisissez un fichier</string>
+    <string name="fb_up">Vers le haut</string>
+    <string name="fb_system_picker">Sélecteur de système</string>
+    <string name="fb_use_system_picker">Utilisez plutôt le sélecteur de système</string>
+
+    <string name="fb_internal">Stockage interne</string>
+    <string name="fb_removable">Carte SD / USB %1$d</string>
+    <string name="fb_downloads">Télécharger</string>
+    <string name="fb_documents">Documents</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">Nom</string>
+    <string name="fb_sort_date">Date</string>
+    <string name="fb_sort_size">Taille</string>
+    <string name="fb_hidden">Caché</string>
+
+    <string name="fb_selected">%1$d sélectionné</string>
+    <string name="fb_clear">Effacer</string>
+    <string name="fb_import">Importer</string>
+
+    <string name="fb_empty">Rien ici</string>
+    <string name="fb_unreadable">Ce dossier ne peut pas être lu. Android maintient certains dossiers (tels que les données d\'autres applications) fermés à chaque application.</string>
+
+    <string name="fb_access_title">Autoriser l\'accès aux fichiers</string>
+    <string name="fb_access_text">Pour répertorier vos fichiers de micrologiciel et en sélectionner plusieurs à la fois, le navigateur doit accéder à vos fichiers. Vous pouvez également utiliser le sélecteur de système à la place.</string>
+    <string name="fb_access_scoped">Android 10 masque la plupart des fichiers des applications qui n\'ont pas désactivé le stockage limité, ce navigateur ne peut donc pas les répertorier ici. Utilisez plutôt le sélecteur de système.</string>
+
+    <string name="as_builtin_browser">Navigateur de fichiers intégré</string>
+    <string name="as_builtin_browser_sub">Choisissez le firmware avec tri par date et taille et plusieurs fichiers à la fois. Désactivez-la pour utiliser le sélecteur de système.</string>
+
+    <string name="imp_archive_alone">Une sauvegarde de VM (.aessvm) doit être importée seule, et non avec d\'autres fichiers.</string>
+    <string name="imp_joining">Rejoindre des parties de %2$d de %1$s…</string>
+    <string name="imp_split_missing">La partie %2$s de l\'archive fractionnée %1$s est manquante. Sélectionnez toutes ses parties ou conservez-les dans un seul dossier.</string>
+</resources>

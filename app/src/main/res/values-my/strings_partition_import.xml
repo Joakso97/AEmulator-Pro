@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">အပိုင်းပိုင်းကို တင်သွင်းပါ။</string>
+    <string name="vm_import_partition_working">%1$s အခန်းကန့်ကိုဖတ်နေသည်… ထည့်သွင်းခြင်းမပြုမီ VM အားလုံးကို ရပ်ပါ။</string>
+    <string name="vm_import_partition_done">%1$s အခန်းကန့်ကို တင်သွင်းပြီး တပ်ဆင်ထားသည်။ စနစ်နှင့် ဒေတာ မပြောင်းလဲပါ။</string>
+    <string name="vm_import_partition_exists">ဤ VM တွင် %1$s အခန်းကန့်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။</string>
+    <string name="vm_import_partition_conflict">VM\\ ၏ဖိုင်တွဲအပြင်အဆင်သည် ဤအခန်းကန့်ကို ခွင့်မပြုပါ။</string>
+    <string name="vm_import_partition_unsupported">ဤရွေးချယ်မှုဖြင့် %1$s ပုံတစ်ပုံကို ထည့်သွင်း၍မရပါ။</string>
+    <string name="vm_import_partition_which">ဒါက ဘယ်အပိုင်းလဲ။</string>
+    <string name="vm_import_partition_which_info">ဖိုင်နာမည်က ဘာကိုင်ထားတယ်ဆိုတာ မပြောပါဘူး။ partition ကိုရွေးပါ။</string>
+    <string name="vm_import_partition_have">%1$s (ဤ VM တွင် ရှိပြီးသား)</string>
+    <string name="vm_import_partition_headline">ဤ VM တွင် အပိုင်းပိုင်းပုံတစ်ပုံကို ထည့်သွင်းပါ။</string>
+    <string name="vm_import_partition_sub">Boot၊ ပြန်လည်ရယူခြင်း (စတော့ခ်၊ TWRP၊ OrangeFox သို့မဟုတ် CWM)၊ OEM၊ ရောင်းချသူ၊ odm၊ ထုတ်ကုန် သို့မဟုတ် system_ext။ အမျိုးအစားကို ဖိုင်မှဖတ်သည်။ မဖြစ်​နိုင်​တဲ့​အခါ​မှာ မင်း​ကို​မေး​တယ်။ ပြန်လည်ရယူခြင်းကသာ ရှိပြီးသားတစ်ခုကို အစားထိုးသည်။ ကျန် VM သည် မပြောင်းလဲပါ။ ⋮ မီနူးမှ ပြန်လည်ရယူရန် ပြန်လည်စတင်ပါ။</string>
+    <string name="vm_import_partition_button">တင်သွင်း…</string>
+    <string name="vm_import_recovery_done">ပြန်လည်ရယူခြင်းကို တင်သွင်းခဲ့သည်။ ၎င်းကိုအသုံးပြုရန် ⋮ မီနူးမှ ပြန်လည်ရယူရန် ပြန်လည်စတင်ပါ။</string>
+</resources>

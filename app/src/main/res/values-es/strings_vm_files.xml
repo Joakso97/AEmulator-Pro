@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vmf_browse">Explorar archivos de VM</string>
+
+    <string name="vmf_unreadable">Esta carpeta no se puede leer.</string>
+    <string name="vmf_readonly_folder">Sólo lectura: esta carpeta no forma parte de los archivos propios de la VM. Puedes mirar y copiar, no cambiar.</string>
+    <string name="vmf_link">Enlace</string>
+    <string name="vmf_no_folders">No hay carpetas aquí</string>
+
+    <string name="vmf_preview_failed">Este archivo no se puede leer.</string>
+    <string name="vmf_preview_truncated">Mostrando el primer %1$s de %2$s</string>
+
+    <string name="vmf_copy">Copiar</string>
+    <string name="vmf_copy_to">Copiar a</string>
+    <string name="vmf_copy_to_vm">Otro lugar en esta VM</string>
+    <string name="vmf_copy_to_device">Fuera de la VM (almacenamiento del dispositivo)</string>
+    <string name="vmf_copy_here">Copiar aquí</string>
+    <string name="vmf_new_folder">Nueva carpeta</string>
+    <string name="vmf_folder_name">Nombre de la carpeta</string>
+    <string name="vmf_create">crear</string>
+    <string name="vmf_error_desc">La operación no se pudo completar. Intentar otra vez.</string>
+    <string name="vmf_new_name">Nuevo nombre</string>
+
+    <string name="vmf_delete_one">¿Eliminar \\\"%1$s\\\"? Esto no se puede deshacer.</string>
+    <string name="vmf_delete_many">¿Eliminar elementos %1$d? Esto no se puede deshacer.</string>
+    <string name="vmf_delete_core">Esta es una parte central de la VM (una partición o una imagen). Sin él, es posible que la máquina virtual ya no se inicie.</string>
+
+    <string name="vmf_working_copy">Copiando…</string>
+    <string name="vmf_working_delete">Eliminando…</string>
+    <string name="vmf_working_rename">Cambiando el nombre…</string>
+    <string name="vmf_result_copied">Copiado: %1$d</string>
+    <string name="vmf_result_copied_skipped">Copiado: %1$d. Omitido: %2$d (enlaces fuera de la VM, sockets y similares).</string>
+    <string name="vmf_result_deleted">Eliminado: %1$d</string>
+    <string name="vmf_failed">Fallido: %1$s</string>
+
+    <string name="vmf_readonly">Este elemento no forma parte de los archivos propios de la VM, por lo que no se puede cambiar aquí.</string>
+    <string name="vmf_protected">Esto es parte de la contabilidad de la VM y no se puede cambiar aquí.</string>
+    <string name="vmf_bad_name">Ese nombre no está permitido.</string>
+    <string name="vmf_exists">Ya existe un elemento con ese nombre.</string>
+    <string name="vmf_no_space">No hay suficiente espacio libre.</string>
+</resources>

@@ -17,7 +17,7 @@
     <string name="nav_left">Cruceta izquierda</string>
     <string name="nav_right">Cruceta derecha</string>
     <string name="nav_center">Cruceta centro</string>
-    <string name="nav_trackball">Trackball</string>
+    <string name="nav_trackball">Bola de seguimiento</string>
     <string name="nav_trackball_sub">Desliza el dedo por el círculo sobre la barra de navegación para rodar; toca para seleccionar.</string>
     <string name="nav_dpad_mode">Modo de teclas de flecha</string>
     <string name="nav_dpad_sub">Desactivado: eventos relativos reales de trackball para las apps del invitado. Activado: pulsaciones de la cruceta en su lugar. Nunca envía ambos.</string>

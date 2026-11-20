@@ -3,9 +3,9 @@
     <string name="fb_title_multi">Pumili ng mga file</string>
     <string name="fb_title_single">Pumili ng file</string>
     <string name="fb_up">Pataas</string>
-    <string name="fb_system_picker">System picker</string>
+    <string name="fb_system_picker">Tagapili ng system</string>
     <string name="fb_use_system_picker">Gamitin na lang ang system picker</string>
-    <string name="fb_internal">Internal storage</string>
+    <string name="fb_internal">Panloob na imbakan</string>
     <string name="fb_removable">SD card / USB %1$d</string>
     <string name="fb_downloads">Mga Download</string>
     <string name="fb_documents">Mga Dokumento</string>

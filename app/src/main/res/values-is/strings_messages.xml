@@ -212,7 +212,7 @@
     <string name="as_original_row">Upprunalegt: %1$s</string>
     <string name="sms_default_body">Kveðja frá AEmulator</string>
     <string name="theme_original">Upprunalegt</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Sólsetur</string>
     <string name="sim_country_emulator">Hermir</string>
     <string name="catalog_err_invalid_url">Ógild slóð skrár</string>
     <string name="catalog_err_too_many_redirects">Of margar tilvísanir</string>

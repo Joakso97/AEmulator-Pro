@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">Partition importieren</string>
+    <string name="vm_import_partition_working">Lesen der %1$s-Partition… Stoppen Sie alle VMs vor dem Import.</string>
+    <string name="vm_import_partition_done">%1$s Partition importiert und gemountet. System und Daten bleiben unverändert.</string>
+    <string name="vm_import_partition_exists">Diese VM verfügt bereits über eine %1$s-Partition.</string>
+    <string name="vm_import_partition_conflict">Das Ordnerlayout der VM lässt diese Partition nicht zu.</string>
+    <string name="vm_import_partition_unsupported">Ein %1$s-Bild kann mit dieser Option nicht importiert werden.</string>
+    <string name="vm_import_partition_which">Welche Partition ist das?</string>
+    <string name="vm_import_partition_which_info">Der Dateiname sagt nicht, was er enthält. Wählen Sie die Partition aus.</string>
+    <string name="vm_import_partition_have">%1$s (bereits in dieser VM)</string>
+    <string name="vm_import_partition_headline">Importieren Sie ein Partitionsimage in diese VM</string>
+    <string name="vm_import_partition_sub">Boot, Wiederherstellung (Stock, TWRP, OrangeFox oder CWM), OEM, Anbieter, ODM, Produkt oder system_ext. Der Typ wird aus der Datei gelesen; Sie werden gefragt, wann es nicht sein kann. Nur die Wiederherstellung ersetzt eine bestehende; Der Rest der VM bleibt unverändert. Starten Sie zur Wiederherstellung über das ⋮-Menü neu.</string>
+    <string name="vm_import_partition_button">Importieren…</string>
+    <string name="vm_import_recovery_done">Wiederherstellung importiert. Starten Sie zur Wiederherstellung über das ⋮-Menü neu, um es zu verwenden.</string>
+</resources>

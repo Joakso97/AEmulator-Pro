@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vmf_browse">VM ဖိုင်များကို ကြည့်ရှုပါ။</string>
+
+    <string name="vmf_unreadable">ဤဖိုင်တွဲကို ဖတ်၍မရပါ။</string>
+    <string name="vmf_readonly_folder">ဖတ်ရန်-သပ်သပ်- ဤဖိုင်တွဲသည် VM\\ ၏ကိုယ်ပိုင်ဖိုင်များ အစိတ်အပိုင်းမဟုတ်ပါ။ မပြောင်းလဲဘဲ ကူးယူကြည့်ရှုနိုင်ပါသည်။</string>
+    <string name="vmf_link">လင့်</string>
+    <string name="vmf_no_folders">ဤနေရာတွင် ဖိုင်တွဲများမရှိပါ။</string>
+
+    <string name="vmf_preview_failed">ဤဖိုင်ကို ဖတ်၍မရပါ။</string>
+    <string name="vmf_preview_truncated">%2$s ၏ ပထမဆုံး %1$s ကို ပြသည်</string>
+
+    <string name="vmf_copy">ကော်ပီ</string>
+    <string name="vmf_copy_to">သို့ ကူးယူပါ။</string>
+    <string name="vmf_copy_to_vm">ဤ VM ၏နောက်ထပ်နေရာ</string>
+    <string name="vmf_copy_to_device">VM ပြင်ပ (စက်ပစ္စည်းသိုလှောင်မှု)</string>
+    <string name="vmf_copy_here">ဒီမှာ ကူးယူပါ။</string>
+    <string name="vmf_new_folder">ဖိုင်တွဲအသစ်</string>
+    <string name="vmf_folder_name">ဖိုလ်အမည်</string>
+    <string name="vmf_create">ဖန်တီးပါ။</string>
+    <string name="vmf_error_desc">လုပ်ဆောင်ချက် မပြီးမြောက်နိုင်ပါ။ ထပ်ကြိုးစားပါ။</string>
+    <string name="vmf_new_name">နာမည်အသစ်</string>
+
+    <string name="vmf_delete_one">\\\"%1$s\\\" ကို ဖျက်မလား။ ဒါကို ပြန်ပြင်လို့ မရပါဘူး။</string>
+    <string name="vmf_delete_many">%1$d အရာများကို ဖျက်မလား။ ဒါကို ပြန်ပြင်လို့ မရပါဘူး။</string>
+    <string name="vmf_delete_core">၎င်းသည် VM ၏ အဓိက အစိတ်အပိုင်း (အပိုင်းတစ်ခု သို့မဟုတ် ပုံတစ်ခု) ဖြစ်သည်။ ၎င်းမရှိလျှင် VM သည် စတင်တော့မည်မဟုတ်ပါ။</string>
+
+    <string name="vmf_working_copy">ကူးယူနေသည်...</string>
+    <string name="vmf_working_delete">ဖျက်နေသည်...</string>
+    <string name="vmf_working_rename">အမည်ပြောင်းနေသည်...</string>
+    <string name="vmf_result_copied">ကူးယူထားသည်- %1$d</string>
+    <string name="vmf_result_copied_skipped">ကူးယူထားသည်- %1$d။ ကျော်သွားသည်- %2$d (VM အပြင်ဘက်သို့ လင့်ခ်များ၊ စကတ်များနှင့် အခြားအရာများ)။</string>
+    <string name="vmf_result_deleted">ဖျက်လိုက်ပါပြီ- %1$d</string>
+    <string name="vmf_failed">မအောင်မြင်ပါ- %1$s</string>
+
+    <string name="vmf_readonly">ဤအရာသည် VM\\ ၏ကိုယ်ပိုင်ဖိုင်များ၏ အစိတ်အပိုင်းမဟုတ်သောကြောင့် ၎င်းကို ဤနေရာတွင် ပြောင်းလဲ၍မရပါ။</string>
+    <string name="vmf_protected">၎င်းသည် VM\\ ၏ကိုယ်ပိုင်စာရင်းရေးသွင်းခြင်း၏တစ်စိတ်တစ်ပိုင်းဖြစ်ပြီး ဤနေရာတွင် ပြောင်းလဲ၍မရပါ။</string>
+    <string name="vmf_bad_name">ထိုအမည်ကို ခွင့်မပြုပါ။</string>
+    <string name="vmf_exists">ထိုအမည်ပါ ပစ္စည်းတစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။</string>
+    <string name="vmf_no_space">နေရာလွတ် မလုံလောက်ပါ။</string>
+</resources>

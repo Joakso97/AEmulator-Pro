@@ -3,7 +3,7 @@
     <string name="vmf_browse">VM-bestanden bekijken</string>
     <string name="vmf_unreadable">Deze map kan niet worden gelezen.</string>
     <string name="vmf_readonly_folder">Alleen-lezen: deze map maakt geen deel uit van de eigen bestanden van de VM. Je kunt kijken en kopiëren, niet wijzigen.</string>
-    <string name="vmf_link">Link</string>
+    <string name="vmf_link">Koppeling</string>
     <string name="vmf_no_folders">Hier zijn geen mappen</string>
     <string name="vmf_preview_failed">Dit bestand kan niet worden gelezen.</string>
     <string name="vmf_preview_truncated">De eerste %1$s van %2$s worden getoond</string>

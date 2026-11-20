@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">Elige archivos</string>
+    <string name="fb_title_single">Elige un archivo</string>
+    <string name="fb_up">arriba</string>
+    <string name="fb_system_picker">Selector de sistema</string>
+    <string name="fb_use_system_picker">Utilice el selector del sistema en su lugar</string>
+
+    <string name="fb_internal">Almacenamiento interno</string>
+    <string name="fb_removable">Tarjeta SD/USB %1$d</string>
+    <string name="fb_downloads">Descargar</string>
+    <string name="fb_documents">Documentos</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">Nombre</string>
+    <string name="fb_sort_date">Fecha</string>
+    <string name="fb_sort_size">Tamaño</string>
+    <string name="fb_hidden">Oculto</string>
+
+    <string name="fb_selected">%1$d seleccionado</string>
+    <string name="fb_clear">Borrar</string>
+    <string name="fb_import">Importar</string>
+
+    <string name="fb_empty">Nada aquí</string>
+    <string name="fb_unreadable">Esta carpeta no se puede leer. Android mantiene algunas carpetas (como los datos de otras aplicaciones) cerradas para cada aplicación.</string>
+
+    <string name="fb_access_title">Permitir el acceso a archivos</string>
+    <string name="fb_access_text">Para enumerar sus archivos de firmware y seleccionar varios a la vez, el navegador necesita acceso a sus archivos. También puedes utilizar el selector del sistema.</string>
+    <string name="fb_access_scoped">Android 10 oculta la mayoría de los archivos de las aplicaciones que no han optado por no participar en el almacenamiento de alcance, por lo que este navegador no puede enumerarlos aquí. Utilice el selector del sistema en su lugar.</string>
+
+    <string name="as_builtin_browser">Explorador de archivos integrado</string>
+    <string name="as_builtin_browser_sub">Elija firmware clasificado por fecha y tamaño y varios archivos a la vez. Desactívelo para utilizar el selector del sistema.</string>
+
+    <string name="imp_archive_alone">Una copia de seguridad de VM (.aessvm) debe importarse sola, no junto con otros archivos.</string>
+    <string name="imp_joining">Uniendo partes de %2$d de %1$s…</string>
+    <string name="imp_split_missing">Falta la parte %2$s del archivo dividido %1$s. Seleccione todas sus partes o guárdelas en una carpeta.</string>
+</resources>

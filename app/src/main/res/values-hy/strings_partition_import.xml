@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">Ներմուծել միջնորմ</string>
+    <string name="vm_import_partition_working">%1$s բաժանման ընթերցում… Ներմուծելուց առաջ դադարեցրեք բոլոր VM-ները:</string>
+    <string name="vm_import_partition_done">Ներմուծվել և տեղադրվել է %1$s բաժանումը: Համակարգն ու տվյալները անփոփոխ են։</string>
+    <string name="vm_import_partition_exists">Այս VM-ն արդեն ունի %1$s բաժին:</string>
+    <string name="vm_import_partition_conflict">VM-ի թղթապանակի դասավորությունը թույլ չի տալիս այս բաժանումը:</string>
+    <string name="vm_import_partition_unsupported">%1$s պատկերը չի կարող ներմուծվել այս տարբերակով:</string>
+    <string name="vm_import_partition_which">Ո՞ր բաժանումն է սա:</string>
+    <string name="vm_import_partition_which_info">Ֆայլի անունը չի ասում, թե ինչ է այն պարունակում: Ընտրեք միջնորմը:</string>
+    <string name="vm_import_partition_have">%1$s (արդեն այս VM-ում)</string>
+    <string name="vm_import_partition_headline">Ներմուծեք բաժանման պատկեր այս VM-ում</string>
+    <string name="vm_import_partition_sub">Բեռնում, վերականգնում (ֆոնդ, TWRP, OrangeFox կամ CWM), OEM, վաճառող, odm, արտադրանք կամ system_ext: Տեսակը կարդացվում է ֆայլից; ձեզ հարցնում են, թե երբ դա չի կարող լինել: Միայն վերականգնումը փոխարինում է գոյություն ունեցողին. VM-ի մնացած մասը անփոփոխ է: Վերագործարկեք վերականգնման համար ⋮ ընտրացանկից:</string>
+    <string name="vm_import_partition_button">Ներմուծում…</string>
+    <string name="vm_import_recovery_done">Վերականգնումը ներմուծվել է: Այն օգտագործելու համար ⋮ մենյուից վերագործարկեք վերականգնմանը:</string>
+</resources>

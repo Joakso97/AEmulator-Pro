@@ -27,10 +27,10 @@ sh gradlew --no-daemon '-Dorg.gradle.jvmargs=-Xmx1536m -Dfile.encoding=UTF-8' \
   testReleaseUnitTest assembleRelease
 ```
 
-Output: `app/build/outputs/apk/release/`. The package is `app.aemu.plus` (there is no clone
+Output: `app/build/outputs/apk/release/`. The package is `app.aemu.pro` (there is no clone
 variant); it installs next to Sunset (`app.aemu`) and cannot update it. It requires an
 arm64-v8a Android host, API 26 or newer. `./gradlew copyReleaseApks` copies the APK to
-`release-apks/AEmulator-Plus-app.aemu.plus.apk`.
+`release-apks/AEmulator-Pro-app.aemu.pro.apk`.
 
 Release signing uses private, untracked `keystore.properties`. Without it,
 release APKs are unsigned. To test/install without the publisher's key, build

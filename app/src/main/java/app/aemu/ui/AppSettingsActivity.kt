@@ -201,14 +201,6 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             item {
-                Section(stringResource(R.string.catalog_title)) {
-                    Row_(Icons.Rounded.List, stringResource(R.string.catalog_open), "") {
-                        ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java))
-                    }
-                }
-            }
-
-            item {
                 Section(stringResource(R.string.as_updates)) {
                     Toggle(
                         stringResource(R.string.as_auto_updates),

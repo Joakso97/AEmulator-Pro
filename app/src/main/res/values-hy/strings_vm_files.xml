@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vmf_browse">Զննեք VM ֆայլերը</string>
+
+    <string name="vmf_unreadable">Այս թղթապանակը հնարավոր չէ կարդալ:</string>
+    <string name="vmf_readonly_folder">Միայն կարդալու համար. այս թղթապանակը VM-ի սեփական ֆայլերի մաս չէ: Դուք կարող եք նայել և պատճենել, այլ ոչ թե փոխել:</string>
+    <string name="vmf_link">Հղում</string>
+    <string name="vmf_no_folders">Այստեղ թղթապանակներ չկան</string>
+
+    <string name="vmf_preview_failed">Այս ֆայլը հնարավոր չէ կարդալ:</string>
+    <string name="vmf_preview_truncated">Ցուցադրվում է %2$s-ի առաջին %1$s-ը</string>
+
+    <string name="vmf_copy">Պատճենել</string>
+    <string name="vmf_copy_to">Պատճենել</string>
+    <string name="vmf_copy_to_vm">Մեկ այլ տեղ այս VM-ում</string>
+    <string name="vmf_copy_to_device">VM-ից դուրս (սարքի պահեստավորում)</string>
+    <string name="vmf_copy_here">Պատճենել այստեղ</string>
+    <string name="vmf_new_folder">Նոր թղթապանակ</string>
+    <string name="vmf_folder_name">Թղթապանակի անվանումը</string>
+    <string name="vmf_create">Ստեղծել</string>
+    <string name="vmf_error_desc">Գործողությունը չի հաջողվել ավարտին հասցնել։ Նորից փորձեք:</string>
+    <string name="vmf_new_name">Նոր անուն</string>
+
+    <string name="vmf_delete_one">Ջնջե՞լ \\\"%1$s\\\"-ը: Սա հնարավոր չէ հետարկել:</string>
+    <string name="vmf_delete_many">Ջնջե՞լ %1$d տարրը: Սա հնարավոր չէ հետարկել:</string>
+    <string name="vmf_delete_core">Սա VM-ի հիմնական մասն է (բաժանմունք կամ պատկեր): Առանց դրա VM-ն այլևս չի կարող գործարկվել:</string>
+
+    <string name="vmf_working_copy">Պատճենվում է…</string>
+    <string name="vmf_working_delete">Ջնջվում է…</string>
+    <string name="vmf_working_rename">Անվանափոխում…</string>
+    <string name="vmf_result_copied">Պատճենվել է՝ %1$d</string>
+    <string name="vmf_result_copied_skipped">Պատճենվել է՝ %1$d: Բաց թողնված՝ %2$d (հղումներ դեպի VM-ից դուրս, վարդակներ և այլն):</string>
+    <string name="vmf_result_deleted">Ջնջված է՝ %1$d</string>
+    <string name="vmf_failed">Չհաջողվեց՝ %1$s</string>
+
+    <string name="vmf_readonly">Այս տարրը VM-ի սեփական ֆայլերի մաս չէ, ուստի այն հնարավոր չէ փոխել այստեղ:</string>
+    <string name="vmf_protected">Սա VM-ի սեփական հաշվապահության մի մասն է և չի կարող փոփոխվել այստեղ:</string>
+    <string name="vmf_bad_name">Այդ անունը չի թույլատրվում։</string>
+    <string name="vmf_exists">Այդ անունով տարր արդեն գոյություն ունի:</string>
+    <string name="vmf_no_space">Բավարար ազատ տարածք չկա:</string>
+</resources>

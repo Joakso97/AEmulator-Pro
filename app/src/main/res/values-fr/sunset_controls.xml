@@ -17,7 +17,7 @@
     <string name="nav_left">Croix directionnelle gauche</string>
     <string name="nav_right">Croix directionnelle droite</string>
     <string name="nav_center">Croix directionnelle centre</string>
-    <string name="nav_trackball">Trackball</string>
+    <string name="nav_trackball">Boule de commande</string>
     <string name="nav_trackball_sub">Faites glisser le doigt sur le cercle au-dessus de la barre de navigation pour faire rouler ; touchez pour sélectionner.</string>
     <string name="nav_dpad_mode">Mode touches fléchées</string>
     <string name="nav_dpad_sub">Désactivé : vrais événements relatifs de trackball pour les applis invitées. Activé : appuis sur la croix directionnelle à la place. N’envoie jamais les deux.</string>

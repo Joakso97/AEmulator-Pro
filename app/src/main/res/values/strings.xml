@@ -262,8 +262,7 @@
     <string name="sf_v40_sub">Working: display, touch, buttons, storage, and host file import.</string>
     <string name="sf_v50_sub">Experimental: boots with graphics and input; some services vary by ROM.</string>
     <string name="sf_v70_sub">Experimental: ARM and x86 guests boot; HAL coverage depends on the ROM.</string>
-    <string name="sf_v80_sub">Experimental: Android 8.0–9 images, including Android TV, boot; 64-bit guests need the bundled engines.</string>
-    <string name="sf_v80_tv_sub">Android TV 8.0 (API 26) x86</string>
+    <string name="sf_v80_sub">Experimental: Android 8.0–9 images boot; 64-bit guests need the bundled engines.</string>
     <string name="sf_versions">Android versions</string>
     <string name="sf_versions_sub">Support level of each guest Android generation.</string>
     <string name="shutdown">Shut down system</string>
@@ -567,10 +566,13 @@
     <string name="vs_wifi_ssid_error">The network name must not be empty</string>
     <string name="vs_wifi_ssid_sub">Up to 32 bytes</string>
     <string name="vs_wifi_sub">Shows the host\'s internet to the VM as a connected Wi-Fi network instead of Ethernet. Android 2.3, 4.0–17 (8–17: experimental). Applies at the next start.</string>
+    <string name="catalog_choose_android">Choose Android</string>
+    <string name="catalog_all">All</string>
+    <string name="catalog_download_hide">Hide</string>
     <string name="changelog_beta_0317_body">• Added a dedicated language selection page.\n• Added a Changelog page with release notes, refresh and retry controls.\n• Updated the About card with centered white text and a vertical purple gradient, and removed its version label.\n• Replaced ROM catalog loading and download progress bars with spinners.\n• Removed ROM card background fills.\n• Simplified Supported Firmware by removing decorative icons and import tips while keeping the back arrow.\n• Replaced placeholder text and expanded Simplified and Traditional Chinese translations.\n• Fixed duplicate Android string resources that blocked resource merging.</string>
     <string name="changelog_beta_0317_title">Release 0.0.0.3.17 Beta</string>
     <string name="changelog_github">Recent release notes from GitHub</string>
-    <string name="sf_v100_sub">Experimental: Android 10 and newer images, including Android TV, boot; HAL coverage depends on the ROM.</string>
+    <string name="sf_v100_sub">Experimental: Android 10 and newer images boot; HAL coverage depends on the ROM.</string>
     <string name="lib_subtitle">Classic Android firmware on a modern phone</string>
     <string name="help_text">• Android 2.3 and 4.0–4.4: main support; 5.x–6.x: experimental.\n• 32-bit ARM firmware only (armeabi / armeabi-v7a).\n\nFormats:\n• CWM/TWRP recovery ZIP (MIUI, CyanogenMod, ports, most custom ROMs);\n• Samsung: Odin .tar / .tar.md5 or a ZIP with AP_*.tar.md5;\n• Google factory images (.tgz / .zip);\n• system.img (ext4, sparse), TWRP backup system.ext4.win;\n• OTA with system.new.dat(.br) + system.transfer.list.\n\nBest if the archive contains boot.img: the service start order is taken from it.</string>
     <string name="as_site">Website</string>

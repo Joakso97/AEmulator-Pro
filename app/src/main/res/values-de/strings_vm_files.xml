@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vmf_browse">Durchsuchen Sie VM-Dateien</string>
+
+    <string name="vmf_unreadable">Dieser Ordner kann nicht gelesen werden.</string>
+    <string name="vmf_readonly_folder">Schreibgeschützt: Dieser Ordner ist nicht Teil der eigenen Dateien der VM. Sie können schauen und kopieren, nicht ändern.</string>
+    <string name="vmf_link">Link</string>
+    <string name="vmf_no_folders">Keine Ordner hier</string>
+
+    <string name="vmf_preview_failed">Diese Datei kann nicht gelesen werden.</string>
+    <string name="vmf_preview_truncated">Zeigt das erste %1$s von %2$s</string>
+
+    <string name="vmf_copy">Kopieren</string>
+    <string name="vmf_copy_to">Kopieren nach</string>
+    <string name="vmf_copy_to_vm">Ein anderer Ort in dieser VM</string>
+    <string name="vmf_copy_to_device">Außerhalb der VM (Gerätespeicher)</string>
+    <string name="vmf_copy_here">Hier kopieren</string>
+    <string name="vmf_new_folder">Neuer Ordner</string>
+    <string name="vmf_folder_name">Ordnername</string>
+    <string name="vmf_create">Erstellen</string>
+    <string name="vmf_error_desc">Der Vorgang konnte nicht abgeschlossen werden. Versuchen Sie es erneut.</string>
+    <string name="vmf_new_name">Neuer Name</string>
+
+    <string name="vmf_delete_one">\\\"%1$s\\\" löschen? Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="vmf_delete_many">%1$d-Elemente löschen? Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="vmf_delete_core">Dies ist ein Kernbestandteil der VM (eine Partition oder ein Image). Ohne sie startet die VM möglicherweise nicht mehr.</string>
+
+    <string name="vmf_working_copy">Kopieren…</string>
+    <string name="vmf_working_delete">Löschen…</string>
+    <string name="vmf_working_rename">Umbenennen…</string>
+    <string name="vmf_result_copied">Kopiert: %1$d</string>
+    <string name="vmf_result_copied_skipped">Kopiert: %1$d. Übersprungen: %2$d (Links nach außerhalb der VM, Sockets und dergleichen).</string>
+    <string name="vmf_result_deleted">Gelöscht: %1$d</string>
+    <string name="vmf_failed">Fehlgeschlagen: %1$s</string>
+
+    <string name="vmf_readonly">Dieses Element ist nicht Teil der eigenen Dateien der VM und kann daher hier nicht geändert werden.</string>
+    <string name="vmf_protected">Dies ist Teil der VM-eigenen Buchhaltung und kann hier nicht geändert werden.</string>
+    <string name="vmf_bad_name">Dieser Name ist nicht zulässig.</string>
+    <string name="vmf_exists">Ein Element mit diesem Namen existiert bereits.</string>
+    <string name="vmf_no_space">Nicht genügend freier Speicherplatz.</string>
+</resources>

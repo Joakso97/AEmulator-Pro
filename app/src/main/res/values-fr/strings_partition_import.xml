@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">Importer une partition</string>
+    <string name="vm_import_partition_working">Lecture de la partition %1$s… Arrêtez toutes les VM avant l\'importation.</string>
+    <string name="vm_import_partition_done">Partition %1$s importée et montée. Le système et les données restent inchangés.</string>
+    <string name="vm_import_partition_exists">Cette VM possède déjà une partition %1$s.</string>
+    <string name="vm_import_partition_conflict">La disposition des dossiers de la VM n\'autorise pas cette partition.</string>
+    <string name="vm_import_partition_unsupported">Une image %1$s ne peut pas être importée avec cette option.</string>
+    <string name="vm_import_partition_which">De quelle partition s\'agit-il ?</string>
+    <string name="vm_import_partition_which_info">Le nom du fichier ne dit pas ce qu\'il contient. Choisissez la partition.</string>
+    <string name="vm_import_partition_have">%1$s (déjà dans cette VM)</string>
+    <string name="vm_import_partition_headline">Importer une image de partition dans cette VM</string>
+    <string name="vm_import_partition_sub">Démarrage, récupération (stock, TWRP, OrangeFox ou CWM), OEM, fournisseur, odm, produit ou system_ext. Le type est lu à partir du fichier ; on vous demande quand cela ne peut pas être le cas. Seule la récupération remplace une récupération existante ; le reste de la VM est inchangé. Redémarrez en récupération à partir du menu ⋮.</string>
+    <string name="vm_import_partition_button">Importer…</string>
+    <string name="vm_import_recovery_done">Récupération importée. Redémarrez en récupération à partir du menu ⋮ pour l\'utiliser.</string>
+</resources>

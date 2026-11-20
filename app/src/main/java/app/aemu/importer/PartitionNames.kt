@@ -11,6 +11,15 @@ internal object PartitionNames {
     private val RECOVERY = Regex("(?i)recovery(\\.img|_signed(\\.img)?)(\\.lz4)?|recovery\\.(emmc|mmc)\\.win")
 
     
+    
+    private val SYSTEM_ALT = Regex("(?i)system(_a)?(\\.(ext4|f2fs|erofs|rfs|raw|simg|sparse))?\\.(img|bin)(\\.(ext4|f2fs|erofs|lz4|xz|gz|zst|zstd|bz2|br|sparse|simg))?")
+    private val BOOT_ALT = Regex("(?i)boot(_a)?\\.(img|bin)(\\.(lz4|xz|gz|zst|zstd|bz2|br|sparse|simg))?")
+    private val OEM_ALT = Regex("(?i)oem(_a)?(\\.(ext4|f2fs|erofs|rfs|raw))?\\.(img|bin)(\\.(ext4|f2fs|erofs|lz4|xz|gz|zst|zstd|bz2|br|sparse|simg))?")
+    private val VENDOR_ALT = Regex("(?i)vendor(_a)?(\\.(ext4|f2fs|erofs|rfs|raw))?\\.(img|bin)(\\.(ext4|f2fs|erofs|lz4|xz|gz|zst|zstd|bz2|br|sparse|simg))?")
+    private val EXTRA_ALT = Regex("(?i)(product|system_ext|odm|mi_ext|vgc|prism|optics|my_[a-z0-9]+)(_[ab])?(\\.(ext4|erofs|f2fs|rfs|raw|simg|sparse))?\\.(img|bin)(\\.(ext4|erofs|f2fs|lz4|xz|gz|zst|zstd|bz2|br|sparse|simg))?")
+    private val RECOVERY_ALT = Regex("(?i)recovery(_a)?\\.(img|bin)(\\.(lz4|xz|gz|zst|zstd|bz2|br|sparse|simg))?")
+
+    
     private val SYSTEM_BARE = Regex("(?i)system(_a)?")
     private val BOOT_BARE = Regex("(?i)boot(_a)?")
     private val OEM_BARE = Regex("(?i)oem(_a)?")
@@ -37,23 +46,23 @@ internal object PartitionNames {
     private fun d(base: String) = ImageCodecs.stripSuffix(n(base))
 
     
-    fun isSystem(base: String, bareOk: Boolean = false) = d(base).let { SYSTEM.matches(it) || bareOk && SYSTEM_BARE.matches(it) }
+    fun isSystem(base: String, bareOk: Boolean = false) = d(base).let { SYSTEM.matches(it) || SYSTEM_ALT.containsMatchIn(it) || bareOk && SYSTEM_BARE.matches(it) }
     
-    fun isOem(base: String, bareOk: Boolean = false) = d(base).let { OEM.matches(it) || bareOk && OEM_BARE.matches(it) }
+    fun isOem(base: String, bareOk: Boolean = false) = d(base).let { OEM.matches(it) || OEM_ALT.containsMatchIn(it) || bareOk && OEM_BARE.matches(it) }
     
-    fun isVendor(base: String, bareOk: Boolean = false) = d(base).let { VENDOR.matches(it) || bareOk && VENDOR_BARE.matches(it) }
-    fun isBoot(base: String, bareOk: Boolean = false) = n(base).let { BOOT.matches(it) || bareOk && BOOT_BARE.matches(it) }
-
+    fun isVendor(base: String, bareOk: Boolean = false) = d(base).let { VENDOR.matches(it) || VENDOR_ALT.containsMatchIn(it) || bareOk && VENDOR_BARE.matches(it) }
+    fun isBoot(base: String, bareOk: Boolean = false) = n(base).let { BOOT.matches(it) || BOOT_ALT.containsMatchIn(it) || bareOk && BOOT_BARE.matches(it) }
+    
     
     fun extraMount(base: String, bareOk: Boolean = false): String? {
         val name = d(base)
-        val m = EXTRA.matchEntire(name) ?: (if (bareOk) EXTRA_BARE.matchEntire(name) else null) ?: return null
+        val m = EXTRA.matchEntire(name) ?: EXTRA_ALT.find(name) ?: (if (bareOk) EXTRA_BARE.matchEntire(name) else null) ?: return null
         if (m.groupValues[2].equals("_b", true)) return null
         val p = m.groupValues[1].lowercase()
         return if (p == "product" || p == "system_ext") "system/$p" else p
     }
     
-    fun isRecovery(base: String, bareOk: Boolean = false) = n(base).let { RECOVERY.matches(it) || bareOk && RECOVERY_BARE.matches(it) }
+    fun isRecovery(base: String, bareOk: Boolean = false) = n(base).let { RECOVERY.matches(it) || RECOVERY_ALT.containsMatchIn(it) || bareOk && RECOVERY_BARE.matches(it) }
 
     
     fun stripOdinMd5(base: String): String =

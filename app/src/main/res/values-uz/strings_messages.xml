@@ -129,7 +129,7 @@
     <string name="imp_choice_build">build raqami %1$s</string>
     <string name="imp_choice_title">Qaysi %1$s import qilinsin?</string>
     <string name="imp_choice_text">Bu paketda bittadan koʻp %1$s bor (%3$d tadan %2$d). Import qilinadiganini tanlang.</string>
-    <string name="imp_choice_ok">Import</string>
+    <string name="imp_choice_ok">import</string>
     <string name="imp_choice_cancel">Importni bekor qilish</string>
     <string name="imp_building_img_from_ota">OTA dan %1$s.img yigʻilmoqda</string>
     <string name="imp_edl">EDL: %1$s</string>
@@ -212,15 +212,15 @@
     <string name="import_cancelled">Import bekor qilindi</string>
     <string name="vs_recovery_stock">Zavod tiklash rejimi</string>
     <string name="lib3d_card_description">%1$s, Android %2$s</string>
-    <string name="lib3d_spec_skin">Skin</string>
+    <string name="lib3d_spec_skin">Teri</string>
     <string name="lib3d_spec_screen">Ekran</string>
     <string name="lib3d_spec_size">Oʻlcham</string>
     <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Yuqori oqim: %1$s</string>
     <string name="as_original_row">Asl: %1$s</string>
     <string name="sms_default_body">AEmulator’dan salom</string>
     <string name="theme_original">Asl</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Quyosh botishi</string>
     <string name="sim_country_emulator">Emulyator</string>
     <string name="catalog_err_invalid_url">Katalog URL manzili yaroqsiz</string>
     <string name="catalog_err_too_many_redirects">Qayta yoʻnaltirishlar juda koʻp</string>

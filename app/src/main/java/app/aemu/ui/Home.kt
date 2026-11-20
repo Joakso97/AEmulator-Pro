@@ -168,7 +168,7 @@ fun MachineCard(
 
 
 @Composable
-fun HomeFab(expanded: Boolean, onToggle: (Boolean) -> Unit, onImport: () -> Unit, onCatalog: () -> Unit, onLibrary: () -> Unit, onNewFolder: () -> Unit) {
+fun HomeFab(expanded: Boolean, onToggle: (Boolean) -> Unit, onImport: () -> Unit, onLibrary: () -> Unit, onNewFolder: () -> Unit) {
     FloatingActionButtonMenu(
         expanded = expanded,
         button = {
@@ -179,8 +179,6 @@ fun HomeFab(expanded: Boolean, onToggle: (Boolean) -> Unit, onImport: () -> Unit
     ) {
         FloatingActionButtonMenuItem(onClick = { onToggle(false); onImport() }, icon = { Icon(Icons.Rounded.FileOpen, null) },
             text = { Text(stringResource(R.string.add_import)) })
-        FloatingActionButtonMenuItem(onClick = { onToggle(false); onCatalog() }, icon = { Icon(Icons.Rounded.List, null) },
-            text = { Text(stringResource(R.string.catalog_title)) })
         FloatingActionButtonMenuItem(onClick = { onToggle(false); onLibrary() }, icon = { Icon(Icons.Rounded.Inventory2, null) },
             text = { Text(stringResource(R.string.lib_title)) })
         FloatingActionButtonMenuItem(onClick = { onToggle(false); onNewFolder() }, icon = { Icon(Icons.Rounded.CreateNewFolder, null) },

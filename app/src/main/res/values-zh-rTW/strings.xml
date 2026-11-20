@@ -11,7 +11,7 @@
     <string name="as_accent">強調色</string>
     <string name="as_accent_apply">應用程式</string>
     <string name="as_accent_default">Sunset（預設）</string>
-    <string name="as_accent_hex">Hex</string>
+    <string name="as_accent_hex">十六進位</string>
     <string name="as_accent_hue">色相</string>
     <string name="as_accent_pick">選擇顏色</string>
     <string name="as_accent_reset">重置</string>
@@ -38,8 +38,8 @@
     <string name="as_library_3d_sub">以可滑動瀏覽的 3D 手機展示已匯入的韌體和容器，代替卡片列表。預設關閉。</string>
     <string name="as_license_notices">授權與修改聲明</string>
     <string name="as_links">專案</string>
-    <string name="as_navbar_original">Original</string>
-    <string name="as_navbar_sunset">Sunset</string>
+    <string name="as_navbar_original">原版</string>
+    <string name="as_navbar_sunset">日落</string>
     <string name="as_new_home">新主螢幕</string>
     <string name="as_new_home_sub">帶底欄的網格庫（0.0.0.3 風格）。關閉后回到經典列表。重新啟動應用程式后生效。</string>
     <string name="as_orig">原作者</string>
@@ -64,6 +64,9 @@
     <string name="catalog_download_rom">下載 %1$s</string>
     <string name="catalog_download_title">正在下載 ROM</string>
     <string name="catalog_load_failed">無法載入目錄：%1$s</string>
+    <string name="catalog_error_title">目錄不可用</string>
+    <string name="catalog_error_desc">無法存取 ROM 目錄。檢查您的網路連接，然後再試一次。</string>
+    <string name="catalog_empty_hint">請稍後再回來查看或刷新目錄。</string>
     <string name="catalog_no_roms">暫無 ROM。</string>
     <string name="catalog_no_url">該 ROM 的下載連結暫不可用。</string>
     <string name="catalog_open">開啟 ROM 目錄</string>
@@ -77,6 +80,12 @@
     <string name="catalog_status_works">可用</string>
     <string name="catalog_title">ROM 目錄</string>
     <string name="catalog_warnings">目錄資料無效或不完整，行號：%1$s</string>
+    <string name="changelog_empty">尚未發布任何版本。</string>
+    <string name="changelog_error">無法載入變更日誌。檢查您的連線或稍後重試。</string>
+    <string name="changelog_loading">正在載入變更日誌...</string>
+    <string name="changelog_no_notes">沒有為此版本提供發行說明。</string>
+    <string name="changelog_sub">GitHub 上的最新發行說明</string>
+    <string name="changelog_title">變更日誌</string>
     <string name="channel_vm">執行中的系統</string>
     <string name="close">關閉</string>
     <string name="container_copy_data">同時複製應用程式和資料</string>
@@ -92,6 +101,7 @@
     <string name="empty_text">新增適用於 Android 2.2–6.0 的 ARM 韌體：Recovery ZIP、Odin 壓縮檔（.tar.md5）、system.img 或原廠映像檔。</string>
     <string name="empty_title">尚無系統</string>
     <string name="failed_start">啟動失敗</string>
+    <string name="vm_start_failed_desc">虛擬機器無法啟動。檢查訪客日誌以了解詳細資訊。</string>
     <string name="first_boot_hint">首次開機需要較長時間：系統正在最佳化應用程式。</string>
     <string name="folder_close">關閉資料夾</string>
     <string name="folder_default_name">資料夾</string>
@@ -99,6 +109,10 @@
     <string name="folder_empty">空 — 把 ROM 拖到這裡</string>
     <string name="folder_move">移動到資料夾</string>
     <string name="folder_new">新增資料夾</string>
+    <string name="vm_more">更多</string>
+    <string name="vm_more_move">移動</string>
+    <string name="vm_more_name">名稱</string>
+    <string name="vm_more_folder">資料夾</string>
     <string name="folder_new_dots">新增資料夾…</string>
     <string name="folder_none">不在資料夾中</string>
     <string name="folder_open">開啟資料夾</string>
@@ -112,6 +126,7 @@
     <string name="host">主機</string>
     <string name="import_done">韌體已新增</string>
     <string name="import_failed">匯入失敗</string>
+    <string name="import_error_desc">無法導入韌體。檢查文件並重試。</string>
     <string name="import_ready">完成</string>
     <string name="import_running">正在匯入韌體</string>
     <string name="import_start">正在開始</string>
@@ -143,6 +158,11 @@
     <string name="m_failed">失敗</string>
     <string name="m_install_apk">安裝 APK…</string>
     <string name="m_install_apk_start">正在安裝…</string>
+    <string name="m_install_apk_start_desc">将 APK 复制到来宾并使用包管理器进行安装。</string>
+    <string name="m_install_apk_done">應用程式已安裝</string>
+    <string name="m_install_apk_done_desc">該應用程式現已安裝在來賓中。</string>
+    <string name="m_install_apk_failed">安裝失敗</string>
+    <string name="m_install_apk_failed_desc">套件管理器無法安裝此 APK。</string>
     <string name="m_keyboard">顯示/隱藏鍵盤</string>
     <string name="m_minimize">最小化</string>
     <string name="m_netdebug">HTTP 偵錯工具</string>
@@ -166,7 +186,7 @@
     <string name="m_screenshot_saved">已儲存：%1$s</string>
     <string name="m_send">傳送</string>
     <string name="m_settings">開啟 Android 設定</string>
-    <string name="m_shell">ADB shell</string>
+    <string name="m_shell">亞行外殼</string>
     <string name="m_shell_clear">清空</string>
     <string name="m_shell_ctrlc">Ctrl+C</string>
     <string name="m_shell_hint">韌體的 root shell。輸入命令（如 ls /sdcard、getprop、pm list packages）。</string>
@@ -334,6 +354,8 @@
     <string name="update_download_failed_generic">下載錯誤</string>
     <string name="update_downloading">正在下載更新…</string>
     <string name="update_error">檢查更新失敗：%1$s</string>
+    <string name="update_error_desc">無法檢查更新。檢查您的網路連接，然後再試一次。</string>
+    <string name="download_error_desc">下載失敗。檢查您的網路連接，然後再試一次。</string>
     <string name="update_error_title">錯誤</string>
     <string name="update_install">安裝</string>
     <string name="update_later">稍後</string>

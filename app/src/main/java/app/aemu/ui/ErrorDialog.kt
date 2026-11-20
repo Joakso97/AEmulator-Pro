@@ -84,34 +84,26 @@ fun ErrorDialog(
                         textAlign = TextAlign.Start
                     )
                 }
-                if (!logText.isNullOrEmpty()) {
+                if (!logText.isNullOrEmpty() && showLog) {
                     Spacer(Modifier.height(10.dp))
-                    TextButton(onClick = { showLog = !showLog }) {
-                        Text(
-                            stringResource(if (showLog) R.string.close else R.string.log),
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    if (showLog) {
-                        Surface(
-                            shape = MaterialTheme.shapes.medium,
-                            color = MaterialTheme.colorScheme.surfaceContainerHighest,
-                            modifier = Modifier.fillMaxWidth()
+                    Surface(
+                        shape = MaterialTheme.shapes.medium,
+                        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(
+                            Modifier
+                                .fillMaxWidth()
+                                .heightIn(max = 160.dp)
+                                .verticalScroll(logScroll)
+                                .padding(10.dp)
                         ) {
-                            Column(
-                                Modifier
-                                    .fillMaxWidth()
-                                    .heightIn(max = 160.dp)
-                                    .verticalScroll(logScroll)
-                                    .padding(10.dp)
-                            ) {
-                                SelectionContainer {
-                                    Text(
-                                        text = logText,
-                                        style = MaterialTheme.typography.bodySmall,
-                                        fontFamily = FontFamily.Monospace
-                                    )
-                                }
+                            SelectionContainer {
+                                Text(
+                                    text = logText,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    fontFamily = FontFamily.Monospace
+                                )
                             }
                         }
                     }
@@ -129,10 +121,18 @@ fun ErrorDialog(
                 }
             }
         },
-        dismissButton = if (onRetry != null) ({
-            OutlinedButton(onClick = onDismiss) {
-                Text(stringResource(R.string.cancel))
-            }
-        }) else null
+        dismissButton = when {
+            onRetry != null -> ({
+                OutlinedButton(onClick = onDismiss) {
+                    Text(stringResource(R.string.cancel))
+                }
+            })
+            !logText.isNullOrEmpty() -> ({
+                TextButton(onClick = { showLog = !showLog }) {
+                    Text(stringResource(if (showLog) R.string.close else R.string.log))
+                }
+            })
+            else -> null
+        }
     )
 }

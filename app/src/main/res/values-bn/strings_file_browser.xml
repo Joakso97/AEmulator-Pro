@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">ফাইল নির্বাচন করুন</string>
+    <string name="fb_title_single">একটি ফাইল নির্বাচন করুন</string>
+    <string name="fb_up">উপরে</string>
+    <string name="fb_system_picker">সিস্টেম পিকার</string>
+    <string name="fb_use_system_picker">পরিবর্তে সিস্টেম পিকার ব্যবহার করুন</string>
+
+    <string name="fb_internal">অভ্যন্তরীণ স্টোরেজ</string>
+    <string name="fb_removable">SD কার্ড / USB %1$d</string>
+    <string name="fb_downloads">ডাউনলোড করুন</string>
+    <string name="fb_documents">নথিপত্র</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">নাম</string>
+    <string name="fb_sort_date">তারিখ</string>
+    <string name="fb_sort_size">আকার</string>
+    <string name="fb_hidden">লুকানো</string>
+
+    <string name="fb_selected">%1$d নির্বাচিত</string>
+    <string name="fb_clear">পরিষ্কার</string>
+    <string name="fb_import">আমদানি</string>
+
+    <string name="fb_empty">এখানে কিছুই নেই</string>
+    <string name="fb_unreadable">এই ফোল্ডার পড়া যাবে না. অ্যান্ড্রয়েড প্রতিটি অ্যাপে কিছু ফোল্ডার (যেমন অন্যান্য অ্যাপের ডেটা) বন্ধ রাখে।</string>
+
+    <string name="fb_access_title">ফাইলগুলিতে অ্যাক্সেসের অনুমতি দিন</string>
+    <string name="fb_access_text">আপনার ফার্মওয়্যার ফাইলগুলি তালিকাভুক্ত করতে এবং একবারে একাধিক বাছাই করতে, ব্রাউজারটির আপনার ফাইলগুলিতে অ্যাক্সেস প্রয়োজন৷ আপনি পরিবর্তে সিস্টেম পিকার ব্যবহার করতে পারেন।</string>
+    <string name="fb_access_scoped">অ্যান্ড্রয়েড 10 অ্যাপ্লিকেশানগুলি থেকে বেশিরভাগ ফাইল লুকিয়ে রাখে যেগুলি স্কোপড স্টোরেজ থেকে অপ্ট আউট করেনি, তাই এই ব্রাউজারটি সেগুলিকে এখানে তালিকাভুক্ত করতে পারে না। পরিবর্তে সিস্টেম পিকার ব্যবহার করুন.</string>
+
+    <string name="as_builtin_browser">অন্তর্নির্মিত ফাইল ব্রাউজার</string>
+    <string name="as_builtin_browser_sub">তারিখ এবং আকার অনুসারে বাছাই করা ফার্মওয়্যার এবং একসাথে বেশ কয়েকটি ফাইল বেছে নিন। সিস্টেম পিকার ব্যবহার করতে বন্ধ করুন।</string>
+
+    <string name="imp_archive_alone">একটি VM ব্যাকআপ (.aessvm) নিজে থেকে আমদানি করতে হবে, অন্য ফাইলের সাথে নয়।</string>
+    <string name="imp_joining">%1$s এর %2$d অংশে যোগদান করা হচ্ছে...</string>
+    <string name="imp_split_missing">বিভক্ত সংরক্ষণাগারের অংশ %2$s %1$s অনুপস্থিত৷ এর সমস্ত অংশ নির্বাচন করুন বা একটি ফোল্ডারে রাখুন।</string>
+</resources>

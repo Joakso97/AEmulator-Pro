@@ -207,7 +207,7 @@
     <string name="lib3d_spec_skin">Arayüz</string>
     <string name="lib3d_spec_screen">Ekran</string>
     <string name="lib3d_spec_size">Boyut</string>
-    <string name="lib3d_spec_model">Model</string>
+    <string name="lib3d_spec_model">Modeli</string>
     <string name="as_upstream_row">Üst proje: %1$s</string>
     <string name="as_original_row">Orijinal: %1$s</string>
     <string name="sms_default_body">AEmulator’dan merhaba</string>

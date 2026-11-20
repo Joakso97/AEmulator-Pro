@@ -8,8 +8,8 @@
     <string name="nav_earlier">Mas maaga</string>
     <string name="nav_later">Mas huli</string>
     <string name="nav_reset">I-reset ang mga button</string>
-    <string name="nav_search">Search</string>
-    <string name="nav_power">Power</string>
+    <string name="nav_search">Maghanap</string>
+    <string name="nav_power">kapangyarihan</string>
     <string name="nav_go_to_recovery">Pumunta sa recovery</string>
     <string name="nav_volume_down">Hinaan ang volume</string>
     <string name="nav_volume_up">Lakasan ang volume</string>

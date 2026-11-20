@@ -198,7 +198,7 @@
     <string name="warn_no_boot_img">Pas de boot.img dans le firmware : le plan de démarrage et BOOTCLASSPATH ont été devinés.</string>
     <string name="warn_not_arm">Le firmware n’est pas ARM (%1$s) et ne démarrera pas.</string>
     <string name="warn_experimental">Android %1$s : la prise en charge est expérimentale (ART, SELinux).</string>
-    <string name="import_default_name">firmware</string>
+    <string name="import_default_name">micrologiciel</string>
     <string name="import_copying">Copie</string>
     <string name="import_copying_x">Copie de %1$s</string>
     <string name="import_cancelled">Importation annulée</string>
@@ -211,8 +211,8 @@
     <string name="as_upstream_row">En amont : %1$s</string>
     <string name="as_original_row">Original : %1$s</string>
     <string name="sms_default_body">Bonjour depuis AEmulator</string>
-    <string name="theme_original">Original</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_original">Originale</string>
+    <string name="theme_sunset">Coucher de soleil</string>
     <string name="sim_country_emulator">Émulateur</string>
     <string name="catalog_err_invalid_url">URL de catalogue non valide</string>
     <string name="catalog_err_too_many_redirects">Trop de redirections</string>

@@ -204,12 +204,12 @@
     <string name="import_cancelled">Uvoz je otkazan</string>
     <string name="vs_recovery_stock">Originalni recovery</string>
     <string name="lib3d_card_description">%1$s, Android %2$s</string>
-    <string name="lib3d_spec_skin">Skin</string>
+    <string name="lib3d_spec_skin">koža</string>
     <string name="lib3d_spec_screen">Zaslon</string>
     <string name="lib3d_spec_size">Veličina</string>
     <string name="lib3d_spec_model">Model</string>
     <string name="as_upstream_row">Izvorni projekt: %1$s</string>
-    <string name="as_original_row">Original: %1$s</string>
+    <string name="as_original_row">Izvornik: %1$s</string>
     <string name="sms_default_body">Pozdrav iz AEmulatora</string>
     <string name="theme_original">Izvorni</string>
     <string name="theme_sunset">Zalazak sunca</string>

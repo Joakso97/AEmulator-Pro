@@ -208,7 +208,7 @@
     <string name="lib3d_spec_screen">Zaslon</string>
     <string name="lib3d_spec_size">Velikost</string>
     <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Gorvodno: %1$s</string>
     <string name="as_original_row">Izvirnik: %1$s</string>
     <string name="sms_default_body">Pozdrav iz AEmulatorja</string>
     <string name="theme_original">Izvirni</string>

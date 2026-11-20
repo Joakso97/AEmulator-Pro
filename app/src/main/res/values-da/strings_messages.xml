@@ -205,11 +205,11 @@
     <string name="import_cancelled">Importen blev annulleret</string>
     <string name="vs_recovery_stock">Standardrecovery</string>
     <string name="lib3d_card_description">%1$s, Android %2$s</string>
-    <string name="lib3d_spec_skin">Skin</string>
+    <string name="lib3d_spec_skin">Hud</string>
     <string name="lib3d_spec_screen">Skærm</string>
     <string name="lib3d_spec_size">Størrelse</string>
     <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Opstrøms: %1$s</string>
     <string name="as_original_row">Original: %1$s</string>
     <string name="sms_default_body">Hilsner fra AEmulator</string>
     <string name="theme_original">Original</string>

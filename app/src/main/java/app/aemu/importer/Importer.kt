@@ -748,6 +748,18 @@ class Importer(
         found
     }.getOrDefault(false)
 
+    
+    private fun importProbableSystem(src: RandomSource, label: String): Boolean {
+        val probe = if (SparseSource.probe(src)) SparseSource(listOf(src)) else src
+        val ok = Ext4Reader.probe(probe) || UbiFsReader.probe(probe) || Yaffs2Reader.probe(probe) ||
+            ErofsReader.probe(probe) || MotoImage.probe(probe) || looksLikeSystem(probe)
+        if (ok) {
+            log("$label: importing as system image (content detected)")
+            importImage(probe, "system")
+        }
+        return ok
+    }
+
     private fun isAndroidImage(h: ByteArray) = h.size >= 8 && String(h, 0, 8, Charsets.ISO_8859_1) == "ANDROID!"
     private fun isLz4Frame(h: ByteArray) = h.size >= 4 && h[0] == 0x04.toByte() && h[1] == 0x22.toByte() && h[2] == 0x4d.toByte() && h[3] == 0x18.toByte()
     
@@ -946,6 +958,11 @@ class Importer(
                             handle(ChannelSource(c), c, nestedFile.name, depth + 1)
                         }
                     } finally { nestedFile.delete() }
+                }
+                else -> {
+                    if (e.size >= 4096 && PartitionNames.isDiskImageName(base)) withEntrySource(zip, e) { src ->
+                        if (!importProbableSystem(src, base)) log("$base: unrecognized file, skipped")
+                    }
                 }
             }
             done += maxOf(0L, e.size)
@@ -1621,7 +1638,17 @@ class Importer(
                     }
                     
                     NandDump.isMtdName(base) && e.size > 0 -> nested.add(spill(entryStream, base) to "mtd")
-                    else -> if (e.size < (4L shl 20) || !importDiskStream(entryStream, base)) drain(entryStream)
+                    else -> {
+                        if (e.size >= 4096 && PartitionNames.isDiskImageName(base)) {
+                            val t = spill(entryStream, base)
+                            try {
+                                val asDisk = t.inputStream().use { importDiskStream(it, base) }
+                                if (!asDisk) FileChannel.open(t.toPath(), StandardOpenOption.READ).use { c ->
+                                    if (!importProbableSystem(ChannelSource(c), base)) log("$base: unrecognized file, skipped")
+                                }
+                            } finally { t.delete() }
+                        } else drain(entryStream)
+                    }
                 }
                 onProgress(lt(R.string.imp_extracting, base), 0.5f)
             }

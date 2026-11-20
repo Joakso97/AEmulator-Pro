@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vmf_browse">VM ფაილების დათვალიერება</string>
+
+    <string name="vmf_unreadable">ამ საქაღალდის წაკითხვა შეუძლებელია.</string>
+    <string name="vmf_readonly_folder">მხოლოდ წაკითხვადი: ეს საქაღალდე არ არის VM-ის საკუთარი ფაილების ნაწილი. შეგიძლიათ ნახოთ და დააკოპიროთ და არა შეცვალოთ.</string>
+    <string name="vmf_link">ბმული</string>
+    <string name="vmf_no_folders">აქ საქაღალდეები არ არის</string>
+
+    <string name="vmf_preview_failed">ამ ფაილის წაკითხვა შეუძლებელია.</string>
+    <string name="vmf_preview_truncated">ნაჩვენებია პირველი %1$s %2$s-დან</string>
+
+    <string name="vmf_copy">კოპირება</string>
+    <string name="vmf_copy_to">დააკოპირეთ</string>
+    <string name="vmf_copy_to_vm">კიდევ ერთი ადგილი ამ VM-ში</string>
+    <string name="vmf_copy_to_device">VM-ის გარეთ (მოწყობილობის საცავი)</string>
+    <string name="vmf_copy_here">დააკოპირეთ აქ</string>
+    <string name="vmf_new_folder">ახალი საქაღალდე</string>
+    <string name="vmf_folder_name">საქაღალდის სახელი</string>
+    <string name="vmf_create">შექმნა</string>
+    <string name="vmf_error_desc">ოპერაციის დასრულება ვერ მოხერხდა. სცადეთ ხელახლა.</string>
+    <string name="vmf_new_name">ახალი სახელი</string>
+
+    <string name="vmf_delete_one">წაშალოთ \\\"%1$s\\\"? ამის გაუქმება შეუძლებელია.</string>
+    <string name="vmf_delete_many">წაშალოთ %1$d ერთეული? ამის გაუქმება შეუძლებელია.</string>
+    <string name="vmf_delete_core">ეს არის VM-ის ძირითადი ნაწილი (დანაყოფი ან სურათი). ამის გარეშე VM შეიძლება აღარ დაიწყოს.</string>
+
+    <string name="vmf_working_copy">კოპირება…</string>
+    <string name="vmf_working_delete">მიმდინარეობს წაშლა…</string>
+    <string name="vmf_working_rename">მიმდინარეობს სახელის გადარქმევა…</string>
+    <string name="vmf_result_copied">კოპირებულია: %1$d</string>
+    <string name="vmf_result_copied_skipped">გადაწერა: %1$d. გამოტოვებული: %2$d (ბმულები VM-ის გარეთ, სოკეტებთან და მსგავსებთან).</string>
+    <string name="vmf_result_deleted">წაშლილია: %1$d</string>
+    <string name="vmf_failed">ვერ მოხერხდა: %1$s</string>
+
+    <string name="vmf_readonly">ეს ელემენტი არ არის VM-ის საკუთარი ფაილების ნაწილი, ამიტომ მისი აქ შეცვლა შეუძლებელია.</string>
+    <string name="vmf_protected">ეს არის VM-ის საკუთარი ბუღალტრული აღრიცხვის ნაწილი და აქ შეცვლა შეუძლებელია.</string>
+    <string name="vmf_bad_name">ეს სახელი დაუშვებელია.</string>
+    <string name="vmf_exists">ამ სახელის მქონე ელემენტი უკვე არსებობს.</string>
+    <string name="vmf_no_space">არ არის საკმარისი თავისუფალი ადგილი.</string>
+</resources>

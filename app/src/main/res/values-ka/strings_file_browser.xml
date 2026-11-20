@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">აირჩიეთ ფაილები</string>
+    <string name="fb_title_single">აირჩიეთ ფაილი</string>
+    <string name="fb_up">ზემოთ</string>
+    <string name="fb_system_picker">სისტემის ამომრჩევი</string>
+    <string name="fb_use_system_picker">ამის ნაცვლად გამოიყენეთ სისტემის ამომრჩევი</string>
+
+    <string name="fb_internal">შიდა საცავი</string>
+    <string name="fb_removable">SD ბარათი / USB %1$d</string>
+    <string name="fb_downloads">ჩამოტვირთვა</string>
+    <string name="fb_documents">დოკუმენტები</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">სახელი</string>
+    <string name="fb_sort_date">თარიღი</string>
+    <string name="fb_sort_size">ზომა</string>
+    <string name="fb_hidden">დამალული</string>
+
+    <string name="fb_selected">არჩეულია %1$d</string>
+    <string name="fb_clear">წმინდა</string>
+    <string name="fb_import">იმპორტი</string>
+
+    <string name="fb_empty">აქ არაფერი</string>
+    <string name="fb_unreadable">ამ საქაღალდის წაკითხვა შეუძლებელია. Android ინახავს ზოგიერთ საქაღალდეს (როგორიცაა სხვა აპების მონაცემებს) დახურული ყველა აპისთვის.</string>
+
+    <string name="fb_access_title">ფაილებზე წვდომის დაშვება</string>
+    <string name="fb_access_text">იმისათვის, რომ ჩამოთვალოთ თქვენი firmware ფაილები და აირჩიოთ რამდენიმე ერთდროულად, ბრაუზერს სჭირდება წვდომა თქვენს ფაილებზე. თქვენ ასევე შეგიძლიათ გამოიყენოთ სისტემის ამომრჩევი.</string>
+    <string name="fb_access_scoped">Android 10 მალავს ფაილების უმეტესობას იმ აპებიდან, რომლებსაც არ გამოუთქვამთ მოცულობის მეხსიერება, ამიტომ ამ ბრაუზერს არ შეუძლია მათი აქ ჩამოთვლა. ამის ნაცვლად გამოიყენეთ სისტემის ამომრჩევი.</string>
+
+    <string name="as_builtin_browser">ჩამონტაჟებული ფაილების ბრაუზერი</string>
+    <string name="as_builtin_browser_sub">აირჩიეთ firmware თარიღის და ზომის მიხედვით დახარისხებით და რამდენიმე ფაილი ერთდროულად. გამორთეთ სისტემის ამომრჩევის გამოსაყენებლად.</string>
+
+    <string name="imp_archive_alone">VM სარეზერვო ასლი (.aessvm) უნდა იყოს იმპორტირებული დამოუკიდებლად და არა სხვა ფაილებთან ერთად.</string>
+    <string name="imp_joining">უერთდება %2$d %1$s ნაწილებს…</string>
+    <string name="imp_split_missing">გაყოფილი არქივის %1$s ნაწილი %2$s აკლია. აირჩიეთ მისი ყველა ნაწილი ან შეინახეთ ისინი ერთ საქაღალდეში.</string>
+</resources>

@@ -204,11 +204,11 @@
     <string name="import_cancelled">Importeren geannuleerd</string>
     <string name="vs_recovery_stock">Standaard-recovery</string>
     <string name="lib3d_card_description">%1$s, Android %2$s</string>
-    <string name="lib3d_spec_skin">Skin</string>
+    <string name="lib3d_spec_skin">Huid</string>
     <string name="lib3d_spec_screen">Scherm</string>
     <string name="lib3d_spec_size">Grootte</string>
     <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Stroomopwaarts: %1$s</string>
     <string name="as_original_row">Origineel: %1$s</string>
     <string name="sms_default_body">Hallo van AEmulator</string>
     <string name="theme_original">Origineel</string>

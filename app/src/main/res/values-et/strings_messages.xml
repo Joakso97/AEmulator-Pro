@@ -209,7 +209,7 @@
     <string name="lib3d_spec_screen">Ekraan</string>
     <string name="lib3d_spec_size">Suurus</string>
     <string name="lib3d_spec_model">Mudel</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Ülesvoolu: %1$s</string>
     <string name="as_original_row">Originaal: %1$s</string>
     <string name="sms_default_body">Tervitused AEmulatorist</string>
     <string name="theme_original">Originaal</string>

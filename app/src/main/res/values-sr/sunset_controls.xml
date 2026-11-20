@@ -18,7 +18,7 @@
     <string name="nav_left">D-pad лево</string>
     <string name="nav_right">D-pad десно</string>
     <string name="nav_center">D-pad центар</string>
-    <string name="nav_trackball">Trackball</string>
+    <string name="nav_trackball">Трекбалл</string>
     <string name="nav_trackball_sub">Превуците преко круга изнад навигационе траке да котрљате; додирните да изаберете.</string>
     <string name="nav_dpad_mode">Режим тастера са стрелицама</string>
     <string name="nav_dpad_sub">Искључено: прави релативни trackball догађаји за апликације госта. Укључено: уместо тога притисци D-pad тастера. Не шаље оба.</string>

@@ -208,7 +208,7 @@
     <string name="lib3d_spec_screen">Képernyő</string>
     <string name="lib3d_spec_size">Méret</string>
     <string name="lib3d_spec_model">Modell</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Felfelé: %1$s</string>
     <string name="as_original_row">Eredeti: %1$s</string>
     <string name="sms_default_body">Üdvözlet az AEmulatorból</string>
     <string name="theme_original">Eredeti</string>

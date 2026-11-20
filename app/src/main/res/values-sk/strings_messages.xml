@@ -204,11 +204,11 @@
     <string name="import_cancelled">Import zrušený</string>
     <string name="vs_recovery_stock">Originálne recovery</string>
     <string name="lib3d_card_description">%1$s, Android %2$s</string>
-    <string name="lib3d_spec_skin">Skin</string>
+    <string name="lib3d_spec_skin">Koža</string>
     <string name="lib3d_spec_screen">Obrazovka</string>
     <string name="lib3d_spec_size">Veľkosť</string>
     <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Proti prúdu: %1$s</string>
     <string name="as_original_row">Pôvodný: %1$s</string>
     <string name="sms_default_body">Pozdrav z AEmulatora</string>
     <string name="theme_original">Pôvodný</string>

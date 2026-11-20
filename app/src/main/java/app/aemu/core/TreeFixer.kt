@@ -6100,7 +6100,12 @@ val db = settingsDb()
                 put(if (img.api >= 17) "global" else "secure", "package_verifier_enable", "0")
                 put(if (img.api >= 17) "global" else "secure", "install_non_market_apps", "1")
                 put("secure", "install_non_market_apps", "1")
-                if (img.api >= 17) put("global", "verifier_verify_adb_installs", "0")
+                if (img.api >= 17) {
+                    put("global", "verifier_verify_adb_installs", "0")
+                    put("global", "upload_apk_enable", "0")
+                    put("global", "package_verifier_include_adb", "0")
+                }
+                put("secure", "package_verifier_user_consent", "-1")
                 
                 
                 
@@ -6200,6 +6205,10 @@ val db = settingsDb()
             Triple("system", "screen_off_timeout", "2147483647"),
             Triple("global", "stay_on_while_plugged_in", "7"),
             Triple("global", "package_verifier_enable", "0"),
+            Triple("global", "verifier_verify_adb_installs", "0"),
+            Triple("global", "upload_apk_enable", "0"),
+            Triple("global", "package_verifier_include_adb", "0"),
+            Triple("secure", "package_verifier_user_consent", "-1"),
         ) + (if (img.settings.skipSetupWizard) listOf(
             Triple("global", "device_provisioned", "1"),
             Triple("secure", "user_setup_complete", "1"),

@@ -204,11 +204,11 @@
     <string name="import_cancelled">Impor dibatalkan</string>
     <string name="vs_recovery_stock">Recovery bawaan</string>
     <string name="lib3d_card_description">%1$s, Android %2$s</string>
-    <string name="lib3d_spec_skin">Skin</string>
+    <string name="lib3d_spec_skin">Kulit</string>
     <string name="lib3d_spec_screen">Layar</string>
     <string name="lib3d_spec_size">Ukuran</string>
     <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Hulu: %1$s</string>
     <string name="as_original_row">Asli: %1$s</string>
     <string name="sms_default_body">Halo dari AEmulator</string>
     <string name="theme_original">Asli</string>

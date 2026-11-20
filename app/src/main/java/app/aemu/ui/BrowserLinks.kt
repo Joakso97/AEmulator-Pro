@@ -5,11 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import app.aemu.R
-import app.aemu.catalog.CatalogUrls
+import java.net.URI
 
 
 fun openBrowser(ctx: Context, url: String) {
-    val safe = CatalogUrls.valid(url) ?: return
+    val safe = validUrl(url) ?: return
     try {
         val generic = Intent(Intent.ACTION_VIEW, Uri.parse("https://aemu-browser.invalid/"))
             .addCategory(Intent.CATEGORY_BROWSABLE)
@@ -27,3 +27,13 @@ fun openBrowser(ctx: Context, url: String) {
         Toast.makeText(ctx, R.string.browser_unavailable, Toast.LENGTH_LONG).show()
     }
 }
+
+private fun validUrl(value: String): String? = runCatching {
+    val s = value.trim()
+    require(s.length in 1..8192)
+    val uri = URI(s)
+    require(uri.scheme.equals("https", true) || uri.scheme.equals("http", true))
+    require(!uri.host.isNullOrBlank() && uri.rawUserInfo == null)
+    s
+}.getOrNull()
+

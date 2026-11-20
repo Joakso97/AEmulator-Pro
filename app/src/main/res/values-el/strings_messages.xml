@@ -198,7 +198,7 @@
     <string name="warn_no_boot_img">Δεν υπάρχει boot.img στο firmware: το σχέδιο εκκίνησης και το BOOTCLASSPATH εικάστηκαν.</string>
     <string name="warn_not_arm">Το firmware δεν είναι ARM (%1$s) και δεν θα εκτελεστεί.</string>
     <string name="warn_experimental">Android %1$s: η υποστήριξη είναι πειραματική (ART, SELinux).</string>
-    <string name="import_default_name">firmware</string>
+    <string name="import_default_name">υλικολογισμικό</string>
     <string name="import_copying">Αντιγραφή</string>
     <string name="import_copying_x">Αντιγραφή του %1$s</string>
     <string name="import_cancelled">Η εισαγωγή ακυρώθηκε</string>
@@ -208,7 +208,7 @@
     <string name="lib3d_spec_screen">Οθόνη</string>
     <string name="lib3d_spec_size">Μέγεθος</string>
     <string name="lib3d_spec_model">Μοντέλο</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="as_upstream_row">Ανοδική ροή: %1$s</string>
     <string name="as_original_row">Πρωτότυπο: %1$s</string>
     <string name="sms_default_body">Χαιρετίσματα από το AEmulator</string>
     <string name="theme_original">Αρχικό</string>

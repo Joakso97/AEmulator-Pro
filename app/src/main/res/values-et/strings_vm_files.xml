@@ -3,7 +3,7 @@
     <string name="vmf_browse">Sirvi VM-i faile</string>
     <string name="vmf_unreadable">Seda kausta ei saa lugeda.</string>
     <string name="vmf_readonly_folder">Kirjutuskaitstud: see kaust ei kuulu VM-i enda failide hulka. Saad vaadata ja kopeerida, kuid mitte muuta.</string>
-    <string name="vmf_link">Link</string>
+    <string name="vmf_link">link</string>
     <string name="vmf_no_folders">Siin pole kaustu</string>
     <string name="vmf_preview_failed">Seda faili ei saa lugeda.</string>
     <string name="vmf_preview_truncated">Näidatakse esimest %1$s kogusummast %2$s</string>

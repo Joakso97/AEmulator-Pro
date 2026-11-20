@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="vm_import_partition">დანაყოფის იმპორტი</string>
+    <string name="vm_import_partition_working">%1$s დანაყოფის კითხვა… შეაჩერე ყველა VM-ის იმპორტამდე.</string>
+    <string name="vm_import_partition_done">%1$s დანაყოფი იმპორტირებული და დამონტაჟებულია. სისტემა და მონაცემები უცვლელია.</string>
+    <string name="vm_import_partition_exists">ამ VM-ს უკვე აქვს %1$s დანაყოფი.</string>
+    <string name="vm_import_partition_conflict">VM-ის საქაღალდის განლაგება არ იძლევა ამ დანაყოფის უფლებას.</string>
+    <string name="vm_import_partition_unsupported">ამ პარამეტრით %1$s სურათის იმპორტი შეუძლებელია.</string>
+    <string name="vm_import_partition_which">ეს რომელი დანაყოფია?</string>
+    <string name="vm_import_partition_which_info">ფაილის სახელი არ ამბობს, რას შეიცავს. აირჩიე დანაყოფი.</string>
+    <string name="vm_import_partition_have">%1$s (უკვე ამ VM-ში)</string>
+    <string name="vm_import_partition_headline">დანაყოფის სურათის იმპორტი ამ VM-ში</string>
+    <string name="vm_import_partition_sub">ჩატვირთვა, აღდგენა (სტოკი, TWRP, OrangeFox ან CWM), OEM, გამყიდველი, odm, პროდუქტი ან system_ext. ტიპი იკითხება ფაილიდან; გეკითხებიან, როდის არ შეიძლება. მხოლოდ აღდგენა ცვლის არსებულს; დანარჩენი VM უცვლელია. გადატვირთეთ აღდგენა ⋮ მენიუდან.</string>
+    <string name="vm_import_partition_button">იმპორტი…</string>
+    <string name="vm_import_recovery_done">აღდგენა იმპორტირებულია. გადატვირთეთ აღდგენაზე ⋮ მენიუდან გამოსაყენებლად.</string>
+</resources>

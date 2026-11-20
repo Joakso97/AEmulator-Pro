@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">ဖိုင်များကို ရွေးပါ။</string>
+    <string name="fb_title_single">ဖိုင်တစ်ခုကို ရွေးပါ။</string>
+    <string name="fb_up">ချီ</string>
+    <string name="fb_system_picker">စနစ်ရွေးချယ်မှု</string>
+    <string name="fb_use_system_picker">၎င်းအစား စနစ်ရွေးချယ်မှုကို အသုံးပြုပါ။</string>
+
+    <string name="fb_internal">အတွင်းပိုင်းသိုလှောင်မှု</string>
+    <string name="fb_removable">SD ကတ် / USB %1$d</string>
+    <string name="fb_downloads">ဒေါင်းလုဒ်လုပ်ပါ။</string>
+    <string name="fb_documents">စာရွက်စာတမ်းများ</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">နာမည်</string>
+    <string name="fb_sort_date">ရက်စွဲ</string>
+    <string name="fb_sort_size">အရွယ်အစား</string>
+    <string name="fb_hidden">ဝှက်ထားသည်။</string>
+
+    <string name="fb_selected">%1$d ရွေးထားသည်။</string>
+    <string name="fb_clear">ရှင်းပါတယ်။</string>
+    <string name="fb_import">သွင်းကုန်</string>
+
+    <string name="fb_empty">ဒီမှာ ဘာမှမရှိဘူး။</string>
+    <string name="fb_unreadable">ဤဖိုင်တွဲကို ဖတ်၍မရပါ။ Android သည် အချို့သော ဖိုင်တွဲများ (အခြားအက်ပ်များ\\\' ဒေတာများကဲ့သို့) အက်ပ်တိုင်းတွင် ပိတ်ထားသည်။</string>
+
+    <string name="fb_access_title">ဖိုင်များကို ဝင်သုံးခွင့်ပြုပါ။</string>
+    <string name="fb_access_text">သင့် firmware ဖိုင်များကို စာရင်းပြုစုပြီး အများအပြားကို တစ်ပြိုင်နက် ရွေးချယ်ရန်၊ ဘရောက်ဆာသည် သင့်ဖိုင်များကို ဝင်ရောက်ခွင့် လိုအပ်ပါသည်။ ၎င်းအစား စနစ်ရွေးချယ်မှုကိုလည်း သင်အသုံးပြုနိုင်ပါသည်။</string>
+    <string name="fb_access_scoped">Android 10 သည် သတ်မှတ်ထားသော သိုလှောင်မှုမှ ဖယ်ထားခြင်းမရှိသော အက်ပ်များမှ ဖိုင်အများစုကို ဝှက်ထားသောကြောင့် ဤဘရောက်ဆာသည် ၎င်းတို့ကို ဤနေရာတွင် စာရင်းမသွင်းနိုင်ပါ။ ၎င်းအစား စနစ်ရွေးချယ်မှုကို အသုံးပြုပါ။</string>
+
+    <string name="as_builtin_browser">Built-in ဖိုင်ဘရောက်ဆာ</string>
+    <string name="as_builtin_browser_sub">ရက်စွဲအလိုက် အရွယ်အစားနှင့် ဖိုင်များစွာကို တစ်ပြိုင်နက်စီခွဲခြင်းဖြင့် ဖာမ်းဝဲလ်ကို ရွေးပါ။ စနစ်ရွေးချယ်မှုအသုံးပြုရန် ပိတ်ပါ။</string>
+
+    <string name="imp_archive_alone">VM မိတ္တူ (.aessvm) ကို အခြားဖိုင်များနှင့် အတူမဟုတ်ဘဲ ၎င်း၏ ကိုယ်ပိုင် တင်သွင်းရမည်ဖြစ်သည်။</string>
+    <string name="imp_joining">%1$s ၏ %2$d အစိတ်အပိုင်းများကို ချိတ်ဆက်နေသည်...</string>
+    <string name="imp_split_missing">အပိုင်း %2$s အပိုင်း %1$s ပျောက်ဆုံးနေပါသည်။ ၎င်း၏ အစိတ်အပိုင်းအားလုံးကို ရွေးပါ သို့မဟုတ် ၎င်းတို့ကို ဖိုင်တွဲတစ်ခုထဲတွင် သိမ်းဆည်းပါ။</string>
+</resources>

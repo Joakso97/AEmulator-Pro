@@ -207,12 +207,12 @@
     <string name="lib3d_spec_skin">Nakładka</string>
     <string name="lib3d_spec_screen">Ekran</string>
     <string name="lib3d_spec_size">Rozmiar</string>
-    <string name="lib3d_spec_model">Model</string>
-    <string name="as_upstream_row">Upstream: %1$s</string>
+    <string name="lib3d_spec_model">Modelka</string>
+    <string name="as_upstream_row">Wyżej: %1$s</string>
     <string name="as_original_row">Oryginał: %1$s</string>
     <string name="sms_default_body">Cześć od AEmulator</string>
     <string name="theme_original">Oryginalny</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Zachód słońca</string>
     <string name="sim_country_emulator">Emulator</string>
     <string name="catalog_err_invalid_url">Nieprawidłowy adres URL katalogu</string>
     <string name="catalog_err_too_many_redirects">Zbyt wiele przekierowań</string>

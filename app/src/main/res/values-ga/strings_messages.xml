@@ -212,7 +212,7 @@
     <string name="as_original_row">Bunaidh: %1$s</string>
     <string name="sms_default_body">Dia duit ó AEmulator</string>
     <string name="theme_original">Bunaidh</string>
-    <string name="theme_sunset">Sunset</string>
+    <string name="theme_sunset">Luí na gréine</string>
     <string name="sim_country_emulator">Aithriseoir</string>
     <string name="catalog_err_invalid_url">URL catalóige neamhbhailí</string>
     <string name="catalog_err_too_many_redirects">An iomarca athsheolta</string>

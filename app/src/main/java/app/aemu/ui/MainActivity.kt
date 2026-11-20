@@ -332,9 +332,6 @@ fun Library(model: LibraryModel) {
                     LargeFlexibleTopAppBar(
                         title = { SunsetTitle() },
                         actions = {
-                            IconButton(onClick = { ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) }) {
-                                Icon(Icons.Rounded.List, stringResource(R.string.catalog_title))
-                            }
                             IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
                             IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) }
                         },
@@ -542,7 +539,6 @@ fun Library(model: LibraryModel) {
                     expanded = addMenu,
                     onToggle = { addMenu = it },
                     onImport = { pick.launch(arrayOf("*/*")) },
-                    onCatalog = { ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) },
                     onLibrary = { library = true },
                     onNewFolder = { openNewFolder() }
                 )
@@ -618,7 +614,6 @@ fun Library(model: LibraryModel) {
     }
     if (!newHome && addMenu) AddSheet(images, onDismiss = { addMenu = false },
         onImport = { addMenu = false; pick.launch(arrayOf("*/*")) },
-        onCatalog = { addMenu = false; ctx.startActivity(Intent(ctx, RomCatalogActivity::class.java)) },
         onContainer = { addMenu = false; containerFrom = it },
         onNewFolder = if (view3d) null else ({ addMenu = false; openNewFolder() }))
     if (newHome && library) LibrarySheet(images.filter { it.baseId.isEmpty() }, onDismiss = { library = false },
@@ -645,7 +640,6 @@ fun Library(model: LibraryModel) {
 
 
 internal enum class TabletRailDestination(val activityClass: Class<out ComponentActivity>) {
-    CATALOG(RomCatalogActivity::class.java),
     SUPPORTED_FILES(SupportedFirmwareActivity::class.java),
     SETTINGS(AppSettingsActivity::class.java),
 }
@@ -667,20 +661,6 @@ private fun TabletRail(selected: TabletRailDestination? = null) {
         modifier = Modifier.fillMaxHeight(),
         containerColor = androidx.compose.ui.graphics.Color.Transparent,
     ) {
-        NavigationRailItem(
-            selected = selected == TabletRailDestination.CATALOG,
-            onClick = { navigateTo(TabletRailDestination.CATALOG) },
-            icon = { Icon(Icons.Rounded.List, null) },
-            label = {
-                Text(
-                    stringResource(R.string.catalog_title),
-                    style = MaterialTheme.typography.labelSmall,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            },
-        )
         NavigationRailItem(
             selected = selected == TabletRailDestination.SUPPORTED_FILES,
             onClick = { navigateTo(TabletRailDestination.SUPPORTED_FILES) },
@@ -714,7 +694,7 @@ private fun TabletRail(selected: TabletRailDestination? = null) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AddSheet(images: List<GuestImage>, onDismiss: () -> Unit, onImport: () -> Unit, onCatalog: () -> Unit, onContainer: (GuestImage) -> Unit, onNewFolder: (() -> Unit)? = null) {
+private fun AddSheet(images: List<GuestImage>, onDismiss: () -> Unit, onImport: () -> Unit, onContainer: (GuestImage) -> Unit, onNewFolder: (() -> Unit)? = null) {
     
     
     var choosing by remember { mutableStateOf(false) }
@@ -739,10 +719,6 @@ private fun AddSheet(images: List<GuestImage>, onDismiss: () -> Unit, onImport: 
                 leadingContent = { Icon(Icons.Rounded.FileOpen, null) },
                 colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clip(MaterialTheme.shapes.large).clickable(onClick = onImport))
-            ListItem(headlineContent = { Text(stringResource(R.string.catalog_title)) },
-                leadingContent = { Icon(Icons.Rounded.List, null) },
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
-                modifier = Modifier.clip(MaterialTheme.shapes.large).clickable(onClick = onCatalog))
             ListItem(headlineContent = { Text(stringResource(R.string.add_container)) },
                 supportingContent = { Text(stringResource(R.string.add_container_sub)) },
                 leadingContent = { Icon(Icons.Rounded.ContentCopy, null) },

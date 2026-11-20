@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">Wählen Sie Dateien aus</string>
+    <string name="fb_title_single">Wählen Sie eine Datei</string>
+    <string name="fb_up">Auf</string>
+    <string name="fb_system_picker">Systemauswahl</string>
+    <string name="fb_use_system_picker">Verwenden Sie stattdessen die Systemauswahl</string>
+
+    <string name="fb_internal">Interner Speicher</string>
+    <string name="fb_removable">SD-Karte / USB %1$d</string>
+    <string name="fb_downloads">Herunterladen</string>
+    <string name="fb_documents">Dokumente</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">Name</string>
+    <string name="fb_sort_date">Datum</string>
+    <string name="fb_sort_size">Größe</string>
+    <string name="fb_hidden">Versteckt</string>
+
+    <string name="fb_selected">%1$d ausgewählt</string>
+    <string name="fb_clear">Klar</string>
+    <string name="fb_import">Importieren</string>
+
+    <string name="fb_empty">Nichts hier</string>
+    <string name="fb_unreadable">Dieser Ordner kann nicht gelesen werden. Android hält einige Ordner (z. B. die Daten anderer Apps) für jede App geschlossen.</string>
+
+    <string name="fb_access_title">Erlauben Sie den Zugriff auf Dateien</string>
+    <string name="fb_access_text">Um Ihre Firmware-Dateien aufzulisten und mehrere gleichzeitig auszuwählen, benötigt der Browser Zugriff auf Ihre Dateien. Sie können stattdessen auch die Systemauswahl verwenden.</string>
+    <string name="fb_access_scoped">Android 10 verbirgt die meisten Dateien vor Apps, die den eingeschränkten Speicher nicht deaktiviert haben, daher kann dieser Browser sie hier nicht auflisten. Verwenden Sie stattdessen die Systemauswahl.</string>
+
+    <string name="as_builtin_browser">Integrierter Dateibrowser</string>
+    <string name="as_builtin_browser_sub">Wählen Sie Firmware mit Sortierung nach Datum und Größe und mehreren Dateien gleichzeitig aus. Deaktivieren Sie die Option, um die Systemauswahl zu verwenden.</string>
+
+    <string name="imp_archive_alone">Ein VM-Backup (.aessvm) muss einzeln importiert werden, nicht zusammen mit anderen Dateien.</string>
+    <string name="imp_joining">Zusammenfügen von %2$d Teilen von %1$s…</string>
+    <string name="imp_split_missing">Teil %2$s des geteilten Archivs %1$s fehlt. Wählen Sie alle Teile aus oder bewahren Sie sie in einem Ordner auf.</string>
+</resources>

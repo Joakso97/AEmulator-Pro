@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="fb_title_multi">Scegli i file</string>
+    <string name="fb_title_single">Scegli un file</string>
+    <string name="fb_up">Su</string>
+    <string name="fb_system_picker">Selettore di sistema</string>
+    <string name="fb_use_system_picker">Utilizza invece il selettore di sistema</string>
+
+    <string name="fb_internal">Memoria interna</string>
+    <string name="fb_removable">Scheda SD/USB %1$d</string>
+    <string name="fb_downloads">Scarica</string>
+    <string name="fb_documents">Documenti</string>
+    <string name="fb_firmware">aemulator/firmware</string>
+
+    <string name="fb_sort_name">Nome</string>
+    <string name="fb_sort_date">Data</string>
+    <string name="fb_sort_size">Dimensioni</string>
+    <string name="fb_hidden">Nascosto</string>
+
+    <string name="fb_selected">%1$d selezionato</string>
+    <string name="fb_clear">Chiaro</string>
+    <string name="fb_import">Importa</string>
+
+    <string name="fb_empty">Niente qui</string>
+    <string name="fb_unreadable">Questa cartella non può essere letta. Android mantiene alcune cartelle (come i dati di altre app) chiuse a ogni app.</string>
+
+    <string name="fb_access_title">Consenti l\'accesso ai file</string>
+    <string name="fb_access_text">Per elencare i file del firmware e selezionarne diversi contemporaneamente, il browser deve accedere ai tuoi file. Puoi anche utilizzare il selettore di sistema.</string>
+    <string name="fb_access_scoped">Android 10 nasconde la maggior parte dei file dalle app che non hanno disattivato l\'archiviazione con ambito, quindi questo browser non può elencarli qui. Utilizza invece il selettore di sistema.</string>
+
+    <string name="as_builtin_browser">Browser di file integrato</string>
+    <string name="as_builtin_browser_sub">Scegli il firmware ordinandolo per data e dimensione e più file contemporaneamente. Disattiva per utilizzare il selettore di sistema.</string>
+
+    <string name="imp_archive_alone">Un backup della VM (.aessvm) deve essere importato da solo, non insieme ad altri file.</string>
+    <string name="imp_joining">Unione di parti di %2$d di %1$s…</string>
+    <string name="imp_split_missing">Manca la parte %2$s dell\'archivio diviso %1$s. Seleziona tutte le sue parti o conservale in una cartella.</string>
+</resources>
