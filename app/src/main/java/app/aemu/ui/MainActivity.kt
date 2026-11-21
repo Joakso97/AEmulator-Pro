@@ -338,7 +338,6 @@ fun Library(model: LibraryModel) {
             },
         ) { pad ->
             Column(Modifier.fillMaxSize().padding(pad)) {
-                StorageAccessCard()
                 Box(Modifier.weight(1f).fillMaxWidth()) {
                     if (images.isEmpty() && !imp.active) {
                         Box(
@@ -822,56 +821,7 @@ private fun ContainerDialog(
 }
 
 
-@Composable
-private fun StorageAccessCard() {
-    if (Build.VERSION.SDK_INT < 30) return
-    val ctx = LocalContext.current
-    var granted by remember { mutableStateOf(android.os.Environment.isExternalStorageManager()) }
-    var dismissed by remember { mutableStateOf(AppPrefs.storageBannerDismissed(ctx)) }
-    val life = androidx.lifecycle.compose.LocalLifecycleOwner.current
-    androidx.compose.runtime.DisposableEffect(life) {
-        val obs = androidx.lifecycle.LifecycleEventObserver { _, e ->
-            if (e == androidx.lifecycle.Lifecycle.Event.ON_RESUME) granted = android.os.Environment.isExternalStorageManager()
-        }
-        life.lifecycle.addObserver(obs)
-        onDispose { life.lifecycle.removeObserver(obs) }
-    }
-    AnimatedVisibility(
-        visible = !granted && !dismissed,
-        enter = fadeIn() + expandVertically(),
-        exit = fadeOut() + shrinkVertically()
-    ) {
-        Card(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
-            Box(Modifier.fillMaxWidth().padding(20.dp)) {
-                Column(Modifier.padding(end = 32.dp)) {
-                    Text(stringResource(R.string.storage_title), style = MaterialTheme.typography.titleMedium)
-                    Spacer(Modifier.height(4.dp))
-                    Text(stringResource(R.string.storage_text), style = MaterialTheme.typography.bodyMedium)
-                    Spacer(Modifier.height(12.dp))
-                    Button(onClick = {
-                        runCatching {
-                            ctx.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
-                                android.net.Uri.parse("package:${ctx.packageName}")))
-                        }.onFailure { ctx.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)) }
-                    }) { Text(stringResource(R.string.allow)) }
-                }
-                IconButton(
-                    onClick = {
-                        dismissed = true
-                        AppPrefs.setStorageBannerDismissed(ctx, true)
-                    },
-                    modifier = Modifier.align(Alignment.TopEnd).size(24.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Rounded.Close,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onTertiaryContainer
-                    )
-                }
-            }
-        }
-    }
-}
+
 
 @Composable
 private fun EmptyState(onHelp: () -> Unit) {

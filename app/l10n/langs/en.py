@@ -293,7 +293,7 @@ S = {
     'st_preparing': 'Preparing',
     'st_stopping': 'Shutting down',
     'start': 'Start',
-    'storage_text': 'Allow access to all files: then each system’s memory card lives in the AEmulator folder of internal storage — handy for APKs, music and photos.',
+    'storage_text': 'Allow access to all files: then each system’s memory card lives in the AEmulator folder of internal storage, handy for APKs, music and photos.',
     'storage_title': 'Shared folder for systems',
     'th_bar': 'Bar',
     'th_collapse': 'Collapse list',

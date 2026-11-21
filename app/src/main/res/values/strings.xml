@@ -296,7 +296,7 @@
     <string name="st_preparing">Preparing</string>
     <string name="st_stopping">Shutting down</string>
     <string name="start">Start</string>
-    <string name="storage_text">Allow access to all files: then each system’s memory card lives in the AEmulator folder of internal storage — handy for APKs, music and photos.</string>
+    <string name="storage_text">Allow access to all files: then each system’s memory card lives in the AEmulator folder of internal storage, handy for APKs, music and photos.</string>
     <string name="storage_title">Shared folder for systems</string>
     <string name="th_bar">Bar</string>
     <string name="th_collapse">Collapse list</string>

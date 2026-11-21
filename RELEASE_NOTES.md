@@ -1,5 +1,4 @@
-# AEmulator Pro v0.0.0.3.29
-
-- **Fixed:** Android M3 pre-1.0 builds detection and property initialization
-- **Fixed:** Unexpected reboots by scoping MocorDroid native window fixes exclusively to MocorDroid firmware
-- **Fixed:** Battery status, charging level, and time reporting on the QEMU engine
+Changelog:
+- **Added:** Updated default Sunset theme seed and accent color default to `#D32F2F` (Sunset red).
+- **Changed:** Moved the storage access alert banner ("Shared folder for systems") to the top of the Settings
+- **Removed:** `(0.0.0.3 style)` from the new home screen subtitle and em dashes from storage descriptions across all localization files.
