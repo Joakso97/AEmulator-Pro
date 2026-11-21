@@ -38,9 +38,9 @@ AEmulator Pro boots a real Android 1.0–17 system image straight from a firmwar
 ## Quick start
 
 1. Download the APK from [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) and install it.
-2. Open AEmulator Pro <img src="docs/assets/chevron.svg" height="14" align="center"> **Add firmware** and pick the file. Import takes a few minutes.
+2. Open AEmulator Pro <img src="docs/assets/chevron.svg" height="14" valign="middle"> **Add firmware** and pick the file. Import takes a few minutes.
 3. Press **Start**. The first boot is slower: the system optimises its apps.
-4. Use the <img src="docs/assets/menu.svg" height="14" align="center"> menu for volume, power button and logs; the <img src="docs/assets/settings.svg" height="14" align="center"> button opens app settings and language.
+4. Use the <img src="docs/assets/menu.svg" height="14" valign="middle"> menu for volume, power button and logs; the <img src="docs/assets/settings.svg" height="14" valign="middle"> button opens app settings and language.
 
 ## Requirements
 
