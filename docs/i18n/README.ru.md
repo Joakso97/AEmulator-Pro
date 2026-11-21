@@ -14,7 +14,7 @@
 
 AEmulator Pro загружает настоящую систему Android 1.0–17+ прямо из файла прошивки: ZIP для рекавери, архива Odin или factory-образа Google. Старый ARM-код транслирует доработанный QEMU, binder ядра эмулируется, графика идёт через GPU телефона, звук — через аудиосистему Android. Всё работает внутри обычного приложения.
 
-## ✨ Возможности
+## Возможности
 
 - Импорт почти любых форматов: ZIP для CWM/TWRP, Odin `.tar.md5` от Samsung, factory `.tgz` от Google, `system.img`, OTA `system.new.dat.br`
 - Оболочки производителей работают как есть: HTC Sense, Samsung TouchWiz, MIUI, AOSP
@@ -22,27 +22,27 @@ AEmulator Pro загружает настоящую систему Android 1.0�
 - Общая папка «карты памяти» для APK, музыки и фото
 - Интерфейс Material 3 Expressive на 18 языках
 - Бесплатно и с открытым кодом (GPL-3.0)
-- Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity
+- Guest activity launcher: search installed packages in the More menu and launch their main activity
 - Import any partition into the QEMU / KitKat guest, including custom mount paths
 
-## 🚀 Быстрый старт
+## Быстрый старт
 
 1. Скачайте APK из [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) и установите.
 2. Откройте AEmulator Pro → **Добавить прошивку** и выберите файл. Импорт занимает несколько минут.
 3. Нажмите **Запустить**. Первая загрузка дольше: система оптимизирует приложения.
-4. Меню ⋮ — громкость, кнопка питания и журнал; кнопка ⚙️ — настройки приложения и язык.
+4. Меню  — громкость, кнопка питания и журнал; кнопка  — настройки приложения и язык.
 
-## 📋 Требования
+## Требования
 
 - Android 8.0+ на 64-битном ARM-телефоне (arm64-v8a)
 - Около 1–3 ГБ свободного места на прошивку
 - Рекомендуется современный Snapdragon / Dimensity / Tensor
 
-## ⚙️ Как это устроено
+## Как это устроено
 
 Каждый процесс гостя работает под доработанным QEMU в режиме пользователя. Демон binder заменяет драйвер ядра, GL-мост передаёт вызовы OpenGL ES на GPU телефона, а небольшие гостевые библиотеки (звуковой HAL, обёртка audio policy, прослойка LD_PRELOAD) подгоняют код производителей под эмулятор. Импортёр читает прошивку, находит init-скрипты в boot-образе и строит план запуска системных служб.
 
-## 🛠️ Сборка из исходников
+## Сборка из исходников
 
 Проверенная сборка релизного приложения использует JDK 21 и Android SDK 36. См. [инструкцию по сборке и исходникам](../build-source.md) — там же детали нативного тулчейна и подписи. **У унаследованных готовых бинарников движка пока нет подтверждённого полного происхождения исходников и сборки**; см. [аудит](../license-audit.md).
 
@@ -52,13 +52,13 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## 🙏 Благодарности
+## Благодарности
 
 AEmulator Pro вырос из эмуляторов HTC Desire HD и HTC One M7 [первого автора](https://t.me/istratiit_ech) — без его движка проекта бы не было.
 
 Это модифицированный форк [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), который, в свою очередь, является модифицированным форком [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 
-## 🔗 Ссылки
+## Ссылки
 
 - AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
 - Мой форк: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
@@ -67,7 +67,7 @@ AEmulator Pro вырос из эмуляторов HTC Desire HD и HTC One M7 [
 - Автор: [somerandomusername2](https://github.com/somerandomusernam2)
 - Первый автор: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## 📄 Лицензия
+## Лицензия
 
 GPL-3.0. Android, товарные знаки и прошивки принадлежат их владельцам.
 

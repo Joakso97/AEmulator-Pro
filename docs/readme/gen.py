@@ -17,7 +17,7 @@ FLAGS = {
     "hi": "in", "id": "id", "vi": "vn", "zh-CN": "cn", "ja": "jp", "ko": "kr",
 }
 NEW_FEATS = [
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths",
 ]
 
@@ -58,34 +58,34 @@ def render(code):
     L.append("</div>\n")
     L.append("---\n")
     L.append(t["about"] + "\n")
-    L.append(f"## ✨ {t['feat_title']}\n")
+    L.append(f"## {t['feat_title']}\n")
     L += [f"- {f}" for f in t["feats"]]
     L.append("")
-    L.append(f"## 🚀 {t['start_title']}\n")
+    L.append(f"## {t['start_title']}\n")
      
      
     steps = [t["steps"][0], *t["steps"][2:]]
     L += [f"{i + 1}. {s.format(repo=REPO)}" for i, s in enumerate(steps)]
     L.append("")
-    L.append(f"## 📋 {t['req_title']}\n")
+    L.append(f"## {t['req_title']}\n")
     L += [f"- {r}" for r in t["reqs"]]
     L.append("")
-    L.append(f"## ⚙️ {t['how_title']}\n")
+    L.append(f"## {t['how_title']}\n")
     L.append(t["how_text"] + "\n")
-    L.append(f"## 🛠️ {t['build_title']}\n")
+    L.append(f"## {t['build_title']}\n")
     L.append(t["build_text"].format(**rel) + "\n")
     L.append("```bash\ngit clone https://github.com/Joakso97/AEmulator-Pro.git\ncd AEmulator-Pro\n./gradlew copyReleaseApks\n```\n")
-    L.append(f"## 🙏 {t['credits_title']}\n")
+    L.append(f"## {t['credits_title']}\n")
     L.append(t["credits_text"].format(orig=ORIGINAL) + "\n")
     L.append(t["fork_line"].format(**rel) + "\n")
-    L.append(f"## 🔗 {t['links_title']}\n")
+    L.append(f"## {t['links_title']}\n")
     L.append(f"- AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)")
     L.append(f"- {t['l_fork']}: [Joakso97/AEmulator-Pro]({REPO})")
     L.append(f"- {t['l_upstream']}: [drel4/AEmulator-Sunset]({SUNSET})")
     L.append(f"- {t['l_original']}: [uxazu/AEmulator]({UPSTREAM})")
     L.append(f"- {t['l_author']}: [{AUTHOR_NAME}]({AUTHOR})")
     L.append(f"- {t['l_orig']}: [t.me/istratiit_ech]({ORIGINAL})\n")
-    L.append(f"## 📄 {t['license_title']}\n")
+    L.append(f"## {t['license_title']}\n")
     L.append(t["license_text"] + "\n")
     L.append(t["license_more"].format(**rel) + "\n")
     if code in RTL:

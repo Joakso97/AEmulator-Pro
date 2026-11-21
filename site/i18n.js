@@ -112,9 +112,9 @@ window.AEMU_I18N = {
     "Shared memory-card folder for APKs, music and photos",
     "VM screen themes and theme editor: the navigation bar and the frame around the guest screen follow a theme: Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x or Lollipop 5.x, or your own, made in an editor with a live preview. Themes can be shared as <code>.aetheme</code> files",
     "Arrange your library: reorder ROMs and group them into named folders",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths",
-    "ADB console: start or stop the built-in ADB server and see connection addresses on a dedicated screen (⋮ menu › ADB)",
+    "ADB console: start or stop the built-in ADB server and see connection addresses on a dedicated screen (More menu › ADB)",
     "Material 3 Expressive interface in 18 languages",
     "Free and open source (GPL-3.0)"
    ],
@@ -146,7 +146,7 @@ window.AEMU_I18N = {
     "Download the APK from <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> and install it.",
     "Open AEmulator → <b>Add firmware</b> and pick the file. Import takes a few minutes.",
     "Press <b>Start</b>. The first boot is slower: the system optimises its apps.",
-    "Use the ⋮ menu for volume, power button and logs; the ⚙️ button opens app settings and language."
+    "Use the More menu for volume, power button and logs; the Settings button opens app settings and language."
    ],
    "req_title": "Requirements",
    "reqs": [
@@ -183,7 +183,7 @@ window.AEMU_I18N = {
     "Общая папка «карты памяти» для APK, музыки и фото",
     "Интерфейс Material 3 Expressive на 18 языках",
     "Бесплатно и с открытым кодом (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Устройство",
@@ -214,7 +214,7 @@ window.AEMU_I18N = {
     "Скачайте APK из <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> и установите.",
     "Откройте AEmulator → <b>Добавить прошивку</b> и выберите файл. Импорт занимает несколько минут.",
     "Нажмите <b>Запустить</b>. Первая загрузка дольше: система оптимизирует приложения.",
-    "Меню ⋮ — громкость, кнопка питания и журнал; кнопка ⚙️ — настройки приложения и язык."
+    "Меню  — громкость, кнопка питания и журнал; кнопка  — настройки приложения и язык."
    ],
    "req_title": "Требования",
    "reqs": [
@@ -251,7 +251,7 @@ window.AEMU_I18N = {
     "Спільна папка «карти пам’яті» для APK, музики й фото",
     "Інтерфейс Material 3 Expressive 18 мовами",
     "Безкоштовно й з відкритим кодом (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Пристрій",
@@ -282,7 +282,7 @@ window.AEMU_I18N = {
     "Завантажте APK з <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> і встановіть.",
     "Відкрийте AEmulator → <b>Додати прошивку</b> й виберіть файл. Імпорт триває кілька хвилин.",
     "Натисніть <b>Запустити</b>. Перше завантаження довше: система оптимізує застосунки.",
-    "Меню ⋮ — гучність, кнопка живлення й журнал; кнопка ⚙️ — налаштування й мова."
+    "Меню  — гучність, кнопка живлення й журнал; кнопка  — налаштування й мова."
    ],
    "req_title": "Вимоги",
    "reqs": [
@@ -319,7 +319,7 @@ window.AEMU_I18N = {
     "Gemeinsamer Speicherkarten-Ordner für APKs, Musik und Fotos",
     "Material-3-Expressive-Oberfläche in 18 Sprachen",
     "Kostenlos und quelloffen (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Gerät",
@@ -350,7 +350,7 @@ window.AEMU_I18N = {
     "APK unter <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> herunterladen und installieren.",
     "AEmulator öffnen → <b>Firmware hinzufügen</b> und die Datei wählen. Der Import dauert einige Minuten.",
     "<b>Starten</b> drücken. Der erste Start dauert länger: Das System optimiert Apps.",
-    "Menü ⋮ für Lautstärke, Ein/Aus und Protokoll; ⚙️ öffnet Einstellungen und Sprache."
+    "Menü  für Lautstärke, Ein/Aus und Protokoll;  öffnet Einstellungen und Sprache."
    ],
    "req_title": "Voraussetzungen",
    "reqs": [
@@ -387,7 +387,7 @@ window.AEMU_I18N = {
     "Dossier de carte mémoire partagé pour les APK, la musique et les photos",
     "Interface Material 3 Expressive en 18 langues",
     "Gratuit et open source (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Appareil",
@@ -418,7 +418,7 @@ window.AEMU_I18N = {
     "Téléchargez l’APK depuis <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> et installez-le.",
     "Ouvrez AEmulator → <b>Ajouter une ROM</b> et choisissez le fichier. L’import prend quelques minutes.",
     "Appuyez sur <b>Démarrer</b>. Le premier démarrage est plus long : le système optimise les applis.",
-    "Menu ⋮ pour le volume, le bouton marche et le journal ; ⚙️ ouvre les paramètres et la langue."
+    "Menu  pour le volume, le bouton marche et le journal ;  ouvre les paramètres et la langue."
    ],
    "req_title": "Configuration requise",
    "reqs": [
@@ -455,7 +455,7 @@ window.AEMU_I18N = {
     "Carpeta compartida de tarjeta de memoria para APK, música y fotos",
     "Interfaz Material 3 Expressive en 18 idiomas",
     "Gratis y de código abierto (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Dispositivo",
@@ -486,7 +486,7 @@ window.AEMU_I18N = {
     "Descarga el APK desde <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> e instálalo.",
     "Abre AEmulator → <b>Añadir firmware</b> y elige el archivo. La importación tarda unos minutos.",
     "Pulsa <b>Iniciar</b>. El primer arranque es más lento: el sistema optimiza las apps.",
-    "Menú ⋮ para volumen, botón de encendido y registro; ⚙️ abre ajustes e idioma."
+    "Menú  para volumen, botón de encendido y registro;  abre ajustes e idioma."
    ],
    "req_title": "Requisitos",
    "reqs": [
@@ -523,7 +523,7 @@ window.AEMU_I18N = {
     "Pasta compartilhada de cartão de memória para APKs, músicas e fotos",
     "Interface Material 3 Expressive em 18 idiomas",
     "Gratuito e de código aberto (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Aparelho",
@@ -554,7 +554,7 @@ window.AEMU_I18N = {
     "Baixe o APK em <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> e instale.",
     "Abra o AEmulator → <b>Adicionar firmware</b> e escolha o arquivo. A importação leva alguns minutos.",
     "Toque em <b>Iniciar</b>. A primeira inicialização é mais lenta: o sistema otimiza os apps.",
-    "Menu ⋮ para volume, botão liga/desliga e registro; ⚙️ abre configurações e idioma."
+    "Menu  para volume, botão liga/desliga e registro;  abre configurações e idioma."
    ],
    "req_title": "Requisitos",
    "reqs": [
@@ -591,7 +591,7 @@ window.AEMU_I18N = {
     "Cartella condivisa della scheda di memoria per APK, musica e foto",
     "Interfaccia Material 3 Expressive in 18 lingue",
     "Gratuito e open source (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Dispositivo",
@@ -622,7 +622,7 @@ window.AEMU_I18N = {
     "Scarica l’APK da <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> e installalo.",
     "Apri AEmulator → <b>Aggiungi firmware</b> e scegli il file. L’importazione richiede qualche minuto.",
     "Premi <b>Avvia</b>. Il primo avvio è più lento: il sistema ottimizza le app.",
-    "Menu ⋮ per volume, tasto di accensione e registro; ⚙️ apre impostazioni e lingua."
+    "Menu  per volume, tasto di accensione e registro;  apre impostazioni e lingua."
    ],
    "req_title": "Requisiti",
    "reqs": [
@@ -659,7 +659,7 @@ window.AEMU_I18N = {
     "Wspólny folder karty pamięci na APK, muzykę i zdjęcia",
     "Interfejs Material 3 Expressive w 18 językach",
     "Za darmo i open source (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Urządzenie",
@@ -690,7 +690,7 @@ window.AEMU_I18N = {
     "Pobierz APK z <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> i zainstaluj.",
     "Otwórz AEmulator → <b>Dodaj firmware</b> i wybierz plik. Import trwa kilka minut.",
     "Naciśnij <b>Uruchom</b>. Pierwszy start trwa dłużej: system optymalizuje aplikacje.",
-    "Menu ⋮ — głośność, przycisk zasilania i dziennik; ⚙️ — ustawienia i język."
+    "Menu  — głośność, przycisk zasilania i dziennik;  — ustawienia i język."
    ],
    "req_title": "Wymagania",
    "reqs": [
@@ -727,7 +727,7 @@ window.AEMU_I18N = {
     "APK, müzik ve fotoğraflar için ortak hafıza kartı klasörü",
     "18 dilde Material 3 Expressive arayüz",
     "Ücretsiz ve açık kaynak (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Cihaz",
@@ -758,7 +758,7 @@ window.AEMU_I18N = {
     "APK’yı <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> sayfasından indirip kurun.",
     "AEmulator’ı açın → <b>Yazılım ekle</b> ve dosyayı seçin. İçe aktarma birkaç dakika sürer.",
     "<b>Başlat</b>’a basın. İlk açılış daha uzundur: sistem uygulamaları optimize eder.",
-    "⋮ menüsü: ses, güç düğmesi ve günlük; ⚙️ ayarları ve dili açar."
+    " menüsü: ses, güç düğmesi ve günlük;  ayarları ve dili açar."
    ],
    "req_title": "Gereksinimler",
    "reqs": [
@@ -795,7 +795,7 @@ window.AEMU_I18N = {
     "مجلد بطاقة ذاكرة مشترك لملفات APK والموسيقى والصور",
     "واجهة Material 3 Expressive بـ 18 لغة",
     "مجاني ومفتوح المصدر (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "الجهاز",
@@ -826,7 +826,7 @@ window.AEMU_I18N = {
     "نزّل ملف APK من <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> وثبّته.",
     "افتح AEmulator ← <b>إضافة برنامج ثابت</b> واختر الملف. يستغرق الاستيراد بضع دقائق.",
     "اضغط <b>تشغيل</b>. الإقلاع الأول أبطأ: النظام يحسّن التطبيقات.",
-    "القائمة ⋮ للصوت وزر التشغيل والسجل؛ وزر ⚙️ للإعدادات واللغة."
+    "القائمة  للصوت وزر التشغيل والسجل؛ وزر  للإعدادات واللغة."
    ],
    "req_title": "المتطلبات",
    "reqs": [
@@ -863,7 +863,7 @@ window.AEMU_I18N = {
     "پوشهٔ مشترک کارت حافظه برای APK، موسیقی و عکس",
     "رابط Material 3 Expressive به 18 زبان",
     "رایگان و متن‌باز (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "دستگاه",
@@ -894,7 +894,7 @@ window.AEMU_I18N = {
     "فایل APK را از <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> دانلود و نصب کنید.",
     "AEmulator را باز کنید ← <b>افزودن فرم‌ویر</b> و فایل را انتخاب کنید. درون‌ریزی چند دقیقه طول می‌کشد.",
     "<b>اجرا</b> را بزنید. بوت اول کندتر است: سیستم برنامه‌ها را بهینه می‌کند.",
-    "منوی ⋮ برای صدا، دکمهٔ پاور و گزارش؛ دکمهٔ ⚙️ برای تنظیمات و زبان."
+    "منوی  برای صدا، دکمهٔ پاور و گزارش؛ دکمهٔ  برای تنظیمات و زبان."
    ],
    "req_title": "نیازمندی‌ها",
    "reqs": [
@@ -931,7 +931,7 @@ window.AEMU_I18N = {
     "APK, संगीत और फ़ोटो के लिए साझा मेमोरी कार्ड फ़ोल्डर",
     "18 भाषाओं में Material 3 Expressive इंटरफ़ेस",
     "मुफ़्त और ओपन सोर्स (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "डिवाइस",
@@ -962,7 +962,7 @@ window.AEMU_I18N = {
     "<a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> से APK डाउनलोड करके इंस्टॉल करें।",
     "AEmulator खोलें → <b>फ़र्मवेयर जोड़ें</b> और फ़ाइल चुनें। आयात में कुछ मिनट लगते हैं।",
     "<b>चलाएँ</b> दबाएँ। पहला बूट धीमा होता है: सिस्टम ऐप्स ऑप्टिमाइज़ करता है।",
-    "⋮ मेनू में वॉल्यूम, पावर बटन और लॉग; ⚙️ से सेटिंग्स और भाषा।"
+    " मेनू में वॉल्यूम, पावर बटन और लॉग;  से सेटिंग्स और भाषा।"
    ],
    "req_title": "आवश्यकताएँ",
    "reqs": [
@@ -999,7 +999,7 @@ window.AEMU_I18N = {
     "Folder kartu memori bersama untuk APK, musik, dan foto",
     "Antarmuka Material 3 Expressive dalam 18 bahasa",
     "Gratis dan sumber terbuka (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Perangkat",
@@ -1030,7 +1030,7 @@ window.AEMU_I18N = {
     "Unduh APK dari <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> lalu pasang.",
     "Buka AEmulator → <b>Tambah firmware</b> lalu pilih file. Impor butuh beberapa menit.",
     "Tekan <b>Mulai</b>. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi.",
-    "Menu ⋮ untuk volume, tombol daya, dan log; ⚙️ membuka setelan dan bahasa."
+    "Menu  untuk volume, tombol daya, dan log;  membuka setelan dan bahasa."
    ],
    "req_title": "Persyaratan",
    "reqs": [
@@ -1067,7 +1067,7 @@ window.AEMU_I18N = {
     "Thư mục thẻ nhớ dùng chung cho APK, nhạc và ảnh",
     "Giao diện Material 3 Expressive với 18 ngôn ngữ",
     "Miễn phí và mã nguồn mở (GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Thiết bị",
@@ -1098,7 +1098,7 @@ window.AEMU_I18N = {
     "Tải APK từ <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> và cài đặt.",
     "Mở AEmulator → <b>Thêm firmware</b> và chọn tệp. Việc nhập mất vài phút.",
     "Nhấn <b>Chạy</b>. Lần khởi động đầu chậm hơn: hệ thống tối ưu ứng dụng.",
-    "Menu ⋮ để chỉnh âm lượng, nút nguồn và nhật ký; ⚙️ mở cài đặt và ngôn ngữ."
+    "Menu  để chỉnh âm lượng, nút nguồn và nhật ký;  mở cài đặt và ngôn ngữ."
    ],
    "req_title": "Yêu cầu",
    "reqs": [
@@ -1135,7 +1135,7 @@ window.AEMU_I18N = {
     "共享存储卡文件夹，方便放 APK、音乐和照片",
     "Material 3 Expressive 界面，支持 18 种语言",
     "免费开源（GPL-3.0）",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "设备",
@@ -1166,7 +1166,7 @@ window.AEMU_I18N = {
     "从 <a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> 下载并安装 APK。",
     "打开 AEmulator →<b>添加固件</b>并选择文件。导入需要几分钟。",
     "点击<b>启动</b>。首次启动较慢：系统正在优化应用。",
-    "⋮ 菜单可调音量、电源键和日志；⚙️ 打开设置与语言。"
+    " 菜单可调音量、电源键和日志； 打开设置与语言。"
    ],
    "req_title": "要求",
    "reqs": [
@@ -1203,7 +1203,7 @@ window.AEMU_I18N = {
     "APK・音楽・写真用の共有メモリーカードフォルダー",
     "18 言語対応の Material 3 Expressive UI",
     "無料・オープンソース（GPL-3.0）",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "端末",
@@ -1234,7 +1234,7 @@ window.AEMU_I18N = {
     "<a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a> から APK をダウンロードしてインストール。",
     "AEmulator を開き →<b>ファームウェアを追加</b>でファイルを選択。インポートには数分かかります。",
     "<b>起動</b>をタップ。初回はアプリ最適化のため時間がかかります。",
-    "⋮ メニューで音量・電源ボタン・ログ、⚙️ で設定と言語。"
+    " メニューで音量・電源ボタン・ログ、 で設定と言語。"
    ],
    "req_title": "動作要件",
    "reqs": [
@@ -1271,7 +1271,7 @@ window.AEMU_I18N = {
     "APK·음악·사진을 위한 공유 메모리 카드 폴더",
     "18개 언어의 Material 3 Expressive 인터페이스",
     "무료 오픈 소스(GPL-3.0)",
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "기기",
@@ -1302,7 +1302,7 @@ window.AEMU_I18N = {
     "<a href=\"https://github.com/Joakso97/AEmulator-Pro/releases\" target=\"_blank\" rel=\"noopener\">Releases</a>에서 APK를 받아 설치합니다.",
     "AEmulator → <b>펌웨어 추가</b>에서 파일을 고릅니다. 가져오기는 몇 분 걸립니다.",
     "<b>시작</b>을 누릅니다. 첫 부팅은 앱 최적화로 더 오래 걸립니다.",
-    "⋮ 메뉴에서 볼륨·전원 버튼·로그, ⚙️에서 설정과 언어."
+    " 메뉴에서 볼륨·전원 버튼·로그, 에서 설정과 언어."
    ],
    "req_title": "요구 사항",
    "reqs": [

@@ -14,7 +14,7 @@
 
 AEmulator Pro arranca un sistema Android 1.0–17+ real directamente desde un archivo de firmware: ZIP de recovery, archivo de Odin o imagen de fábrica de Google. El código ARM antiguo se traduce con un QEMU modificado, el binder del kernel se emula, los gráficos usan la GPU del teléfono y el sonido pasa por la pila de audio de Android — todo dentro de una app normal.
 
-## ✨ Características
+## Características
 
 - Importa casi cualquier formato: ZIP CWM/TWRP, Odin `.tar.md5` de Samsung, imagen de fábrica `.tgz` de Google, `system.img`, OTA `system.new.dat.br`
 - Las capas de los fabricantes funcionan tal cual: HTC Sense, Samsung TouchWiz, MIUI, AOSP
@@ -22,27 +22,27 @@ AEmulator Pro arranca un sistema Android 1.0–17+ real directamente desde un ar
 - Carpeta compartida de tarjeta de memoria para APK, música y fotos
 - Interfaz Material 3 Expressive en 18 idiomas
 - Gratis y de código abierto (GPL-3.0)
-- Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity
+- Guest activity launcher: search installed packages in the More menu and launch their main activity
 - Import any partition into the QEMU / KitKat guest, including custom mount paths
 
-## 🚀 Inicio rápido
+## Inicio rápido
 
 1. Descarga el APK desde [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) e instálalo.
 2. Abre AEmulator Pro → **Añadir firmware** y elige el archivo. La importación tarda unos minutos.
 3. Pulsa **Iniciar**. El primer arranque es más lento: el sistema optimiza las apps.
-4. Menú ⋮ para volumen, botón de encendido y registro; ⚙️ abre ajustes e idioma.
+4. Menú  para volumen, botón de encendido y registro;  abre ajustes e idioma.
 
-## 📋 Requisitos
+## Requisitos
 
 - Android 8.0+ en un teléfono ARM de 64 bits (arm64-v8a)
 - Unos 1–3 GB libres por firmware
 - Se recomienda un Snapdragon / Dimensity / Tensor reciente
 
-## ⚙️ Cómo funciona
+## Cómo funciona
 
 Cada proceso invitado se ejecuta con un QEMU de modo usuario modificado. Un demonio binder sustituye al controlador del kernel, un puente GL envía las llamadas OpenGL ES a la GPU y pequeñas bibliotecas invitadas (HAL de audio, envoltorio de audio policy, shim LD_PRELOAD) adaptan el código del fabricante al emulador. El importador lee el firmware, encuentra los scripts init en la imagen boot y crea el plan de arranque de los servicios.
 
-## 🛠️ Compilar desde el código
+## Compilar desde el código
 
 La compilación de lanzamiento probada de la app usa JDK 21 y Android SDK 36. Consulta las [instrucciones de compilación y código fuente](../build-source.md), con detalles de la cadena de herramientas nativa y la firma. **Los binarios del motor heredados aún no tienen una procedencia completa verificada del código fuente y la compilación**; consulta [la auditoría](../license-audit.md).
 
@@ -52,13 +52,13 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## 🙏 Créditos
+## Créditos
 
 AEmulator Pro nació de los emuladores de HTC Desire HD y HTC One M7 del [autor original](https://t.me/istratiit_ech); sin su motor este proyecto no existiría.
 
 Este es un fork modificado de [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), que a su vez es un fork modificado de [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 
-## 🔗 Enlaces
+## Enlaces
 
 - AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
 - Mi fork: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
@@ -67,7 +67,7 @@ Este es un fork modificado de [drel4/AEmulator-Sunset](https://github.com/drel4/
 - Autor: [somerandomusername2](https://github.com/somerandomusernam2)
 - Autor original: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## 📄 Licencia
+## Licencia
 
 GPL-3.0. Android, las marcas y el firmware pertenecen a sus dueños.
 

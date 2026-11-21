@@ -19,7 +19,7 @@ def md(s):
 
 
 NEW_FEATS = [
-    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Guest activity launcher: search installed packages in the More menu and launch their main activity",
     "Import any partition into the QEMU / KitKat guest, including custom mount paths",
 ]
 

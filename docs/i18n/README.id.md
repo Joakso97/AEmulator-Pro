@@ -14,7 +14,7 @@
 
 AEmulator Pro mem-boot sistem Android 1.0–17+ asli langsung dari file firmware: ZIP recovery, arsip Odin, atau factory image Google. Kode ARM lama diterjemahkan oleh QEMU yang dimodifikasi, binder kernel diemulasikan, grafis memakai GPU ponsel, dan suara lewat sistem audio Android — semuanya di dalam aplikasi biasa.
 
-## ✨ Fitur
+## Fitur
 
 - Impor hampir semua format: ZIP CWM/TWRP, Odin `.tar.md5` Samsung, factory image Google `.tgz`, `system.img`, OTA `system.new.dat.br`
 - Tampilan pabrikan berjalan apa adanya: HTC Sense, Samsung TouchWiz, MIUI, AOSP
@@ -22,27 +22,27 @@ AEmulator Pro mem-boot sistem Android 1.0–17+ asli langsung dari file firmware
 - Folder kartu memori bersama untuk APK, musik, dan foto
 - Antarmuka Material 3 Expressive dalam 18 bahasa
 - Gratis dan sumber terbuka (GPL-3.0)
-- Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity
+- Guest activity launcher: search installed packages in the More menu and launch their main activity
 - Import any partition into the QEMU / KitKat guest, including custom mount paths
 
-## 🚀 Mulai cepat
+## Mulai cepat
 
 1. Unduh APK dari [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) lalu pasang.
 2. Buka AEmulator Pro → **Tambah firmware** lalu pilih file. Impor butuh beberapa menit.
 3. Tekan **Mulai**. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi.
-4. Menu ⋮ untuk volume, tombol daya, dan log; ⚙️ membuka setelan dan bahasa.
+4. Menu  untuk volume, tombol daya, dan log;  membuka setelan dan bahasa.
 
-## 📋 Persyaratan
+## Persyaratan
 
 - Android 8.0+ di ponsel ARM 64-bit (arm64-v8a)
 - Sekitar 1–3 GB ruang kosong per firmware
 - Disarankan Snapdragon / Dimensity / Tensor terbaru
 
-## ⚙️ Cara kerja
+## Cara kerja
 
 Setiap proses tamu berjalan di QEMU mode pengguna yang dimodifikasi. Daemon binder menggantikan driver kernel, jembatan GL meneruskan panggilan OpenGL ES ke GPU, dan pustaka tamu kecil (HAL audio, pembungkus audio policy, shim LD_PRELOAD) menyesuaikan kode pabrikan dengan emulator. Importir membaca firmware, menemukan skrip init di image boot, dan menyusun rencana mulai layanan.
 
-## 🛠️ Membangun dari sumber
+## Membangun dari sumber
 
 Build rilis aplikasi yang diuji memakai JDK 21 dan Android SDK 36. Lihat [petunjuk build/sumber](../build-source.md), termasuk detail toolchain native dan penandatanganan. **Binari mesin bawaan warisan belum memiliki asal-usul kode sumber/build yang terverifikasi lengkap**; lihat [audit](../license-audit.md).
 
@@ -52,13 +52,13 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## 🙏 Kredit
+## Kredit
 
 AEmulator Pro tumbuh dari emulator HTC Desire HD dan HTC One M7 karya [pembuat asli](https://t.me/istratiit_ech) — tanpa mesinnya proyek ini tidak akan ada.
 
 Ini adalah fork yang dimodifikasi dari [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), yang sendiri merupakan fork yang dimodifikasi dari [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 
-## 🔗 Tautan
+## Tautan
 
 - AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
 - Fork saya: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
@@ -67,7 +67,7 @@ Ini adalah fork yang dimodifikasi dari [drel4/AEmulator-Sunset](https://github.c
 - Pembuat: [somerandomusername2](https://github.com/somerandomusernam2)
 - Pembuat asli: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## 📄 Lisensi
+## Lisensi
 
 GPL-3.0. Android, merek dagang, dan firmware milik pemiliknya.
 

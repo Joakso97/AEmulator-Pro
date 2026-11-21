@@ -16,7 +16,7 @@
 
 AEmulator Pro یک سیستم واقعی اندروید 1.0 تا 17+ را مستقیم از فایل فرم‌ویر بوت می‌کند: ZIP ریکاوری، آرشیو Odin یا ایمیج کارخانهٔ گوگل. کد قدیمی ARM با QEMU اصلاح‌شده ترجمه می‌شود، binder هسته شبیه‌سازی می‌شود، گرافیک با GPU گوشی و صدا با سامانهٔ صوتی اندروید پخش می‌شود — همه درون یک برنامهٔ معمولی.
 
-## ✨ ویژگی‌ها
+## ویژگی‌ها
 
 - درون‌ریزی تقریباً همهٔ قالب‌ها: ‏ZIP ‏CWM/TWRP، ‏Odin ‏`.tar.md5` سامسونگ، ایمیج کارخانهٔ گوگل ‏`.tgz`، ‏`system.img`، ‏OTA ‏`system.new.dat.br`
 - رابط‌های سازندگان همان‌طور که هستند کار می‌کنند: HTC Sense، Samsung TouchWiz، MIUI، AOSP
@@ -24,27 +24,27 @@ AEmulator Pro یک سیستم واقعی اندروید 1.0 تا 17+ را مست
 - پوشهٔ مشترک کارت حافظه برای APK، موسیقی و عکس
 - رابط Material 3 Expressive به 18 زبان
 - رایگان و متن‌باز (GPL-3.0)
-- Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity
+- Guest activity launcher: search installed packages in the More menu and launch their main activity
 - Import any partition into the QEMU / KitKat guest, including custom mount paths
 
-## 🚀 شروع سریع
+## شروع سریع
 
 1. فایل APK را از [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) دانلود و نصب کنید.
 2. AEmulator Pro را باز کنید ← **افزودن فرم‌ویر** و فایل را انتخاب کنید. درون‌ریزی چند دقیقه طول می‌کشد.
 3. **اجرا** را بزنید. بوت اول کندتر است: سیستم برنامه‌ها را بهینه می‌کند.
-4. منوی ⋮ برای صدا، دکمهٔ پاور و گزارش؛ دکمهٔ ⚙️ برای تنظیمات و زبان.
+4. منوی  برای صدا، دکمهٔ پاور و گزارش؛ دکمهٔ  برای تنظیمات و زبان.
 
-## 📋 نیازمندی‌ها
+## نیازمندی‌ها
 
 - اندروید 8.0+ روی گوشی ARM ‏64 بیتی (arm64-v8a)
 - حدود 1 تا 3 گیگابایت فضای آزاد برای هر فرم‌ویر
 - پیشنهاد: Snapdragon / Dimensity / Tensor جدید
 
-## ⚙️ چگونه کار می‌کند
+## چگونه کار می‌کند
 
 هر فرایند مهمان زیر یک QEMU اصلاح‌شده در حالت کاربر اجرا می‌شود. سرویس binder جای درایور هسته را می‌گیرد، پل GL فراخوانی‌های OpenGL ES را به GPU می‌فرستد و کتابخانه‌های کوچک مهمان (HAL صوتی، پوشش audio policy، لایهٔ LD_PRELOAD) کد سازندگان را با شبیه‌ساز سازگار می‌کنند. درون‌ریز فرم‌ویر را می‌خواند، اسکریپت‌های init را در ایمیج boot پیدا می‌کند و برنامهٔ اجرای سرویس‌ها را می‌سازد.
 
-## 🛠️ ساخت از کد منبع
+## ساخت از کد منبع
 
 ساخت انتشار آزموده‌شدهٔ برنامه از JDK 21 و Android SDK 36 استفاده می‌کند. [راهنمای ساخت و کد منبع](../build-source.md) را ببینید که جزئیات زنجیرهٔ ابزار بومی و امضا را دارد. **برای باینری‌های آمادهٔ موتورِ به‌ارث‌رسیده هنوز منشأ کامل کد منبع و ساخت راستی‌آزمایی نشده است**؛ [ممیزی](../license-audit.md) را ببینید.
 
@@ -54,13 +54,13 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## 🙏 سپاس
+## سپاس
 
 AEmulator Pro از شبیه‌سازهای HTC Desire HD و HTC One M7 ‏[سازندهٔ نخست](https://t.me/istratiit_ech) رشد کرد — بدون موتور او این پروژه وجود نداشت.
 
 این یک فورک تغییریافته از [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) است که خود فورک تغییریافته‌ای از [uxazu/AEmulator](https://github.com/uxazu/AEmulator) است.
 
-## 🔗 پیوندها
+## پیوندها
 
 - AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
 - فورک من: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
@@ -69,7 +69,7 @@ AEmulator Pro از شبیه‌سازهای HTC Desire HD و HTC One M7 ‏[سا�
 - سازنده: [somerandomusername2](https://github.com/somerandomusernam2)
 - سازندهٔ نخست: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## 📄 مجوز
+## مجوز
 
 GPL-3.0. اندروید، نشان‌های تجاری و فرم‌ویرها متعلق به صاحبانشان‌اند.
 
