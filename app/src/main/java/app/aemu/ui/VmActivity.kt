@@ -1550,7 +1550,7 @@ open class VmActivity : ComponentActivity() {
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_wea)) }, leadingIcon = { Icon(Icons.Rounded.Warning, null) },
                         enabled = running && vm.img.api >= 17, onClick = { menu = false; dialog = Dlg.WEA })   
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_battery)) }, leadingIcon = { Icon(Icons.Rounded.BatteryStd, null) },
-                        enabled = running, onClick = { menu = false; dialog = Dlg.BATTERY })
+                        enabled = running && vm.img.api >= 19, onClick = { menu = false; dialog = Dlg.BATTERY })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_install_apk)) }, leadingIcon = { Icon(Icons.Rounded.InstallMobile, null) },
                         enabled = running, onClick = { menu = false; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*")) })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_launch_activity)) }, leadingIcon = { Icon(Icons.Rounded.Code, null) },
