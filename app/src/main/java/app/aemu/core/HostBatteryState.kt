@@ -21,12 +21,24 @@ internal data class HostBatteryState(val percent: Int, val status: Int, val plug
     
     fun writeSysfs(root: File) {
         val base = root.canonicalFile
-        val entries = mapOf("battery/capacity" to percent.toString(), "battery/status" to statusText,
-            "ac/online" to if (ac) "1" else "0", "usb/online" to if (usb) "1" else "0",
-            "wireless/type" to "Wireless", "wireless/online" to if (wireless) "1" else "0",
-            
+        val entries = mapOf(
+            "battery/type" to "Battery",
+            "battery/capacity" to percent.toString(),
+            "battery/status" to statusText,
+            "battery/health" to "Good",
+            "battery/present" to "1",
+            "battery/voltage_now" to "4200000",
+            "battery/temp" to "250",
+            "battery/technology" to "Li-ion",
+            "ac/type" to "Mains",
+            "ac/online" to if (ac) "1" else "0",
+            "usb/type" to "USB",
+            "usb/online" to if (usb) "1" else "0",
+            "wireless/type" to "Wireless",
+            "wireless/online" to if (wireless) "1" else "0",
             "battery/charging_source" to if (ac || wireless) "2" else if (usb) "1" else "0",
-            "battery/time_to_full_now" to timeMinutes.coerceAtLeast(0).toString())
+            "battery/time_to_full_now" to timeMinutes.coerceAtLeast(0).toString()
+        )
         for ((path, value) in entries) {
             val file = File(base, "sys/class/power_supply/$path")
             check(file.canonicalFile == file.absoluteFile) { "Battery node is a symlink: $path" }

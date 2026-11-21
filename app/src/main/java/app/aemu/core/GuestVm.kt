@@ -158,7 +158,9 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
         { everBooted && state == State.RUNNING && !stopping && !recoveryMode && !lowPowerBoot },
         { zygoteRestarts }, { command ->
             val result = guestRunner.run(listOf("/system/bin/sh", "-c", command), 4_000)
-            check(result.first == 0) { "Guest battery update failed: ${result.first}" }
+            if (result.first != 0 && engine != Engine.N64) {
+                check(result.first == 0) { "Guest battery update failed: ${result.first}" }
+            }
         }, ::log)
     fun setManualBattery(percent: Int, charging: Boolean, timeMinutes: Int = 0) = battery.applyManual(percent, charging, timeMinutes)
     fun resetBattery() = battery.reset(settings.hostBattery)

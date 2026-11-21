@@ -335,4 +335,18 @@ class LegacyFirmwareTest {
         assertFalse(LegacyFirmware.isPreRelease(mapOf("ro.build.date.utc" to "not a number"), root))
         assertFalse(LegacyFirmware.isPreRelease(emptyMap(), root))
     }
+
+    @Test fun anM3BuildGetsCorrectPreReleaseProps() = tree { root ->
+        legacySystem(root)
+        val m3Props = mapOf(
+            "ro.build.id" to "m3-rc1",
+            "ro.build.date.utc" to "1190000000",
+            "ro.build.version.sdk" to "3"
+        )
+        val p = LegacyFirmware.completeBuildProps(m3Props, root)
+        assertEquals("1", p["ro.build.version.sdk"])
+        assertEquals("0.9", p["ro.build.version.release"])
+        assertEquals("m3-rc1", p["ro.build.version.incremental"])
+        assertEquals("Pre-1.0 build m3-rc1", p["ro.product.model"])
+    }
 }

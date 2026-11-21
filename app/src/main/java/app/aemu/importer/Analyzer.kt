@@ -32,7 +32,7 @@ class Analyzer(private val ctx: Context, private val paths: VmPaths, private val
             ?.let { PropArea.parseProps(it.readText()) } ?: LinkedHashMap()
         val all = LinkedHashMap<String, String>().apply { putAll(deflt); build.forEach { (k, v) -> if (!(k.startsWith("ro.") && containsKey(k))) put(k, v) } }
 
-        val api = effectiveApi(all["ro.build.version.sdk"]?.toIntOrNull(), all["ro.build.version.codename"], all["ro.build.version.release"])
+        val api = effectiveApi(all["ro.build.version.sdk"]?.toIntOrNull(), all["ro.build.version.codename"], all["ro.build.version.release"], all["ro.build.id"])
         val release = all["ro.build.version.release"] ?: "?"
         
         
@@ -222,11 +222,13 @@ class Analyzer(private val ctx: Context, private val paths: VmPaths, private val
         )
 
         
-        fun effectiveApi(sdk: Int?, codename: String?, release: String?): Int {
+        fun effectiveApi(sdk: Int?, codename: String?, release: String?, buildId: String? = null): Int {
             val code = codename?.trim()?.uppercase().orEmpty()
-            
-            
             val rel = release?.trim()?.uppercase().orEmpty()
+            val id = buildId?.trim()?.uppercase().orEmpty()
+            if (code.contains("M3") || code.contains("M5") || rel.contains("M3") || rel.contains("M5") || id.contains("M3") || id.contains("M5") || rel.startsWith("0.")) {
+                return 1
+            }
             val preview = when {
                 code == "N" -> 24
                 code == "NMR1" -> 25

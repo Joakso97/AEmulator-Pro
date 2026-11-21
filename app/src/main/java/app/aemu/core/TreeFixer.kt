@@ -3868,7 +3868,7 @@ class TreeFixer(
                 (GrallocProbe.allocDeviceSize(replacedGralloc) ?: 0) > GrallocProbe.AOSP_ALLOC_DEVICE_SIZE
             
             
-            val windowShift = if (to == "system/lib/egl/libGLES_bridge.so" && img.arch == GuestArch.ARM) nativeWindowShift() else 0
+            val windowShift = if (to == "system/lib/egl/libGLES_bridge.so" && img.arch == GuestArch.ARM && isMocorDroidFirmware()) nativeWindowShift() else 0
             val halBytes: ByteArray? = if (sonyFree)
                 runCatching { eaOpen(asset).use { it.readBytes() } }.getOrNull()?.let { GrallocProbe.withFreeAtSlot48(it) }
             else if (windowShift != 0)
@@ -4578,6 +4578,15 @@ class TreeFixer(
     private fun nativeWindowShift(): Int = runCatching {
         NativeWindowProbe.windowShift(File(root, "system/lib/libui.so").readBytes())
     }.getOrNull() ?: 0
+
+    private fun isMocorDroidFirmware(): Boolean {
+        if (nativeWindowShift() != 4) return false
+        val buildProp = File(root, "system/build.prop")
+        val text = runCatching { buildProp.readText() }.getOrDefault("")
+        return text.contains("mocor", true) || text.contains("spreadtrum", true) || text.contains("sprd", true) ||
+            text.contains("sc88", true) || text.contains("sc68", true) || img.brand.contains("sprd", true) ||
+            img.brand.contains("spreadtrum", true) || img.name.contains("mocor", true)
+    }
     private fun installAsset(a: String, f: File) {
         if (f.isFile && !isLink(f) && f.length() == assetSize(a)) return
         f.delete()

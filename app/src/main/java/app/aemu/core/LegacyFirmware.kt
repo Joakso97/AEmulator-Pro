@@ -26,7 +26,7 @@ object LegacyFirmware {
     const val API1_TRANSLATOR = "libqemu_arm_1.0.so"
 
     
-    fun isPreRelease(release: String): Boolean = release.startsWith("0.")
+    fun isPreRelease(release: String): Boolean = release.startsWith("0.") || release.contains("m3", true) || release.contains("m5", true) || release.contains("pre", true)
 
     
     const val DISPLAY_NAME = "Android Pre-1.0"
@@ -261,16 +261,26 @@ object LegacyFirmware {
         if (!isPreRelease(props, root)) return out
         fun put(k: String, v: String) { if (out[k].isNullOrBlank()) out[k] = v }
         val id = props["ro.build.id"].orEmpty().trim()
+        val rel = props["ro.build.version.release"].orEmpty().trim()
+        val code = props["ro.build.version.codename"].orEmpty().trim()
         
         val maker = Regex("^([A-Za-z]+)[-_]").find(id)?.groupValues?.get(1)?.uppercase().orEmpty().ifEmpty { "generic" }
         val number = Regex("(\\d{3,})").find(id)?.groupValues?.get(1)
+            ?: Regex("([Mm]\\d(?:-[A-Za-z0-9]+)?)").find(id)?.groupValues?.get(1)
+            ?: Regex("([Mm]\\d(?:-[A-Za-z0-9]+)?)").find(rel)?.groupValues?.get(1)
+            ?: Regex("([Mm]\\d(?:-[A-Za-z0-9]+)?)").find(code)?.groupValues?.get(1)
+            ?: if (id.contains("m3", true) || rel.contains("m3", true) || code.contains("m3", true)) "M3" else null
         put("ro.build.version.sdk", PRE_RELEASE_API.toString())
-        put("ro.build.version.release", PRE_RELEASE_RELEASE)
+        put("ro.build.version.release", if (rel.startsWith("0.")) rel else PRE_RELEASE_RELEASE)
         number?.let { put("ro.build.version.incremental", it) }
         put("ro.build.type", "eng")
         put("ro.product.brand", maker)
         put("ro.product.manufacturer", maker)
-        put("ro.product.model", if (number != null) "Pre-1.0 build $number" else "Pre-1.0 prototype")
+        put("ro.product.model", when {
+            number != null -> "Pre-1.0 build $number"
+            id.isNotBlank() -> "Pre-1.0 build $id"
+            else -> "Pre-1.0 prototype"
+        })
         put("ro.product.name", "generic")
         put("ro.product.device", "generic")
         put("ro.build.product", "generic")
@@ -278,9 +288,14 @@ object LegacyFirmware {
     }
 
     fun isPreRelease(props: Map<String, String>, root: File): Boolean {
-        if (!props["ro.build.version.sdk"].isNullOrBlank() || !props["ro.build.version.release"].isNullOrBlank()) return false
+        val sdk = props["ro.build.version.sdk"]?.trim()?.toIntOrNull()
+        val rel = props["ro.build.version.release"]?.trim().orEmpty()
+        val id = props["ro.build.id"]?.trim().orEmpty()
+        val code = props["ro.build.version.codename"]?.trim().orEmpty()
         val utc = props["ro.build.date.utc"]?.trim()?.toLongOrNull()
         val oldDate = utc != null && utc in 1 until ANDROID_1_0_UTC
-        return oldDate || isLegacyLayout(root) || File(root, "system/javalib").isDirectory   
+        val hasM = id.contains("m3", true) || id.contains("m5", true) || rel.contains("m3", true) || rel.contains("m5", true) || code.contains("m3", true) || code.contains("m5", true)
+        if (sdk != null && sdk > 3 && !oldDate && !hasM && !rel.startsWith("0.")) return false
+        return oldDate || hasM || rel.startsWith("0.") || sdk == 1 || sdk == 2 || sdk == 3 || isLegacyLayout(root) || File(root, "system/javalib").isDirectory
     }
 }
