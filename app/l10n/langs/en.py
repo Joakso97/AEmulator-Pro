@@ -399,6 +399,8 @@ S = {
     'vm_bootanim_import': 'Import boot animation…',
     'vm_bootanim_sub': 'Install a bootanimation.zip into /system/media of this VM.',
     'vm_bootanim_replace': 'This VM already has a boot animation. Replace it?',
+    'vm_bootanim_working': 'Importing boot animation…',
+    'vm_bootanim_failed_title': 'Boot animation import failed',
     'vm_bootanim_done': 'Boot animation imported',
     'vm_bootanim_failed': 'Boot animation import failed: %1$s',
     'vm_bootanim_exists': 'This VM already has a boot animation',

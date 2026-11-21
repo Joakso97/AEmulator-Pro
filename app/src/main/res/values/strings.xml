@@ -402,6 +402,8 @@
     <string name="vm_bootanim_import">Import boot animation…</string>
     <string name="vm_bootanim_sub">Install a bootanimation.zip into /system/media of this VM.</string>
     <string name="vm_bootanim_replace">This VM already has a boot animation. Replace it?</string>
+    <string name="vm_bootanim_working">Importing boot animation…</string>
+    <string name="vm_bootanim_failed_title">Boot animation import failed</string>
     <string name="vm_bootanim_done">Boot animation imported</string>
     <string name="vm_bootanim_failed">Boot animation import failed: %1$s</string>
     <string name="vm_bootanim_exists">This VM already has a boot animation</string>

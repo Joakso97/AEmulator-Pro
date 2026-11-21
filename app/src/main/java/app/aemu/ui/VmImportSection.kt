@@ -244,9 +244,13 @@ internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy:
     val scope = rememberCoroutineScope()
     var message by remember { mutableStateOf<String?>(null) }
     var pending by remember { mutableStateOf<Uri?>(null) }
+    var working by remember { mutableStateOf(false) }
+    var failure by remember { mutableStateOf<String?>(null) }
     fun start(uri: Uri, replace: Boolean) {
         setBusy(true)
         message = null
+        failure = null
+        working = true
         scope.launch {
             val result = withContext(Dispatchers.IO) {
                 runCatching {
@@ -255,9 +259,10 @@ internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy:
                 }
             }
             setBusy(false)
-            message = result.fold(
-                { ctx.getString(R.string.vm_bootanim_done) },
-                { ctx.getString(R.string.vm_bootanim_failed, it.userMessage(ctx)) })
+            working = false
+            result.fold(
+                { message = ctx.getString(R.string.vm_bootanim_done) },
+                { failure = ctx.getString(R.string.vm_bootanim_failed, it.userMessage(ctx)) })
         }
     }
     val pick = rememberSingleFilePicker { uri ->
@@ -284,6 +289,26 @@ internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy:
             text = { Text(stringResource(R.string.vm_bootanim_replace)) },
             confirmButton = { TextButton(onClick = { pending = null; start(uri, true) }) { Text(stringResource(R.string.ok)) } },
             dismissButton = { TextButton(onClick = { pending = null }) { Text(stringResource(R.string.cancel)) } },
+        )
+    }
+    if (working) AlertDialog(
+        onDismissRequest = {},
+        title = { Text(stringResource(R.string.vm_bootanim_import)) },
+        text = {
+            Column {
+                Text(stringResource(R.string.vm_bootanim_working))
+                Spacer(Modifier.height(8.dp))
+                LinearProgressIndicator(Modifier.fillMaxWidth())
+            }
+        },
+        confirmButton = {},
+    )
+    failure?.let { text ->
+        AlertDialog(
+            onDismissRequest = { failure = null },
+            title = { Text(stringResource(R.string.vm_bootanim_failed_title)) },
+            text = { Text(text) },
+            confirmButton = { TextButton(onClick = { failure = null }) { Text(stringResource(R.string.ok)) } },
         )
     }
 }
