@@ -8,7 +8,7 @@
   <a href="https://github.com/Joakso97/AEmulator-Pro/releases"><img src="https://img.shields.io/github/v/release/Joakso97/AEmulator-Pro?include_prereleases&style=flat-square" alt="GitHub release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/Joakso97/AEmulator-Pro?style=flat-square" alt="License"></a>
   <a href="https://github.com/Joakso97/AEmulator-Pro/stargazers"><img src="https://img.shields.io/github/stars/Joakso97/AEmulator-Pro?style=flat-square" alt="GitHub stars"></a>
-  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android"></a>
+  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Android-1.0%E2%80%9317%2B-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android 1.0–17+"></a>
   <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Min%20SDK-26%20(Android%208.0%2B)-blue?style=flat-square" alt="Min SDK"></a>
 </p>
 
