@@ -1,9 +1,10 @@
 <div align="center">
 
-<img src="docs/assets/logo-rounded.png" width="128" alt="AEmulator Pro logo"/>
+<div align="center">
+
+<img src="docs/assets/icon-round.png" width="128" alt="AEmulator Pro logo" style="border-radius: 1000px"/>
 
 # AEmulator Pro
-
 
 <p align="center">
   <a href="https://github.com/Joakso97/AEmulator-Pro/releases"><img src="https://img.shields.io/github/v/release/Joakso97/AEmulator-Pro?style=for-the-badge&color=6366f1&label=Release"></a>
