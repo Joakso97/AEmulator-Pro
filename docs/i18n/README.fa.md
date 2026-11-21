@@ -6,43 +6,45 @@
 
 # AEmulator Pro
 
-**تقریباً هر فرم‌ور اندروید — HTC Sense، TouchWiz، MIUI، AOSP — را روی یک گوشی مدرن شبیه‌سازی کنید.** انشعابی از [AEmulator](https://github.com/uxazu/AEmulator) با امکانات و اصلاحات بیشتر.
+**فرم‌ویرهای کلاسیک اندروید — HTC Sense، TouchWiz، MIUI، AOSP — روی گوشی مدرن. بدون روت و بدون رایانه.**
 
-[<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="16" valign="middle"> English](../../README.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ru.svg" width="16" valign="middle"> Русский](README.ru.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ua.svg" width="16" valign="middle"> Українська](README.uk.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/de.svg" width="16" valign="middle"> Deutsch](README.de.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/fr.svg" width="16" valign="middle"> Français](README.fr.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/es.svg" width="16" valign="middle"> Español](README.es.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/br.svg" width="16" valign="middle"> Português](README.pt-BR.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/it.svg" width="16" valign="middle"> Italiano](README.it.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/pl.svg" width="16" valign="middle"> Polski](README.pl.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" width="16" valign="middle"> Türkçe](README.tr.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/sa.svg" width="16" valign="middle"> العربية](README.ar.md) · **<img src="https://hatscripts.github.io/circle-flags/flags/ir.svg" width="16" valign="middle"> فارسی** · [<img src="https://hatscripts.github.io/circle-flags/flags/in.svg" width="16" valign="middle"> हिन्दी](README.hi.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/id.svg" width="16" valign="middle"> Indonesia](README.id.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/vn.svg" width="16" valign="middle"> Tiếng Việt](README.vi.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" width="16" valign="middle"> 简体中文](README.zh-CN.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="16" valign="middle"> 日本語](README.ja.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" width="16" valign="middle"> 한국어](README.ko.md)
+[🇬🇧 English](../../README.md) · [🇷🇺 Русский](README.ru.md) · [🇺🇦 Українська](README.uk.md) · [🇩🇪 Deutsch](README.de.md) · [🇫🇷 Français](README.fr.md) · [🇪🇸 Español](README.es.md) · [🇧🇷 Português](README.pt-BR.md) · [🇮🇹 Italiano](README.it.md) · [🇵🇱 Polski](README.pl.md) · [🇹🇷 Türkçe](README.tr.md) · [🇸🇦 العربية](README.ar.md) · **🇮🇷 فارسی** · [🇮🇳 हिन्दी](README.hi.md) · [🇮🇩 Indonesia](README.id.md) · [🇻🇳 Tiếng Việt](README.vi.md) · [🇨🇳 简体中文](README.zh-CN.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md)
 
 </div>
 
 ---
 
-AEmulator Pro یک ایمیج واقعی سیستم اندروید 1.0–17 را مستقیماً از فایل فرم‌وری که از قبل دارید بوت می‌کند. کد قدیمی ARM را با QEMU وصله‌شده ترجمه می‌کند، binder هسته را شبیه‌سازی می‌کند، با GPU گوشی شما رسم می‌کند و صدا را از طریق پشته صوتی اندروید پخش می‌کند — همه‌چیز داخل یک اپ معمولی. این پروژه تقریباً به‌طور کامل با Claude Sonnet 5.5 ساخته شد (و شبیه‌ساز اصلی با Opus 5.5).
+AEmulator Pro یک سیستم واقعی اندروید 2.3 تا 7.x را مستقیم از فایل فرم‌ویر بوت می‌کند: ZIP ریکاوری، آرشیو Odin یا ایمیج کارخانهٔ گوگل. کد قدیمی ARM با QEMU اصلاح‌شده ترجمه می‌شود، binder هسته شبیه‌سازی می‌شود، گرافیک با GPU گوشی و صدا با سامانهٔ صوتی اندروید پخش می‌شود — همه درون یک برنامهٔ معمولی.
 
-## امکانات
+## ✨ ویژگی‌ها
 
-- درون‌ریزی تقریباً هر قالب فرم‌ور: Android-x86 `.iso`، CWM/TWRP ZIP، Samsung Odin `.tar.md5`، Google factory `.tgz`، `system.img`، OTA `system.new.dat.br`، Motorola `.sbf`، ایمیج‌های sparse، ایمیج‌های EDL، Spreadtrum `.pac`، HTC `.nbh`، HTC `RUU.exe` و بسیاری قالب‌های دیگر
-- پوسته‌های سازندگان در صورت سازگاری همان‌طور که هستند کار می‌کنند: HTC Sense، Samsung TouchWiz، MIUI، AOSP
+- درون‌ریزی تقریباً همهٔ قالب‌ها: ‏ZIP ‏CWM/TWRP، ‏Odin ‏`.tar.md5` سامسونگ، ایمیج کارخانهٔ گوگل ‏`.tgz`، ‏`system.img`، ‏OTA ‏`system.new.dat.br`
+- رابط‌های سازندگان همان‌طور که هستند کار می‌کنند: HTC Sense، Samsung TouchWiz، MIUI، AOSP
 - گرافیک سخت‌افزاری از طریق پل GL، صدا، لمس و چندلمسی، شبکه با پراکسی TLS مدرن
-- پوشه مشترک کارت حافظه برای APKها، موسیقی و عکس‌ها
-- **تم‌های صفحه ماشین مجازی و ویرایشگر تم**: نوار ناوبری و قاب اطراف صفحه مهمان از یک تم پیروی می‌کنند — Original، Sunset، Gingerbread 2.x، Honeycomb 3.x، Holo 4.x یا Lollipop 5.x — یا تم خودتان که در ویرایشگری با پیش‌نمایش زنده ساخته می‌شود (شکل و اندازه کلیدها، رنگ‌های نوار/کلید/فشار/قاب، درخشش و هاله، نوار شناور یا تخت، تصویر قاب، گوشه‌های گرد صفحه). تم‌ها را می‌توان به‌صورت فایل‌های `.aetheme` به اشتراک گذاشت. تنظیمات اپ <img src="../assets/chevron.svg" height="14" valign="middle"> ظاهر <img src="../assets/chevron.svg" height="14" valign="middle"> تم صفحه ماشین مجازی.
-- **کتابخانه‌تان را مرتب کنید**: یک ROM را نگه دارید و برای جابه‌جایی به بالا یا پایین بکشید (فهرست کلاسیک و شبکه 0.0.0.3)، و ROMها را در پوشه‌های نام‌دار که باز و بسته می‌شوند گروه‌بندی کنید — یک ROM را روی پوشه رها کنید یا از منوی <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> انتقال به پوشه استفاده کنید
-- رابط Material 3 Expressive به 19 زبان
+- پوشهٔ مشترک کارت حافظه برای APK، موسیقی و عکس
+- رابط Material 3 Expressive به 18 زبان
 - رایگان و متن‌باز (GPL-3.0)
 
-## شروع سریع
+## 🚀 شروع سریع
 
-1. APK را از [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) دانلود و نصب کنید.
-2. AEmulator Pro را باز کنید ← **افزودن فرم‌ور** و فایل را انتخاب کنید. درون‌ریزی چند دقیقه طول می‌کشد.
-3. **شروع** را بزنید. بوت اول کندتر است: سیستم اپ‌هایش را بهینه می‌کند.
-4. منوی <img src="../assets/menu.svg" height="14" valign="middle"> برای صدا، دکمه روشن/خاموش و گزارش‌هاست؛ دکمه <img src="../assets/settings.svg" height="14" valign="middle"> تنظیمات و زبان را باز می‌کند.
+1. فایل APK را از [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) دانلود و نصب کنید.
+2. AEmulator Pro را باز کنید ← **افزودن فرم‌ویر** و فایل را انتخاب کنید. درون‌ریزی چند دقیقه طول می‌کشد.
+3. **اجرا** را بزنید. بوت اول کندتر است: سیستم برنامه‌ها را بهینه می‌کند.
+4. منوی ⋮ برای صدا، دکمهٔ پاور و گزارش؛ دکمهٔ ⚙️ برای تنظیمات و زبان.
 
-## نیازمندی‌ها
+## 📋 نیازمندی‌ها
 
-- اندروید 8.0+ روی گوشی ARM ۶۴ بیتی (arm64-v8a)
-- حدود 1–3 گیگابایت فضای خالی برای هر فرم‌ور
-- به دلیل چند مشکل با GPUهای Mali، پردازنده Snapdragon توصیه می‌شود
+- اندروید 8.0+ روی گوشی ARM ‏64 بیتی (arm64-v8a)
+- حدود 1 تا 3 گیگابایت فضای آزاد برای هر فرم‌ویر
+- پیشنهاد: Snapdragon / Dimensity / Tensor جدید
 
-## ساخت از سورس
+## ⚙️ چگونه کار می‌کند
 
-ساخت release آزمایش‌شده اپ از JDK 21 و Android SDK 36 استفاده می‌کند. به [دستورالعمل ساخت/سورس](../build-source.md) مراجعه کنید، شامل جزئیات زنجیره‌ابزار بومی و امضا.
+هر فرایند مهمان زیر یک QEMU اصلاح‌شده در حالت کاربر اجرا می‌شود. سرویس binder جای درایور هسته را می‌گیرد، پل GL فراخوانی‌های OpenGL ES را به GPU می‌فرستد و کتابخانه‌های کوچک مهمان (HAL صوتی، پوشش audio policy، لایهٔ LD_PRELOAD) کد سازندگان را با شبیه‌ساز سازگار می‌کنند. درون‌ریز فرم‌ویر را می‌خواند، اسکریپت‌های init را در ایمیج boot پیدا می‌کند و برنامهٔ اجرای سرویس‌ها را می‌سازد.
+
+## 🛠️ ساخت از کد منبع
+
+ساخت انتشار آزموده‌شدهٔ برنامه از JDK 21 و Android SDK 36 استفاده می‌کند. [راهنمای ساخت و کد منبع](../build-source.md) را ببینید که جزئیات زنجیرهٔ ابزار بومی و امضا را دارد. **برای باینری‌های آمادهٔ موتورِ به‌ارث‌رسیده هنوز منشأ کامل کد منبع و ساخت راستی‌آزمایی نشده است**؛ [ممیزی](../license-audit.md) را ببینید.
 
 ```bash
 git clone https://github.com/Joakso97/AEmulator-Pro.git
@@ -50,24 +52,25 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## قدردانی
+## 🙏 سپاس
 
-AEmulator Pro از شبیه‌سازهای HTC Desire HD و HTC One M7 ساخته [نویسنده اصلی](https://t.me/istratiit_ech) رشد کرد — موتور او این پروژه را ممکن ساخت.
+AEmulator Pro از شبیه‌سازهای HTC Desire HD و HTC One M7 ‏[سازندهٔ نخست](https://t.me/istratiit_ech) رشد کرد — بدون موتور او این پروژه وجود نداشت.
 
-این یک انشعاب تغییریافته از [uxazu/AEmulator](https://github.com/uxazu/AEmulator) است که علاوه بر آن از بسیاری امکانات [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) استفاده می‌کند.
+این یک فورک تغییریافته از [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) است که خود فورک تغییریافته‌ای از [uxazu/AEmulator](https://github.com/uxazu/AEmulator) است.
 
-## پیوندها
+## 🔗 پیوندها
 
-- انشعاب من: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
-- بالادست: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
-- AEmulator-Sunset (قدردانی فراوان برای بسیاری از امکانات): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
-- نویسنده: [somerandomusername2](https://github.com/somerandomusernam2)
-- نویسنده اصلی: [t.me/istratiit_ech](https://t.me/istratiit_ech)
+- AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
+- فورک من: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
+- مخزن بالادستی: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
+- اصلی: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
+- سازنده: [somerandomusername2](https://github.com/somerandomusernam2)
+- سازندهٔ نخست: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## مجوز
+## 📄 مجوز
 
-GPL-3.0. اندروید، علائم تجاری و فرم‌ورها متعلق به مالکان آن‌ها هستند.
+GPL-3.0. اندروید، نشان‌های تجاری و فرم‌ویرها متعلق به صاحبانشان‌اند.
 
-به [اطلاعیه‌های تغییر تاریخ‌دار](../../NOTICE.md) و [ممیزی باز سورس/مجوز](../license-audit.md) مراجعه کنید. برچسب GPL گواهی نیست که هر فایل باینری همراه، سورس کامل متناظر دارد.
+[اطلاعیه‌های تاریخ‌دار تغییرات](../../NOTICE.md) و [ممیزی ناتمام کد منبع و مجوزها](../license-audit.md) را ببینید. برچسب GPL گواه آن نیست که هر باینری همراه، کد منبع کامل و منطبق دارد.
 
 </div>

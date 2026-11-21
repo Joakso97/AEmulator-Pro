@@ -4,43 +4,45 @@
 
 # AEmulator Pro
 
-**Emulasikan hampir semua firmware Android — HTC Sense, TouchWiz, MIUI, AOSP — di ponsel modern.** Fork dari [AEmulator](https://github.com/uxazu/AEmulator) dengan lebih banyak fitur dan perbaikan.
+**Firmware Android klasik — HTC Sense, TouchWiz, MIUI, AOSP — di ponsel modern. Tanpa root, tanpa PC.**
 
-[<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="16" valign="middle"> English](../../README.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ru.svg" width="16" valign="middle"> Русский](README.ru.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ua.svg" width="16" valign="middle"> Українська](README.uk.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/de.svg" width="16" valign="middle"> Deutsch](README.de.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/fr.svg" width="16" valign="middle"> Français](README.fr.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/es.svg" width="16" valign="middle"> Español](README.es.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/br.svg" width="16" valign="middle"> Português](README.pt-BR.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/it.svg" width="16" valign="middle"> Italiano](README.it.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/pl.svg" width="16" valign="middle"> Polski](README.pl.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" width="16" valign="middle"> Türkçe](README.tr.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/sa.svg" width="16" valign="middle"> العربية](README.ar.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ir.svg" width="16" valign="middle"> فارسی](README.fa.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/in.svg" width="16" valign="middle"> हिन्दी](README.hi.md) · **<img src="https://hatscripts.github.io/circle-flags/flags/id.svg" width="16" valign="middle"> Indonesia** · [<img src="https://hatscripts.github.io/circle-flags/flags/vn.svg" width="16" valign="middle"> Tiếng Việt](README.vi.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" width="16" valign="middle"> 简体中文](README.zh-CN.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="16" valign="middle"> 日本語](README.ja.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" width="16" valign="middle"> 한국어](README.ko.md)
+[🇬🇧 English](../../README.md) · [🇷🇺 Русский](README.ru.md) · [🇺🇦 Українська](README.uk.md) · [🇩🇪 Deutsch](README.de.md) · [🇫🇷 Français](README.fr.md) · [🇪🇸 Español](README.es.md) · [🇧🇷 Português](README.pt-BR.md) · [🇮🇹 Italiano](README.it.md) · [🇵🇱 Polski](README.pl.md) · [🇹🇷 Türkçe](README.tr.md) · [🇸🇦 العربية](README.ar.md) · [🇮🇷 فارسی](README.fa.md) · [🇮🇳 हिन्दी](README.hi.md) · **🇮🇩 Indonesia** · [🇻🇳 Tiếng Việt](README.vi.md) · [🇨🇳 简体中文](README.zh-CN.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md)
 
 </div>
 
 ---
 
-AEmulator Pro mem-boot image sistem Android 1.0–17 asli langsung dari file firmware yang sudah Anda punya. Ia menerjemahkan kode ARM lama dengan QEMU yang ditambal, mengemulasikan binder kernel, menggambar dengan GPU ponsel Anda, dan memutar suara melalui stack audio Android — semuanya berjalan di dalam aplikasi biasa. Proyek ini dibuat hampir sepenuhnya dengan Claude Sonnet 5.5 (dan emulator aslinya dengan Opus 5.5).
+AEmulator Pro mem-boot sistem Android 2.3–7.x asli langsung dari file firmware: ZIP recovery, arsip Odin, atau factory image Google. Kode ARM lama diterjemahkan oleh QEMU yang dimodifikasi, binder kernel diemulasikan, grafis memakai GPU ponsel, dan suara lewat sistem audio Android — semuanya di dalam aplikasi biasa.
 
-## Fitur
+## ✨ Fitur
 
-- Impor hampir semua format firmware: Android-x86 `.iso`, ZIP CWM/TWRP, Samsung Odin `.tar.md5`, Google factory `.tgz`, `system.img`, OTA `system.new.dat.br`, Motorola `.sbf`, image sparse, image EDL, Spreadtrum `.pac`, HTC `.nbh`, HTC `RUU.exe`, dan banyak lainnya
-- Skin vendor berjalan apa adanya jika kompatibel: HTC Sense, Samsung TouchWiz, MIUI, AOSP
-- Grafis perangkat keras lewat jembatan GL, suara, sentuhan dan multitouch, jaringan dengan proksi TLS modern
+- Impor hampir semua format: ZIP CWM/TWRP, Odin `.tar.md5` Samsung, factory image Google `.tgz`, `system.img`, OTA `system.new.dat.br`
+- Tampilan pabrikan berjalan apa adanya: HTC Sense, Samsung TouchWiz, MIUI, AOSP
+- Grafis hardware lewat jembatan GL, suara, sentuh dan multisentuh, jaringan dengan proxy TLS modern
 - Folder kartu memori bersama untuk APK, musik, dan foto
-- **Tema layar VM dan editor tema**: bilah navigasi dan bingkai di sekeliling layar tamu mengikuti tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x, atau Lollipop 5.x — atau tema Anda sendiri, dibuat di editor dengan pratinjau langsung (bentuk dan ukuran tombol, warna bilah/tombol/tekanan/bingkai, cahaya dan halo, bilah mengambang atau datar, gambar bingkai, sudut layar membulat). Tema dapat dibagikan sebagai file `.aetheme`. Pengaturan aplikasi <img src="../assets/chevron.svg" height="14" valign="middle"> Tampilan <img src="../assets/chevron.svg" height="14" valign="middle"> Tema layar VM.
-- **Atur pustaka Anda**: tekan dan tahan ROM lalu seret ke atas atau bawah untuk mengurutkannya (daftar klasik dan kisi 0.0.0.3), dan kelompokkan ROM ke folder bernama yang bisa dibuka-tutup — jatuhkan ROM ke folder, atau gunakan menu <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Pindahkan ke folder
-- Antarmuka Material 3 Expressive dalam 19 bahasa
+- Antarmuka Material 3 Expressive dalam 18 bahasa
 - Gratis dan sumber terbuka (GPL-3.0)
 
-## Mulai cepat
+## 🚀 Mulai cepat
 
 1. Unduh APK dari [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) lalu pasang.
-2. Buka AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Tambah firmware** dan pilih file. Impor memakan waktu beberapa menit.
-3. Tekan **Mulai**. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi-aplikasinya.
-4. Gunakan menu <img src="../assets/menu.svg" height="14" valign="middle"> untuk volume, tombol daya, dan log; tombol <img src="../assets/settings.svg" height="14" valign="middle"> membuka pengaturan dan bahasa.
+2. Buka AEmulator Pro → **Tambah firmware** lalu pilih file. Impor butuh beberapa menit.
+3. Tekan **Mulai**. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi.
+4. Menu ⋮ untuk volume, tombol daya, dan log; ⚙️ membuka setelan dan bahasa.
 
-## Persyaratan
+## 📋 Persyaratan
 
 - Android 8.0+ di ponsel ARM 64-bit (arm64-v8a)
 - Sekitar 1–3 GB ruang kosong per firmware
-- SoC Snapdragon disarankan, karena beberapa masalah dengan GPU Mali
+- Disarankan Snapdragon / Dimensity / Tensor terbaru
 
-## Bangun dari sumber
+## ⚙️ Cara kerja
 
-Build release aplikasi yang teruji memakai JDK 21 dan Android SDK 36. Lihat [instruksi build/sumber](../build-source.md), termasuk detail toolchain native dan penandatanganan.
+Setiap proses tamu berjalan di QEMU mode pengguna yang dimodifikasi. Daemon binder menggantikan driver kernel, jembatan GL meneruskan panggilan OpenGL ES ke GPU, dan pustaka tamu kecil (HAL audio, pembungkus audio policy, shim LD_PRELOAD) menyesuaikan kode pabrikan dengan emulator. Importir membaca firmware, menemukan skrip init di image boot, dan menyusun rencana mulai layanan.
+
+## 🛠️ Membangun dari sumber
+
+Build rilis aplikasi yang diuji memakai JDK 21 dan Android SDK 36. Lihat [petunjuk build/sumber](../build-source.md), termasuk detail toolchain native dan penandatanganan. **Binari mesin bawaan warisan belum memiliki asal-usul kode sumber/build yang terverifikasi lengkap**; lihat [audit](../license-audit.md).
 
 ```bash
 git clone https://github.com/Joakso97/AEmulator-Pro.git
@@ -48,22 +50,23 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## Kredit
+## 🙏 Kredit
 
-AEmulator Pro tumbuh dari emulator HTC Desire HD dan HTC One M7 karya [penulis asli](https://t.me/istratiit_ech) — mesin merekalah yang memungkinkan proyek ini.
+AEmulator Pro tumbuh dari emulator HTC Desire HD dan HTC One M7 karya [pembuat asli](https://t.me/istratiit_ech) — tanpa mesinnya proyek ini tidak akan ada.
 
-Ini adalah fork modifikasi dari [uxazu/AEmulator](https://github.com/uxazu/AEmulator), yang juga memakai banyak fitur dari [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset).
+Ini adalah fork yang dimodifikasi dari [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset), yang sendiri merupakan fork yang dimodifikasi dari [uxazu/AEmulator](https://github.com/uxazu/AEmulator).
 
-## Tautan
+## 🔗 Tautan
 
+- AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
 - Fork saya: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
-- Upstream: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
-- AEmulator-Sunset (kredit besar untuk banyak fitur): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
-- Penulis: [somerandomusername2](https://github.com/somerandomusernam2)
-- Penulis asli: [t.me/istratiit_ech](https://t.me/istratiit_ech)
+- Upstream: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
+- Asli: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
+- Pembuat: [somerandomusername2](https://github.com/somerandomusernam2)
+- Pembuat asli: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## Lisensi
+## 📄 Lisensi
 
-GPL-3.0. Android, merek dagang, dan firmware adalah milik pemiliknya masing-masing.
+GPL-3.0. Android, merek dagang, dan firmware milik pemiliknya.
 
-Lihat [pemberitahuan modifikasi bertanggal](../../NOTICE.md) dan [audit sumber/lisensi yang belum selesai](../license-audit.md). Label GPL bukan sertifikasi bahwa setiap prebuilt yang dibundel memiliki sumber lengkap yang cocok.
+Lihat [pemberitahuan modifikasi bertanggal](../../NOTICE.md) dan [audit sumber/lisensi yang belum selesai](../license-audit.md). Label GPL bukan sertifikasi bahwa setiap binari bawaan memiliki kode sumber yang cocok dan lengkap.

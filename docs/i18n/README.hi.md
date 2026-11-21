@@ -4,43 +4,45 @@
 
 # AEmulator Pro
 
-**लगभग किसी भी Android फ़र्मवेयर — HTC Sense, TouchWiz, MIUI, AOSP — को आधुनिक फ़ोन पर एमुलेट करें।** [AEmulator](https://github.com/uxazu/AEmulator) का एक फ़ोर्क, अधिक सुविधाओं और सुधारों के साथ।
+**पुराने Android फ़र्मवेयर — HTC Sense, TouchWiz, MIUI, AOSP — आधुनिक फ़ोन पर। बिना root, बिना PC।**
 
-[<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="16" valign="middle"> English](../../README.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ru.svg" width="16" valign="middle"> Русский](README.ru.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ua.svg" width="16" valign="middle"> Українська](README.uk.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/de.svg" width="16" valign="middle"> Deutsch](README.de.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/fr.svg" width="16" valign="middle"> Français](README.fr.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/es.svg" width="16" valign="middle"> Español](README.es.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/br.svg" width="16" valign="middle"> Português](README.pt-BR.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/it.svg" width="16" valign="middle"> Italiano](README.it.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/pl.svg" width="16" valign="middle"> Polski](README.pl.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/tr.svg" width="16" valign="middle"> Türkçe](README.tr.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/sa.svg" width="16" valign="middle"> العربية](README.ar.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/ir.svg" width="16" valign="middle"> فارسی](README.fa.md) · **<img src="https://hatscripts.github.io/circle-flags/flags/in.svg" width="16" valign="middle"> हिन्दी** · [<img src="https://hatscripts.github.io/circle-flags/flags/id.svg" width="16" valign="middle"> Indonesia](README.id.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/vn.svg" width="16" valign="middle"> Tiếng Việt](README.vi.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" width="16" valign="middle"> 简体中文](README.zh-CN.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="16" valign="middle"> 日本語](README.ja.md) · [<img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" width="16" valign="middle"> 한국어](README.ko.md)
+[🇬🇧 English](../../README.md) · [🇷🇺 Русский](README.ru.md) · [🇺🇦 Українська](README.uk.md) · [🇩🇪 Deutsch](README.de.md) · [🇫🇷 Français](README.fr.md) · [🇪🇸 Español](README.es.md) · [🇧🇷 Português](README.pt-BR.md) · [🇮🇹 Italiano](README.it.md) · [🇵🇱 Polski](README.pl.md) · [🇹🇷 Türkçe](README.tr.md) · [🇸🇦 العربية](README.ar.md) · [🇮🇷 فارسی](README.fa.md) · **🇮🇳 हिन्दी** · [🇮🇩 Indonesia](README.id.md) · [🇻🇳 Tiếng Việt](README.vi.md) · [🇨🇳 简体中文](README.zh-CN.md) · [🇯🇵 日本語](README.ja.md) · [🇰🇷 한국어](README.ko.md)
 
 </div>
 
 ---
 
-AEmulator Pro आपके पास पहले से मौजूद फ़र्मवेयर फ़ाइल से सीधे असली Android 1.0–17 सिस्टम इमेज बूट करता है। यह पुराने ARM कोड को पैच किए गए QEMU से अनुवादित करता है, कर्नेल के binder का अनुकरण करता है, आपके फ़ोन के GPU से चित्र बनाता है और Android के ऑडियो स्टैक से आवाज़ चलाता है — सब कुछ एक सामान्य ऐप के भीतर। यह प्रोजेक्ट लगभग पूरी तरह Claude Sonnet 5.5 से बनाया गया (और मूल एमुलेटर Opus 5.5 से)।
+AEmulator Pro सीधे फ़र्मवेयर फ़ाइल से असली Android 2.3–7.x सिस्टम बूट करता है: रिकवरी ZIP, Odin आर्काइव या Google फ़ैक्टरी इमेज। पुराना ARM कोड संशोधित QEMU से चलता है, कर्नेल का binder एमुलेट होता है, ग्राफ़िक्स फ़ोन के GPU से और आवाज़ Android के ऑडियो सिस्टम से चलती है — सब कुछ एक सामान्य ऐप के भीतर।
 
-## सुविधाएँ
+## ✨ विशेषताएँ
 
-- लगभग हर फ़र्मवेयर प्रारूप आयात करें: Android-x86 `.iso`, CWM/TWRP ZIP, Samsung Odin `.tar.md5`, Google factory `.tgz`, `system.img`, OTA `system.new.dat.br`, Motorola `.sbf`, sparse इमेज, EDL इमेज, Spreadtrum `.pac`, HTC `.nbh`, HTC `RUU.exe` और कई अन्य
-- निर्माता की skins संगत होने पर ज्यों की त्यों चलती हैं: HTC Sense, Samsung TouchWiz, MIUI, AOSP
-- GL ब्रिज से हार्डवेयर ग्राफ़िक्स, ध्वनि, टच और मल्टीटच, आधुनिक TLS प्रॉक्सी के साथ नेटवर्क
-- APK, संगीत और फ़ोटो के लिए साझा मेमोरी-कार्ड फ़ोल्डर
-- **VM स्क्रीन थीम और थीम संपादक**: नेविगेशन बार और गेस्ट स्क्रीन के चारों ओर का फ़्रेम एक थीम का पालन करते हैं — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x या Lollipop 5.x — या आपकी अपनी, जो लाइव पूर्वावलोकन वाले संपादक में बनाई जाती है (कुंजी के आकार और माप, बार/कुंजी/दबाव/फ़्रेम के रंग, चमक और प्रभामंडल, तैरती या सपाट बार, फ़्रेम चित्र, गोल स्क्रीन कोने)। थीम `.aetheme` फ़ाइलों के रूप में साझा की जा सकती हैं। ऐप सेटिंग्स <img src="../assets/chevron.svg" height="14" valign="middle"> रूप <img src="../assets/chevron.svg" height="14" valign="middle"> VM स्क्रीन थीम।
-- **अपनी लाइब्रेरी व्यवस्थित करें**: किसी ROM को दबाकर रखें और क्रम बदलने के लिए ऊपर या नीचे खींचें (क्लासिक सूची और 0.0.0.3 ग्रिड), और ROM को नामित फ़ोल्डरों में समूहित करें जो खुलते-बंद होते हैं — ROM को फ़ोल्डर पर छोड़ें या उसके <img src="../assets/menu.svg" height="14" valign="middle"> मेनू <img src="../assets/chevron.svg" height="14" valign="middle"> फ़ोल्डर में ले जाएँ का उपयोग करें
-- 19 भाषाओं में Material 3 Expressive इंटरफ़ेस
+- लगभग हर फ़ॉर्मेट आयात करें: CWM/TWRP ZIP, Samsung Odin `.tar.md5`, Google फ़ैक्टरी `.tgz`, `system.img`, OTA `system.new.dat.br`
+- कंपनियों के स्किन जैसे हैं वैसे चलते हैं: HTC Sense, Samsung TouchWiz, MIUI, AOSP
+- GL ब्रिज से हार्डवेयर ग्राफ़िक्स, आवाज़, टच और मल्टीटच, आधुनिक TLS प्रॉक्सी के साथ नेटवर्क
+- APK, संगीत और फ़ोटो के लिए साझा मेमोरी कार्ड फ़ोल्डर
+- 18 भाषाओं में Material 3 Expressive इंटरफ़ेस
 - मुफ़्त और ओपन सोर्स (GPL-3.0)
 
-## त्वरित शुरुआत
+## 🚀 जल्दी शुरुआत
 
-1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) से APK डाउनलोड करें और इंस्टॉल करें।
-2. AEmulator Pro खोलें <img src="../assets/chevron.svg" height="14" valign="middle"> **फ़र्मवेयर जोड़ें** और फ़ाइल चुनें। आयात में कुछ मिनट लगते हैं।
-3. **स्टार्ट** दबाएँ। पहला बूट धीमा होता है: सिस्टम अपने ऐप्स को अनुकूलित करता है।
-4. वॉल्यूम, पावर बटन और लॉग के लिए <img src="../assets/menu.svg" height="14" valign="middle"> मेनू उपयोग करें; <img src="../assets/settings.svg" height="14" valign="middle"> बटन ऐप सेटिंग्स और भाषा खोलता है।
+1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) से APK डाउनलोड करके इंस्टॉल करें।
+2. AEmulator Pro खोलें → **फ़र्मवेयर जोड़ें** और फ़ाइल चुनें। आयात में कुछ मिनट लगते हैं।
+3. **चलाएँ** दबाएँ। पहला बूट धीमा होता है: सिस्टम ऐप्स ऑप्टिमाइज़ करता है।
+4. ⋮ मेनू में वॉल्यूम, पावर बटन और लॉग; ⚙️ से सेटिंग्स और भाषा।
 
-## आवश्यकताएँ
+## 📋 आवश्यकताएँ
 
-- 64-बिट ARM फ़ोन पर Android 8.0+ (arm64-v8a)
+- 64-बिट ARM फ़ोन (arm64-v8a) पर Android 8.0+
 - प्रति फ़र्मवेयर लगभग 1–3 GB खाली जगह
-- Mali GPU की कई समस्याओं के कारण Snapdragon SoC की सिफ़ारिश की जाती है
+- नया Snapdragon / Dimensity / Tensor सुझाया जाता है
 
-## स्रोत से बिल्ड
+## ⚙️ यह कैसे काम करता है
 
-ऐप का परीक्षण किया गया release बिल्ड JDK 21 और Android SDK 36 उपयोग करता है। [बिल्ड/स्रोत निर्देश](../build-source.md) देखें, जिसमें नेटिव टूलचेन और हस्ताक्षर का विवरण शामिल है।
+हर गेस्ट प्रोसेस संशोधित यूज़र-मोड QEMU में चलता है। एक binder डेमन कर्नेल ड्राइवर की जगह लेता है, GL ब्रिज OpenGL ES कॉल GPU तक भेजता है, और छोटी गेस्ट लाइब्रेरी (ऑडियो HAL, audio policy रैपर, LD_PRELOAD शिम) निर्माताओं के कोड को एमुलेटर के अनुकूल बनाती हैं। इम्पोर्टर फ़र्मवेयर पढ़ता है, boot इमेज में init स्क्रिप्ट ढूँढता है और सेवाओं की शुरुआत की योजना बनाता है।
+
+## 🛠️ सोर्स से बनाएँ
+
+ऐप का परीक्षित रिलीज़ बिल्ड JDK 21 और Android SDK 36 का उपयोग करता है। नेटिव टूलचेन और साइनिंग के विवरण के साथ [बिल्ड/सोर्स निर्देश](../build-source.md) देखें। **विरासत में मिले इंजन प्रीबिल्ट बाइनरी के सोर्स और बिल्ड की पूरी उत्पत्ति अभी सत्यापित नहीं है**; [ऑडिट](../license-audit.md) देखें।
 
 ```bash
 git clone https://github.com/Joakso97/AEmulator-Pro.git
@@ -48,22 +50,23 @@ cd AEmulator-Pro
 ./gradlew copyReleaseApks
 ```
 
-## श्रेय
+## 🙏 आभार
 
-AEmulator Pro [मूल लेखक](https://t.me/istratiit_ech) के HTC Desire HD और HTC One M7 एमुलेटर से विकसित हुआ — उनके इंजन ने यह प्रोजेक्ट संभव बनाया।
+AEmulator Pro [मूल लेखक](https://t.me/istratiit_ech) के HTC Desire HD और HTC One M7 एमुलेटर से विकसित हुआ — उनके इंजन के बिना यह प्रोजेक्ट नहीं होता।
 
-यह [uxazu/AEmulator](https://github.com/uxazu/AEmulator) का संशोधित फ़ोर्क है, जो अतिरिक्त रूप से [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) की कई सुविधाएँ उपयोग करता है।
+यह [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset) का संशोधित फ़ोर्क है, जो स्वयं [uxazu/AEmulator](https://github.com/uxazu/AEmulator) का संशोधित फ़ोर्क है।
 
-## लिंक
+## 🔗 लिंक
 
+- AEmulator Plus: [GitHub](https://github.com/somerandomusernam2/AEmulator-Plus) · [Releases](https://github.com/somerandomusernam2/AEmulator-Plus/releases)
 - मेरा फ़ोर्क: [Joakso97/AEmulator-Pro](https://github.com/Joakso97/AEmulator-Pro)
-- अपस्ट्रीम: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
-- AEmulator-Sunset (कई सुविधाओं के लिए बहुत-बहुत श्रेय): [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
+- अपस्ट्रीम: [drel4/AEmulator-Sunset](https://github.com/drel4/AEmulator-Sunset)
+- मूल: [uxazu/AEmulator](https://github.com/uxazu/AEmulator)
 - लेखक: [somerandomusername2](https://github.com/somerandomusernam2)
 - मूल लेखक: [t.me/istratiit_ech](https://t.me/istratiit_ech)
 
-## लाइसेंस
+## 📄 लाइसेंस
 
-GPL-3.0. Android, ट्रेडमार्क और फ़र्मवेयर उनके मालिकों के हैं।
+GPL-3.0। Android, ट्रेडमार्क और फ़र्मवेयर उनके स्वामियों के हैं।
 
-[दिनांकित संशोधन सूचनाएँ](../../NOTICE.md) और [लंबित स्रोत/लाइसेंस ऑडिट](../license-audit.md) देखें। GPL लेबल इसकी प्रमाणिकता नहीं है कि हर बंडल किए गए प्रीबिल्ट के पास पूर्ण संगत स्रोत है।
+[दिनांकित संशोधन सूचनाएँ](../../NOTICE.md) और [लंबित सोर्स/लाइसेंस ऑडिट](../license-audit.md) देखें। GPL लेबल इस बात का प्रमाणपत्र नहीं है कि हर शामिल प्रीबिल्ट बाइनरी का पूरा मेल खाता सोर्स मौजूद है।

@@ -4,14 +4,16 @@
 
 # AEmulator Pro
 
+
 <p align="center">
-  <a href="https://github.com/Joakso97/AEmulator-Pro/releases"><img src="https://img.shields.io/github/v/release/Joakso97/AEmulator-Pro?include_prereleases" alt="GitHub release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/Joakso97/AEmulator-Pro" alt="License"></a>
-  <a href="https://github.com/Joakso97/AEmulator-Pro/stargazers"><img src="https://img.shields.io/github/stars/Joakso97/AEmulator-Pro" alt="GitHub stars"></a>
-  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Android-1.0%E2%80%9317%2B-3DDC84?logo=android&logoColor=white" alt="Android 1.0–17+"></a>
-  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Supported-11%2B-3DDC84?logo=android&logoColor=white" alt="Supported 11+"></a>
-  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Min%20SDK-26%20(Android%208.0%2B)-blue" alt="Min SDK"></a>
+  <a href="https://github.com/Joakso97/AEmulator-Pro/releases"><img src="https://img.shields.io/github/v/release/Joakso97/AEmulator-Pro?style=for-the-badge&color=6366f1&label=Release"></a>
+  <a href="https://github.com/Joakso97/AEmulator-Pro/stargazers"><img src="https://img.shields.io/github/stars/Joakso97/AEmulator-Pro?style=for-the-badge&color=f59e0b&label=Stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Joakso97/AEmulator-Pro?style=for-the-badge&color=22c55e&label=License"></a>
+  <img src="https://img.shields.io/badge/Android-1.0%E2%80%9317%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white">
+  <img src="https://img.shields.io/badge/Supported-11%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white">
+  <img src="https://img.shields.io/badge/Min%20SDK-26-0ea5e9?style=for-the-badge">
 </p>
+
 
 **Emulate almost any Android firmware HTC Sense, TouchWiz, MIUI, AOSP on a modern phone.** A fork of [AEmulator](https://github.com/uxazu/AEmulator) with more features and fixes.
 
