@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Upprunalegur</string>
     <string name="as_navbar_sunset">Sólsetur</string>
     <string name="as_new_home">Nýr heimaskjár</string>
-    <string name="as_new_home_sub">Safn í ristinni með neðri stiku (stíll 0.0.0.3). Slökktu fyrir klassíska listann. Tekur gildi eftir að forritið er endurræst.</string>
+    <string name="as_new_home_sub">Safn í ristinni með neðri stiku. Slökktu fyrir klassíska listann. Tekur gildi eftir að forritið er endurræst.</string>
     <string name="as_orig">Upprunalegur höfundur</string>
     <string name="as_orig_sub">Höfundur Desire HD- og One M7-hermanna sem þetta verkefni þróaðist út frá</string>
     <string name="as_tablet_navbar_rotation">Snúa leiðsagnarstiku spjaldtölvu</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Undirbý</string>
     <string name="st_stopping">Slekk</string>
     <string name="start">Ræsa</string>
-    <string name="storage_text">Leyfðu aðgang að öllum skrám: þá er minniskort hvers kerfis í AEmulator-möppunni í innri geymslu — þægilegt fyrir APK-skrár, tónlist og myndir.</string>
+    <string name="storage_text">Leyfðu aðgang að öllum skrám: þá er minniskort hvers kerfis í AEmulator-möppunni í innri geymslu, þægilegt fyrir APK-skrár, tónlist og myndir.</string>
     <string name="storage_title">Sameiginleg mappa fyrir kerfi</string>
     <string name="th_bar">Stika</string>
     <string name="th_collapse">Þjappa lista saman</string>

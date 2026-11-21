@@ -90,6 +90,19 @@ class PartitionNamesTest {
         assertFalse(PartitionNames.isVendor("28.img"))
     }
 
+    @Test fun anyPartitionNames() {
+        assertTrue(PartitionNames.anyMount("persist.img") == "persist")
+        assertTrue(PartitionNames.anyMount("misc.bin") == "misc")
+        assertTrue(PartitionNames.anyMount("my_partition.ext4.img") == "my_partition")
+        assertTrue(PartitionNames.anyMount("FRP.IMG") == "frp")
+        assertTrue(PartitionNames.anyMount("product.img") == "system/product")
+        assertTrue(PartitionNames.anyMount("system_ext.img") == "system/system_ext")
+        assertTrue(PartitionNames.anyMount("modem_a.img") == "modem")
+        assertTrue(PartitionNames.anyMount("modem_b.img") == "modem")
+        assertTrue(PartitionNames.anyMount("notes.txt") == null)
+        assertTrue(PartitionNames.anyMount("notes.txt", true) == null)
+    }
+
     @Test fun diskImageNames() {
          
         for (n in listOf("system.img", "x/recovery_stable-channel.bin", "disk.raw", "dump", "DISK.IMG")) assertTrue(n, PartitionNames.isDiskImageName(n))

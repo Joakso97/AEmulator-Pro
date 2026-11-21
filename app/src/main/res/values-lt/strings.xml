@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Originalus</string>
     <string name="as_navbar_sunset">Saulėlydis</string>
     <string name="as_new_home">Naujas pagrindinis ekranas</string>
-    <string name="as_new_home_sub">Tinklelio biblioteka su apatine juosta (0.0.0.3 stiliaus). Išjunkite, kad grįžtumėte prie klasikinio sąrašo. Įsigalioja iš naujo paleidus programą.</string>
+    <string name="as_new_home_sub">Tinklelio biblioteka su apatine juosta. Išjunkite, kad grįžtumėte prie klasikinio sąrašo. Įsigalioja iš naujo paleidus programą.</string>
     <string name="as_orig">Pirminis autorius</string>
     <string name="as_orig_sub">„Desire HD“ ir „One M7“ emuliatorių, iš kurių išaugo šis projektas, kūrėjas</string>
     <string name="as_tablet_navbar_rotation">Sukti planšetės naršymo juostą</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Ruošiama</string>
     <string name="st_stopping">Išjungiama</string>
     <string name="start">Paleisti</string>
-    <string name="storage_text">Leiskite pasiekti visus failus: tada kiekvienos sistemos atminties kortelė bus vidinės atminties aplanke AEmulator – patogu APK failams, muzikai ir nuotraukoms.</string>
+    <string name="storage_text">Leiskite pasiekti visus failus: tada kiekvienos sistemos atminties kortelė bus vidinės atminties aplanke AEmulator, patogu APK failams, muzikai ir nuotraukoms.</string>
     <string name="storage_title">Bendras sistemų aplankas</string>
     <string name="th_bar">Juosta</string>
     <string name="th_collapse">Sutraukti sąrašą</string>

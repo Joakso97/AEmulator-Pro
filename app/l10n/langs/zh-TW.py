@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': '原來的',
     'as_navbar_sunset': '日落',
     'as_new_home': '新主螢幕',
-    'as_new_home_sub': '帶底欄的網格庫（0.0.0.3 風格）。關閉后回到經典列表。重新啟動應用程式后生效。',
+    'as_new_home_sub': '帶底欄的網格庫。關閉后回到經典列表。重新啟動應用程式后生效。',
     'as_orig': '原作者',
     'as_orig_sub': 'Desire HD 與 One M7 模擬器的作者，本專案即由此發展而來',
     'as_tablet_navbar_rotation': '旋轉平板導覽欄',

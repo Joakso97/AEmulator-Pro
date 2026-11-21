@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': 'Orijinal',
     'as_navbar_sunset': 'Gün batımı',
     'as_new_home': 'Yeni ana ekran',
-    'as_new_home_sub': 'Alt çubuklu ızgara kitaplığı (0.0.0.3 stili). Klasik liste için kapat. Uygulama yeniden başlatıldıktan sonra geçerli olur.',
+    'as_new_home_sub': 'Alt çubuklu ızgara kitaplığı. Klasik liste için kapat. Uygulama yeniden başlatıldıktan sonra geçerli olur.',
     'as_orig': 'İlk geliştirici',
     'as_orig_sub': 'Projenin doğduğu Desire HD ve One M7 emülatörlerinin yaratıcısı',
     'as_tablet_navbar_rotation': 'Tablet gezinme çubuğunu döndür',

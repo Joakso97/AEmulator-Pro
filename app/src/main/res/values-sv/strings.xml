@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Original</string>
     <string name="as_navbar_sunset">Solnedgång</string>
     <string name="as_new_home">Ny startskärm</string>
-    <string name="as_new_home_sub">Rutnätsbibliotek med nedre fält (stilen från 0.0.0.3). Stäng av för den klassiska listan. Träder i kraft när appen startas om.</string>
+    <string name="as_new_home_sub">Rutnätsbibliotek med nedre fält. Stäng av för den klassiska listan. Träder i kraft när appen startas om.</string>
     <string name="as_orig">Ursprunglig upphovsperson</string>
     <string name="as_orig_sub">Skaparen av emulatorerna för Desire HD och One M7 som det här projektet växte fram ur</string>
     <string name="as_tablet_navbar_rotation">Rotera surfplattans navigeringsfält</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Förbereder</string>
     <string name="st_stopping">Stänger av</string>
     <string name="start">Starta</string>
-    <string name="storage_text">Tillåt åtkomst till alla filer: då ligger varje systems minneskort i mappen AEmulator i det interna minnet – praktiskt för APK-filer, musik och foton.</string>
+    <string name="storage_text">Tillåt åtkomst till alla filer: då ligger varje systems minneskort i mappen AEmulator i det interna minnet, praktiskt för APK-filer, musik och foton.</string>
     <string name="storage_title">Delad mapp för system</string>
     <string name="th_bar">Fält</string>
     <string name="th_collapse">Dölj listan</string>

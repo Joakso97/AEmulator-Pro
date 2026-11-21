@@ -64,6 +64,19 @@ internal object PartitionNames {
     
     fun isRecovery(base: String, bareOk: Boolean = false) = n(base).let { RECOVERY.matches(it) || RECOVERY_ALT.containsMatchIn(it) || bareOk && RECOVERY_BARE.matches(it) }
 
+    private val IMAGE_TAIL = Regex("(?i)(\\.(img|bin|raw|disk|dd|ext4|erofs|f2fs|rfs|simg|sparse))+$")
+    private val PARTITION_NAME = Regex("[a-z][a-z0-9_]*")
+
+    fun anyMount(base: String, bareOk: Boolean = false): String? {
+        var s = d(base).lowercase()
+        val hadExtension = s.contains('.')
+        s = IMAGE_TAIL.replace(s, "")
+        if (s.endsWith("_a") || s.endsWith("_b")) s = s.dropLast(2)
+        if (!bareOk && !hadExtension) return null
+        if (!s.matches(PARTITION_NAME)) return null
+        return if (s == "product" || s == "system_ext") "system/$s" else s
+    }
+
     
     fun stripOdinMd5(base: String): String =
         if (base.endsWith(".md5", true) && !base.endsWith(".tar.md5", true) && base.length > 4) base.dropLast(4) else base

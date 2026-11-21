@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Opprinnelig</string>
     <string name="as_navbar_sunset">Solnedgang</string>
     <string name="as_new_home">Ny startskjerm</string>
-    <string name="as_new_home_sub">Rutenettbibliotek med nedre felt (stilen fra 0.0.0.3). Slå av for den klassiske listen. Trer i kraft etter at appen er startet på nytt.</string>
+    <string name="as_new_home_sub">Rutenettbibliotek med nedre felt. Slå av for den klassiske listen. Trer i kraft etter at appen er startet på nytt.</string>
     <string name="as_orig">Opprinnelig utvikler</string>
     <string name="as_orig_sub">Skaperen av Desire HD- og One M7-emulatorene dette prosjektet vokste ut av</string>
     <string name="as_tablet_navbar_rotation">Roter navigasjonslinjen på nettbrett</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Forbereder</string>
     <string name="st_stopping">Slår av</string>
     <string name="start">Start</string>
-    <string name="storage_text">Gi tilgang til alle filer: da ligger hvert systems minnekort i mappen AEmulator i internminnet – praktisk for APK-er, musikk og bilder.</string>
+    <string name="storage_text">Gi tilgang til alle filer: da ligger hvert systems minnekort i mappen AEmulator i internminnet, praktisk for APK-er, musikk og bilder.</string>
     <string name="storage_title">Delt mappe for systemer</string>
     <string name="th_bar">Linje</string>
     <string name="th_collapse">Skjul liste</string>

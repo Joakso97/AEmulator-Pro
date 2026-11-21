@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Orijinal</string>
     <string name="as_navbar_sunset">Gün batımı</string>
     <string name="as_new_home">Yeni ana ekran</string>
-    <string name="as_new_home_sub">Alt çubuklu ızgara kitaplığı (0.0.0.3 stili). Klasik liste için kapat. Uygulama yeniden başlatıldıktan sonra geçerli olur.</string>
+    <string name="as_new_home_sub">Alt çubuklu ızgara kitaplığı. Klasik liste için kapat. Uygulama yeniden başlatıldıktan sonra geçerli olur.</string>
     <string name="as_orig">İlk geliştirici</string>
     <string name="as_orig_sub">Projenin doğduğu Desire HD ve One M7 emülatörlerinin yaratıcısı</string>
     <string name="as_tablet_navbar_rotation">Tablet gezinme çubuğunu döndür</string>

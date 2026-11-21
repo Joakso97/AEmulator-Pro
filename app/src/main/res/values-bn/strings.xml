@@ -41,7 +41,7 @@
     <string name="as_navbar_original">মূল</string>
     <string name="as_navbar_sunset">সানসেট</string>
     <string name="as_new_home">নতুন হোম স্ক্রিন</string>
-    <string name="as_new_home_sub">নিচের বার সহ গ্রিড লাইব্রেরি (0.0.0.3 স্টাইল)। ক্লাসিক তালিকার জন্য বন্ধ করুন। অ্যাপ পুনরায় চালু করার পর কার্যকর হবে।</string>
+    <string name="as_new_home_sub">নিচের বার সহ গ্রিড লাইব্রেরি। ক্লাসিক তালিকার জন্য বন্ধ করুন। অ্যাপ পুনরায় চালু করার পর কার্যকর হবে।</string>
     <string name="as_orig">মূল নির্মাতা</string>
     <string name="as_orig_sub">Desire HD ও One M7 এমুলেটরের নির্মাতা, যেগুলো থেকে এই প্রজেক্টের জন্ম</string>
     <string name="as_tablet_navbar_rotation">ট্যাবলেটের নেভিগেশন বার ঘোরান</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">প্রস্তুত করা হচ্ছে</string>
     <string name="st_stopping">বন্ধ হচ্ছে</string>
     <string name="start">চালু করুন</string>
-    <string name="storage_text">সব ফাইলে অ্যাক্সেসের অনুমতি দিন: তাহলে প্রতিটি সিস্টেমের মেমরি কার্ড ইন্টারনাল স্টোরেজের AEmulator ফোল্ডারে থাকবে — APK, গান ও ছবির জন্য সুবিধাজনক।</string>
+    <string name="storage_text">সব ফাইলে অ্যাক্সেসের অনুমতি দিন: তাহলে প্রতিটি সিস্টেমের মেমরি কার্ড ইন্টারনাল স্টোরেজের AEmulator ফোল্ডারে থাকবে, APK, গান ও ছবির জন্য সুবিধাজনক।</string>
     <string name="storage_title">সিস্টেমের জন্য শেয়ার করা ফোল্ডার</string>
     <string name="th_bar">বার</string>
     <string name="th_collapse">তালিকা সংকুচিত করুন</string>

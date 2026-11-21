@@ -3,9 +3,11 @@ package app.aemu.ui
 
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -67,7 +69,8 @@ internal fun PartitionImportSection(img: GuestImage, busy: Boolean, setBusy: (Bo
     val scope = rememberCoroutineScope()
     var message by remember { mutableStateOf<String?>(null) }
     var picking by remember { mutableStateOf(false) }
-    var pendingPartition by remember { mutableStateOf<Uri?>(null) }   
+    var pendingPartition by remember { mutableStateOf<Uri?>(null) }
+    var customMount by remember { mutableStateOf("") }
     fun startPartition(uri: Uri, kind: String) {
         val label = PartitionImport.label(kind)
         if (kind in PartitionImport.UNSUPPORTED) { message = ctx.getString(R.string.vm_import_partition_unsupported, label); return }
@@ -119,6 +122,19 @@ internal fun PartitionImportSection(img: GuestImage, busy: Boolean, setBusy: (Bo
                         TextButton(enabled = !have, modifier = Modifier.fillMaxWidth(), onClick = { pendingPartition = null; startPartition(uri, kind) }) {
                             Text(if (have) stringResource(R.string.vm_import_partition_have, label) else label)
                         }
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        OutlinedTextField(
+                            value = customMount,
+                            onValueChange = { customMount = it },
+                            label = { Text(stringResource(R.string.vm_import_partition_custom)) },
+                            singleLine = true,
+                            modifier = Modifier.weight(1f),
+                        )
+                        TextButton(
+                            enabled = PartitionImport.validMount(customMount.trim()),
+                            onClick = { val kind = customMount.trim().lowercase(); pendingPartition = null; startPartition(uri, kind) },
+                        ) { Text(stringResource(R.string.vm_import_partition_custom_use)) }
                     }
                 }
             },
@@ -177,11 +193,9 @@ internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean
             scope.launch {
                 val result = withContext(Dispatchers.IO) {
                     runCatching {
-                        val dir = Sdcard.hostDir(VmPaths(ctx, img.id)) ?: throw Exception("SD card not available")
-                        val apkFile = java.io.File(dir, "aemu-install.apk")
-                        ctx.contentResolver.openInputStream(uri)!!.use { i -> apkFile.outputStream().use { o -> i.copyTo(o) } }
                         val guestVm = GuestVm(ctx, ImageStore.get(ctx, img.id) ?: img)
-                        val out = guestVm.guestShell("pm install -r ${img.sdcardPath.trimEnd('/')}/aemu-install.apk", 300_000)
+                        val input = ctx.contentResolver.openInputStream(uri) ?: throw Exception("Cannot open APK")
+                        val out = guestVm.installApkFrom(input)
                         TreeFixer(ctx, VmPaths(ctx, img.id), img) {}.seedOwners()
                         out
                     }

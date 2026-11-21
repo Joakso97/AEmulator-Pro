@@ -42,7 +42,7 @@
     <string name="as_navbar_original">Original</string>
     <string name="as_navbar_sunset">Sunset</string>
     <string name="as_new_home">New home screen</string>
-    <string name="as_new_home_sub">Grid library with a bottom bar (the 0.0.0.3 style). Turn off for the classic list. Takes effect after restarting the app.</string>
+    <string name="as_new_home_sub">Grid library with a bottom bar. Turn off for the classic list. Takes effect after restarting the app.</string>
     <string name="as_orig">Original author</string>
     <string name="as_orig_sub">Creator of the Desire HD and One M7 emulators this project grew from</string>
     <string name="as_tablet_navbar_rotation">Rotate tablet navigation bar</string>
@@ -296,7 +296,7 @@
     <string name="st_preparing">Preparing</string>
     <string name="st_stopping">Shutting down</string>
     <string name="start">Start</string>
-    <string name="storage_text">Allow access to all files: then each system’s memory card lives in the AEmulator folder of internal storage — handy for APKs, music and photos.</string>
+    <string name="storage_text">Allow access to all files: then each system’s memory card lives in the AEmulator folder of internal storage, handy for APKs, music and photos.</string>
     <string name="storage_title">Shared folder for systems</string>
     <string name="th_bar">Bar</string>
     <string name="th_collapse">Collapse list</string>

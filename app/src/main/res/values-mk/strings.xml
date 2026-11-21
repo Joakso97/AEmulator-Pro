@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Оригинален</string>
     <string name="as_navbar_sunset">Зајдисонце</string>
     <string name="as_new_home">Нов почетен екран</string>
-    <string name="as_new_home_sub">Библиотека во мрежа со долна лента (стил 0.0.0.3). Исклучете за класичната листа. Важи по повторното стартување на апликацијата.</string>
+    <string name="as_new_home_sub">Библиотека во мрежа со долна лента. Исклучете за класичната листа. Важи по повторното стартување на апликацијата.</string>
     <string name="as_orig">Оригинален автор</string>
     <string name="as_orig_sub">Творецот на емулаторите Desire HD и One M7 од кои израсна овој проект</string>
     <string name="as_tablet_navbar_rotation">Ротирај ја навигациската лента на таблетот</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Подготовка</string>
     <string name="st_stopping">Исклучување</string>
     <string name="start">Стартувај</string>
-    <string name="storage_text">Дозволете пристап до сите датотеки: тогаш мемориската картичка на секој систем се наоѓа во папката AEmulator во внатрешната меморија – практично за APK-датотеки, музика и фотографии.</string>
+    <string name="storage_text">Дозволете пристап до сите датотеки: тогаш мемориската картичка на секој систем се наоѓа во папката AEmulator во внатрешната меморија, практично за APK-датотеки, музика и фотографии.</string>
     <string name="storage_title">Заедничка папка за системите</string>
     <string name="th_bar">Лента</string>
     <string name="th_collapse">Собери список</string>

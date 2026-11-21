@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Pôvodný</string>
     <string name="as_navbar_sunset">Západ slnka</string>
     <string name="as_new_home">Nová domovská obrazovka</string>
-    <string name="as_new_home_sub">Knižnica v mriežke so spodným panelom (štýl 0.0.0.3). Vypnutím sa vrátite ku klasickému zoznamu. Prejaví sa po reštarte aplikácie.</string>
+    <string name="as_new_home_sub">Knižnica v mriežke so spodným panelom. Vypnutím sa vrátite ku klasickému zoznamu. Prejaví sa po reštarte aplikácie.</string>
     <string name="as_orig">Pôvodný autor</string>
     <string name="as_orig_sub">Tvorca emulátorov Desire HD a One M7, z ktorých tento projekt vyrástol</string>
     <string name="as_tablet_navbar_rotation">Otáčať navigačnú lištu tabletu</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Príprava</string>
     <string name="st_stopping">Vypínanie</string>
     <string name="start">Spustiť</string>
-    <string name="storage_text">Povoľte prístup ku všetkým súborom: pamäťová karta každého systému bude potom v priečinku AEmulator vo vnútornom úložisku – vhodné pre APK, hudbu a fotografie.</string>
+    <string name="storage_text">Povoľte prístup ku všetkým súborom: pamäťová karta každého systému bude potom v priečinku AEmulator vo vnútornom úložisku, vhodné pre APK, hudbu a fotografie.</string>
     <string name="storage_title">Zdieľaný priečinok pre systémy</string>
     <string name="th_bar">Lišta</string>
     <string name="th_collapse">Zbaliť zoznam</string>

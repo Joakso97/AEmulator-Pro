@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Oriģinālais</string>
     <string name="as_navbar_sunset">Saulriets</string>
     <string name="as_new_home">Jauns sākuma ekrāns</string>
-    <string name="as_new_home_sub">Režģa bibliotēka ar apakšējo joslu (0.0.0.3 stils). Izslēdziet, lai atgrieztos pie klasiskā saraksta. Stājas spēkā pēc lietotnes restartēšanas.</string>
+    <string name="as_new_home_sub">Režģa bibliotēka ar apakšējo joslu. Izslēdziet, lai atgrieztos pie klasiskā saraksta. Stājas spēkā pēc lietotnes restartēšanas.</string>
     <string name="as_orig">Oriģinālais autors</string>
     <string name="as_orig_sub">Desire HD un One M7 emulatoru veidotājs, no kuriem izaudzis šis projekts</string>
     <string name="as_tablet_navbar_rotation">Griezt planšetdatora navigācijas joslu</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Sagatavošana</string>
     <string name="st_stopping">Izslēgšana</string>
     <string name="start">Palaist</string>
-    <string name="storage_text">Atļaujiet piekļuvi visiem failiem: tad katras sistēmas atmiņas karte atradīsies iekšējās krātuves mapē AEmulator — ērti APK failiem, mūzikai un fotoattēliem.</string>
+    <string name="storage_text">Atļaujiet piekļuvi visiem failiem: tad katras sistēmas atmiņas karte atradīsies iekšējās krātuves mapē AEmulator, ērti APK failiem, mūzikai un fotoattēliem.</string>
     <string name="storage_title">Kopīga mape sistēmām</string>
     <string name="th_bar">Josla</string>
     <string name="th_collapse">Sakļaut sarakstu</string>

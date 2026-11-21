@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Gốc</string>
     <string name="as_navbar_sunset">Hoàng hôn</string>
     <string name="as_new_home">Màn hình chính mới</string>
-    <string name="as_new_home_sub">Thư viện dạng lưới với thanh dưới (kiểu 0.0.0.3). Tắt để dùng danh sách cổ điển. Có hiệu lực sau khi khởi động lại ứng dụng.</string>
+    <string name="as_new_home_sub">Thư viện dạng lưới với thanh dưới. Tắt để dùng danh sách cổ điển. Có hiệu lực sau khi khởi động lại ứng dụng.</string>
     <string name="as_orig">Tác giả gốc</string>
     <string name="as_orig_sub">Người tạo trình giả lập Desire HD và One M7, nền tảng của dự án</string>
     <string name="as_tablet_navbar_rotation">Xoay thanh điều hướng máy tính bảng</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Đang chuẩn bị</string>
     <string name="st_stopping">Đang tắt</string>
     <string name="start">Chạy</string>
-    <string name="storage_text">Cho phép truy cập mọi tệp: thẻ nhớ của mỗi hệ thống sẽ nằm trong thư mục AEmulator của bộ nhớ trong — tiện để chép APK, nhạc và ảnh.</string>
+    <string name="storage_text">Cho phép truy cập mọi tệp: thẻ nhớ của mỗi hệ thống sẽ nằm trong thư mục AEmulator của bộ nhớ trong, tiện để chép APK, nhạc và ảnh.</string>
     <string name="storage_title">Thư mục chung cho hệ thống</string>
     <string name="th_bar">Thanh</string>
     <string name="th_collapse">Thu gọn danh sách</string>

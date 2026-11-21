@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Orihinal</string>
     <string name="as_navbar_sunset">Paglubog ng araw</string>
     <string name="as_new_home">Bagong home screen</string>
-    <string name="as_new_home_sub">Grid library na may ilalim na bar (ang 0.0.0.3 na istilo). I-off para sa classic na listahan. Magkakabisa pagkatapos i-restart ang app.</string>
+    <string name="as_new_home_sub">Grid library na may ilalim na bar. I-off para sa classic na listahan. Magkakabisa pagkatapos i-restart ang app.</string>
     <string name="as_orig">Orihinal na may-akda</string>
     <string name="as_orig_sub">Gumawa ng mga emulator ng Desire HD at One M7 na pinagmulan ng proyektong ito</string>
     <string name="as_tablet_navbar_rotation">I-rotate ang navigation bar ng tablet</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Naghahanda</string>
     <string name="st_stopping">Nagsa-shut down</string>
     <string name="start">Simulan</string>
-    <string name="storage_text">Payagan ang access sa lahat ng file: pagkatapos, ang memory card ng bawat system ay nasa folder na AEmulator ng internal storage — madaling gamitin para sa mga APK, musika at larawan.</string>
+    <string name="storage_text">Payagan ang access sa lahat ng file: pagkatapos, ang memory card ng bawat system ay nasa folder na AEmulator ng internal storage, madaling gamitin para sa mga APK, musika at larawan.</string>
     <string name="storage_title">Nakabahaging folder para sa mga system</string>
     <string name="th_bar">Bar</string>
     <string name="th_collapse">I-collapse ang listahan</string>

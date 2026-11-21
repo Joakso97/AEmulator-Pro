@@ -41,7 +41,7 @@
     <string name="as_navbar_original">اصل</string>
     <string name="as_navbar_sunset">غروب آفتاب</string>
     <string name="as_new_home">صفحه اصلی جدید</string>
-    <string name="as_new_home_sub">کتابخانه شبکه با نوار پایین (سبک 0.0.0.3). برای فهرست کلاسیک خاموش کنید. پس از راه اندازی مجدد برنامه اعمال می شود.</string>
+    <string name="as_new_home_sub">کتابخانه شبکه با نوار پایین. برای فهرست کلاسیک خاموش کنید. پس از راه اندازی مجدد برنامه اعمال می شود.</string>
     <string name="as_orig">سازندهٔ نخست</string>
     <string name="as_orig_sub">سازندهٔ شبیه‌سازهای Desire HD و One M7 که پروژه از آن‌ها رشد کرد</string>
     <string name="as_tablet_navbar_rotation">چرخاندن نوار پیمایش رایانه لوحی</string>

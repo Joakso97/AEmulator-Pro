@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Originaal</string>
     <string name="as_navbar_sunset">Päikeseloojang</string>
     <string name="as_new_home">Uus avaekraan</string>
-    <string name="as_new_home_sub">Ruudustikuga raamatukogu alumise ribaga (0.0.0.3 stiil). Klassikalisele loendile naasmiseks lülitage välja. Jõustub rakenduse taaskäivitamise järel.</string>
+    <string name="as_new_home_sub">Ruudustikuga raamatukogu alumise ribaga. Klassikalisele loendile naasmiseks lülitage välja. Jõustub rakenduse taaskäivitamise järel.</string>
     <string name="as_orig">Algne autor</string>
     <string name="as_orig_sub">Desire HD ja One M7 emulaatorite looja, millest see projekt on välja kasvanud</string>
     <string name="as_tablet_navbar_rotation">Pööra tahvelarvuti navigeerimisriba</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Ettevalmistus</string>
     <string name="st_stopping">Väljalülitamine</string>
     <string name="start">Käivita</string>
-    <string name="storage_text">Lubage juurdepääs kõigile failidele: siis asub iga süsteemi mälukaart sisemälu kaustas AEmulator – mugav APK-de, muusika ja fotode jaoks.</string>
+    <string name="storage_text">Lubage juurdepääs kõigile failidele: siis asub iga süsteemi mälukaart sisemälu kaustas AEmulator, mugav APK-de, muusika ja fotode jaoks.</string>
     <string name="storage_title">Süsteemide ühine kaust</string>
     <string name="th_bar">Riba</string>
     <string name="th_collapse">Ahenda loend</string>

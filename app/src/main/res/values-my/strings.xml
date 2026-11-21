@@ -41,7 +41,7 @@
     <string name="as_navbar_original">မူရင်း</string>
     <string name="as_navbar_sunset">နေဝင်ချိန်</string>
     <string name="as_new_home">ပင်မစခရင်အသစ်</string>
-    <string name="as_new_home_sub">အောက်ခြေဘားပါသော ဂရစ်ဒ်စာကြည့်တိုက် (0.0.0.3 ပုံစံ)။ ဂန္ထဝင်စာရင်းအတွက် ပိတ်ပါ။ အက်ပ်ကို ပြန်စတင်ပြီးနောက် အသက်ဝင်ပါမည်။</string>
+    <string name="as_new_home_sub">အောက်ခြေဘားပါသော ဂရစ်ဒ်စာကြည့်တိုက်။ ဂန္ထဝင်စာရင်းအတွက် ပိတ်ပါ။ အက်ပ်ကို ပြန်စတင်ပြီးနောက် အသက်ဝင်ပါမည်။</string>
     <string name="as_orig">မူလရေးသူ</string>
     <string name="as_orig_sub">ဤစီမံကိန်း ဆင်းသက်လာသည့် Desire HD နှင့် One M7 အီမူလေတာများကို ဖန်တီးသူ</string>
     <string name="as_tablet_navbar_rotation">တက်ဘလက် လမ်းညွှန်ဘားကို လှည့်ရန်</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">ပြင်ဆင်နေသည်</string>
     <string name="st_stopping">ပိတ်နေသည်</string>
     <string name="start">စတင်ရန်</string>
-    <string name="storage_text">ဖိုင်အားလုံးသို့ ဝင်ခွင့်ပြုပါ- ထိုအခါ စနစ်တစ်ခုစီ၏ မမ်မိုရီကတ်သည် ဖုန်းမှတ်ဉာဏ်ရှိ AEmulator ဖိုလ်ဒါထဲတွင် ရှိနေမည်။ APK၊ တေးဂီတနှင့် ဓာတ်ပုံများအတွက် အဆင်ပြေသည်။</string>
+    <string name="storage_text">ဖိုင်အားလုံးသို့ ဝင်ခွင့်ပြုပါ,  ထိုအခါ စနစ်တစ်ခုစီ၏ မမ်မိုရီကတ်သည် ဖုန်းမှတ်ဉာဏ်ရှိ AEmulator ဖိုလ်ဒါထဲတွင် ရှိနေမည်။ APK၊ တေးဂီတနှင့် ဓာတ်ပုံများအတွက် အဆင်ပြေသည်။</string>
     <string name="storage_title">စနစ်များအတွက် မျှဝေဖိုလ်ဒါ</string>
     <string name="th_bar">ဘား</string>
     <string name="th_collapse">စာရင်းကို ခေါက်ရန်</string>

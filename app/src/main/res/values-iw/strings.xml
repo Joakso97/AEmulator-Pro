@@ -41,7 +41,7 @@
     <string name="as_navbar_original">מקורי</string>
     <string name="as_navbar_sunset">שקיעה</string>
     <string name="as_new_home">מסך בית חדש</string>
-    <string name="as_new_home_sub">ספרייה בתצוגת רשת עם סרגל תחתון (בסגנון 0.0.0.3). כבה כדי לחזור לרשימה הקלאסית. ייכנס לתוקף לאחר הפעלה מחדש של האפליקציה.</string>
+    <string name="as_new_home_sub">ספרייה בתצוגת רשת עם סרגל תחתון. כבה כדי לחזור לרשימה הקלאסית. ייכנס לתוקף לאחר הפעלה מחדש של האפליקציה.</string>
     <string name="as_orig">המחבר המקורי</string>
     <string name="as_orig_sub">יוצר אמולטורי Desire HD ו-One M7 שמהם צמח הפרויקט הזה</string>
     <string name="as_tablet_navbar_rotation">סובב את סרגל הניווט בטאבלט</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">מתכונן</string>
     <string name="st_stopping">מכבה</string>
     <string name="start">הפעל</string>
-    <string name="storage_text">אפשר גישה לכל הקבצים: כך כרטיס הזיכרון של כל מערכת יימצא בתיקיית AEmulator באחסון הפנימי — נוח לקובצי APK, מוזיקה ותמונות.</string>
+    <string name="storage_text">אפשר גישה לכל הקבצים: כך כרטיס הזיכרון של כל מערכת יימצא בתיקיית AEmulator באחסון הפנימי, נוח לקובצי APK, מוזיקה ותמונות.</string>
     <string name="storage_title">תיקייה משותפת למערכות</string>
     <string name="th_bar">סרגל</string>
     <string name="th_collapse">כיווץ הרשימה</string>

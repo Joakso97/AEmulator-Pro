@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Alkuperäinen</string>
     <string name="as_navbar_sunset">Auringonlasku</string>
     <string name="as_new_home">Uusi aloitusnäyttö</string>
-    <string name="as_new_home_sub">Ruudukkokirjasto alapalkilla (tyyli 0.0.0.3). Poista käytöstä klassista luetteloa varten. Tulee voimaan sovelluksen uudelleenkäynnistyksen jälkeen.</string>
+    <string name="as_new_home_sub">Ruudukkokirjasto alapalkilla. Poista käytöstä klassista luetteloa varten. Tulee voimaan sovelluksen uudelleenkäynnistyksen jälkeen.</string>
     <string name="as_orig">Alkuperäinen tekijä</string>
     <string name="as_orig_sub">Desire HD- ja One M7 -emulaattorien luoja, joista tämä projekti kasvoi</string>
     <string name="as_tablet_navbar_rotation">Kierrä tabletin navigointipalkkia</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Valmistellaan</string>
     <string name="st_stopping">Sammutetaan</string>
     <string name="start">Käynnistä</string>
-    <string name="storage_text">Salli pääsy kaikkiin tiedostoihin: silloin kunkin järjestelmän muistikortti sijaitsee sisäisen tallennustilan AEmulator-kansiossa — kätevää APK-tiedostoille, musiikille ja kuville.</string>
+    <string name="storage_text">Salli pääsy kaikkiin tiedostoihin: silloin kunkin järjestelmän muistikortti sijaitsee sisäisen tallennustilan AEmulator-kansiossa, kätevää APK-tiedostoille, musiikille ja kuville.</string>
     <string name="storage_title">Järjestelmien jaettu kansio</string>
     <string name="th_bar">Palkki</string>
     <string name="th_collapse">Tiivistä luettelo</string>

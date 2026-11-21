@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Izvirni</string>
     <string name="as_navbar_sunset">Sončni zahod</string>
     <string name="as_new_home">Nov domači zaslon</string>
-    <string name="as_new_home_sub">Knjižnica v mreži s spodnjo vrstico (slog 0.0.0.3). Izklopite za klasičen seznam. Začne veljati po ponovnem zagonu aplikacije.</string>
+    <string name="as_new_home_sub">Knjižnica v mreži s spodnjo vrstico. Izklopite za klasičen seznam. Začne veljati po ponovnem zagonu aplikacije.</string>
     <string name="as_orig">Izvirni avtor</string>
     <string name="as_orig_sub">Ustvarjalec emulatorjev Desire HD in One M7, iz katerih je zrasel ta projekt</string>
     <string name="as_tablet_navbar_rotation">Zasukaj navigacijsko vrstico tabličnega računalnika</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Priprava</string>
     <string name="st_stopping">Izklapljanje</string>
     <string name="start">Zaženi</string>
-    <string name="storage_text">Dovolite dostop do vseh datotek: pomnilniška kartica vsakega sistema bo nato v mapi AEmulator v notranjem pomnilniku – priročno za APK-je, glasbo in fotografije.</string>
+    <string name="storage_text">Dovolite dostop do vseh datotek: pomnilniška kartica vsakega sistema bo nato v mapi AEmulator v notranjem pomnilniku, priročno za APK-je, glasbo in fotografije.</string>
     <string name="storage_title">Skupna mapa za sisteme</string>
     <string name="th_bar">Vrstica</string>
     <string name="th_collapse">Strni seznam</string>

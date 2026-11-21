@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': '原来的',
     'as_navbar_sunset': '日落',
     'as_new_home': '新主屏幕',
-    'as_new_home_sub': '带底栏的网格库（0.0.0.3 风格）。关闭后回到经典列表。重启应用后生效。',
+    'as_new_home_sub': '带底栏的网格库。关闭后回到经典列表。重启应用后生效。',
     'as_orig': '原作者',
     'as_orig_sub': 'Desire HD 与 One M7 模拟器的作者，本项目由此发展而来',
     'as_tablet_navbar_rotation': '旋转平板导航栏',

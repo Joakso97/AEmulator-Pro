@@ -17,18 +17,27 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.rounded.SystemUpdate
 import androidx.compose.material.icons.rounded.Translate
 import androidx.compose.material.icons.rounded.List
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonGroupDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -132,7 +141,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
 
     if (accentDialog) {
         ColorPickerDialog(
-            initial = if (accent == 0) Color(0xFF0061A4) else Color(accent),
+            initial = if (accent == 0) RedSeed else Color(accent),
             onDismiss = { accentDialog = false },
             onReset = { accent = 0; AppPrefs.setAccentColor(ctx, 0); accentDialog = false; onRestyle() },
             onApply = { c ->
@@ -200,6 +209,9 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
             contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = pad.calculateTopPadding() + 8.dp, bottom = pad.calculateBottomPadding() + 32.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+            item {
+                StorageAccessCard()
+            }
             item {
                 Section(stringResource(R.string.as_updates)) {
                     Toggle(
@@ -272,7 +284,7 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
                         trailingContent = {
                             androidx.compose.foundation.layout.Box(Modifier.size(28.dp)
                                 .clip(androidx.compose.foundation.shape.CircleShape)
-                                .background(if (accent == 0) Color(0xFF0061A4) else Color(accent)))
+                                .background(if (accent == 0) RedSeed else Color(accent)))
                         },
                         colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                         modifier = Modifier.clickable { accentDialog = true },
@@ -349,7 +361,7 @@ internal fun Section(title: String, subtitle: String? = null, content: @Composab
             Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(start = 8.dp, bottom = 8.dp))
         }
-        Card(shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) {
+        Card(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) {
             Column(Modifier.padding(vertical = 8.dp)) { content() }
         }
     }
@@ -366,4 +378,63 @@ internal fun Row_(icon: ImageVector?, title: String, sub: String, mono: Boolean 
         colors = ListItemDefaults.colors(containerColor = Color.Transparent),
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
     )
+}
+
+@Composable
+private fun StorageAccessCard() {
+    if (Build.VERSION.SDK_INT < 30) return
+    val ctx = LocalContext.current
+    var granted by remember { mutableStateOf(android.os.Environment.isExternalStorageManager()) }
+    var dismissed by remember { mutableStateOf(AppPrefs.storageBannerDismissed(ctx)) }
+    val life = androidx.lifecycle.compose.LocalLifecycleOwner.current
+    androidx.compose.runtime.DisposableEffect(life) {
+        val obs = androidx.lifecycle.LifecycleEventObserver { _, e ->
+            if (e == androidx.lifecycle.Lifecycle.Event.ON_RESUME) granted = android.os.Environment.isExternalStorageManager()
+        }
+        life.lifecycle.addObserver(obs)
+        onDispose { life.lifecycle.removeObserver(obs) }
+    }
+    AnimatedVisibility(
+        visible = !granted && !dismissed,
+        enter = fadeIn() + expandVertically(),
+        exit = fadeOut() + shrinkVertically()
+    ) {
+        Card(modifier = Modifier.fillMaxWidth(), shape = MaterialTheme.shapes.large, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer, contentColor = MaterialTheme.colorScheme.onTertiaryContainer)) {
+            Box(Modifier.fillMaxWidth().padding(20.dp)) {
+                Column(Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.storage_title), modifier = Modifier.padding(end = 32.dp), style = MaterialTheme.typography.titleMedium)
+                    Spacer(Modifier.height(4.dp))
+                    Text(stringResource(R.string.storage_text), style = MaterialTheme.typography.bodyMedium)
+                    Spacer(Modifier.height(12.dp))
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        Button(
+                            onClick = {
+                                runCatching {
+                                    ctx.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                                        Uri.parse("package:${ctx.packageName}")))
+                                }.onFailure { ctx.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)) }
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.tertiary,
+                                contentColor = MaterialTheme.colorScheme.onTertiary
+                            )
+                        ) { Text(stringResource(R.string.allow)) }
+                    }
+                }
+                IconButton(
+                    onClick = {
+                        dismissed = true
+                        AppPrefs.setStorageBannerDismissed(ctx, true)
+                    },
+                    modifier = Modifier.align(Alignment.TopEnd).size(24.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.Close,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onTertiaryContainer
+                    )
+                }
+            }
+        }
+    }
 }

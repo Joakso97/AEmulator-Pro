@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Оригінальний</string>
     <string name="as_navbar_sunset">Захід сонця</string>
     <string name="as_new_home">Новий головний екран</string>
-    <string name="as_new_home_sub">Бібліотека сіткою з нижньою панеллю (стиль 0.0.0.3). Вимкніть, щоб повернути класичний список. Застосується після перезапуску застосунку.</string>
+    <string name="as_new_home_sub">Бібліотека сіткою з нижньою панеллю. Вимкніть, щоб повернути класичний список. Застосується після перезапуску застосунку.</string>
     <string name="as_orig">Перший автор</string>
     <string name="as_orig_sub">Творець емуляторів Desire HD та One M7, з яких виріс проєкт</string>
     <string name="as_tablet_navbar_rotation">Повертати панель навігації планшета</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Підготовка</string>
     <string name="st_stopping">Вимкнення</string>
     <string name="start">Запустити</string>
-    <string name="storage_text">Дозвольте доступ до всіх файлів — тоді «карта пам’яті» кожної системи лежатиме в папці AEmulator внутрішньої пам’яті, куди зручно класти APK, музику й фото.</string>
+    <string name="storage_text">Дозвольте доступ до всіх файлів, тоді «карта пам’яті» кожної системи лежатиме в папці AEmulator внутрішньої пам’яті, куди зручно класти APK, музику й фото.</string>
     <string name="storage_title">Спільна папка систем</string>
     <string name="th_bar">Панель</string>
     <string name="th_collapse">Згорнути список</string>

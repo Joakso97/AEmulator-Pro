@@ -41,7 +41,7 @@
     <string name="as_navbar_original">ორიგინალური</string>
     <string name="as_navbar_sunset">მზის ჩასვლა</string>
     <string name="as_new_home">ახალი მთავარი ეკრანი</string>
-    <string name="as_new_home_sub">ბადისებრი ბიბლიოთეკა ქვედა პანელით (0.0.0.3-ის სტილი). კლასიკური სიისთვის გამორთეთ. ძალაში შედის აპლიკაციის გადატვირთვის შემდეგ.</string>
+    <string name="as_new_home_sub">ბადისებრი ბიბლიოთეკა ქვედა პანელით. კლასიკური სიისთვის გამორთეთ. ძალაში შედის აპლიკაციის გადატვირთვის შემდეგ.</string>
     <string name="as_orig">ორიგინალური ავტორი</string>
     <string name="as_orig_sub">Desire HD-ისა და One M7-ის ემულატორების შემქმნელი, რომლებისგანაც ეს პროექტი განვითარდა</string>
     <string name="as_tablet_navbar_rotation">პლანშეტის სანავიგაციო პანელის შებრუნება</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">მზადდება</string>
     <string name="st_stopping">ითიშება</string>
     <string name="start">დაწყება</string>
-    <string name="storage_text">ყველა ფაილზე წვდომის დაშვება: მაშინ თითოეული სისტემის მეხსიერების ბარათი იქნება შიდა მეხსიერების AEmulator საქაღალდეში — მოსახერხებელია APK-ების, მუსიკისა და ფოტოებისთვის.</string>
+    <string name="storage_text">ყველა ფაილზე წვდომის დაშვება: მაშინ თითოეული სისტემის მეხსიერების ბარათი იქნება შიდა მეხსიერების AEmulator საქაღალდეში, მოსახერხებელია APK-ების, მუსიკისა და ფოტოებისთვის.</string>
     <string name="storage_title">სისტემების საერთო საქაღალდე</string>
     <string name="th_bar">პანელი</string>
     <string name="th_collapse">სიის ჩაკეცვა</string>

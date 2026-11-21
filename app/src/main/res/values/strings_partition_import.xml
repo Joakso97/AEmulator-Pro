@@ -10,6 +10,8 @@
     <string name="vm_import_partition_which">Which partition is this?</string>
     <string name="vm_import_partition_which_info">The file name does not say what it holds. Pick the partition.</string>
     <string name="vm_import_partition_have">%1$s (already in this VM)</string>
+    <string name="vm_import_partition_custom">Other partition</string>
+    <string name="vm_import_partition_custom_use">Use</string>
     <string name="vm_import_partition_headline">Import a partition image into this VM</string>
     <string name="vm_import_partition_sub">Boot, recovery (stock, TWRP, OrangeFox or CWM), OEM, vendor, odm, product or system_ext. The type is read from the file; you are asked when it cannot be. Only recovery replaces an existing one; the rest of the VM is unchanged. Reboot to recovery from the ⋮ menu.</string>
     <string name="vm_import_partition_button">Import…</string>

@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Origjinal</string>
     <string name="as_navbar_sunset">Perëndim dielli</string>
     <string name="as_new_home">Ekran i ri kryesor</string>
-    <string name="as_new_home_sub">Bibliotekë në rrjetë me shirit poshtë (stili 0.0.0.3). Çaktivizoje për listën klasike. Hyn në fuqi pasi të rinisësh aplikacionin.</string>
+    <string name="as_new_home_sub">Bibliotekë në rrjetë me shirit poshtë. Çaktivizoje për listën klasike. Hyn në fuqi pasi të rinisësh aplikacionin.</string>
     <string name="as_orig">Autori origjinal</string>
     <string name="as_orig_sub">Krijuesi i emulatorëve Desire HD dhe One M7 nga të cilët u rrit ky projekt</string>
     <string name="as_tablet_navbar_rotation">Rrotullo shiritin e navigimit të tabletit</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Po përgatitet</string>
     <string name="st_stopping">Po fiket</string>
     <string name="start">Nis</string>
-    <string name="storage_text">Lejoni qasjen te të gjithë skedarët: kështu karta e kujtesës e çdo sistemi ndodhet në dosjen AEmulator të hapësirës së brendshme — e volitshme për APK, muzikë dhe foto.</string>
+    <string name="storage_text">Lejoni qasjen te të gjithë skedarët: kështu karta e kujtesës e çdo sistemi ndodhet në dosjen AEmulator të hapësirës së brendshme, e volitshme për APK, muzikë dhe foto.</string>
     <string name="storage_title">Dosja e përbashkët për sistemet</string>
     <string name="th_bar">Shiriti</string>
     <string name="th_collapse">Palos listën</string>

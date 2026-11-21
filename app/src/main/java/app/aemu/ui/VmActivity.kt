@@ -1091,15 +1091,12 @@ open class VmActivity : ComponentActivity() {
     private var apkInstall by mutableStateOf<ApkInstallUi?>(null)
     private val pickApk = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if (uri == null) return@registerForActivityResult
-        val dir = app.aemu.core.Sdcard.hostDir(vm.paths)
-        if (dir == null) { toast(getString(R.string.m_failed)); return@registerForActivityResult }
         apkInstall = ApkInstallUi(true, "")
         thread {
-            val ok = runCatching {
-                contentResolver.openInputStream(uri)!!.use { i -> java.io.File(dir, "aemu-install.apk").outputStream().use { o -> i.copyTo(o) } }
-            }.isSuccess
-            if (!ok) { runOnUiThread { apkInstall = ApkInstallUi(false, getString(R.string.m_failed)) }; return@thread }
-            val out = runCatching { vm.guestShell("pm install -r " + vm.img.sdcardPath.trimEnd('/') + "/aemu-install.apk", 300_000) }.getOrElse { it.toString() }
+            val out = runCatching {
+                val input = contentResolver.openInputStream(uri) ?: throw Exception("Cannot open APK")
+                vm.installApkFrom(input)
+            }.getOrElse { it.toString() }
             runCatching { app.aemu.core.TreeFixer(this@VmActivity, vm.paths, vm.img, vm::log).seedOwners() }
             val installed = out.contains("Success")
             val message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed)

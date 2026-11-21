@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Asli</string>
     <string name="as_navbar_sunset">Matahari terbenam</string>
     <string name="as_new_home">Layar beranda baru</string>
-    <string name="as_new_home_sub">Pustaka kisi dengan bilah bawah (gaya 0.0.0.3). Matikan untuk daftar klasik. Berlaku setelah memulai ulang aplikasi.</string>
+    <string name="as_new_home_sub">Pustaka kisi dengan bilah bawah. Matikan untuk daftar klasik. Berlaku setelah memulai ulang aplikasi.</string>
     <string name="as_orig">Pembuat asli</string>
     <string name="as_orig_sub">Pencipta emulator Desire HD dan One M7 yang menjadi awal proyek ini</string>
     <string name="as_tablet_navbar_rotation">Putar bilah navigasi tablet</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Menyiapkan</string>
     <string name="st_stopping">Mematikan</string>
     <string name="start">Mulai</string>
-    <string name="storage_text">Izinkan akses ke semua file: kartu memori tiap sistem akan berada di folder AEmulator penyimpanan internal — praktis untuk APK, musik, dan foto.</string>
+    <string name="storage_text">Izinkan akses ke semua file: kartu memori tiap sistem akan berada di folder AEmulator penyimpanan internal, praktis untuk APK, musik, dan foto.</string>
     <string name="storage_title">Folder bersama untuk sistem</string>
     <string name="th_bar">Batang</string>
     <string name="th_collapse">Ciutkan daftar</string>

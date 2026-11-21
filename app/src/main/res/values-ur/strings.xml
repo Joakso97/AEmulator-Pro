@@ -41,7 +41,7 @@
     <string name="as_navbar_original">اصل</string>
     <string name="as_navbar_sunset">غروب آفتاب</string>
     <string name="as_new_home">نئی ہوم اسکرین</string>
-    <string name="as_new_home_sub">نچلی بار کے ساتھ گرڈ لائبریری (0.0.0.3 انداز)۔ کلاسک فہرست کے لیے بند کریں۔ ایپ دوبارہ شروع ہونے کے بعد لاگو ہوگا۔</string>
+    <string name="as_new_home_sub">نچلی بار کے ساتھ گرڈ لائبریری۔ کلاسک فہرست کے لیے بند کریں۔ ایپ دوبارہ شروع ہونے کے بعد لاگو ہوگا۔</string>
     <string name="as_orig">اصل مصنف</string>
     <string name="as_orig_sub">Desire HD اور One M7 ایمولیٹرز کے خالق، جن سے یہ پروجیکٹ وجود میں آیا</string>
     <string name="as_tablet_navbar_rotation">ٹیبلیٹ نیویگیشن بار گھمائیں</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">تیاری ہو رہی ہے</string>
     <string name="st_stopping">بند ہو رہا ہے</string>
     <string name="start">شروع کریں</string>
-    <string name="storage_text">تمام فائلوں تک رسائی کی اجازت دیں: پھر ہر سسٹم کا میموری کارڈ اندرونی اسٹوریج کے AEmulator فولڈر میں رہے گا — APKs، موسیقی اور تصاویر کے لیے آسان۔</string>
+    <string name="storage_text">تمام فائلوں تک رسائی کی اجازت دیں: پھر ہر سسٹم کا میموری کارڈ اندرونی اسٹوریج کے AEmulator فولڈر میں رہے گا, APKs، موسیقی اور تصاویر کے لیے آسان۔</string>
     <string name="storage_title">سسٹمز کے لیے مشترکہ فولڈر</string>
     <string name="th_bar">بار</string>
     <string name="th_collapse">فہرست سمیٹیں</string>

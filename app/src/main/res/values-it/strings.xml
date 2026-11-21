@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Originale</string>
     <string name="as_navbar_sunset">Tramonto</string>
     <string name="as_new_home">Nuova schermata Home</string>
-    <string name="as_new_home_sub">Libreria a griglia con barra inferiore (stile 0.0.0.3). Disattiva per tornare all\'elenco classico. Ha effetto dopo il riavvio dell\'app.</string>
+    <string name="as_new_home_sub">Libreria a griglia con barra inferiore. Disattiva per tornare all\'elenco classico. Ha effetto dopo il riavvio dell\'app.</string>
     <string name="as_orig">Autore originale</string>
     <string name="as_orig_sub">Creatore degli emulatori Desire HD e One M7 da cui è nato il progetto</string>
     <string name="as_tablet_navbar_rotation">Ruota la barra di navigazione del tablet</string>

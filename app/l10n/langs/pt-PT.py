@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': 'Original',
     'as_navbar_sunset': 'Pôr do sol',
     'as_new_home': 'Nova tela inicial',
-    'as_new_home_sub': 'Biblioteca de grade com barra inferior (estilo 0.0.0.3). Desligue para a lista clássica. Entra em vigor após reiniciar o aplicativo.',
+    'as_new_home_sub': 'Biblioteca de grade com barra inferior. Desligue para a lista clássica. Entra em vigor após reiniciar o aplicativo.',
     'as_orig': 'Autor original',
     'as_orig_sub': 'Criador dos emuladores do Desire HD e do One M7 que deram origem ao projeto',
     'as_tablet_navbar_rotation': 'Girar a barra de navegação do tablet',

@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': 'Originale',
     'as_navbar_sunset': 'Tramonto',
     'as_new_home': 'Nuova schermata Home',
-    'as_new_home_sub': "Libreria a griglia con barra inferiore (stile 0.0.0.3). Disattiva per tornare all'elenco classico. Ha effetto dopo il riavvio dell'app.",
+    'as_new_home_sub': "Libreria a griglia con barra inferiore. Disattiva per tornare all'elenco classico. Ha effetto dopo il riavvio dell'app.",
     'as_orig': 'Autore originale',
     'as_orig_sub': 'Creatore degli emulatori Desire HD e One M7 da cui è nato il progetto',
     'as_tablet_navbar_rotation': 'Ruota la barra di navigazione del tablet',

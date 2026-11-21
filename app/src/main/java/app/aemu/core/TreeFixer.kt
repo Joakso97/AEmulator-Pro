@@ -5750,6 +5750,12 @@ class TreeFixer(
         add("/dev/block/platform/aemu/by-name/system", "/system", "ext4", "ro,relatime")
         add("/dev/block/platform/aemu/by-name/userdata", "/data", "ext4", "rw,nosuid,nodev,noatime")
         add("/dev/block/platform/aemu/by-name/cache", "/cache", "ext4", "rw,nosuid,nodev,noatime")
+        val special = setOf("dev", "proc", "sys", "run", "mnt", "storage", "sdcard", "acct", "data", "cache", "system")
+        for (d in root.listFiles() ?: emptyArray()) {
+            val n = d.name
+            if (!d.isDirectory || n in special || java.nio.file.Files.isSymbolicLink(d.toPath())) continue
+            add("/dev/block/platform/aemu/by-name/$n", "/$n", "ext4", "rw,relatime")
+        }
         
         val rcs = (root.listFiles()?.filter { it.isFile && (it.name.endsWith(".rc") || it.name.startsWith("fstab")) } ?: emptyList()) +
             listOfNotNull(File(root, "system/etc/vold.fstab").takeIf { it.isFile })

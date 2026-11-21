@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': 'Originale',
     'as_navbar_sunset': 'Coucher de soleil',
     'as_new_home': "Nouvel écran d'accueil",
-    'as_new_home_sub': "Bibliothèque de grilles avec une barre inférieure (le style 0.0.0.3). Désactivez pour la liste classique. Prend effet après le redémarrage de l'application.",
+    'as_new_home_sub': "Bibliothèque de grilles avec une barre inférieure. Désactivez pour la liste classique. Prend effet après le redémarrage de l'application.",
     'as_orig': 'Auteur d’origine',
     'as_orig_sub': 'Créateur des émulateurs Desire HD et One M7 dont est né le projet',
     'as_tablet_navbar_rotation': 'Faire pivoter la barre de navigation de la tablette',

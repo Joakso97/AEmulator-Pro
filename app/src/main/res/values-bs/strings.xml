@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Originalni</string>
     <string name="as_navbar_sunset">Zalazak sunca</string>
     <string name="as_new_home">Novi početni ekran</string>
-    <string name="as_new_home_sub">Biblioteka u mreži s donjom trakom (stil 0.0.0.3). Isključi za klasičnu listu. Stupa na snagu nakon ponovnog pokretanja aplikacije.</string>
+    <string name="as_new_home_sub">Biblioteka u mreži s donjom trakom. Isključi za klasičnu listu. Stupa na snagu nakon ponovnog pokretanja aplikacije.</string>
     <string name="as_orig">Originalni autor</string>
     <string name="as_orig_sub">Tvorac emulatora Desire HD i One M7 iz kojih je ovaj projekt izrastao</string>
     <string name="as_tablet_navbar_rotation">Rotiraj navigacijsku traku tableta</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Priprema</string>
     <string name="st_stopping">Gašenje</string>
     <string name="start">Pokreni</string>
-    <string name="storage_text">Dozvolite pristup svim datotekama: tada se memorijska kartica svakog sistema nalazi u folderu AEmulator u internoj pohrani — zgodno za APK-ove, muziku i fotografije.</string>
+    <string name="storage_text">Dozvolite pristup svim datotekama: tada se memorijska kartica svakog sistema nalazi u folderu AEmulator u internoj pohrani, zgodno za APK-ove, muziku i fotografije.</string>
     <string name="storage_title">Zajednički folder za sisteme</string>
     <string name="th_bar">Traka</string>
     <string name="th_collapse">Sažmi listu</string>

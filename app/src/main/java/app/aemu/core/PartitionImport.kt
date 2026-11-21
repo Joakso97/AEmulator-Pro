@@ -29,7 +29,9 @@ internal object PartitionImport {
     val UNSUPPORTED = setOf("system")
 
     private val BOOT_NAME = Regex("(?i)boot\\.(emmc|mtd|mmc)\\.win|zimage|kernel")
-    private val MOUNT = Regex("[a-z0-9_]+(/(product|system_ext))?")
+    private val MOUNT = Regex("[a-z][a-z0-9_]*(?:/[a-z][a-z0-9_]*)*")
+
+    fun validMount(kind: String): Boolean = kind.matches(MOUNT) && kind !in UNSUPPORTED
 
     fun label(kind: String) = kind.substringAfterLast('/')
 
@@ -67,7 +69,7 @@ internal object PartitionImport {
             boot || PartitionNames.isBoot(plain, true) || BOOT_NAME.matches(plain) -> BOOT
             PartitionNames.isOem(plain, true) -> "oem"
             PartitionNames.isVendor(plain, true) -> "vendor"
-            else -> PartitionNames.extraMount(plain, true)
+            else -> PartitionNames.extraMount(plain, true) ?: PartitionNames.anyMount(plain, true)
         }
     }
 
@@ -108,13 +110,15 @@ internal object PartitionImport {
     private fun matcher(kind: String): (String, Boolean) -> Boolean = when (kind) {
         "oem" -> { b, ok -> PartitionNames.isOem(b, ok) }
         "vendor" -> { b, ok -> PartitionNames.isVendor(b, ok) }
-        else -> { b, ok -> PartitionNames.extraMount(b, ok) == kind }
+        "product", "system/product", "system_ext", "system/system_ext", "odm" ->
+            { b, ok -> PartitionNames.extraMount(b, ok) == kind }
+        else -> { b, ok -> PartitionNames.anyMount(b, ok) == kind || PartitionNames.isDiskImageName(b) }
     }
 
     fun install(ctx: Context, id: String, uri: Uri, kind: String) {
         if (kind == BOOT) { BootPartitionImport.install(ctx, id, uri); return }
         if (kind == RECOVERY) { installRecovery(ctx, id, uri); return }
-        require(kind.matches(MOUNT) && kind !in UNSUPPORTED) { "Unsupported partition" }
+        require(validMount(kind)) { "Unsupported partition" }
         val label = label(kind)
         VmStorageLease(ctx.filesDir).use { lease ->
             lease.acquire()

@@ -10,6 +10,7 @@ import dev.lk.dhd.Slot
 import dev.lk.m7sense.GlBridge
 import java.io.File
 import java.io.FileOutputStream
+import java.io.InputStream
 import java.io.OutputStreamWriter
 import java.util.concurrent.CopyOnWriteArrayList
 
@@ -3476,6 +3477,28 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
     }
 
     fun installApk(apkOnSdcard: String): String = guestShell("pm install -r $apkOnSdcard", 600_000)
+
+    /**
+     * Stage an APK inside the guest's own filesystem and install it from there.
+     *
+     * Installing from the shared vfat SD card ("/sdcard/aemu-install.apk") makes the
+     * guest package manager fail with INSTALL_FAILED_INVALID_APK: the file there is
+     * exposed with the host's ownership/mode rather than the guest's shell user, so
+     * installd cannot read/parse it. /data/local/tmp is a real guest directory and is
+     * the path the project's guest tests install from after a chmod 0644.
+     */
+    fun installApkFrom(input: InputStream): String {
+        val apk = File(paths.root, STAGED_APK_PATH.removePrefix("/"))
+        apk.parentFile?.mkdirs()
+        if (apk.exists() && !apk.delete()) apk.writeBytes(ByteArray(0))
+        input.use { i -> FileOutputStream(apk).use { o -> i.copyTo(o) } }
+        runCatching { android.system.Os.chmod(apk.absolutePath, "644".toInt(8)) }
+        return guestShell("pm install -r $STAGED_APK_PATH", 300_000)
+    }
+
+    companion object {
+        const val STAGED_APK_PATH = "/data/local/tmp/aemu-install.apk"
+    }
 
     private fun pidOf(p: Process): Int? {
         var c: Class<*>? = p.javaClass

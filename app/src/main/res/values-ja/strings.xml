@@ -41,7 +41,7 @@
     <string name="as_navbar_original">オリジナル</string>
     <string name="as_navbar_sunset">サンセット</string>
     <string name="as_new_home">新しいホーム画面</string>
-    <string name="as_new_home_sub">下部バー付きのグリッド表示ライブラリ（0.0.0.3 スタイル）。従来のリスト表示に戻すにはオフにします。アプリの再起動後に反映されます。</string>
+    <string name="as_new_home_sub">下部バー付きのグリッド表示ライブラリ。従来のリスト表示に戻すにはオフにします。アプリの再起動後に反映されます。</string>
     <string name="as_orig">オリジナル作者</string>
     <string name="as_orig_sub">本プロジェクトの原点となった Desire HD・One M7 エミュレーターの作者</string>
     <string name="as_tablet_navbar_rotation">タブレットのナビゲーションバーを回転</string>

@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Түпнұсқа</string>
     <string name="as_navbar_sunset">Күн батуы</string>
     <string name="as_new_home">Жаңа басты экран</string>
-    <string name="as_new_home_sub">Төменгі панелі бар тор түріндегі кітапхана (0.0.0.3 стилі). Классикалық тізім үшін өшіріңіз. Қолданба қайта іске қосылғаннан кейін күшіне енеді.</string>
+    <string name="as_new_home_sub">Төменгі панелі бар тор түріндегі кітапхана. Классикалық тізім үшін өшіріңіз. Қолданба қайта іске қосылғаннан кейін күшіне енеді.</string>
     <string name="as_orig">Бастапқы автор</string>
     <string name="as_orig_sub">Осы жоба негізделген Desire HD және One M7 эмуляторларының жасаушысы</string>
     <string name="as_tablet_navbar_rotation">Планшет навигация тақтасын бұру</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Дайындалуда</string>
     <string name="st_stopping">Өшірілуде</string>
     <string name="start">Іске қосу</string>
-    <string name="storage_text">Барлық файлдарға рұқсат беріңіз: сонда әр жүйенің жад картасы ішкі жадтағы AEmulator қалтасында орналасады — APK файлдары, музыка және фотосуреттер үшін ыңғайлы.</string>
+    <string name="storage_text">Барлық файлдарға рұқсат беріңіз: сонда әр жүйенің жад картасы ішкі жадтағы AEmulator қалтасында орналасады, APK файлдары, музыка және фотосуреттер үшін ыңғайлы.</string>
     <string name="storage_title">Жүйелерге арналған ортақ қалта</string>
     <string name="th_bar">Тақта</string>
     <string name="th_collapse">Тізімді жию</string>

@@ -41,7 +41,7 @@
     <string name="as_navbar_original">إبداعي</string>
     <string name="as_navbar_sunset">غروب</string>
     <string name="as_new_home">الشاشة الرئيسية الجديدة</string>
-    <string name="as_new_home_sub">مكتبة الشبكة مع شريط سفلي (نمط 0.0.0.3). قم بإيقاف تشغيل القائمة الكلاسيكية. يسري مفعوله بعد إعادة تشغيل التطبيق.</string>
+    <string name="as_new_home_sub">مكتبة الشبكة مع شريط سفلي. قم بإيقاف تشغيل القائمة الكلاسيكية. يسري مفعوله بعد إعادة تشغيل التطبيق.</string>
     <string name="as_orig">المطوّر الأصلي</string>
     <string name="as_orig_sub">صانع محاكيات Desire HD وOne M7 التي نشأ منها المشروع</string>
     <string name="as_tablet_navbar_rotation">تدوير شريط التنقل اللوحي</string>

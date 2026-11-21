@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Oryginalny</string>
     <string name="as_navbar_sunset">Zachód słońca</string>
     <string name="as_new_home">Nowy ekran główny</string>
-    <string name="as_new_home_sub">Biblioteka Grid z dolnym paskiem (styl 0.0.0.3). Wyłącz, aby wyświetlić klasyczną listę. Zaczyna obowiązywać po ponownym uruchomieniu aplikacji.</string>
+    <string name="as_new_home_sub">Biblioteka Grid z dolnym paskiem. Wyłącz, aby wyświetlić klasyczną listę. Zaczyna obowiązywać po ponownym uruchomieniu aplikacji.</string>
     <string name="as_orig">Pierwotny autor</string>
     <string name="as_orig_sub">Twórca emulatorów Desire HD i One M7, z których wyrósł projekt</string>
     <string name="as_tablet_navbar_rotation">Obróć pasek nawigacyjny tabletu</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Przygotowanie</string>
     <string name="st_stopping">Wyłączanie</string>
     <string name="start">Uruchom</string>
-    <string name="storage_text">Zezwól na dostęp do wszystkich plików: karta pamięci każdego systemu będzie w folderze AEmulator w pamięci wewnętrznej — wygodnie na APK, muzykę i zdjęcia.</string>
+    <string name="storage_text">Zezwól na dostęp do wszystkich plików: karta pamięci każdego systemu będzie w folderze AEmulator w pamięci wewnętrznej, wygodnie na APK, muzykę i zdjęcia.</string>
     <string name="storage_title">Wspólny folder systemów</string>
     <string name="th_bar">Pasek</string>
     <string name="th_collapse">Zwiń listę</string>

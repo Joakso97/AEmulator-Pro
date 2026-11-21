@@ -39,7 +39,7 @@ S = {
     'as_navbar_original': '기본',
     'as_navbar_sunset': '선셋',
     'as_new_home': '새 홈 화면',
-    'as_new_home_sub': '하단 바가 있는 격자형 라이브러리(0.0.0.3 스타일)입니다. 기존 목록으로 되돌리려면 끄세요. 앱을 다시 시작하면 적용됩니다.',
+    'as_new_home_sub': '하단 바가 있는 격자형 라이브러리입니다. 기존 목록으로 되돌리려면 끄세요. 앱을 다시 시작하면 적용됩니다.',
     'as_orig': '원작자',
     'as_orig_sub': '이 프로젝트의 출발점인 Desire HD·One M7 에뮬레이터 제작자',
     'as_tablet_navbar_rotation': '태블릿 탐색 바 회전',

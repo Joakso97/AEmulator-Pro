@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Orijinal</string>
     <string name="as_navbar_sunset">Gün batımı</string>
     <string name="as_new_home">Yeni əsas ekran</string>
-    <string name="as_new_home_sub">Alt paneli olan şəbəkə kitabxanası (0.0.0.3 üslubu). Klassik siyahı üçün söndürün. Tətbiq yenidən başladıqdan sonra qüvvəyə minir.</string>
+    <string name="as_new_home_sub">Alt paneli olan şəbəkə kitabxanası. Klassik siyahı üçün söndürün. Tətbiq yenidən başladıqdan sonra qüvvəyə minir.</string>
     <string name="as_orig">Orijinal müəllif</string>
     <string name="as_orig_sub">Bu layihənin əsasını təşkil edən Desire HD və One M7 emulyatorlarının yaradıcısı</string>
     <string name="as_tablet_navbar_rotation">Planşet naviqasiya panelini fırlat</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Hazırlanır</string>
     <string name="st_stopping">Söndürülür</string>
     <string name="start">Başlat</string>
-    <string name="storage_text">Bütün fayllara girişə icazə verin: onda hər sistemin yaddaş kartı daxili yaddaşdakı AEmulator qovluğunda yerləşir — APK-lar, musiqi və fotolar üçün əlverişlidir.</string>
+    <string name="storage_text">Bütün fayllara girişə icazə verin: onda hər sistemin yaddaş kartı daxili yaddaşdakı AEmulator qovluğunda yerləşir, APK-lar, musiqi və fotolar üçün əlverişlidir.</string>
     <string name="storage_title">Sistemlər üçün ümumi qovluq</string>
     <string name="th_bar">Panel</string>
     <string name="th_collapse">Siyahını yığ</string>

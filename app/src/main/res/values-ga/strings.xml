@@ -41,7 +41,7 @@
     <string name="as_navbar_original">Bunaidh</string>
     <string name="as_navbar_sunset">Luí na gréine</string>
     <string name="as_new_home">Scáileán baile nua</string>
-    <string name="as_new_home_sub">Leabharlann eangaí le barra íochtair (stíl 0.0.0.3). Múch é don liosta clasaiceach. Tagann sé i bhfeidhm tar éis an aip a atosú.</string>
+    <string name="as_new_home_sub">Leabharlann eangaí le barra íochtair. Múch é don liosta clasaiceach. Tagann sé i bhfeidhm tar éis an aip a atosú.</string>
     <string name="as_orig">Bunúdar</string>
     <string name="as_orig_sub">Cruthaitheoir na n-aithriseoirí Desire HD agus One M7 ar fhás an tionscadal seo astu</string>
     <string name="as_tablet_navbar_rotation">Rothlaigh barra nascleanúna an táibléid</string>
@@ -293,7 +293,7 @@
     <string name="st_preparing">Ag ullmhú</string>
     <string name="st_stopping">Ag múchadh</string>
     <string name="start">Tosaigh</string>
-    <string name="storage_text">Ceadaigh rochtain ar gach comhad: ansin tá cárta cuimhne gach córais i bhfillteán AEmulator sa stóras inmheánach — áisiúil d’APKanna, do cheol agus do ghrianghraif.</string>
+    <string name="storage_text">Ceadaigh rochtain ar gach comhad: ansin tá cárta cuimhne gach córais i bhfillteán AEmulator sa stóras inmheánach, áisiúil d’APKanna, do cheol agus do ghrianghraif.</string>
     <string name="storage_title">Fillteán roinnte do chórais</string>
     <string name="th_bar">Barra</string>
     <string name="th_collapse">Laghdaigh an liosta</string>
