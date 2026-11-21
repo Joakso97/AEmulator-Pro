@@ -5,7 +5,7 @@
  
  
 window.AEMU_CONFIG = {
-  "version": "0.0.0.2.1",
+  "version": "0.0.0.3.31",
   "links": {
     "repo": "https://github.com/Joakso97/AEmulator-Pro",
     "site": "https://aemulator.gt.tc",

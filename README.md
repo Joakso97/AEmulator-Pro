@@ -32,9 +32,11 @@ AEmulator Pro boots a real Android 1.0–17 system image straight from a firmwar
 - Hardware graphics through the GL bridge, sound, touch and multitouch, network with a modern TLS proxy
 - Shared memory-card folder for APKs, music and photos
 - **VM screen themes and theme editor**: the navigation bar and the frame around the guest screen follow a theme: Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x or Lollipop 5.x, or your own, made in an editor with a live preview (key shapes and size, bar/key/pressed/frame colours, glow and halo, floating or flat bar, frame picture, rounded screen corners). Themes can be shared as `.aetheme` files. App settings <img src="docs/assets/chevron.svg" height="14" valign="middle"> Appearance <img src="docs/assets/chevron.svg" height="14" valign="middle"> VM screen theme.
-- **Arrange your library**: press and hold a ROM and drag it up or down to reorder it (classic list and 0.0.0.3 grid), and group ROMs into named folders that open and close. Drop a ROM on a folder, or use its <img src="docs/assets/menu.svg" height="14" valign="middle"> menu <img src="docs/assets/chevron.svg" height="14" valign="middle"> Move to folder
+- **Arrange your library**: press and hold a ROM and drag it up or down to reorder it (classic list and grid), and group ROMs into named folders that open and close. Drop a ROM on a folder, or use its <img src="docs/assets/menu.svg" height="14" valign="middle"> menu <img src="docs/assets/chevron.svg" height="14" valign="middle"> Move to folder
+- **Guest activity launcher**: search installed packages from the VM <img src="docs/assets/menu.svg" height="14" valign="middle"> menu and launch their main activity
+- **Any partition**: import arbitrary partition images into the QEMU / KitKat guest with custom mount paths
 - **ADB console**: start or stop the built-in ADB server and see connection addresses on a dedicated screen (<img src="docs/assets/menu.svg" height="14" valign="middle"> menu <img src="docs/assets/chevron.svg" height="14" valign="middle"> ADB)
-- Material 3 Expressive interface in 19 languages
+- Material 3 Expressive interface in 18 languages
 - Free and open source (GPL-3.0)
 
 ## Quick start

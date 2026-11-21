@@ -1,4 +1,4 @@
- 
+// создано docs/readme/gen_site.py — не править вручную
 window.AEMU_I18N = {
  "langs": [
   {
@@ -102,14 +102,19 @@ window.AEMU_I18N = {
    "s_langs": "languages",
    "s_to": "to",
    "copied": "Address copied",
-   "tagline": "Run classic Android firmware — HTC Sense, TouchWiz, MIUI, AOSP — on a modern phone. No root, no PC.",
-   "about": "AEmulator boots a real Android 2.3–7.x system image straight from a firmware file you already have: a recovery ZIP, an Odin archive or a Google factory image. It translates the old ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack — everything runs inside a normal app.",
+   "tagline": "Run classic Android firmware, HTC Sense, TouchWiz, MIUI, AOSP, on a modern phone. No root, no PC.",
+   "about": "AEmulator boots a real Android 2.3–7.x system image straight from a firmware file you already have: a recovery ZIP, an Odin archive or a Google factory image. It translates the old ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack. Everything runs inside a normal app.",
    "feat_title": "Features",
    "feats": [
-    "Import almost any firmware format: CWM/TWRP ZIP, Samsung Odin <code>.tar.md5</code>, Google factory <code>.tgz</code>, <code>system.img</code>, OTA <code>system.new.dat.br</code>",
-    "Vendor skins work as shipped: HTC Sense, Samsung TouchWiz, MIUI, AOSP",
+    "Import almost any firmware format: Android-x86 <code>.iso</code>, CWM/TWRP ZIP, Samsung Odin <code>.tar.md5</code>, Google factory <code>.tgz</code>, <code>system.img</code>, OTA <code>system.new.dat.br</code>, Motorola <code>.sbf</code>, sparse images, EDL images, Spreadtrum <code>.pac</code>, HTC <code>.nbh</code>, HTC <code>RUU.exe</code>, and many other formats",
+    "Vendor skins work as shipped if compatible: HTC Sense, Samsung TouchWiz, MIUI, AOSP",
     "Hardware graphics through the GL bridge, sound, touch and multitouch, network with a modern TLS proxy",
     "Shared memory-card folder for APKs, music and photos",
+    "VM screen themes and theme editor: the navigation bar and the frame around the guest screen follow a theme: Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x or Lollipop 5.x, or your own, made in an editor with a live preview. Themes can be shared as <code>.aetheme</code> files",
+    "Arrange your library: reorder ROMs and group them into named folders",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths",
+    "ADB console: start or stop the built-in ADB server and see connection addresses on a dedicated screen (⋮ menu › ADB)",
     "Material 3 Expressive interface in 18 languages",
     "Free and open source (GPL-3.0)"
    ],
@@ -154,7 +159,7 @@ window.AEMU_I18N = {
    "how_title": "How it works",
    "how_text": "Each guest process runs under a patched user-mode QEMU. A binder daemon replaces the kernel driver, a GL bridge forwards OpenGL ES calls to the phone’s GPU, and small guest libraries (audio HAL, audio policy wrapper, LD_PRELOAD shim) adapt vendor code to the emulator. The importer reads the firmware, finds the init scripts in its boot image and builds a start plan for system services.",
    "credits_title": "Credits",
-   "credits_text": "AEmulator grew out of the HTC Desire HD and HTC One M7 emulators by <a href=\"https://t.me/istratiit_ech\" target=\"_blank\" rel=\"noopener\">the original author</a> — their engine made this project possible.",
+   "credits_text": "AEmulator grew out of the HTC Desire HD and HTC One M7 emulators by <a href=\"https://t.me/istratiit_ech\" target=\"_blank\" rel=\"noopener\">the original author</a>. Their engine made this project possible. This fork is maintained by <a href=\"https://github.com/Joakso97\" target=\"_blank\" rel=\"noopener\">Joakso97</a>, who added the extra features and fixes.",
    "links_title": "Links",
    "l_site": "Website",
    "l_channel": "Telegram channel",
