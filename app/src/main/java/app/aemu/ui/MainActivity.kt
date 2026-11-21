@@ -316,27 +316,17 @@ fun Library(model: LibraryModel) {
     }
 
     Box(Modifier.fillMaxSize()) {
-        Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
-            if (tablet) TabletRail()
-            Box(Modifier.weight(1f).fillMaxSize()) {
-            Scaffold(
+        Scaffold(
             modifier = Modifier.nestedScroll(scroll.nestedScrollConnection),
             topBar = {
-                if (tablet) {
-                    TopAppBar(
-                        title = { SunsetTitle() },
-                        scrollBehavior = scroll,
-                    )
-                } else {
-                    LargeFlexibleTopAppBar(
-                        title = { SunsetTitle() },
-                        actions = {
-                            IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
-                            IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) }
-                        },
-                        scrollBehavior = scroll,
-                    )
-                }
+                LargeFlexibleTopAppBar(
+                    title = { SunsetTitle() },
+                    actions = {
+                        IconButton(onClick = { ctx.startActivity(Intent(ctx, SupportedFirmwareActivity::class.java)) }) { Icon(Icons.Rounded.Info, stringResource(R.string.help)) }
+                        IconButton(onClick = { ctx.startActivity(Intent(ctx, AppSettingsActivity::class.java)) }) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings)) }
+                    },
+                    scrollBehavior = scroll,
+                )
             },
             floatingActionButton = {
                 if (!newHome) ExtendedFloatingActionButton(
@@ -505,8 +495,6 @@ fun Library(model: LibraryModel) {
                 }
             }
         }
-        }
-        }
 
         androidx.compose.animation.AnimatedVisibility(
             visible = newHome && addMenu,
@@ -648,48 +636,7 @@ internal fun TabletRailLayout(selected: TabletRailDestination, content: @Composa
     content()
 }
 
-@Composable
-private fun TabletRail(selected: TabletRailDestination? = null) {
-    val ctx = LocalContext.current
-    fun navigateTo(destination: TabletRailDestination) {
-        if (destination != selected) {
-            ctx.startActivity(Intent(ctx, destination.activityClass).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-        }
-    }
-    NavigationRail(
-        modifier = Modifier.fillMaxHeight(),
-        containerColor = androidx.compose.ui.graphics.Color.Transparent,
-    ) {
-        NavigationRailItem(
-            selected = selected == TabletRailDestination.SUPPORTED_FILES,
-            onClick = { navigateTo(TabletRailDestination.SUPPORTED_FILES) },
-            icon = { Icon(Icons.Rounded.Info, null) },
-            label = {
-                Text(
-                    stringResource(R.string.help),
-                    style = MaterialTheme.typography.labelSmall,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            },
-        )
-        NavigationRailItem(
-            selected = selected == TabletRailDestination.SETTINGS,
-            onClick = { navigateTo(TabletRailDestination.SETTINGS) },
-            icon = { Icon(Icons.Rounded.Settings, null) },
-            label = {
-                Text(
-                    stringResource(R.string.settings),
-                    style = MaterialTheme.typography.labelSmall,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            },
-        )
-    }
-}
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
