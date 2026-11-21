@@ -2846,6 +2846,11 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
                 Thread.sleep(3000)
                 if (power.length() > 0) { val v = runCatching { power.readText().trim() }.getOrDefault("reboot"); power.writeText(""); powerRequest(v) }
                 if (img.api >= 14) runCatching { dns.ensure() }
+                if (state == State.BOOTING && bootDoneAt == 0L && !recoveryMode && bootSeconds() > 180) {
+                    log("boot watchdog: no completion after 180 s (guest stuck in boot animation), applying the boot flag from the host")
+                    runCatching { props.put("sys.boot_completed", "1"); props.put("dev.bootcomplete", "1") }
+                    completeBoot("boot watchdog: boot flag applied after 180 s")
+                }
                 runCatching { checkBinderGuard() }
                 val dead = synchronized(procs) { procs.filter { !it.value.isAlive }.toList() }
                 for ((name, p) in dead) {
