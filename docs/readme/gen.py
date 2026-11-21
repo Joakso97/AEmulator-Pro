@@ -11,6 +11,19 @@ from texts_plus import P  # noqa
 
 RTL = {"ar", "fa"}
 BRAND = "AEmulator Pro"
+FLAGS = {
+    "en": "gb", "ru": "ru", "uk": "ua", "de": "de", "fr": "fr", "es": "es",
+    "pt-BR": "br", "it": "it", "pl": "pl", "tr": "tr", "ar": "sa", "fa": "ir",
+    "hi": "in", "id": "id", "vi": "vn", "zh-CN": "cn", "ja": "jp", "ko": "kr",
+}
+NEW_FEATS = [
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths",
+]
+
+def flag_img(code):
+    cc = FLAGS.get(code, code.lower())
+    return f'<img src="https://hatscripts.github.io/circle-flags/flags/{cc}.svg" width="16" valign="middle">'
 
 
 def path_of(code, from_code):
@@ -25,6 +38,8 @@ def render(code):
      
     t = {k: ([x.replace("AEmulator", BRAND) for x in v] if isinstance(v, list) else v.replace("AEmulator", BRAND) if isinstance(v, str) else v) for k, v in T[code].items()}
     t.update(P[code])
+    if code != "en":
+        t["feats"] = list(t["feats"]) + NEW_FEATS
     up = "" if code == "en" else "../../"
     rel = dict(
         build="docs/build-source.md" if code == "en" else "../build-source.md",
@@ -39,7 +54,7 @@ def render(code):
     L.append(f"# {BRAND}\n")
     L.append(f"**{t['tagline']}**\n")
     L.append(" · ".join(
-        (f"**{flag} {name}**" if c == code else f"[{flag} {name}]({path_of(c, code)})") for c, name, flag in LANGS) + "\n")
+        (f"**{flag_img(c)} {name}**" if c == code else f"[{flag_img(c)} {name}]({path_of(c, code)})") for c, name, _ in LANGS) + "\n")
     L.append("</div>\n")
     L.append("---\n")
     L.append(t["about"] + "\n")

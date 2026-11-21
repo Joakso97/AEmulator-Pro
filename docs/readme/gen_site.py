@@ -18,10 +18,17 @@ def md(s):
     return s
 
 
+NEW_FEATS = [
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths",
+]
+
 def main():
     out = {}
     for code, name, flag in data.LANGS:
         t = dict(T[code])
+        if code != "en":
+            t["feats"] = list(t["feats"]) + NEW_FEATS
          
         steps = [t["steps"][0], *t["steps"][2:]]
         t["steps"] = [md(x.format(repo=data.REPO)) for x in steps]

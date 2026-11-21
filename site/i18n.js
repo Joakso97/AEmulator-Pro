@@ -182,7 +182,9 @@ window.AEMU_I18N = {
     "Аппаратная графика через GL-мост, звук, касания и мультитач, сеть с современным TLS-прокси",
     "Общая папка «карты памяти» для APK, музыки и фото",
     "Интерфейс Material 3 Expressive на 18 языках",
-    "Бесплатно и с открытым кодом (GPL-3.0)"
+    "Бесплатно и с открытым кодом (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Устройство",
    "c_android": "Android",
@@ -248,7 +250,9 @@ window.AEMU_I18N = {
     "Апаратна графіка через GL-міст, звук, дотики й мультитач, мережа із сучасним TLS-проксі",
     "Спільна папка «карти пам’яті» для APK, музики й фото",
     "Інтерфейс Material 3 Expressive 18 мовами",
-    "Безкоштовно й з відкритим кодом (GPL-3.0)"
+    "Безкоштовно й з відкритим кодом (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Пристрій",
    "c_android": "Android",
@@ -314,7 +318,9 @@ window.AEMU_I18N = {
     "Hardwaregrafik über die GL-Brücke, Ton, Touch und Multitouch, Netzwerk mit modernem TLS-Proxy",
     "Gemeinsamer Speicherkarten-Ordner für APKs, Musik und Fotos",
     "Material-3-Expressive-Oberfläche in 18 Sprachen",
-    "Kostenlos und quelloffen (GPL-3.0)"
+    "Kostenlos und quelloffen (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Gerät",
    "c_android": "Android",
@@ -380,7 +386,9 @@ window.AEMU_I18N = {
     "Graphismes matériels via le pont GL, son, tactile et multitouch, réseau avec proxy TLS moderne",
     "Dossier de carte mémoire partagé pour les APK, la musique et les photos",
     "Interface Material 3 Expressive en 18 langues",
-    "Gratuit et open source (GPL-3.0)"
+    "Gratuit et open source (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Appareil",
    "c_android": "Android",
@@ -446,7 +454,9 @@ window.AEMU_I18N = {
     "Gráficos por hardware con el puente GL, sonido, táctil y multitáctil, red con proxy TLS moderno",
     "Carpeta compartida de tarjeta de memoria para APK, música y fotos",
     "Interfaz Material 3 Expressive en 18 idiomas",
-    "Gratis y de código abierto (GPL-3.0)"
+    "Gratis y de código abierto (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Dispositivo",
    "c_android": "Android",
@@ -512,7 +522,9 @@ window.AEMU_I18N = {
     "Gráficos por hardware pela ponte GL, som, toque e multitoque, rede com proxy TLS moderno",
     "Pasta compartilhada de cartão de memória para APKs, músicas e fotos",
     "Interface Material 3 Expressive em 18 idiomas",
-    "Gratuito e de código aberto (GPL-3.0)"
+    "Gratuito e de código aberto (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Aparelho",
    "c_android": "Android",
@@ -578,7 +590,9 @@ window.AEMU_I18N = {
     "Grafica hardware tramite il ponte GL, audio, tocco e multitouch, rete con proxy TLS moderno",
     "Cartella condivisa della scheda di memoria per APK, musica e foto",
     "Interfaccia Material 3 Expressive in 18 lingue",
-    "Gratuito e open source (GPL-3.0)"
+    "Gratuito e open source (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Dispositivo",
    "c_android": "Android",
@@ -644,7 +658,9 @@ window.AEMU_I18N = {
     "Sprzętowa grafika przez mostek GL, dźwięk, dotyk i multitouch, sieć z nowoczesnym proxy TLS",
     "Wspólny folder karty pamięci na APK, muzykę i zdjęcia",
     "Interfejs Material 3 Expressive w 18 językach",
-    "Za darmo i open source (GPL-3.0)"
+    "Za darmo i open source (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Urządzenie",
    "c_android": "Android",
@@ -710,7 +726,9 @@ window.AEMU_I18N = {
     "GL köprüsüyle donanım grafikleri, ses, dokunma ve çoklu dokunma, modern TLS vekilli ağ",
     "APK, müzik ve fotoğraflar için ortak hafıza kartı klasörü",
     "18 dilde Material 3 Expressive arayüz",
-    "Ücretsiz ve açık kaynak (GPL-3.0)"
+    "Ücretsiz ve açık kaynak (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Cihaz",
    "c_android": "Android",
@@ -776,7 +794,9 @@ window.AEMU_I18N = {
     "رسوميات عتادية عبر جسر GL، وصوت، ولمس ولمس متعدد، وشبكة مع وكيل TLS حديث",
     "مجلد بطاقة ذاكرة مشترك لملفات APK والموسيقى والصور",
     "واجهة Material 3 Expressive بـ 18 لغة",
-    "مجاني ومفتوح المصدر (GPL-3.0)"
+    "مجاني ومفتوح المصدر (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "الجهاز",
    "c_android": "أندرويد",
@@ -842,7 +862,9 @@ window.AEMU_I18N = {
     "گرافیک سخت‌افزاری از طریق پل GL، صدا، لمس و چندلمسی، شبکه با پراکسی TLS مدرن",
     "پوشهٔ مشترک کارت حافظه برای APK، موسیقی و عکس",
     "رابط Material 3 Expressive به 18 زبان",
-    "رایگان و متن‌باز (GPL-3.0)"
+    "رایگان و متن‌باز (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "دستگاه",
    "c_android": "اندروید",
@@ -908,7 +930,9 @@ window.AEMU_I18N = {
     "GL ब्रिज से हार्डवेयर ग्राफ़िक्स, आवाज़, टच और मल्टीटच, आधुनिक TLS प्रॉक्सी के साथ नेटवर्क",
     "APK, संगीत और फ़ोटो के लिए साझा मेमोरी कार्ड फ़ोल्डर",
     "18 भाषाओं में Material 3 Expressive इंटरफ़ेस",
-    "मुफ़्त और ओपन सोर्स (GPL-3.0)"
+    "मुफ़्त और ओपन सोर्स (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "डिवाइस",
    "c_android": "Android",
@@ -974,7 +998,9 @@ window.AEMU_I18N = {
     "Grafis hardware lewat jembatan GL, suara, sentuh dan multisentuh, jaringan dengan proxy TLS modern",
     "Folder kartu memori bersama untuk APK, musik, dan foto",
     "Antarmuka Material 3 Expressive dalam 18 bahasa",
-    "Gratis dan sumber terbuka (GPL-3.0)"
+    "Gratis dan sumber terbuka (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Perangkat",
    "c_android": "Android",
@@ -1040,7 +1066,9 @@ window.AEMU_I18N = {
     "Đồ họa phần cứng qua cầu GL, âm thanh, cảm ứng và đa điểm, mạng với proxy TLS hiện đại",
     "Thư mục thẻ nhớ dùng chung cho APK, nhạc và ảnh",
     "Giao diện Material 3 Expressive với 18 ngôn ngữ",
-    "Miễn phí và mã nguồn mở (GPL-3.0)"
+    "Miễn phí và mã nguồn mở (GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "Thiết bị",
    "c_android": "Android",
@@ -1106,7 +1134,9 @@ window.AEMU_I18N = {
     "经 GL 桥的硬件图形、声音、触控与多点触控，带现代 TLS 代理的网络",
     "共享存储卡文件夹，方便放 APK、音乐和照片",
     "Material 3 Expressive 界面，支持 18 种语言",
-    "免费开源（GPL-3.0）"
+    "免费开源（GPL-3.0）",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "设备",
    "c_android": "Android",
@@ -1172,7 +1202,9 @@ window.AEMU_I18N = {
     "GL ブリッジによるハードウェア描画、音声、タッチとマルチタッチ、最新 TLS プロキシ付きネットワーク",
     "APK・音楽・写真用の共有メモリーカードフォルダー",
     "18 言語対応の Material 3 Expressive UI",
-    "無料・オープンソース（GPL-3.0）"
+    "無料・オープンソース（GPL-3.0）",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "端末",
    "c_android": "Android",
@@ -1238,7 +1270,9 @@ window.AEMU_I18N = {
     "GL 브리지 하드웨어 그래픽, 소리, 터치와 멀티터치, 최신 TLS 프록시 네트워크",
     "APK·음악·사진을 위한 공유 메모리 카드 폴더",
     "18개 언어의 Material 3 Expressive 인터페이스",
-    "무료 오픈 소스(GPL-3.0)"
+    "무료 오픈 소스(GPL-3.0)",
+    "Guest activity launcher: search installed packages in the ⋮ menu and launch their main activity",
+    "Import any partition into the QEMU / KitKat guest, including custom mount paths"
    ],
    "c_device": "기기",
    "c_android": "Android",
