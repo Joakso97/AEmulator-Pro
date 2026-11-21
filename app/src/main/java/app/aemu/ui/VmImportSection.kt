@@ -4,6 +4,8 @@ package app.aemu.ui
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -246,6 +248,16 @@ internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy:
     var pending by remember { mutableStateOf<Uri?>(null) }
     var working by remember { mutableStateOf(false) }
     var failure by remember { mutableStateOf<String?>(null) }
+    var logText by remember { mutableStateOf<String?>(null) }
+    fun showLog() {
+        val lines = runCatching {
+            val f = VmPaths(ctx, img.id).log("aemu")
+            if (f.isFile) f.readLines().filter { line ->
+                line.contains("boot anim", true) || line.contains("bootanim", true) || line.contains("boot media", true)
+            }.takeLast(80) else emptyList()
+        }.getOrDefault(emptyList())
+        logText = lines.joinToString("\n").ifEmpty { ctx.getString(R.string.vm_bootanim_log_empty) }
+    }
     fun start(uri: Uri, replace: Boolean) {
         setBusy(true)
         message = null
@@ -276,9 +288,12 @@ internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy:
         headlineContent = { Text(stringResource(R.string.vm_bootanim_import)) },
         supportingContent = { Text(message ?: stringResource(R.string.vm_bootanim_sub)) },
         trailingContent = {
-            TextButton(enabled = !busy, onClick = {
-                pick.launch(arrayOf("application/zip", "application/octet-stream", "*/*"))
-            }) { Text(stringResource(R.string.vm_bootanim_import)) }
+            Row {
+                TextButton(enabled = !busy, onClick = { showLog() }) { Text(stringResource(R.string.vm_bootanim_log)) }
+                TextButton(enabled = !busy, onClick = {
+                    pick.launch(arrayOf("application/zip", "application/octet-stream", "*/*"))
+                }) { Text(stringResource(R.string.vm_bootanim_import)) }
+            }
         },
         colors = ListItemDefaults.colors(containerColor = Color.Transparent),
     )
@@ -309,6 +324,18 @@ internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy:
             title = { Text(stringResource(R.string.vm_bootanim_failed_title)) },
             text = { Text(text) },
             confirmButton = { TextButton(onClick = { failure = null }) { Text(stringResource(R.string.ok)) } },
+        )
+    }
+    logText?.let { text ->
+        AlertDialog(
+            onDismissRequest = { logText = null },
+            title = { Text(stringResource(R.string.vm_bootanim_log)) },
+            text = {
+                Text(text, Modifier.verticalScroll(rememberScrollState()),
+                    style = MaterialTheme.typography.bodySmall,
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+            },
+            confirmButton = { TextButton(onClick = { logText = null }) { Text(stringResource(R.string.ok)) } },
         )
     }
 }

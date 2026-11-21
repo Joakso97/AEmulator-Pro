@@ -38,7 +38,11 @@ internal object BootMediaServices {
         val rc = InitPlan.parse(rcFiles(root))
         val aliases = if (name in setOf("bootanim", "bootanimation")) listOf("bootanim", "samsungani", "bootanimation") else listOf(name)
         val service = aliases.firstNotNullOfOrNull { rc.services[it] }
-        val argv = service?.argv ?: when (name) {
+        val customZip = File(root, "system/media/bootanimation.zip").isFile &&
+            File(root, "system/bin/bootanimation").isFile
+        val argv = if (customZip && name in setOf("bootanim", "bootanimation", "samsungani")) {
+            listOf("/system/bin/bootanimation")
+        } else service?.argv ?: when (name) {
             "playsound" -> listOf("/system/bin/playsound")
             "samsungani" -> listOf("/system/bin/samsungani")
             LEGACY_LOGO -> listOf("/system/bin/$LEGACY_LOGO")

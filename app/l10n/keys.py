@@ -399,6 +399,8 @@ KEYS = [
     'vm_bootanim_import',
     'vm_bootanim_sub',
     'vm_bootanim_replace',
+    'vm_bootanim_log',
+    'vm_bootanim_log_empty',
     'vm_bootanim_working',
     'vm_bootanim_failed_title',
     'vm_bootanim_done',
