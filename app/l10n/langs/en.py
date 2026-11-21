@@ -168,6 +168,7 @@ S = {
     'm_launch_activity_hint': 'Search packages',
     'm_launch_activity_launch': 'Launch',
     'm_launch_activity_packages': 'Load packages',
+    'm_launch_activity_empty': 'No packages found',
     'm_keyboard': 'Show/hide keyboard',
     'm_minimize': 'Minimize',
     'm_netdebug': 'HTTP debugger',

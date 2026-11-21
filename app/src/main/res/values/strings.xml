@@ -171,6 +171,7 @@
     <string name="m_launch_activity_hint">Search packages</string>
     <string name="m_launch_activity_launch">Launch</string>
     <string name="m_launch_activity_packages">Load packages</string>
+    <string name="m_launch_activity_empty">No packages found</string>
     <string name="m_keyboard">Show/hide keyboard</string>
     <string name="m_minimize">Minimize</string>
     <string name="m_netdebug">HTTP debugger</string>

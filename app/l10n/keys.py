@@ -168,6 +168,7 @@ KEYS = [
     'm_launch_activity_hint',
     'm_launch_activity_launch',
     'm_launch_activity_packages',
+    'm_launch_activity_empty',
     'm_keyboard',
     'm_minimize',
     'm_netdebug',

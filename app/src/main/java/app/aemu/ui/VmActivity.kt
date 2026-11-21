@@ -1294,20 +1294,28 @@ open class VmActivity : ComponentActivity() {
         var packages by remember { mutableStateOf<List<String>>(emptyList()) }
         var loading by remember { mutableStateOf(true) }
         var message by remember { mutableStateOf("") }
-        LaunchedEffect(Unit) {
-            guestAsync("pm list packages") { out ->
-                packages = out.lines().mapNotNull { line ->
-                    line.trim().removePrefix("package:").takeIf { it.contains('.') && it.all { c -> c.isLetterOrDigit() || c == '.' || c == '_' } }
-                }.distinct().sorted()
-                loading = false
+        fun loadPackages() {
+            loading = true
+            thread {
+                val names = runCatching {
+                    val f = File(vm.paths.root, "data/system/packages.xml")
+                    if (f.isFile) Regex("""<package\s+name="([^"]+)"""").findAll(f.readText())
+                        .map { it.groupValues[1] }.toSet() else emptySet()
+                }.getOrDefault(emptySet())
+                runOnUiThread {
+                    packages = names.filter { it.contains('.') && it.all { c -> c.isLetterOrDigit() || c == '.' || c == '_' } }.distinct().sorted()
+                    loading = false
+                }
             }
         }
+        LaunchedEffect(Unit) { loadPackages() }
         val shown = packages.filter { it.contains(query.trim(), true) }
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(Modifier.fillMaxSize().imePadding()) {
                 Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(8.dp)) {
                     IconButton(onClick = onDone) { Icon(Icons.AutoMirrored.Rounded.ArrowBack, stringResource(R.string.close)) }
                     Text(stringResource(R.string.m_launch_activity), Modifier.weight(1f), style = MaterialTheme.typography.titleLarge)
+                    IconButton(onClick = { loadPackages() }) { Icon(Icons.Rounded.RestartAlt, stringResource(R.string.m_launch_activity_packages)) }
                     IconButton(onClick = onDone) { Icon(Icons.Rounded.Close, stringResource(R.string.close)) }
                 }
                 OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth().padding(horizontal = 12.dp),
@@ -1316,13 +1324,14 @@ open class VmActivity : ComponentActivity() {
                     style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
                 Box(Modifier.weight(1f).fillMaxWidth()) {
                     if (loading) CircularProgressIndicator(Modifier.align(Alignment.Center))
+                    else if (shown.isEmpty()) Text(stringResource(R.string.m_launch_activity_empty), Modifier.align(Alignment.Center))
                     else LazyColumn(Modifier.fillMaxSize(),
                         contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp)) {
                         items(shown) { pkg ->
                             TextButton(onClick = {
                                 message = "Launching $pkg"
                                 guestAsync("monkey -p ${q(pkg)} -c android.intent.category.LAUNCHER 1") { out ->
-                                    message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: "OK"
+                                    runOnUiThread { message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: "OK" }
                                 }
                             }, modifier = Modifier.fillMaxWidth()) {
                                 Text(pkg, fontSize = 12.sp, modifier = Modifier.weight(1f))
@@ -1550,7 +1559,7 @@ open class VmActivity : ComponentActivity() {
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_wea)) }, leadingIcon = { Icon(Icons.Rounded.Warning, null) },
                         enabled = running && vm.img.api >= 17, onClick = { menu = false; dialog = Dlg.WEA })   
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_battery)) }, leadingIcon = { Icon(Icons.Rounded.BatteryStd, null) },
-                        enabled = running && vm.img.api >= 19, onClick = { menu = false; dialog = Dlg.BATTERY })
+                        enabled = running, onClick = { menu = false; dialog = Dlg.BATTERY })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_install_apk)) }, leadingIcon = { Icon(Icons.Rounded.InstallMobile, null) },
                         enabled = running, onClick = { menu = false; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*")) })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_launch_activity)) }, leadingIcon = { Icon(Icons.Rounded.Code, null) },

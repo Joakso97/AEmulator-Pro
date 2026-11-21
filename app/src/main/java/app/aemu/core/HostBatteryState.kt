@@ -37,7 +37,8 @@ internal data class HostBatteryState(val percent: Int, val status: Int, val plug
             "wireless/type" to "Wireless",
             "wireless/online" to if (wireless) "1" else "0",
             "battery/charging_source" to if (ac || wireless) "2" else if (usb) "1" else "0",
-            "battery/time_to_full_now" to timeMinutes.coerceAtLeast(0).toString()
+            "battery/time_to_full_now" to (if (status == 2) timeMinutes else 0).coerceAtLeast(0).toString(),
+            "battery/time_to_empty_now" to (if (status != 2) timeMinutes else 0).coerceAtLeast(0).toString()
         )
         for ((path, value) in entries) {
             val file = File(base, "sys/class/power_supply/$path")
@@ -65,6 +66,8 @@ internal data class HostBatteryState(val percent: Int, val status: Int, val plug
             file.writeText("$value\n")
             file.setReadable(true, false); file.setWritable(true, false)
         }
+        val legacyTime = if (status == 2) timeMinutes else 0
+        for (name in listOf("time_to_full", "time_to_empty")) File(dir, name).takeIf { it.isFile }?.writeText("$legacyTime\n")
     }
     companion object {
         fun from(level: Int, scale: Int, status: Int, plugged: Int): HostBatteryState? {
