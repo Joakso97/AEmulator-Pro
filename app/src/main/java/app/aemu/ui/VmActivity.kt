@@ -59,6 +59,7 @@ import androidx.compose.material.icons.rounded.Gamepad
 import androidx.compose.material.icons.rounded.Code
 import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.automirrored.rounded.Send
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.CircularProgressIndicator
@@ -1288,6 +1289,52 @@ open class VmActivity : ComponentActivity() {
     }
 
     @Composable
+    private fun ActivityLauncherScreen(onDone: () -> Unit) {
+        var query by remember { mutableStateOf("") }
+        var packages by remember { mutableStateOf<List<String>>(emptyList()) }
+        var loading by remember { mutableStateOf(true) }
+        var message by remember { mutableStateOf("") }
+        LaunchedEffect(Unit) {
+            guestAsync("pm list packages") { out ->
+                packages = out.lines().mapNotNull { line ->
+                    line.trim().removePrefix("package:").takeIf { it.contains('.') && it.all { c -> c.isLetterOrDigit() || c == '.' || c == '_' } }
+                }.distinct().sorted()
+                loading = false
+            }
+        }
+        val shown = packages.filter { it.contains(query.trim(), true) }
+        Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+            Column(Modifier.fillMaxSize().imePadding()) {
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(8.dp)) {
+                    IconButton(onClick = onDone) { Icon(Icons.AutoMirrored.Rounded.ArrowBack, stringResource(R.string.close)) }
+                    Text(stringResource(R.string.m_launch_activity), Modifier.weight(1f), style = MaterialTheme.typography.titleLarge)
+                    IconButton(onClick = onDone) { Icon(Icons.Rounded.Close, stringResource(R.string.close)) }
+                }
+                OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth().padding(horizontal = 12.dp),
+                    singleLine = true, placeholder = { Text(stringResource(R.string.m_launch_activity_hint)) })
+                if (message.isNotBlank()) Text(message, Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
+                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
+                Box(Modifier.weight(1f).fillMaxWidth()) {
+                    if (loading) CircularProgressIndicator(Modifier.align(Alignment.Center))
+                    else LazyColumn(Modifier.fillMaxSize(),
+                        contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp)) {
+                        items(shown) { pkg ->
+                            TextButton(onClick = {
+                                message = "Launching $pkg"
+                                guestAsync("monkey -p ${q(pkg)} -c android.intent.category.LAUNCHER 1") { out ->
+                                    message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: "OK"
+                                }
+                            }, modifier = Modifier.fillMaxWidth()) {
+                                Text(pkg, fontSize = 12.sp, modifier = Modifier.weight(1f))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Composable
     private fun CallDialog(onDone: () -> Unit) {
         var from by remember { mutableStateOf("+10000000000") }
         AlertDialog(onDismissRequest = onDone,
@@ -1360,6 +1407,7 @@ open class VmActivity : ComponentActivity() {
     private fun Overlay() {
         var menu by ::menuOpen
         var dialog by remember { mutableStateOf(Dlg.NONE) }
+        var activityLauncher by remember { mutableStateOf(false) }
         
         val running = state == GuestVm.State.RUNNING && !vm.recoveryMode
         
@@ -1505,6 +1553,8 @@ open class VmActivity : ComponentActivity() {
                         enabled = running && vm.img.api >= 19, onClick = { menu = false; dialog = Dlg.BATTERY })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_install_apk)) }, leadingIcon = { Icon(Icons.Rounded.InstallMobile, null) },
                         enabled = running, onClick = { menu = false; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*")) })
+                    DropdownMenuItem(text = { Text(stringResource(R.string.m_launch_activity)) }, leadingIcon = { Icon(Icons.Rounded.Code, null) },
+                        enabled = running, onClick = { menu = false; activityLauncher = true })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_device)) }, leadingIcon = { Icon(Icons.Rounded.Tune, null) },
                         enabled = running && vm.img.api >= 17, onClick = { menu = false; dialog = Dlg.DEVICE })
                     DropdownMenuItem(text = { Text(stringResource(R.string.thermal_menu)) }, leadingIcon = { Icon(Icons.Rounded.Thermostat, null) },
@@ -1711,6 +1761,8 @@ open class VmActivity : ComponentActivity() {
             }
 
             
+            if (activityLauncher) ActivityLauncherScreen { activityLauncher = false }
+
             if (revealArrow) TabBarRevealArrow(onShow = { foldTabBar(false) }, modifier = Modifier.align(Alignment.TopEnd))
         }
     }

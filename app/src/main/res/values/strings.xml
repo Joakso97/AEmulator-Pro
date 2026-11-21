@@ -166,6 +166,11 @@
     <string name="m_install_apk_done_desc">The app is now installed in the guest.</string>
     <string name="m_install_apk_failed">Installation failed</string>
     <string name="m_install_apk_failed_desc">The package manager could not install this APK.</string>
+    <string name="m_launch_activity">Activity launcher</string>
+    <string name="m_launch_activity_component">Component</string>
+    <string name="m_launch_activity_hint">Search packages</string>
+    <string name="m_launch_activity_launch">Launch</string>
+    <string name="m_launch_activity_packages">Load packages</string>
     <string name="m_keyboard">Show/hide keyboard</string>
     <string name="m_minimize">Minimize</string>
     <string name="m_netdebug">HTTP debugger</string>
