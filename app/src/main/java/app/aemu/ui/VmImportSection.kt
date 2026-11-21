@@ -237,3 +237,53 @@ internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean
         }
     )
 }
+
+@Composable
+internal fun BootAnimationImportSection(img: GuestImage, busy: Boolean, setBusy: (Boolean) -> Unit) {
+    val ctx = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var message by remember { mutableStateOf<String?>(null) }
+    var pending by remember { mutableStateOf<Uri?>(null) }
+    fun start(uri: Uri, replace: Boolean) {
+        setBusy(true)
+        message = null
+        scope.launch {
+            val result = withContext(Dispatchers.IO) {
+                runCatching {
+                    BootAnimationImport.install(ctx, img.id, uri, replace)
+                    TreeFixer(ctx, VmPaths(ctx, img.id), img) {}.seedOwners()
+                }
+            }
+            setBusy(false)
+            message = result.fold(
+                { ctx.getString(R.string.vm_bootanim_done) },
+                { ctx.getString(R.string.vm_bootanim_failed, it.userMessage(ctx)) })
+        }
+    }
+    val pick = rememberSingleFilePicker { uri ->
+        if (uri != null) {
+            if (BootAnimationImport.present(VmPaths(ctx, img.id).root)) pending = uri else start(uri, false)
+        }
+    }
+    Text(stringResource(R.string.vm_bootanim), style = MaterialTheme.typography.titleMedium, modifier = Modifier.fillMaxWidth())
+    ListItem(
+        modifier = Modifier.fillMaxWidth(),
+        headlineContent = { Text(stringResource(R.string.vm_bootanim_import)) },
+        supportingContent = { Text(message ?: stringResource(R.string.vm_bootanim_sub)) },
+        trailingContent = {
+            TextButton(enabled = !busy, onClick = {
+                pick.launch(arrayOf("application/zip", "application/octet-stream", "*/*"))
+            }) { Text(stringResource(R.string.vm_bootanim_import)) }
+        },
+        colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+    )
+    pending?.let { uri ->
+        AlertDialog(
+            onDismissRequest = { pending = null },
+            title = { Text(stringResource(R.string.vm_bootanim)) },
+            text = { Text(stringResource(R.string.vm_bootanim_replace)) },
+            confirmButton = { TextButton(onClick = { pending = null; start(uri, true) }) { Text(stringResource(R.string.ok)) } },
+            dismissButton = { TextButton(onClick = { pending = null }) { Text(stringResource(R.string.cancel)) } },
+        )
+    }
+}

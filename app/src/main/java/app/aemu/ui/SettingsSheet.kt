@@ -356,6 +356,9 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
             PartitionImportSection(img, resetting) { resetting = it }
 
             Spacer(Modifier.height(8.dp))
+            BootAnimationImportSection(img, resetting) { resetting = it }
+
+            Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_controls), style = MaterialTheme.typography.titleMedium)
             Toggle(stringResource(R.string.vs_nav), stringResource(R.string.vs_nav_sub), s.showNavBar) { s = s.copy(showNavBar = it) }
             Toggle(stringResource(R.string.vs_guest_nav), stringResource(R.string.vs_guest_nav_sub), s.guestNavBar) { s = s.copy(guestNavBar = it) }

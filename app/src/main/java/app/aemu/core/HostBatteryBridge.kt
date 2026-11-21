@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.SystemClock
 import androidx.core.content.ContextCompat
 import java.io.File
 
@@ -25,6 +26,8 @@ internal class HostBatteryBridge(private val ctx: Context, private val root: Fil
     private var registered = false
     private var lastWritten: HostBatteryState? = null
     private var lastApplied: Pair<HostBatteryState, Int>? = null
+    @Volatile private var manual: HostBatteryState? = null
+    private var manualAt = 0L
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) { read(intent) }
     }
@@ -63,24 +66,37 @@ internal class HostBatteryBridge(private val ctx: Context, private val root: Fil
                     }
                 }.onFailure { log("battery: ${it.message}") }
             }
+            if (!following && active) manual?.let { base ->
+                if (base.timeMinutes > 0) {
+                    val elapsed = ((SystemClock.elapsedRealtime() - manualAt) / 60_000L).toInt()
+                    val value = base.copy(timeMinutes = (base.timeMinutes - elapsed).coerceAtLeast(0))
+                    runCatching {
+                        value.writeSysfs(root); lastWritten = value
+                        if (ready()) run(value.command(api))
+                    }.onFailure { log("battery: ${it.message}") }
+                }
+            }
             if (active) handler?.postDelayed(this, 15_000)
         }
     }
     fun applyManual(percent: Int, charging: Boolean, timeMinutes: Int = 0) {
         following = false
         val value = HostBatteryState.from(percent, 100, if (charging) 2 else 4, if (charging) 1 else 0)!!.copy(timeMinutes = timeMinutes)
+        manual = value
+        manualAt = SystemClock.elapsedRealtime()
         handler?.post {
             if (active) runCatching {
                 value.writeSysfs(root); lastWritten = value
-                if (api >= 17 && ready()) run(value.command(api))
+                if (ready()) run(value.command(api))
             }.onFailure { log("battery: ${it.message}") }
         }
     }
     fun reset(defaultEnabled: Boolean) {
         following = defaultEnabled
+        manual = null
         handler?.post {
             if (active && !following) runCatching { HostBatteryState.from(100, 100, 5, 1)!!.writeSysfs(root) }
-            if (active && ready() && api >= 17) runCatching { run("dumpsys battery reset") }
+            if (active && ready()) runCatching { run("dumpsys battery reset") }
             if (active) { lastWritten = null; lastApplied = null; handler?.removeCallbacks(tick); handler?.post(tick) }
         }
     }

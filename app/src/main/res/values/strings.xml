@@ -398,6 +398,14 @@
     <string name="vm_import_csc_replace">Replace CSC (Samsung)</string>
     <string name="vm_import_csc_working">Reading CSC package… Stop all VMs before importing.</string>
     <string name="vm_import_failed">Import failed: %1$s</string>
+    <string name="vm_bootanim">Boot animation</string>
+    <string name="vm_bootanim_import">Import boot animation…</string>
+    <string name="vm_bootanim_sub">Install a bootanimation.zip into /system/media of this VM.</string>
+    <string name="vm_bootanim_replace">This VM already has a boot animation. Replace it?</string>
+    <string name="vm_bootanim_done">Boot animation imported</string>
+    <string name="vm_bootanim_failed">Boot animation import failed: %1$s</string>
+    <string name="vm_bootanim_exists">This VM already has a boot animation</string>
+    <string name="vm_bootanim_invalid">Not a boot animation ZIP (desc.txt is missing)</string>
     <string name="vm_import_settings">Import settings</string>
     <string name="vm_import_settings_done">Settings loaded. Press Save to apply them. System, boot and data are unchanged.</string>
     <string name="vm_import_settings_warning">Archive: %1$s\nThis VM: %2$s\n\nThe device/ROM differs, or its identity cannot be verified. These settings may not fit this VM. Import the settings anyway? Partitions are not imported.</string>
