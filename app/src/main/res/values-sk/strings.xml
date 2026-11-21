@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">Zamknúť orientáciu gyroskopu</string>
     <string name="vs_gyro_lock_sub">0° / 180° pripne pohybové senzory hostiteľa na pevnú orientáciu: gravitácia zostane na mieste a gyroskop ukazuje nulu, takže sa hosťovaný systém nikdy automaticky neotočí. Bez gyroskopu gyroskop hosťovanému systému úplne skryje (použite, ak sa gyroskop správa nesprávne); akcelerometer a magnetometer zostanú skutočné. Prejaví sa po úplnom reštarte VM.</string>
     <string name="vs_gyro_none">Bez gyroskopu</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.hardvér</string>
     <string name="vs_hardware_default">Predvolené podľa firmvéru</string>
     <string name="vs_hardware_pick">Vybrať</string>
     <string name="vs_hardware_sub">Hodnota ro.hardware odovzdaná hosťovanému systému pri spustení. Systém podľa nej vyhľadáva knižnice HAL (gralloc.&lt;value&gt;.so, lights.&lt;value&gt;.so…), preto ju meňte, iba ak viete, čo firmvér očakáva. Prejaví sa po úplnom reštarte VM.</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Menšie tlačidlá, viac miesta pre obrazovku.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Obnoviť tlačidlo ponuky</string>
+    <string name="m_battery_time">Výdrž batérie (minúty)</string>
+    <string name="m_battery_time_sub">Hosťovi sa hlási ako plná / zostávajúca výdrž batérie. 0 = predvolená hodnota.</string>
 </resources>

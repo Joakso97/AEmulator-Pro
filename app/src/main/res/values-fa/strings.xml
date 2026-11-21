@@ -569,4 +569,6 @@
     <string name="help_text">• اندروید 2.3 و 4.0 تا 4.4: پشتیبانی اصلی؛ 5.x تا 6.x: آزمایشی.\n• فقط فرم‌ویرهای ARM ‏32 بیتی (armeabi / armeabi-v7a).\n\nقالب‌ها:\n• ‏ZIP ریکاوری CWM/TWRP (MIUI، CyanogenMod، پورت‌ها، بیشتر رام‌های سفارشی)؛\n• سامسونگ: ‎.tar / .tar.md5 از Odin یا ZIP حاوی AP_*.tar.md5؛\n• ایمیج‌های کارخانهٔ گوگل (.tgz / .zip)؛\n• ‏system.img ‏(ext4، sparse)، پشتیبان TWRP ‏system.ext4.win؛\n• ‏OTA با system.new.dat(.br) و system.transfer.list.\n\nبهتر است آرشیو شامل boot.img باشد: ترتیب اجرای سرویس‌ها از آن خوانده می‌شود.</string>
     <string name="as_site">وب‌سایت</string>
     <string name="as_channel">کانال تلگرام</string>
+    <string name="m_battery_time">زمان شارژ باتری (دقیقه)</string>
+    <string name="m_battery_time_sub">به عنوان زمان کامل باتری / باقی مانده به مهمان گزارش می شود. 0 = پیش فرض</string>
 </resources>

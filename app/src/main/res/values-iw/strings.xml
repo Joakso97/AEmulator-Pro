@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">כפתורים קטנים יותר, יותר מקום למסך.</string>
     <string name="nav_dpad">כדור עקיבה</string>
     <string name="m_reset_menu_pos">אפס את כפתור התפריט</string>
+    <string name="m_battery_time">זמן סוללה (דקות)</string>
+    <string name="m_battery_time_sub">דווח לאורח כזמן סוללה עד מלא/נותר. 0 = ברירת מחדל.</string>
 </resources>

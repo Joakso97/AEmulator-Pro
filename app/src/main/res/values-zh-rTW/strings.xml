@@ -38,7 +38,7 @@
     <string name="as_library_3d_sub">以可滑動瀏覽的 3D 手機展示已匯入的韌體和容器，代替卡片列表。預設關閉。</string>
     <string name="as_license_notices">授權與修改聲明</string>
     <string name="as_links">專案</string>
-    <string name="as_navbar_original">原版</string>
+    <string name="as_navbar_original">原來的</string>
     <string name="as_navbar_sunset">日落</string>
     <string name="as_new_home">新主螢幕</string>
     <string name="as_new_home_sub">帶底欄的網格庫（0.0.0.3 風格）。關閉后回到經典列表。重新啟動應用程式后生效。</string>
@@ -109,9 +109,9 @@
     <string name="folder_empty">空 — 把 ROM 拖到這裡</string>
     <string name="folder_move">移動到資料夾</string>
     <string name="folder_new">新增資料夾</string>
-    <string name="vm_more">更多</string>
+    <string name="vm_more">更多的</string>
     <string name="vm_more_move">移動</string>
-    <string name="vm_more_name">名稱</string>
+    <string name="vm_more_name">姓名</string>
     <string name="vm_more_folder">資料夾</string>
     <string name="folder_new_dots">新增資料夾…</string>
     <string name="folder_none">不在資料夾中</string>
@@ -158,7 +158,7 @@
     <string name="m_failed">失敗</string>
     <string name="m_install_apk">安裝 APK…</string>
     <string name="m_install_apk_start">正在安裝…</string>
-    <string name="m_install_apk_start_desc">将 APK 复制到来宾并使用包管理器进行安装。</string>
+    <string name="m_install_apk_start_desc">將 APK 複製到來賓並使用套件管理器進行安裝。</string>
     <string name="m_install_apk_done">應用程式已安裝</string>
     <string name="m_install_apk_done_desc">該應用程式現已安裝在來賓中。</string>
     <string name="m_install_apk_failed">安裝失敗</string>
@@ -426,7 +426,7 @@
     <string name="vs_device_id">裝置身分</string>
     <string name="vs_disable_google">停用 Google 應用程式</string>
     <string name="vs_disable_google_sub">完全重新啟動后，停用偵測到的 Google 應用程式、Play 商店、Play 服務和 Google 帳號元件。啟動器、鍵盤、WebView 和關鍵系統元件會保留。安裝精靈單獨控制。依賴 Google 服務的應用程式可能無法工作。關閉此選項只還原被它停用的應用程式；不會刪除 APK 和應用程式資料。</string>
-    <string name="vs_dpi">DPI</string>
+    <string name="vs_dpi">深度PI</string>
     <string name="vs_dual_sim">雙卡</string>
     <string name="vs_dual_sim_sub">第二張模擬 SIM 卡。僅為雙卡建構的韌體會使用它（許多三星和 MediaTek 韌體）。下次啟動生效。</string>
     <string name="vs_fixed_2x">Android 2.x 使用固定的 480×800 螢幕，解析度為 240 dpi。</string>
@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">鎖定陀螺儀方向</string>
     <string name="vs_gyro_lock_sub">0° / 180° 將主機運動感測器固定為一個方向：重力恆定、陀螺儀讀數為零，客戶機永遠不會自動旋轉。“無陀螺儀”對客戶機完全隱藏陀螺儀（陀螺儀異常時使用）；加速度計和磁力計保持真實。完全重新啟動系統后生效。</string>
     <string name="vs_gyro_none">無陀螺儀</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.硬體</string>
     <string name="vs_hardware_default">韌體預設</string>
     <string name="vs_hardware_pick">選擇</string>
     <string name="vs_hardware_sub">啟動時傳給客戶機的 ro.hardware 值。系統用它尋找 HAL 庫（gralloc.&lt;值&gt;.so、lights.&lt;值&gt;.so…），因此只有清楚韌體期望什麼時才修改。完全重新啟動系統后生效。</string>
@@ -452,7 +452,7 @@
     <string name="vs_host_resolution_sub">完全重新啟動系統后使用主機的物理螢幕尺寸和密度。模擬器按鍵覆蓋在客戶機之上。挖孔屏障在應用程式設定中。高解析度需要更多記憶體和渲染時間。舊版 2.x 引擎保持固定解析度。</string>
     <string name="vs_hwui">應用程式硬體加速（hwui）</string>
     <string name="vs_hwui_sub">更流暢，但部分韌體會出現畫面瑕疵。</string>
-    <string name="vs_jit">Dalvik JIT</string>
+    <string name="vs_jit">達爾維克即時生產</string>
     <string name="vs_jit_sub">更快；關閉後，挑剔的韌體會更穩定。</string>
     <string name="vs_kernel">內核版本</string>
     <string name="vs_kernel_branch">分支（版本后綴）</string>
@@ -495,7 +495,7 @@
     <string name="vs_no_sensors_sub">讓客戶機不帶任何感測器執行，適用於感測器服務在模擬下當機的韌體。API 24+ 的 Android Wear SDK 建構預設開啟（啟動所必需）。下次完全啟動生效。</string>
     <string name="vs_no_watchdog">停用系統 watchdog（Android 14+）</string>
     <string name="vs_no_watchdog_sub">用於啟動慢於 Android 60 秒 watchdog 限制、導致 system_server 被循環殺死的韌體。修補韌體的 services.jar 使 watchdog 執行緒立即退出；此後真正的系統死結不再靠重新啟動解決。jar 的預編譯代碼會被忽略，首次啟動可能更慢。關閉后還原原始 jar。下次完全啟動生效。</string>
-    <string name="vs_ota">OTA</string>
+    <string name="vs_ota">線上旅行社</string>
     <string name="vs_ota_button">安裝…</string>
     <string name="vs_ota_checking">正在檢查 OTA…</string>
     <string name="vs_ota_confirm">您的系統：\n%1$s\n\n將更新到：\n%2$s\n\n系統的 /system 與 boot ramdisk 會被修補，dalvik-cache 會被清除；應用程式和資料保留。如有任何不匹配，則不做任何更改。</string>
@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3 和 4.0–4.4：主要支援；5.x–6.x：實驗性。\n• 僅支援 32 位元 ARM 韌體（armeabi / armeabi-v7a）。\n\n格式：\n• CWM/TWRP 卡刷 ZIP（MIUI、CyanogenMod、移植包、大多數第三方 ROM）；\n• 三星：Odin .tar / .tar.md5，或包含 AP_*.tar.md5 的 ZIP；\n• Google 原廠映像檔（.tgz / .zip）；\n• system.img（ext4、sparse），TWRP 備份 system.ext4.win；\n• 含 system.new.dat(.br) + system.transfer.list 的 OTA 包。\n\n壓縮包中最好包含 boot.img：服務啟動順序從中讀取。</string>
     <string name="as_site">網站</string>
     <string name="as_channel">Telegram 頻道</string>
+    <string name="m_battery_time">電池使用時間（分鐘）</string>
+    <string name="m_battery_time_sub">向客人報告電池充滿/剩餘時間。 0 = 預設。</string>
 </resources>

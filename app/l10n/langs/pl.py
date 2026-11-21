@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Nazwa sieci nie może być pusta',
     'vs_wifi_ssid_sub': 'Do 32 bajtów',
     'vs_wifi_sub': 'Pokazuje Internet hosta maszynie wirtualnej jako podłączoną sieć Wi-Fi zamiast Ethernet. Android 2.3, 4.0–17 (8–17: eksperymentalny). Obowiązuje przy następnym uruchomieniu.',
+    'm_battery_time': 'Czas pracy baterii (minuty)',
+    'm_battery_time_sub': 'Zgłaszane gościowi jako pełny/pozostały czas baterii. 0 = wartość domyślna.',
 }

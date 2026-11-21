@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3 und 4.0–4.4: volle Unterstützung; 5.x–6.x: experimentell.\n• Nur 32-Bit-ARM-Firmware (armeabi / armeabi-v7a).\n\nFormate:\n• CWM/TWRP-Recovery-ZIP (MIUI, CyanogenMod, Ports, die meisten Custom-ROMs);\n• Samsung: Odin .tar / .tar.md5 oder ZIP mit AP_*.tar.md5;\n• Google-Factory-Images (.tgz / .zip);\n• system.img (ext4, sparse), TWRP-Backup system.ext4.win;\n• OTA mit system.new.dat(.br) + system.transfer.list.\n\nAm besten enthält das Archiv boot.img – daraus wird die Startreihenfolge der Dienste gelesen.</string>
     <string name="as_site">Website</string>
     <string name="as_channel">Telegram-Kanal</string>
+    <string name="m_battery_time">Akkulaufzeit (Minuten)</string>
+    <string name="m_battery_time_sub">Wird dem Gast als volle/verbleibende Batteriezeit gemeldet. 0 = Standard.</string>
 </resources>

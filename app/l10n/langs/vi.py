@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Tên mạng không được để trống',
     'vs_wifi_ssid_sub': 'Tối đa 32 byte',
     'vs_wifi_sub': 'Hiển thị internet của máy chủ cho máy ảo dưới dạng mạng Wi-Fi đã kết nối thay vì Ethernet. Android 2.3, 4.0–17 (8–17: thử nghiệm). Áp dụng ở lần khởi động sau.',
+    'm_battery_time': 'Thời gian pin (phút)',
+    'm_battery_time_sub': 'Báo cáo cho khách khi pin đầy/còn lại. 0 = mặc định.',
 }

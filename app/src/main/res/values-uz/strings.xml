@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">Lukitse gyroskoopin suunta</string>
     <string name="vs_gyro_lock_sub">0° / 180° kiinnittää isännän liikeanturit kiinteään suuntaan: painovoima pysyy paikallaan ja gyroskooppi lukee nollaa, joten vieras ei koskaan kierrä näyttöä automaattisesti. Ei gyroskooppia piilottaa gyroskoopin vieraalta kokonaan (käytä, jos gyro toimii väärin); kiihtyvyysanturi ja magnetometri pysyvät aitoina. Tulee voimaan järjestelmän täyden uudelleenkäynnistyksen jälkeen.</string>
     <string name="vs_gyro_none">Ei gyroskooppia</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.apparat</string>
     <string name="vs_hardware_default">Laiteohjelmiston oletus</string>
     <string name="vs_hardware_pick">Valitse</string>
     <string name="vs_hardware_sub">ro.hardware-arvo, joka annetaan vieraalle käynnistyksessä. Järjestelmä hakee HAL-kirjastot sen perusteella (gralloc.&lt;value&gt;.so, lights.&lt;value&gt;.so…), joten muuta sitä vain, jos tiedät, mitä laiteohjelmisto odottaa. Tulee voimaan järjestelmän täyden uudelleenkäynnistyksen jälkeen.</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Pienemmät painikkeet, enemmän tilaa näytölle.</string>
     <string name="nav_dpad">Pallohiiri</string>
     <string name="m_reset_menu_pos">Nollaa valikkopainike</string>
+    <string name="m_battery_time">Batareya vaqti (daqiqa)</string>
+    <string name="m_battery_time_sub">Mehmonga batareyaning to\'liq / qolgan vaqti sifatida xabar qilinadi. 0 = standart.</string>
 </resources>

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Mindre knapper, mere plads til skærmen.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Nulstil menuknappen</string>
+    <string name="m_battery_time">Batteritid (minutter)</string>
+    <string name="m_battery_time_sub">Rapporteret til gæsten som batteritid til fuld / resterende. 0 = standard.</string>
 </resources>

@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Ní féidir ainm an líonra a fhágáil folamh',
     'vs_wifi_ssid_sub': 'Suas le 32 bheart',
     'vs_wifi_sub': 'Taispeánann sé idirlíon an óstríomhaire don mheaisín fíorúil mar líonra Wi-Fi ceangailte in ionad Ethernet. Android 2.3, 4.0–17 (8–17: turgnamhach). Cuirtear i bhfeidhm ag an gcéad tosú eile.',
+    'm_battery_time': 'Am ceallraí (nóiméid)',
+    'm_battery_time_sub': 'Tuairiscíodh don aoi mar am ceallraí iomlán / fágtha. 0 = réamhshocraithe.',
 }

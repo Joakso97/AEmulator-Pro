@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Tinklo pavadinimas negali būti tuščias',
     'vs_wifi_ssid_sub': 'Iki 32 baitų',
     'vs_wifi_sub': 'Rodo šeimininko internetą virtualiai mašinai kaip prijungtą „Wi-Fi“ tinklą vietoj „Ethernet“. „Android“ 2.3, 4.0–17 (8–17: eksperimentinė). Taikoma kitą kartą paleidus.',
+    'm_battery_time': 'Baterijos veikimo laikas (min.)',
+    'm_battery_time_sub': 'Svečiui pranešta kaip išsikrovęs / likęs akumuliatoriaus veikimo laikas. 0 = numatytasis.',
 }

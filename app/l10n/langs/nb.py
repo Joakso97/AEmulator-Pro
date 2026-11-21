@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Nettverksnavnet kan ikke være tomt',
     'vs_wifi_ssid_sub': 'Opptil 32 byte',
     'vs_wifi_sub': 'Viser vertens internett for VM-en som et tilkoblet Wi-Fi-nettverk i stedet for Ethernet. Android 2.3, 4.0–17 (8–17: eksperimentell). Gjelder ved neste oppstart.',
+    'm_battery_time': 'Batteritid (minutter)',
+    'm_battery_time_sub': 'Rapportert til gjesten som batteritid til full / gjenværende. 0 = standard.',
 }

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Butona më të vegjël, më shumë vend për ekranin.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Rivendos butonin e menysë</string>
+    <string name="m_battery_time">Koha e baterisë (minuta)</string>
+    <string name="m_battery_time_sub">I raportuar mysafirit pasi koha e baterisë është e plotë / e mbetur. 0 = parazgjedhje.</string>
 </resources>

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">უფრო პატარა ღილაკები, ეკრანისთვის მეტი ადგილი.</string>
     <string name="nav_dpad">ტრეკბოლი</string>
     <string name="m_reset_menu_pos">მენიუს ღილაკის დაბრუნება</string>
+    <string name="m_battery_time">ბატარეის დრო (წუთები)</string>
+    <string name="m_battery_time_sub">ეცნობა სტუმარს, როგორც ბატარეის დასრულება/დარჩენილი დრო. 0 = ნაგულისხმევი.</string>
 </resources>

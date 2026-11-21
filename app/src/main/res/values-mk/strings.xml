@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Помали копчиња, повеќе простор за екранот.</string>
     <string name="nav_dpad">Трекбол</string>
     <string name="m_reset_menu_pos">Ресетирај го копчето за мени</string>
+    <string name="m_battery_time">Време на батерија (минути)</string>
+    <string name="m_battery_time_sub">Пријавено на гостинот како време на батеријата до полна / преостаната. 0 = стандардно.</string>
 </resources>

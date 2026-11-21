@@ -46,8 +46,6 @@ class VmRestartActivity : ComponentActivity() {
                 Surface(Modifier.fillMaxSize()) {
                     Column(Modifier.fillMaxSize().padding(24.dp), verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally) {
-                        if (!failed) CircularProgressIndicator()
-                        Spacer(Modifier.height(16.dp))
                         Text(stringResource(if (failed) R.string.vm_restart_failed else R.string.vm_restarting))
                         if (failed) TextButton(onClick = { finish() }) { Text(stringResource(R.string.close)) }
                     }

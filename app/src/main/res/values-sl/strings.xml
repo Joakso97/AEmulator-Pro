@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">Zakleni orientacijo žiroskopa</string>
     <string name="vs_gyro_lock_sub">0° / 180° pripne senzorje gibanja gostitelja na fiksno orientacijo: težnost ostane na mestu, žiroskop kaže nič, zato se gost nikoli samodejno ne zasuka. Brez žiroskopa žiroskop gostu popolnoma skrije (uporabite, če se žiroskop nepravilno obnaša); merilnik pospeška in magnetometer ostaneta resnična. Začne veljati po popolnem ponovnem zagonu navideznega stroja.</string>
     <string name="vs_gyro_none">Brez žiroskopa</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.strojna oprema</string>
     <string name="vs_hardware_default">Privzeto glede na vdelano programsko opremo</string>
     <string name="vs_hardware_pick">Izberi</string>
     <string name="vs_hardware_sub">Vrednost ro.hardware, ki se ob zagonu posreduje gostu. Sistem po njej išče knjižnice HAL (gralloc.&lt;value&gt;.so, lights.&lt;value&gt;.so…), zato jo spreminjajte le, če veste, kaj vdelana programska oprema pričakuje. Začne veljati po popolnem ponovnem zagonu navideznega stroja.</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Manjši gumbi, več prostora za zaslon.</string>
     <string name="nav_dpad">Sledilna kroglica</string>
     <string name="m_reset_menu_pos">Ponastavi gumb menija</string>
+    <string name="m_battery_time">Čas delovanja baterije (minute)</string>
+    <string name="m_battery_time_sub">Sporočeno gostu kot čas napolnjenosti baterije/preostanek. 0 = privzeto.</string>
 </resources>

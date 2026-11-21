@@ -188,7 +188,7 @@
     <string name="m_settings">Avaa Androidin asetukset</string>
     <string name="m_shell">ADB gabygy</string>
     <string name="m_shell_clear">Tyhjennä</string>
-    <string name="m_shell_ctrlc">Ctrl+C</string>
+    <string name="m_shell_ctrlc">Ctrl + C.</string>
     <string name="m_shell_hint">Laiteohjelmiston root shell. Kirjoita komento (esim. ls /sdcard, getprop, pm list packages).</string>
     <string name="m_shell_input">Komento</string>
     <string name="m_sms">Väärennetty tekstiviesti</string>
@@ -436,13 +436,13 @@
     <string name="vs_gpu_sub">Laitteistografiikka GL-sillan kautta. Poista käytöstä, jos kuva rikkoutuu.</string>
     <string name="vs_guest_nav">Ota käyttöön siirtymispalkki / tehtäväpalkki</string>
     <string name="vs_guest_nav_sub">Antaa vieraan piirtää oman siirtymispalkkinsa tai Androidin työpöytäversioiden tehtäväpalkin (asettaa qemu.hw.mainkeys=0). Ota käyttöön tuonnin yhteydessä vain työpöytäversioille ja jätä pois päältä kaikille muille levykuville. Tulee voimaan seuraavalla täydellä käynnistyksellä.</string>
-    <string name="vs_gyro_0">0°</string>
-    <string name="vs_gyro_180">180°</string>
+    <string name="vs_gyro_0">0 °</string>
+    <string name="vs_gyro_180">180 °</string>
     <string name="vs_gyro_disabled">Pois käytöstä</string>
     <string name="vs_gyro_lock">Lukitse gyroskoopin suunta</string>
     <string name="vs_gyro_lock_sub">0° / 180° kiinnittää isännän liikeanturit kiinteään suuntaan: painovoima pysyy paikallaan ja gyroskooppi lukee nollaa, joten vieras ei koskaan kierrä näyttöä automaattisesti. Ei gyroskooppia piilottaa gyroskoopin vieraalta kokonaan (käytä, jos gyro toimii väärin); kiihtyvyysanturi ja magnetometri pysyvät aitoina. Tulee voimaan järjestelmän täyden uudelleenkäynnistyksen jälkeen.</string>
     <string name="vs_gyro_none">Ei gyroskooppia</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">programma üpjünçiligi</string>
     <string name="vs_hardware_default">Laiteohjelmiston oletus</string>
     <string name="vs_hardware_pick">Valitse</string>
     <string name="vs_hardware_sub">ro.hardware-arvo, joka annetaan vieraalle käynnistyksessä. Järjestelmä hakee HAL-kirjastot sen perusteella (gralloc.&lt;value&gt;.so, lights.&lt;value&gt;.so…), joten muuta sitä vain, jos tiedät, mitä laiteohjelmisto odottaa. Tulee voimaan järjestelmän täyden uudelleenkäynnistyksen jälkeen.</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Pienemmät painikkeet, enemmän tilaa näytölle.</string>
     <string name="nav_dpad">Pallohiiri</string>
     <string name="m_reset_menu_pos">Nollaa valikkopainike</string>
+    <string name="m_battery_time">Batareýanyň wagty (minut)</string>
+    <string name="m_battery_time_sub">Batareýanyň doly / galan wagty hökmünde myhmana habar berildi. 0 = gaýybana.</string>
 </resources>

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Mazākas pogas, vairāk vietas ekrānam.</string>
     <string name="nav_dpad">Trekbumba</string>
     <string name="m_reset_menu_pos">Atiestatīt izvēlnes pogu</string>
+    <string name="m_battery_time">Akumulatora darbības laiks (minūtes)</string>
+    <string name="m_battery_time_sub">Viesim tiek ziņots kā akumulatora uzlādes laiks / atlikušais laiks. 0 = noklusējuma.</string>
 </resources>

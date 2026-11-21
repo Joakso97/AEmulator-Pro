@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Minni hnappar, meira pláss fyrir skjáinn.</string>
     <string name="nav_dpad">Stýrikúla</string>
     <string name="m_reset_menu_pos">Endurstilla valmyndarhnapp</string>
+    <string name="m_battery_time">Rafhlöðutími (mínútur)</string>
+    <string name="m_battery_time_sub">Tilkynnt til gests sem rafhlaðatími til fulls / eftir. 0 = sjálfgefið.</string>
 </resources>

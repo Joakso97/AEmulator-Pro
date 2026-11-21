@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Түймелер кішірек, экранға орын көбірек.</string>
     <string name="nav_dpad">Трекбол</string>
     <string name="m_reset_menu_pos">Мәзір түймесін қалпына келтіру</string>
+    <string name="m_battery_time">Батарея уақыты (минут)</string>
+    <string name="m_battery_time_sub">Қонаққа батареяның толық / қалған уақыты ретінде хабарланады. 0 = әдепкі.</string>
 </resources>

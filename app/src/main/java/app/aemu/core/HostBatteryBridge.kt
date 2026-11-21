@@ -66,9 +66,9 @@ internal class HostBatteryBridge(private val ctx: Context, private val root: Fil
             if (active) handler?.postDelayed(this, 15_000)
         }
     }
-    fun applyManual(percent: Int, charging: Boolean) {
+    fun applyManual(percent: Int, charging: Boolean, timeMinutes: Int = 0) {
         following = false
-        val value = HostBatteryState.from(percent, 100, if (charging) 2 else 3, if (charging) 1 else 0)!!
+        val value = HostBatteryState.from(percent, 100, if (charging) 2 else 3, if (charging) 1 else 0)!!.copy(timeMinutes = timeMinutes)
         handler?.post {
             if (active) runCatching {
                 value.writeSysfs(root); lastWritten = value

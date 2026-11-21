@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Pienemmät painikkeet, enemmän tilaa näytölle.</string>
     <string name="nav_dpad">Pallohiiri</string>
     <string name="m_reset_menu_pos">Nollaa valikkopainike</string>
+    <string name="m_battery_time">Akun kesto (minuutteja)</string>
+    <string name="m_battery_time_sub">Vieraalle ilmoitettiin akun täyteen/jäljellä olevaksi ajaksi. 0 = oletus.</string>
 </resources>

@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Naziv mreže ne smije biti prazan',
     'vs_wifi_ssid_sub': 'Do 32 bajta',
     'vs_wifi_sub': 'Prikazuje internet domaćina virtualnom stroju kao povezanu Wi-Fi mrežu umjesto Etherneta. Android 2.3, 4.0–17 (8–17: eksperimentalno). Primjenjuje se pri sljedećem pokretanju.',
+    'm_battery_time': 'Vrijeme trajanja baterije (minute)',
+    'm_battery_time_sub': 'Prijavljeno gostu kao vrijeme pune/preostale baterije. 0 = zadano.',
 }

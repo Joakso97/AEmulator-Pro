@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Heiti nets má ekki vera autt',
     'vs_wifi_ssid_sub': 'Allt að 32 bæti',
     'vs_wifi_sub': 'Sýnir nettengingu hýsilsins fyrir sýndarvélinni sem tengt Wi-Fi net í stað Ethernet. Android 2.3, 4.0–17 (8–17: á tilraunastigi). Tekur gildi við næstu ræsingu.',
+    'm_battery_time': 'Rafhlöðutími (mínútur)',
+    'm_battery_time_sub': 'Tilkynnt til gests sem rafhlaðatími til fulls / eftir. 0 = sjálfgefið.',
 }

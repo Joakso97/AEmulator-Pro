@@ -151,6 +151,8 @@
     <string name="m_airplane">Airplane mode</string>
     <string name="m_apply">Apply</string>
     <string name="m_battery">Battery</string>
+    <string name="m_battery_time">Battery time (minutes)</string>
+    <string name="m_battery_time_sub">Reported to the guest as battery time to full / remaining. 0 = default.</string>
     <string name="m_call">Fake incoming call</string>
     <string name="m_call_ring">Ring</string>
     <string name="m_charging">Charging</string>

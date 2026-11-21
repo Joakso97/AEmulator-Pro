@@ -3,7 +3,7 @@ package app.aemu.core
 
 import java.io.File
 
-internal data class HostBatteryState(val percent: Int, val status: Int, val plugged: Int) {
+internal data class HostBatteryState(val percent: Int, val status: Int, val plugged: Int, val timeMinutes: Int = 0) {
     val ac get() = plugged and 1 != 0
     val usb get() = plugged and 2 != 0
     val wireless get() = plugged and 4 != 0
@@ -25,7 +25,8 @@ internal data class HostBatteryState(val percent: Int, val status: Int, val plug
             "ac/online" to if (ac) "1" else "0", "usb/online" to if (usb) "1" else "0",
             "wireless/type" to "Wireless", "wireless/online" to if (wireless) "1" else "0",
             
-            "battery/charging_source" to if (ac || wireless) "2" else if (usb) "1" else "0")
+            "battery/charging_source" to if (ac || wireless) "2" else if (usb) "1" else "0",
+            "battery/time_to_full_now" to timeMinutes.coerceAtLeast(0).toString())
         for ((path, value) in entries) {
             val file = File(base, "sys/class/power_supply/$path")
             check(file.canonicalFile == file.absoluteFile) { "Battery node is a symlink: $path" }

@@ -11,7 +11,7 @@
     <string name="as_accent">ایکسنٹ رنگ</string>
     <string name="as_accent_apply">لاگو کریں</string>
     <string name="as_accent_default">Sunset (ڈیفالٹ)</string>
-    <string name="as_accent_hex">Hex</string>
+    <string name="as_accent_hex">ہیکس</string>
     <string name="as_accent_hue">ہیو</string>
     <string name="as_accent_pick">رنگ منتخب کریں</string>
     <string name="as_accent_reset">ری سیٹ کریں</string>
@@ -426,7 +426,7 @@
     <string name="vs_device_id">ڈیوائس کی شناخت</string>
     <string name="vs_disable_google">Google ایپس غیر فعال کریں</string>
     <string name="vs_disable_google_sub">مکمل ری اسٹارٹ کے بعد، پہچانی گئی Google ایپس، Play Store، Play services اور Google اکاؤنٹ کے اجزا کو غیر فعال کریں۔ لانچرز، کی بورڈز، WebView اور اہم سسٹم اجزا برقرار رکھے جاتے ہیں۔ سیٹ اپ وزرڈ الگ سے کنٹرول ہوتا ہے۔ جن ایپس کو Google سروسز درکار ہیں وہ کام کرنا بند کر سکتی ہیں۔ اسے بند کرنے سے صرف وہ ایپس بحال ہوتی ہیں جو اسی آپشن نے غیر فعال کی تھیں؛ APKs اور ایپ ڈیٹا حذف نہیں کیے جاتے۔</string>
-    <string name="vs_dpi">DPI</string>
+    <string name="vs_dpi">ڈی پی آئی</string>
     <string name="vs_dual_sim">ڈوئل سم</string>
     <string name="vs_dual_sim_sub">ایک دوسرا جعلی سم۔ اسے صرف دو سم کے لیے بنے فرم ویئر استعمال کرتے ہیں (بہت سے Samsung اور MediaTek)۔ اگلے بوٹ پر لاگو ہوتا ہے۔</string>
     <string name="vs_fixed_2x">Android 2.x 240 dpi پر مقررہ 480×800 اسکرین استعمال کرتا ہے۔</string>
@@ -452,7 +452,7 @@
     <string name="vs_host_resolution_sub">VM کے مکمل ری اسٹارٹ کے بعد ہوسٹ ڈسپلے کا حقیقی سائز اور ڈینسٹی استعمال کریں۔ ایمولیٹر کنٹرولز گیسٹ کے اوپر ظاہر ہوتے ہیں۔ کٹ آؤٹ بیریئر ایپ کی ترتیبات میں ہے۔ زیادہ ریزولوشن کے لیے زیادہ RAM اور رینڈرنگ کا وقت درکار ہے۔ پرانا 2.x انجن اپنی مقررہ ریزولوشن برقرار رکھتا ہے۔</string>
     <string name="vs_hwui">ایپ ہارڈویئر ایکسلریشن (hwui)</string>
     <string name="vs_hwui_sub">زیادہ ہموار، لیکن کچھ فرم ویئر میں خرابیاں (artifacts) نظر آتی ہیں۔</string>
-    <string name="vs_jit">Dalvik JIT</string>
+    <string name="vs_jit">ڈالوک جے آئی ٹی</string>
     <string name="vs_jit_sub">تیز تر؛ اس کے بغیر نازک فرم ویئر زیادہ قابلِ بھروسا رہتے ہیں۔</string>
     <string name="vs_kernel">کرنل ورژن</string>
     <string name="vs_kernel_branch">برانچ (ریلیز لاحقہ)</string>
@@ -495,7 +495,7 @@
     <string name="vs_no_sensors_sub">گیسٹ کو بغیر کسی سینسر کے چلائیں، ان فرم ویئر کے لیے جن کی سینسر سروس ایمولیشن میں کریش ہو جاتی ہے۔ API 24+ پر Android Wear SDK بلڈز کے لیے بطور ڈیفالٹ آن ہے، جہاں بوٹ کے لیے اس کی ضرورت ہوتی ہے۔ اگلے مکمل بوٹ پر نافذ ہوتا ہے۔</string>
     <string name="vs_no_watchdog">سسٹم واچ ڈاگ غیر فعال کریں (اینڈرائیڈ 14+)</string>
     <string name="vs_no_watchdog_sub">ایسے بوٹ کے لیے جو اینڈرائیڈ کی 60 سیکنڈ کی واچ ڈاگ حد سے سست ہو، جو system_server کو بار بار ختم کرتی رہتی ہے۔ فرم ویئر کی services.jar میں ترمیم کرتا ہے تاکہ واچ ڈاگ تھریڈ فوراً ختم ہو جائے؛ اس کے بعد سسٹم کا حقیقی ڈیڈ لاک ری اسٹارٹ سے ٹھیک نہیں ہوتا۔ jar کا پہلے سے کمپائل شدہ کوڈ نظر انداز کیا جاتا ہے، جس سے پہلا بوٹ سست ہو سکتا ہے۔ بند کرنے سے اصل jar بحال ہو جاتی ہے۔ اگلے مکمل بوٹ پر نافذ ہوگا۔</string>
-    <string name="vs_ota">OTA</string>
+    <string name="vs_ota">او ٹی اے</string>
     <string name="vs_ota_button">انسٹال کریں…</string>
     <string name="vs_ota_checking">OTA کی جانچ ہو رہی ہے…</string>
     <string name="vs_ota_confirm">یہ سسٹم:\\n%1$s\\n\\nاس میں اپ ڈیٹ ہو جائے گا:\\n%2$s\\n\\nVM کے /system اور بوٹ ریم ڈسک پر پیچ لگایا جائے گا اور اس کا dalvik cache صاف کر دیا جائے گا؛ ایپس اور ڈیٹا برقرار رہیں گے۔ اگر کچھ بھی مطابقت نہ رکھتا ہو تو کچھ تبدیل نہیں کیا جاتا۔</string>
@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.2 اور 4.0–4.4: بنیادی معاونت؛ 5.x–6.x: تجرباتی۔\n• صرف 32-bit ARM فرم ویئر (armeabi / armeabi-v7a)۔\n\nفارمیٹس:\n• CWM/TWRP ریکوری ZIP (MIUI، CyanogenMod، پورٹس، زیادہ تر کسٹم ROMs)؛\n• Samsung: Odin .tar / .tar.md5 یا AP_*.tar.md5 والی ZIP؛\n• Google کی فیکٹری امیجز (.tgz / .zip)؛\n• system.img (ext4، sparse، YAFFS2)، TWRP بیک اپ system.ext4.win؛\n• system.new.dat(.br) + system.transfer.list کے ساتھ OTA۔\n\nسب سے بہتر یہ ہے کہ آرکائیو میں boot.img موجود ہو: سروسز کے آغاز کی ترتیب اسی سے لی جاتی ہے۔</string>
     <string name="as_site">ویب سائٹ</string>
     <string name="as_channel">Telegram چینل</string>
+    <string name="m_battery_time">بیٹری کا وقت (منٹ)</string>
+    <string name="m_battery_time_sub">مہمان کو بیٹری کے مکمل/بقیہ وقت کے طور پر اطلاع دی گئی۔ 0 = ڈیفالٹ۔</string>
 </resources>

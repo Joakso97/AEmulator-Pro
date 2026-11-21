@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Daha kiçik düymələr, ekran üçün daha çox yer.</string>
     <string name="nav_dpad">Trekbol</string>
     <string name="m_reset_menu_pos">Menyu düyməsini sıfırla</string>
+    <string name="m_battery_time">Batareya vaxtı (dəqiqə)</string>
+    <string name="m_battery_time_sub">Qonağa batareyanın tam / qalan vaxtı kimi bildirilir. 0 = default.</string>
 </resources>

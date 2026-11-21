@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Verkon nimi ei voi olla tyhjä',
     'vs_wifi_ssid_sub': 'Enintään 32 tavua',
     'vs_wifi_sub': 'Näyttää isännän internetyhteyden järjestelmälle yhdistettynä Wi-Fi-verkkona Ethernetin sijaan. Android 2.3, 4.0–17 (8–17: kokeellinen). Tulee voimaan seuraavalla käynnistyksellä.',
+    'm_battery_time': 'Akun kesto (minuutteja)',
+    'm_battery_time_sub': 'Vieraalle ilmoitettiin akun täyteen/jäljellä olevaksi ajaksi. 0 = oletus.',
 }

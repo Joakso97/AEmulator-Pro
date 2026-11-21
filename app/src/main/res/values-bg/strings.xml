@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">По-малки бутони, повече място за екрана.</string>
     <string name="nav_dpad">Тракбол</string>
     <string name="m_reset_menu_pos">Нулиране на бутона за меню</string>
+    <string name="m_battery_time">Време на батерията (минути)</string>
+    <string name="m_battery_time_sub">Докладва се на госта като пълно/оставащо време на батерията. 0 = по подразбиране.</string>
 </resources>

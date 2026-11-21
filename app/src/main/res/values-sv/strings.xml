@@ -229,7 +229,7 @@
     <string name="sf_arch_x86_sub">32-bitars x86-firmware körs under översättaren; Android-x86 ISO accepteras.</string>
     <string name="sf_fmt_arch">Övriga arkiv</string>
     <string name="sf_fmt_arch_sub">7z, RAR, TAR, gzip, xz och bzip2 strömmar med firmware-poster.</string>
-    <string name="sf_fmt_boot">boot / recovery image</string>
+    <string name="sf_fmt_boot">boot/återställningsbild</string>
     <string name="sf_fmt_boot_sub">Android-startbilder med CPIO ramdiskar (newc/crc/odc).</string>
     <string name="sf_fmt_factory">Google fabriksbild</string>
     <string name="sf_fmt_factory_sub">Fabriks .tgz / .zip med flash-all-skript och kapslade bildzip.</string>
@@ -247,7 +247,7 @@
     <string name="sf_fmt_twrp_sub">TWRP .win och split backup av system, boot och data.</string>
     <string name="sf_fmt_vm">VM-arkiv (.aessvm)</string>
     <string name="sf_fmt_vm_sub">Arkiv exporterade av appen, återställd med alla inställningar och filer.</string>
-    <string name="sf_fmt_zip">Flashable ZIP (CWM/TWRP)</string>
+    <string name="sf_fmt_zip">Flashbar ZIP (CWM/TWRP)</string>
     <string name="sf_fmt_zip_sub">Flashbara buntar för återställning, inklusive kapslade ZIP-filer och nyttolaster för uppdateringsskript.</string>
     <string name="sf_formats">Filformat</string>
     <string name="sf_formats_sub">Behållare och bilder som importören förstår.</string>
@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">Lås gyroskopets orientering</string>
     <string name="vs_gyro_lock_sub">0° / 180° låser värdens rörelsesensorer i en fast orientering: tyngdkraften ligger still och gyroskopet visar noll, så gästen roterar aldrig automatiskt. Inget gyroskop döljer gyroskopet helt för gästen (använd det om gyroskopet beter sig fel); accelerometer och magnetometer förblir verkliga. Gäller efter en fullständig omstart av den virtuella maskinen.</string>
     <string name="vs_gyro_none">Inget gyroskop</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.hårdvara</string>
     <string name="vs_hardware_default">Firmwarens standard</string>
     <string name="vs_hardware_pick">Välj</string>
     <string name="vs_hardware_sub">Värdet på ro.hardware som ges till gästen vid start. Systemet letar upp HAL-bibliotek med det (gralloc.&lt;värde&gt;.so, lights.&lt;värde&gt;.so…), så ändra det bara om du vet vad firmware förväntar sig. Gäller efter en fullständig omstart av den virtuella maskinen.</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Mindre knappar, mer plats för skärmen.</string>
     <string name="nav_dpad">Styrkula</string>
     <string name="m_reset_menu_pos">Återställ menyknappen</string>
+    <string name="m_battery_time">Batteritid (minuter)</string>
+    <string name="m_battery_time_sub">Rapporteras till gästen som batteritid till full/återstående. 0 = standard.</string>
 </resources>

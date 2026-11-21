@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Şəbəkə adı boş ola bilməz',
     'vs_wifi_ssid_sub': '32 bayta qədər',
     'vs_wifi_sub': 'Hostun internetini virtual maşına Ethernet əvəzinə qoşulmuş Wi-Fi şəbəkəsi kimi göstərir. Android 2.3, 4.0–17 (8–17: eksperimental). Növbəti yükləmədə tətbiq olunur.',
+    'm_battery_time': 'Batareya vaxtı (dəqiqə)',
+    'm_battery_time_sub': 'Qonağa batareyanın tam / qalan vaxtı kimi bildirilir. 0 = default.',
 }

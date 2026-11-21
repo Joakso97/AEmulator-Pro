@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Nama rangkaian tidak boleh kosong',
     'vs_wifi_ssid_sub': 'Sehingga 32 bait',
     'vs_wifi_sub': 'Menunjukkan internet hos kepada VM sebagai rangkaian Wi-Fi yang disambungkan dan bukannya Ethernet. Android 2.3, 4.0–17 (8–17: percubaan). Berlaku pada permulaan seterusnya.',
+    'm_battery_time': 'Masa bateri (minit)',
+    'm_battery_time_sub': 'Dilaporkan kepada tetamu sebagai masa bateri hingga penuh / tinggal. 0 = lalai.',
 }

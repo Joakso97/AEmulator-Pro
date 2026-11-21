@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">ခလုတ်များ သေးငယ်ပြီး စခရင်အတွက် နေရာပိုရပါသည်။</string>
     <string name="nav_dpad">ထရက်ဘောလ်</string>
     <string name="m_reset_menu_pos">မီနူးခလုတ်ကို ပြန်လည်သတ်မှတ်ရန်</string>
+    <string name="m_battery_time">ဘက်ထရီကြာချိန် (မိနစ်)</string>
+    <string name="m_battery_time_sub">ဘက်ထရီ အားပြည့်ရန်/ကျန်နေချိန်အဖြစ် ဧည့်သည်ထံ တိုင်ကြားထားသည်။ 0 = ပုံသေ။</string>
 </resources>

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Kleinere knoppen, meer ruimte voor het scherm.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Menuknop resetten</string>
+    <string name="m_battery_time">Batterijduur (minuten)</string>
+    <string name="m_battery_time_sub">Gerapporteerd aan de gast als batterijduur vol/resterend. 0 = standaard.</string>
 </resources>

@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': '网络名称不能为空',
     'vs_wifi_ssid_sub': '最多 32 字节',
     'vs_wifi_sub': '把主机网络以已连接的 Wi-Fi 网络而非以太网的形式提供给系统。Android 2.3、4.0–17（8–17 为实验性）。下次启动生效。',
+    'm_battery_time': '电池使用时间（分钟）',
+    'm_battery_time_sub': '向客人报告电池充满/剩余时间。 0 = 默认。',
 }

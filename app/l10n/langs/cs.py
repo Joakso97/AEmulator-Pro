@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Název sítě nesmí být prázdný',
     'vs_wifi_ssid_sub': 'Až 32 bajtů',
     'vs_wifi_sub': 'Zobrazí internet hostitele ve VM jako připojenou síť Wi-Fi místo Ethernetu. Android 2.3, 4.0–17 (8–17: experimentální). Použije se při příštím spuštění.',
+    'm_battery_time': 'Výdrž baterie (minuty)',
+    'm_battery_time_sub': 'Hlášeno hostovi jako plná / zbývající doba baterie. 0 = výchozí.',
 }

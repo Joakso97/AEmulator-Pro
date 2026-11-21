@@ -2,6 +2,7 @@
 package app.aemu.ui
 
 import app.aemu.R
+import androidx.compose.ui.text.style.TextAlign
 import java.io.File
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.semantics.role
@@ -60,6 +61,7 @@ import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
@@ -91,6 +93,12 @@ import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
@@ -1299,6 +1307,7 @@ open class VmActivity : ComponentActivity() {
     private fun BatteryDialog(onDone: () -> Unit) {
         var level by remember { mutableStateOf(vm.hostBatteryLevel.toFloat()) }
         var charging by remember { mutableStateOf(vm.hostBatteryCharging) }
+        var timeText by remember { mutableStateOf("") }
         AlertDialog(onDismissRequest = onDone,
             title = { Text(stringResource(R.string.m_battery)) },
             text = {
@@ -1308,10 +1317,20 @@ open class VmActivity : ComponentActivity() {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(stringResource(R.string.m_charging), Modifier.weight(1f)); Switch(charging, { charging = it })
                     }
+                    OutlinedTextField(
+                        value = timeText,
+                        onValueChange = { timeText = it.filter(Char::isDigit).take(6) },
+                        label = { Text(stringResource(R.string.m_battery_time)) },
+                        supportingText = { Text(stringResource(R.string.m_battery_time_sub)) },
+                        singleLine = true,
+                        keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
+                            keyboardType = androidx.compose.ui.text.input.KeyboardType.Number),
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             },
             confirmButton = { Button(onClick = {
-                vm.setManualBattery(level.toInt(), charging)
+                vm.setManualBattery(level.toInt(), charging, timeText.toIntOrNull() ?: 0)
                 onDone()
             }) { Text(stringResource(R.string.m_apply)) } },
             dismissButton = { OutlinedButton(onClick = { vm.resetBattery(); onDone() }) { Text(stringResource(R.string.m_reset)) } })
@@ -1395,7 +1414,7 @@ open class VmActivity : ComponentActivity() {
             AnimatedVisibility(
                 visible = state != GuestVm.State.RUNNING && !showLog && (state == GuestVm.State.FAILED || !cardMinimized),
                 enter = fadeIn(), exit = fadeOut(),
-                modifier = Modifier.align(Alignment.Center),
+                modifier = Modifier.align(Alignment.Center).offset(y = (-80).dp),
             ) { BootCard(seconds, onMinimize = { cardOverride = true }) }
 
             
@@ -1405,8 +1424,12 @@ open class VmActivity : ComponentActivity() {
                     modifier = Modifier.align(Alignment.TopStart).displayCutoutPadding().statusBarsPadding().padding(8.dp)
                         .clip(CircleShape).clickable { cardOverride = false }) {
                     Row(Modifier.padding(horizontal = 12.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-                        LoadingIndicator(Modifier.size(24.dp))
-                        Spacer(Modifier.width(6.dp))
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(16.dp),
+                            strokeWidth = 2.dp,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                        Spacer(Modifier.width(8.dp))
                         Text(stringResource(R.string.vm_booting_short, seconds.toInt()), style = MaterialTheme.typography.labelMedium)
                     }
                 }
@@ -1774,7 +1797,7 @@ open class VmActivity : ComponentActivity() {
                 contentColor = MaterialTheme.colorScheme.onSurface),
             shape = MaterialTheme.shapes.extraLarge,
         ) {
-            Column(Modifier.padding(24.dp),
+            Column(Modifier.padding(start = 24.dp, end = 24.dp, top = 8.dp, bottom = 20.dp),
                 horizontalAlignment = if (state == GuestVm.State.FAILED) Alignment.Start else Alignment.CenterHorizontally) {
                 if (state == GuestVm.State.FAILED) {
                     Text(stringResource(R.string.failed_start), style = MaterialTheme.typography.titleLarge)
@@ -1806,25 +1829,30 @@ open class VmActivity : ComponentActivity() {
                             Icon(Icons.Rounded.Minimize, contentDescription = stringResource(R.string.boot_minimize))
                         }
                     }
-                    Spacer(Modifier.height(16.dp))
-                    Text(vm.img.name, style = MaterialTheme.typography.titleLarge, maxLines = 2, overflow = TextOverflow.Ellipsis)
-                    Text(vm.img.displayVersion, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Spacer(Modifier.height(4.dp))
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(36.dp),
+                        strokeWidth = 3.dp,
+                        color = MaterialTheme.colorScheme.primary
+                    )
                     Spacer(Modifier.height(12.dp))
+                    Text(vm.img.name, style = MaterialTheme.typography.titleLarge, maxLines = 2, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
+                    if (vm.img.bootCount == 0 && state == GuestVm.State.BOOTING) {
+                        Spacer(Modifier.height(6.dp))
+                        Text(stringResource(R.string.first_boot_hint),
+                            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
+                    }
+                    Spacer(Modifier.height(16.dp))
                     val phase = when (state) {
                         GuestVm.State.PREPARING -> stringResource(R.string.st_preparing)
                         GuestVm.State.BOOTING -> stringResource(R.string.st_booting, seconds.toInt())
                         GuestVm.State.STOPPING -> stringResource(R.string.st_stopping)
                         else -> "…"
                     }
-                    Text(phase, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
-                    if (vm.img.bootCount == 0 && state == GuestVm.State.BOOTING) {
-                        Spacer(Modifier.height(6.dp))
-                        Text(stringResource(R.string.first_boot_hint),
-                            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
+                    Text(phase, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary, textAlign = TextAlign.Center)
                     Spacer(Modifier.height(8.dp))
                     Text(logLines.lastOrNull()?.substringAfter(' ') ?: "", style = Mono, maxLines = 2,
-                        overflow = TextOverflow.Ellipsis, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        overflow = TextOverflow.Ellipsis, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
                 }
             }
         }

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Pienemmät painikkeet, enemmän tilaa näytölle.</string>
     <string name="nav_dpad">Pallohiiri</string>
     <string name="m_reset_menu_pos">Nollaa valikkopainike</string>
+    <string name="m_battery_time">Az akkumulátor üzemideje (perc)</string>
+    <string name="m_battery_time_sub">Jelentve a vendégnek az akkumulátor töltöttségi idejét / hátralévő időt. 0 = alapértelmezett.</string>
 </resources>

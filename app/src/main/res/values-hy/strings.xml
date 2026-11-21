@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Ավելի փոքր կոճակներ, էկրանի համար ավելի շատ տեղ։</string>
     <string name="nav_dpad">Թրեքբոլ</string>
     <string name="m_reset_menu_pos">Վերակայել ընտրացանկի կոճակը</string>
+    <string name="m_battery_time">Մարտկոցի ժամանակը (րոպե)</string>
+    <string name="m_battery_time_sub">Հյուրին զեկուցվել է որպես մարտկոցի լիցքաթափման/մնացած ժամանակը: 0 = լռելյայն:</string>
 </resources>

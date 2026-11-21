@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3 と 4.0〜4.4：主なサポート、5.x〜6.x：試験的。\n• 32 ビット ARM ファームウェアのみ（armeabi / armeabi-v7a）。\n\n形式：\n• CWM/TWRP リカバリー ZIP（MIUI、CyanogenMod、移植版、多くのカスタム ROM）\n• Samsung：Odin の .tar / .tar.md5、または AP_*.tar.md5 を含む ZIP\n• Google ファクトリーイメージ（.tgz / .zip）\n• system.img（ext4、sparse）、TWRP バックアップ system.ext4.win\n• system.new.dat(.br) + system.transfer.list を含む OTA\n\nアーカイブに boot.img があると最適です。サービスの起動順序はそこから読み取ります。</string>
     <string name="as_site">ウェブサイト</string>
     <string name="as_channel">Telegram チャンネル</string>
+    <string name="m_battery_time">バッテリー時間 (分)</string>
+    <string name="m_battery_time_sub">バッテリーがフルになるまでの時間/残り時間としてゲストに報告されます。 0 = デフォルト。</string>
 </resources>

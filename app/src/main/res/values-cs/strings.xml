@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Menší tlačítka, více místa pro obrazovku.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Obnovit tlačítko nabídky</string>
+    <string name="m_battery_time">Výdrž baterie (minuty)</string>
+    <string name="m_battery_time_sub">Hlášeno hostovi jako plná / zbývající doba baterie. 0 = výchozí.</string>
 </resources>

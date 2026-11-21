@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Emri i rrjetit nuk mund të jetë bosh',
     'vs_wifi_ssid_sub': 'Deri në 32 bajt',
     'vs_wifi_sub': 'E shfaq internetin e pritësit te VM-ja si rrjet Wi-Fi të lidhur në vend të Ethernet-it. Android 2.3, 4.0–17 (8–17: eksperimentale). Aplikohet në nisjen e radhës.',
+    'm_battery_time': 'Koha e baterisë (minuta)',
+    'm_battery_time_sub': 'I raportuar mysafirit pasi koha e baterisë është e plotë / e mbetur. 0 = parazgjedhje.',
 }

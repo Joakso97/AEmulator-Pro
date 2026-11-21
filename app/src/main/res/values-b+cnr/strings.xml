@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Manja dugmad, više prostora za ekran.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Vrati dugme menija</string>
+    <string name="m_battery_time">Battery time (minutes)</string>
+    <string name="m_battery_time_sub">Reported to the guest as battery time to full / remaining. 0 = default.</string>
 </resources>

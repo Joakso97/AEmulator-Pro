@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Mindre knapper, mer plass til skjermen.</string>
     <string name="nav_dpad">Styrekule</string>
     <string name="m_reset_menu_pos">Tilbakestill menyknappen</string>
+    <string name="m_battery_time">Batteritid (minutter)</string>
+    <string name="m_battery_time_sub">Rapportert til gjesten som batteritid til full / gjenværende. 0 = standard.</string>
 </resources>

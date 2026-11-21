@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.2 dan 4.0–4.4: sokongan utama; 5.x–6.x: eksperimen.\n• Hanya perisian tegar ARM 32-bit (armeabi / armeabi-v7a).\n\nFormat:\n• ZIP pemulihan CWM/TWRP (MIUI, CyanogenMod, port, kebanyakan ROM tersuai);\n• Samsung: Odin .tar / .tar.md5 atau ZIP dengan AP_*.tar.md5;\n• imej kilang Google (.tgz / .zip);\n• system.img (ext4, sparse, YAFFS2), sandaran TWRP system.ext4.win;\n• OTA dengan system.new.dat(.br) + system.transfer.list.\n\nPaling baik jika arkib mengandungi boot.img: susunan permulaan perkhidmatan diambil daripadanya.</string>
     <string name="as_site">Laman web</string>
     <string name="as_channel">Saluran Telegram</string>
+    <string name="m_battery_time">Masa bateri (minit)</string>
+    <string name="m_battery_time_sub">Dilaporkan kepada tetamu sebagai masa bateri hingga penuh / tinggal. 0 = lalai.</string>
 </resources>

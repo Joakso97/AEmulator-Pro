@@ -199,7 +199,7 @@
     <string name="m_vnc">Mulai server VNC</string>
     <string name="m_vnc_started">VNC: %1$s , kata sandi %2$s</string>
     <string name="m_vnc_stop">Hentikan server VNC</string>
-    <string name="menu">Tidak bisa</string>
+    <string name="menu">Menu</string>
     <string name="microphone_permission_denied">Izin mikrofon ditolak. Aplikasi tamu merekam keheningan; berikan itu di pengaturan aplikasi Android dan mulai ulang VM sepenuhnya untuk mencoba lagi.</string>
     <string name="name">Nama</string>
     <string name="new_machine">Mesin baru</string>
@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3 dan 4.0–4.4: dukungan utama; 5.x–6.x: eksperimental.\n• Hanya firmware ARM 32-bit (armeabi / armeabi-v7a).\n\nFormat:\n• ZIP recovery CWM/TWRP (MIUI, CyanogenMod, port, sebagian besar ROM kustom);\n• Samsung: Odin .tar / .tar.md5 atau ZIP berisi AP_*.tar.md5;\n• factory image Google (.tgz / .zip);\n• system.img (ext4, sparse), cadangan TWRP system.ext4.win;\n• OTA dengan system.new.dat(.br) + system.transfer.list.\n\nPaling baik jika arsip berisi boot.img: urutan mulai layanan diambil darinya.</string>
     <string name="as_site">Situs web</string>
     <string name="as_channel">Kanal Telegram</string>
+    <string name="m_battery_time">Waktu baterai (menit)</string>
+    <string name="m_battery_time_sub">Dilaporkan kepada tamu sebagai waktu baterai penuh / tersisa. 0 = bawaan.</string>
 </resources>

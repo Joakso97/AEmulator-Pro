@@ -11,7 +11,7 @@
     <string name="as_accent">Акцентный цвет</string>
     <string name="as_accent_apply">Применить</string>
     <string name="as_accent_default">Закат (по умолчанию)</string>
-    <string name="as_accent_hex">Hex</string>
+    <string name="as_accent_hex">Шестигранник</string>
     <string name="as_accent_hue">Оттенок</string>
     <string name="as_accent_pick">Выбрать цвет</string>
     <string name="as_accent_reset">Сбросить</string>
@@ -188,7 +188,7 @@
     <string name="m_settings">Открыть настройки Android</string>
     <string name="m_shell">ADB-оболочка</string>
     <string name="m_shell_clear">Очистить</string>
-    <string name="m_shell_ctrlc">Ctrl+C</string>
+    <string name="m_shell_ctrlc">Ctrl+С</string>
     <string name="m_shell_hint">Root-оболочка прошивки. Введите команду (например, ls /sdcard, getprop, pm list packages).</string>
     <string name="m_shell_input">Команда</string>
     <string name="m_sms">Фейковое SMS</string>
@@ -235,7 +235,7 @@
     <string name="sf_fmt_factory_sub">Заводские файлы .tgz/.zip со скриптами прошивки и вложенными ZIP-файлами изображений.</string>
     <string name="sf_fmt_iso">Android-x86 ISO</string>
     <string name="sf_fmt_iso_sub">Live CD ISO 9660; ramdisk и system.sfs читаются на месте.</string>
-    <string name="sf_fmt_odin">Samsung Odin TAR.MD5</string>
+    <string name="sf_fmt_odin">Samsung Один TAR.MD5</string>
     <string name="sf_fmt_odin_sub">Пакеты Odin .tar/.tar.md5 с образами системы, загрузки и восстановления.</string>
     <string name="sf_fmt_ota">Пакет ОТА-обновлений</string>
     <string name="sf_fmt_ota_sub">Блокируйте OTA с помощью system.new.dat/.dat.br и списков передачи.</string>
@@ -247,7 +247,7 @@
     <string name="sf_fmt_twrp_sub">TWRP .win и разделенные резервные копии системы, загрузки и данных.</string>
     <string name="sf_fmt_vm">архив виртуальной машины (.aessvm)</string>
     <string name="sf_fmt_vm_sub">Архивы, экспортированные приложением, восстановленные со всеми настройками и файлами.</string>
-    <string name="sf_fmt_zip">Flashable ZIP (CWM/TWRP)</string>
+    <string name="sf_fmt_zip">Прошиваемый ZIP (CWM/TWRP)</string>
     <string name="sf_fmt_zip_sub">Пакеты флэш-памяти для восстановления, включая вложенные ZIP-файлы и полезные данные сценариев обновления.</string>
     <string name="sf_formats">Форматы файлов</string>
     <string name="sf_formats_sub">Контейнеры и изображения понятны импортеру.</string>
@@ -426,7 +426,7 @@
     <string name="vs_device_id">Идентификатор устройства</string>
     <string name="vs_disable_google">Отключить приложения Google</string>
     <string name="vs_disable_google_sub">После полного перезапуска отключить найденные приложения Google, Play Маркет, сервисы Play и компоненты аккаунта Google. Сохраняются лаунчеры, клавиатуры, WebView и важные системные компоненты. Мастер настройки управляется отдельно. Зависимые приложения могут перестать работать. Выключение опции восстановит только отключённые ею приложения; APK и данные не удаляются.</string>
-    <string name="vs_dpi">DPI</string>
+    <string name="vs_dpi">ДПИ</string>
     <string name="vs_dual_sim">Две SIM-карты</string>
     <string name="vs_dual_sim_sub">Вторая поддельная SIM-карта. Её используют только прошивки, созданные для двух SIM-карт (многие от Samsung и MediaTek). Применяется при следующей загрузке.</string>
     <string name="vs_fixed_2x">Для Android 2.x экран фиксирован: 480×800, 240 dpi.</string>
@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">Зафиксировать ориентацию гироскопа</string>
     <string name="vs_gyro_lock_sub">0° / 180° закрепляет датчики движения хоста в одной ориентации: гравитация остаётся неизменной, а гироскоп показывает ноль, поэтому гостевая система никогда не поворачивается автоматически. «Без гироскопа» полностью скрывает гироскоп от гостевой системы (используйте, если гироскоп работает неправильно); акселерометр и магнитометр остаются настоящими. Вступает в силу после полного перезапуска ВМ.</string>
     <string name="vs_gyro_none">Без гироскопа</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.оборудование</string>
     <string name="vs_hardware_default">По умолчанию для прошивки</string>
     <string name="vs_hardware_pick">Выбрать</string>
     <string name="vs_hardware_sub">Значение ro.hardware, которое получает гость при запуске. По нему система ищет HAL-библиотеки (gralloc.&lt;значение&gt;.so, lights.&lt;значение&gt;.so…), поэтому меняйте его, только если знаете, чего ждёт прошивка. Действует после полного перезапуска ВМ.</string>
@@ -495,7 +495,7 @@
     <string name="vs_no_sensors_sub">Запускать гостя без датчиков — для прошивок, у которых сервис датчиков падает при эмуляции. По умолчанию включено для сборок Android Wear SDK с API 24+, где это нужно для загрузки. Вступает в силу при следующей полной загрузке.</string>
     <string name="vs_no_watchdog">Отключить системный watchdog (Android 14+)</string>
     <string name="vs_no_watchdog_sub">Для загрузки, которая дольше 60-секундного лимита watchdog Android и из-за этого убивает system_server по кругу. Патчит services.jar прошивки, и поток watchdog сразу завершается; настоящая взаимоблокировка системы больше не лечится перезапуском. Предкомпилированный код jar не используется, первая загрузка может стать медленнее. При выключении возвращается оригинальный jar. Вступит в силу при следующем полном запуске.</string>
-    <string name="vs_ota">OTA</string>
+    <string name="vs_ota">ОТА</string>
     <string name="vs_ota_button">Установить…</string>
     <string name="vs_ota_checking">Проверка OTA…</string>
     <string name="vs_ota_confirm">Эта система:\\n%1$s\\n\\nбудет обновлена до:\\n%2$s\\n\\n/system и рамдиск загрузки ВМ будут пропатчены, кэш dalvik очищен; приложения и данные сохраняются. Если что-то не совпадёт, ничего не изменится.</string>
@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3, 4.0–4.4 — основная поддержка; 5.x–6.x — экспериментально.\n• Только 32-битные ARM-прошивки (armeabi / armeabi-v7a).\n\nФорматы:\n• ZIP для CWM/TWRP (MIUI, CyanogenMod, порты, большинство кастомных прошивок);\n• Samsung: .tar / .tar.md5 из Odin или ZIP с AP_*.tar.md5;\n• factory-образы Google (.tgz / .zip);\n• system.img (ext4, sparse), TWRP-бэкап system.ext4.win;\n• OTA с system.new.dat(.br) + system.transfer.list.\n\nЛучше всего, если в архиве есть boot.img — из него берётся порядок загрузки служб.</string>
     <string name="as_site">Сайт</string>
     <string name="as_channel">Telegram-канал</string>
+    <string name="m_battery_time">Время работы от батареи (минуты)</string>
+    <string name="m_battery_time_sub">Гостю сообщается, что батарея полностью заряжена/осталась. 0 = по умолчанию.</string>
 </resources>

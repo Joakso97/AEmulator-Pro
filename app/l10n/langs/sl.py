@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Ime omrežja ne sme biti prazno',
     'vs_wifi_ssid_sub': 'Do 32 bajtov',
     'vs_wifi_sub': 'Internet gostitelja prikaže navideznemu stroju kot povezano omrežje Wi-Fi namesto Etherneta. Android 2.3, 4.0–17 (8–17: poskusno). Uporabi se ob naslednjem zagonu.',
+    'm_battery_time': 'Čas delovanja baterije (minute)',
+    'm_battery_time_sub': 'Sporočeno gostu kot čas napolnjenosti baterije/preostanek. 0 = privzeto.',
 }

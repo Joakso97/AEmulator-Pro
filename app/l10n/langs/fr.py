@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Le nom du réseau ne doit pas être vide',
     'vs_wifi_ssid_sub': "Jusqu'à 32 octets",
     'vs_wifi_sub': "Affiche l'Internet de l'hôte sur la VM en tant que réseau Wi-Fi connecté au lieu d'Ethernet. Android 2.3, 4.0-17 (8-17\xa0: expérimental). S'applique au prochain départ.",
+    'm_battery_time': 'Autonomie de la batterie (minutes)',
+    'm_battery_time_sub': "Signalé à l'invité comme étant le temps de batterie plein/restant. 0 = par défaut.",
 }

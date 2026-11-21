@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Cnaipí níos lú, níos mó spáis don scáileán.</string>
     <string name="nav_dpad">Liathróid rianta</string>
     <string name="m_reset_menu_pos">Athshocraigh cnaipe an roghchláir</string>
+    <string name="m_battery_time">Am ceallraí (nóiméid)</string>
+    <string name="m_battery_time_sub">Tuairiscíodh don aoi mar am ceallraí iomlán / fágtha. 0 = réamhshocraithe.</string>
 </resources>

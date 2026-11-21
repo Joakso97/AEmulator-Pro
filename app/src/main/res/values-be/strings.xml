@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Меншыя кнопкі, больш месца для экрана.</string>
     <string name="nav_dpad">Трэкбол</string>
     <string name="m_reset_menu_pos">Скінуць кнопку меню</string>
+    <string name="m_battery_time">Час працы батарэі (хвілін)</string>
+    <string name="m_battery_time_sub">Паведамляецца госцю, што час зараду батарэі цалкам зараджаны / засталося. 0 = па змаўчанні.</string>
 </resources>

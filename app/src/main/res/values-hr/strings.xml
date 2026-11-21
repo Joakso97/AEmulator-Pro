@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Manji gumbi, više prostora za zaslon.</string>
     <string name="nav_dpad">Trackball</string>
     <string name="m_reset_menu_pos">Resetiraj gumb izbornika</string>
+    <string name="m_battery_time">Vrijeme trajanja baterije (minute)</string>
+    <string name="m_battery_time_sub">Prijavljeno gostu kao vrijeme pune/preostale baterije. 0 = zadano.</string>
 </resources>

@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Väiksemad nupud, rohkem ruumi ekraanile.</string>
     <string name="nav_dpad">Hiirekuul</string>
     <string name="m_reset_menu_pos">Lähtesta menüünupp</string>
+    <string name="m_battery_time">Aku tööaeg (minutites)</string>
+    <string name="m_battery_time_sub">Külalisele teatatakse kui aku täis / järelejäänud tööaeg. 0 = vaikimisi.</string>
 </resources>

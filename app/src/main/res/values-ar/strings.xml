@@ -569,4 +569,6 @@
     <string name="help_text">• أندرويد 2.3 و4.0–4.4: دعم أساسي؛ 5.x–6.x: تجريبي.\n• برامج ARM بمعمارية 32 بت فقط (armeabi / armeabi-v7a).\n\nالصيغ:\n• ملف ZIP للريكفري CWM/TWRP (MIUI وCyanogenMod والمنقولة ومعظم الرومات المعدلة)؛\n• سامسونج: ‎.tar / .tar.md5 من Odin أو ZIP يحوي AP_*.tar.md5؛\n• صور مصنع Google ‏(.tgz / .zip)؛\n• system.img ‏(ext4، sparse)، نسخة TWRP ‏system.ext4.win؛\n• OTA مع system.new.dat(.br) و system.transfer.list.\n\nالأفضل أن يحوي الأرشيف boot.img: منه يُؤخذ ترتيب تشغيل الخدمات.</string>
     <string name="as_site">الموقع</string>
     <string name="as_channel">قناة تيليجرام</string>
+    <string name="m_battery_time">وقت البطارية (بالدقائق)</string>
+    <string name="m_battery_time_sub">تم إبلاغ الضيف بأن وقت البطارية قد اكتمل / المتبقي. 0 = افتراضي.</string>
 </resources>

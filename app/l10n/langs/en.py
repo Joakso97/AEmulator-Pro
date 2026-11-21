@@ -148,6 +148,8 @@ S = {
     'm_airplane': 'Airplane mode',
     'm_apply': 'Apply',
     'm_battery': 'Battery',
+    'm_battery_time': 'Battery time (minutes)',
+    'm_battery_time_sub': 'Reported to the guest as battery time to full / remaining. 0 = default.',
     'm_call': 'Fake incoming call',
     'm_call_ring': 'Ring',
     'm_charging': 'Charging',

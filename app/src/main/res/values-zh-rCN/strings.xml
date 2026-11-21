@@ -38,7 +38,7 @@
     <string name="as_library_3d_sub">以可滑动浏览的 3D 手机展示已导入的固件和容器，代替卡片列表。默认关闭。</string>
     <string name="as_license_notices">许可与修改声明</string>
     <string name="as_links">项目</string>
-    <string name="as_navbar_original">原版</string>
+    <string name="as_navbar_original">原来的</string>
     <string name="as_navbar_sunset">日落</string>
     <string name="as_new_home">新主屏幕</string>
     <string name="as_new_home_sub">带底栏的网格库（0.0.0.3 风格）。关闭后回到经典列表。重启应用后生效。</string>
@@ -109,9 +109,9 @@
     <string name="folder_empty">空 — 把 ROM 拖到这里</string>
     <string name="folder_move">移动到文件夹</string>
     <string name="folder_new">新建文件夹</string>
-    <string name="vm_more">更多</string>
+    <string name="vm_more">更多的</string>
     <string name="vm_more_move">移动</string>
-    <string name="vm_more_name">名称</string>
+    <string name="vm_more_name">姓名</string>
     <string name="vm_more_folder">文件夹</string>
     <string name="folder_new_dots">新建文件夹…</string>
     <string name="folder_none">不在文件夹中</string>
@@ -186,7 +186,7 @@
     <string name="m_screenshot_saved">已保存：%1$s</string>
     <string name="m_send">发送</string>
     <string name="m_settings">打开 Android 设置</string>
-    <string name="m_shell">ADB Shell</string>
+    <string name="m_shell">亚行外壳</string>
     <string name="m_shell_clear">清空</string>
     <string name="m_shell_ctrlc">Ctrl+C</string>
     <string name="m_shell_hint">固件的 root shell。输入命令（如 ls /sdcard、getprop、pm list packages）。</string>
@@ -426,7 +426,7 @@
     <string name="vs_device_id">设备身份</string>
     <string name="vs_disable_google">禁用 Google 应用</string>
     <string name="vs_disable_google_sub">完全重启后，禁用检测到的 Google 应用、Play 商店、Play 服务和 Google 账号组件。启动器、键盘、WebView 和关键系统组件会保留。安装向导单独控制。依赖 Google 服务的应用可能无法工作。关闭此选项只恢复被它禁用的应用；不会删除 APK 和应用数据。</string>
-    <string name="vs_dpi">DPI</string>
+    <string name="vs_dpi">深度PI</string>
     <string name="vs_dual_sim">双卡</string>
     <string name="vs_dual_sim_sub">第二张模拟 SIM 卡。仅为双卡构建的固件会使用它（许多三星和 MediaTek 固件）。下次启动生效。</string>
     <string name="vs_fixed_2x">Android 2.x 使用固定的 480×800、240 dpi 屏幕。</string>
@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">锁定陀螺仪方向</string>
     <string name="vs_gyro_lock_sub">0° / 180° 将主机运动传感器固定为一个方向：重力恒定、陀螺仪读数为零，客户机永远不会自动旋转。“无陀螺仪”对客户机完全隐藏陀螺仪（陀螺仪异常时使用）；加速度计和磁力计保持真实。完全重启系统后生效。</string>
     <string name="vs_gyro_none">无陀螺仪</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.硬件</string>
     <string name="vs_hardware_default">固件默认</string>
     <string name="vs_hardware_pick">选择</string>
     <string name="vs_hardware_sub">启动时传给客户机的 ro.hardware 值。系统用它查找 HAL 库（gralloc.&lt;值&gt;.so、lights.&lt;值&gt;.so…），因此只有清楚固件期望什么时才修改。完全重启系统后生效。</string>
@@ -452,7 +452,7 @@
     <string name="vs_host_resolution_sub">完全重启系统后使用主机的物理屏幕尺寸和密度。模拟器按键覆盖在客户机之上。挖孔屏障在应用设置中。高分辨率需要更多内存和渲染时间。旧版 2.x 引擎保持固定分辨率。</string>
     <string name="vs_hwui">应用硬件加速（hwui）</string>
     <string name="vs_hwui_sub">更流畅，但部分固件会出现花屏。</string>
-    <string name="vs_jit">Dalvik JIT</string>
+    <string name="vs_jit">达尔维克即时生产</string>
     <string name="vs_jit_sub">更快；关闭后挑剔的固件更稳定。</string>
     <string name="vs_kernel">内核版本</string>
     <string name="vs_kernel_branch">分支（版本后缀）</string>
@@ -495,7 +495,7 @@
     <string name="vs_no_sensors_sub">让客户机不带任何传感器运行，适用于传感器服务在模拟下崩溃的固件。API 24+ 的 Android Wear SDK 构建默认开启（启动所必需）。下次完全启动生效。</string>
     <string name="vs_no_watchdog">禁用系统 watchdog（Android 14+）</string>
     <string name="vs_no_watchdog_sub">用于启动慢于 Android 60 秒 watchdog 限制、导致 system_server 被循环杀死的固件。修补固件的 services.jar 使 watchdog 线程立即退出；此后真正的系统死锁不再靠重启解决。jar 的预编译代码会被忽略，首次启动可能更慢。关闭后恢复原始 jar。下次完全启动生效。</string>
-    <string name="vs_ota">OTA</string>
+    <string name="vs_ota">在线旅行社</string>
     <string name="vs_ota_button">安装…</string>
     <string name="vs_ota_checking">正在检查 OTA…</string>
     <string name="vs_ota_confirm">您的系统：\n%1$s\n\n将更新到：\n%2$s\n\n系统的 /system 与 boot ramdisk 会被修补，dalvik-cache 会被清除；应用和数据保留。如有任何不匹配，则不做任何更改。</string>
@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3 和 4.0–4.4：主要支持；5.x–6.x：实验性。\n• 仅支持 32 位 ARM 固件（armeabi / armeabi-v7a）。\n\n格式：\n• CWM/TWRP 卡刷 ZIP（MIUI、CyanogenMod、移植包、大多数第三方 ROM）；\n• 三星：Odin .tar / .tar.md5，或包含 AP_*.tar.md5 的 ZIP；\n• Google 出厂镜像（.tgz / .zip）；\n• system.img（ext4、sparse），TWRP 备份 system.ext4.win；\n• 含 system.new.dat(.br) + system.transfer.list 的 OTA 包。\n\n压缩包中最好包含 boot.img：服务启动顺序从中读取。</string>
     <string name="as_site">网站</string>
     <string name="as_channel">Telegram 频道</string>
+    <string name="m_battery_time">电池使用时间（分钟）</string>
+    <string name="m_battery_time_sub">向客人报告电池充满/剩余时间。 0 = 默认。</string>
 </resources>

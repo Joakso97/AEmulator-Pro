@@ -148,6 +148,8 @@ KEYS = [
     'm_airplane',
     'm_apply',
     'm_battery',
+    'm_battery_time',
+    'm_battery_time_sub',
     'm_call',
     'm_call_ring',
     'm_charging',

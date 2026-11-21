@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Võrgu nimi ei tohi olla tühi',
     'vs_wifi_ssid_sub': 'Kuni 32 baiti',
     'vs_wifi_sub': 'Näitab hosti internetti virtuaalmasinale ühendatud Wi-Fi võrguna Etherneti asemel. Android 2.3, 4.0–17 (8–17: katseline). Rakendub järgmisel käivitusel.',
+    'm_battery_time': 'Aku tööaeg (minutites)',
+    'm_battery_time_sub': 'Külalisele teatatakse kui aku täis / järelejäänud tööaeg. 0 = vaikimisi.',
 }

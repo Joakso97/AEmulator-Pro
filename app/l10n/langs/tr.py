@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Ağ adı boş olamaz',
     'vs_wifi_ssid_sub': 'En fazla 32 bayt',
     'vs_wifi_sub': "Ana makinenin internetini VM'ye Ethernet yerine bağlı bir Wi-Fi ağı olarak gösterir. Android 2.3, 4.0–17 (8–17: deneysel). Bir sonraki açılışta uygulanır.",
+    'm_battery_time': 'Pil süresi (dakika)',
+    'm_battery_time_sub': 'Pilin dolma süresi/kalan olarak misafire raporlanır. 0 = varsayılan.',
 }

@@ -11,7 +11,7 @@
     <string name="as_accent">Vurgu rengi</string>
     <string name="as_accent_apply">Uygula</string>
     <string name="as_accent_default">Gün batımı (varsayılan)</string>
-    <string name="as_accent_hex">Hex</string>
+    <string name="as_accent_hex">Altıgen</string>
     <string name="as_accent_hue">Ton</string>
     <string name="as_accent_pick">Renk seç</string>
     <string name="as_accent_reset">Sıfırla</string>
@@ -442,7 +442,7 @@
     <string name="vs_gyro_lock">Jiroskop yönünü kilitle</string>
     <string name="vs_gyro_lock_sub">0° / 180°, ana makinenin hareket sensörlerini sabit bir yöne sabitler: yerçekimi sabit kalır ve jiroskop sıfır okur, böylece misafir hiçbir zaman otomatik dönmez. “Jiroskop yok”, jiroskopu misafirden tamamen gizler (jiroskop sorun çıkarıyorsa kullanın); ivmeölçer ve manyetometre gerçek kalır. VM tamamen yeniden başlatıldıktan sonra etkili olur.</string>
     <string name="vs_gyro_none">Jiroskop yok</string>
-    <string name="vs_hardware">ro.hardware</string>
+    <string name="vs_hardware">ro.donanım</string>
     <string name="vs_hardware_default">Ürün yazılımı varsayılanı</string>
     <string name="vs_hardware_pick">Seç</string>
     <string name="vs_hardware_sub">Başlatma sırasında misafire verilen ro.hardware değeri. Sistem HAL kitaplıklarını bununla arar (gralloc.&lt;değer&gt;.so, lights.&lt;değer&gt;.so…); yalnızca ürün yazılımının ne beklediğini biliyorsanız değiştirin. VM tamamen yeniden başlatıldıktan sonra etkili olur.</string>
@@ -569,4 +569,6 @@
     <string name="help_text">• Android 2.3 ve 4.0–4.4: ana destek; 5.x–6.x: deneysel.\n• Yalnızca 32 bit ARM yazılımları (armeabi / armeabi-v7a).\n\nBiçimler:\n• CWM/TWRP recovery ZIP (MIUI, CyanogenMod, portlar, çoğu özel ROM);\n• Samsung: Odin .tar / .tar.md5 veya AP_*.tar.md5 içeren ZIP;\n• Google fabrika imajları (.tgz / .zip);\n• system.img (ext4, sparse), TWRP yedeği system.ext4.win;\n• system.new.dat(.br) + system.transfer.list içeren OTA.\n\nArşivde boot.img olması en iyisidir: servislerin başlama sırası buradan alınır.</string>
     <string name="as_site">Web sitesi</string>
     <string name="as_channel">Telegram kanalı</string>
+    <string name="m_battery_time">Pil süresi (dakika)</string>
+    <string name="m_battery_time_sub">Pilin dolma süresi/kalan olarak misafire raporlanır. 0 = varsayılan.</string>
 </resources>

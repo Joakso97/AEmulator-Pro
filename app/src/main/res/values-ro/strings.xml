@@ -112,7 +112,7 @@
     <string name="vm_more">Mai mult</string>
     <string name="vm_more_move">Mișcă-te</string>
     <string name="vm_more_name">Nume</string>
-    <string name="vm_more_folder">Folder</string>
+    <string name="vm_more_folder">Pliant</string>
     <string name="folder_new_dots">Uusi kansio…</string>
     <string name="folder_none">Ei kansiossa</string>
     <string name="folder_open">Avaa kansio</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Pienemmät painikkeet, enemmän tilaa näytölle.</string>
     <string name="nav_dpad">Pallohiiri</string>
     <string name="m_reset_menu_pos">Nollaa valikkopainike</string>
+    <string name="m_battery_time">Durata bateriei (minute)</string>
+    <string name="m_battery_time_sub">Raportat oaspete ca durata bateriei la maxim / rămasă. 0 = implicit.</string>
 </resources>

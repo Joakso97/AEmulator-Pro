@@ -11,7 +11,7 @@
     <string name="as_accent">Korostusväri</string>
     <string name="as_accent_apply">Käytä</string>
     <string name="as_accent_default">Sunset (oletus)</string>
-    <string name="as_accent_hex">Hex</string>
+    <string name="as_accent_hex">шонздаҳӣ</string>
     <string name="as_accent_hue">Sävy</string>
     <string name="as_accent_pick">Valitse väri</string>
     <string name="as_accent_reset">Palauta</string>
@@ -247,7 +247,7 @@
     <string name="sf_fmt_twrp_sub">TWRP .win ва тақсим нусхаҳои эҳтиётии система, пурборшаванда ва маълумот.</string>
     <string name="sf_fmt_vm">бойгонии VM (.aessvm)</string>
     <string name="sf_fmt_vm_sub">Архивҳои аз ҷониби барнома содиршуда, ки бо ҳама танзимот ва файлҳо барқарор карда мешаванд.</string>
-    <string name="sf_fmt_zip">Flashable ZIP (CWM/TWRP)</string>
+    <string name="sf_fmt_zip">ZIP Flashable (CWM/TWRP)</string>
     <string name="sf_fmt_zip_sub">Барқарорсозии бастаҳои флешдор, аз ҷумла ZIP-ҳои лона ва боркунии скрипти навсозӣ.</string>
     <string name="sf_formats">Форматҳои файл</string>
     <string name="sf_formats_sub">Контейнерҳо ва тасвирҳо воридкунанда мефаҳманд.</string>
@@ -452,7 +452,7 @@
     <string name="vs_host_resolution_sub">Käytä isännän fyysistä näytön kokoa ja tiheyttä järjestelmän täyden uudelleenkäynnistyksen jälkeen. Emulaattorin ohjaimet peittävät vieraan. Lovisuoja on sovelluksen asetuksissa. Suuret tarkkuudet vaativat enemmän RAM-muistia ja piirtoaikaa. Vanha 2.x-moottori säilyttää kiinteän tarkkuutensa.</string>
     <string name="vs_hwui">Sovellusten laitteistokiihdytys (hwui)</string>
     <string name="vs_hwui_sub">Sulavampi, mutta jotkin laiteohjelmistot näyttävät artefakteja.</string>
-    <string name="vs_jit">Dalvik JIT</string>
+    <string name="vs_jit">Далвик ҶИТ</string>
     <string name="vs_jit_sub">Nopeampi; ilman sitä oikukkaat laiteohjelmistot toimivat luotettavammin.</string>
     <string name="vs_kernel">Kernelin versio</string>
     <string name="vs_kernel_branch">Haara (julkaisun pääte)</string>
@@ -495,7 +495,7 @@
     <string name="vs_no_sensors_sub">Aja vierasta ilman antureita laiteohjelmistoille, joiden anturipalvelu kaatuu emuloinnissa. Oletuksena päällä Android Wear SDK -koontiversioille API 24+:ssa, missä se tarvitaan käynnistymiseen. Tulee voimaan seuraavalla täydellä käynnistyksellä.</string>
     <string name="vs_no_watchdog">Poista järjestelmän watchdog käytöstä (Android 14+)</string>
     <string name="vs_no_watchdog_sub">Käynnistykseen, joka on hitaampi kuin Androidin 60 sekunnin watchdog-raja, joka tappaa system_serverin silmukassa. Muokkaa laiteohjelmiston services.jar-tiedostoa niin, että watchdog-säie päättyy heti; todellista järjestelmän lukkiutumista ei sen jälkeen enää korjata uudelleenkäynnistyksellä. Jar-tiedoston esikäännetty koodi ohitetaan, mikä voi hidastaa ensimmäistä käynnistystä. Pois kytkeminen palauttaa alkuperäisen jarin. Tulee voimaan seuraavalla täydellä käynnistyksellä.</string>
-    <string name="vs_ota">OTA</string>
+    <string name="vs_ota">ОТА</string>
     <string name="vs_ota_button">Asenna…</string>
     <string name="vs_ota_checking">Tarkistetaan OTA:ta…</string>
     <string name="vs_ota_confirm">Tämä järjestelmä:\n%1$s\n\npäivitetään versioon:\n%2$s\n\nJärjestelmän /system ja boot-ramdisk patchataan ja sen dalvik-välimuisti tyhjennetään; sovellukset ja tiedot säilyvät. Jos jokin ei täsmää, mitään ei muuteta.</string>
@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Pienemmät painikkeet, enemmän tilaa näytölle.</string>
     <string name="nav_dpad">Pallohiiri</string>
     <string name="m_reset_menu_pos">Nollaa valikkopainike</string>
+    <string name="m_battery_time">Вақти батарея (дақиқа)</string>
+    <string name="m_battery_time_sub">Ба меҳмон ҳамчун вақти батарея то пурра / боқимонда гузориш дода мешавад. 0 = пешфарз.</string>
 </resources>

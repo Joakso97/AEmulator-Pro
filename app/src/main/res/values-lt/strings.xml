@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">Mažesni mygtukai, daugiau vietos ekranui.</string>
     <string name="nav_dpad">Rutulys</string>
     <string name="m_reset_menu_pos">Atkurti meniu mygtuką</string>
+    <string name="m_battery_time">Baterijos veikimo laikas (min.)</string>
+    <string name="m_battery_time_sub">Svečiui pranešta kaip išsikrovęs / likęs akumuliatoriaus veikimo laikas. 0 = numatytasis.</string>
 </resources>

@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Nama jaringan wajib diisi',
     'vs_wifi_ssid_sub': 'Hingga 32 byte',
     'vs_wifi_sub': 'Menampilkan internet host ke VM sebagai jaringan Wi-Fi yang terhubung, bukan Ethernet. Android 2.3, 4.0–17 (8–17: eksperimental). Berlaku pada permulaan berikutnya.',
+    'm_battery_time': 'Waktu baterai (menit)',
+    'm_battery_time_sub': 'Dilaporkan kepada tamu sebagai waktu baterai penuh / tersisa. 0 = bawaan.',
 }

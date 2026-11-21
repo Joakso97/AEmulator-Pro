@@ -595,4 +595,6 @@
     <string name="vs_nav_compact_sub">ছোট বোতাম, স্ক্রিনের জন্য বেশি জায়গা।</string>
     <string name="nav_dpad">ট্র্যাকবল</string>
     <string name="m_reset_menu_pos">মেনু বোতাম রিসেট করুন</string>
+    <string name="m_battery_time">ব্যাটারি সময় (মিনিট)</string>
+    <string name="m_battery_time_sub">ব্যাটারি পূর্ণ / অবশিষ্ট সময় হিসাবে গেস্ট রিপোর্ট. 0 = ডিফল্ট।</string>
 </resources>

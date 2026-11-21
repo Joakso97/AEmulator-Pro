@@ -563,4 +563,6 @@ S = {
     'vs_wifi_ssid_error': 'Tīkla nosaukums nedrīkst būt tukšs',
     'vs_wifi_ssid_sub': 'Līdz 32 baitiem',
     'vs_wifi_sub': 'Rāda saimnieka internetu virtuālajai mašīnai kā pievienotu Wi-Fi tīklu Ethernet vietā. Android 2.3, 4.0–17 (8–17: eksperimentāli). Tiek lietots nākamajā palaišanā.',
+    'm_battery_time': 'Akumulatora darbības laiks (minūtes)',
+    'm_battery_time_sub': 'Viesim tiek ziņots kā akumulatora uzlādes laiks / atlikušais laiks. 0 = noklusējuma.',
 }
