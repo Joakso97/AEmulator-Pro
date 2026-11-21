@@ -4,6 +4,13 @@
 
 # AEmulator Pro
 
+<p align="center">
+  <a href="https://github.com/Joakso97/AEmulator-Pro/releases"><img src="https://img.shields.io/github/v/release/Joakso97/AEmulator-Pro?include_prereleases&style=flat-square" alt="GitHub release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Joakso97/AEmulator-Pro?style=flat-square" alt="License"></a>
+  <a href="https://github.com/Joakso97/AEmulator-Pro/stargazers"><img src="https://img.shields.io/github/stars/Joakso97/AEmulator-Pro?style=flat-square" alt="GitHub stars"></a>
+  <a href="https://developer.android.com"><img src="https://img.shields.io/badge/Min%20SDK-26%20(Android%208.0%2B)-blue?style=flat-square" alt="Min SDK"></a>
+</p>
+
 **Emulate almost any Android firmware HTC Sense, TouchWiz, MIUI, AOSP on a modern phone.** A fork of [AEmulator](https://github.com/uxazu/AEmulator) with more features and fixes.
 
 **🇬🇧 English** · [🇷🇺 Русский](docs/i18n/README.ru.md) · [🇺🇦 Українська](docs/i18n/README.uk.md) · [🇩🇪 Deutsch](docs/i18n/README.de.md) · [🇫🇷 Français](docs/i18n/README.fr.md) · [🇪🇸 Español](docs/i18n/README.es.md) · [🇧🇷 Português](docs/i18n/README.pt-BR.md) · [🇮🇹 Italiano](docs/i18n/README.it.md) · [🇵🇱 Polski](docs/i18n/README.pl.md) · [🇹🇷 Türkçe](docs/i18n/README.tr.md) · [🇸🇦 العربية](docs/i18n/README.ar.md) · [🇮🇷 فارسی](docs/i18n/README.fa.md) · [🇮🇳 हिन्दी](docs/i18n/README.hi.md) · [🇮🇩 Indonesia](docs/i18n/README.id.md) · [🇻🇳 Tiếng Việt](docs/i18n/README.vi.md) · [🇨🇳 简体中文](docs/i18n/README.zh-CN.md) · [🇯🇵 日本語](docs/i18n/README.ja.md) · [🇰🇷 한국어](docs/i18n/README.ko.md)
