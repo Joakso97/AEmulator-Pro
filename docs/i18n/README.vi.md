@@ -20,17 +20,17 @@ AEmulator Pro khởi động một image hệ thống Android 1.0–17 thật ng
 - Giao diện của hãng chạy nguyên bản nếu tương thích: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Đồ họa phần cứng qua cầu GL, âm thanh, cảm ứng và đa điểm, mạng với proxy TLS hiện đại
 - Thư mục thẻ nhớ dùng chung cho APK, nhạc và ảnh
-- **Chủ đề màn hình VM và trình sửa chủ đề**: thanh điều hướng và khung quanh màn hình khách theo một chủ đề — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x hoặc Lollipop 5.x — hoặc chủ đề của riêng bạn, tạo trong trình sửa có xem trước trực tiếp (hình dạng và cỡ phím, màu thanh/phím/nhấn/khung, phát sáng và quầng, thanh nổi hoặc phẳng, ảnh khung, góc màn hình bo tròn). Chủ đề có thể chia sẻ dưới dạng tệp `.aetheme`. Cài đặt ứng dụng › Giao diện › Chủ đề màn hình VM.
-- **Sắp xếp thư viện**: nhấn giữ một ROM và kéo lên hoặc xuống để đổi thứ tự (danh sách cổ điển và lưới 0.0.0.3), và nhóm các ROM vào thư mục có tên đóng mở được — thả ROM vào thư mục, hoặc dùng menu ⋮ › Chuyển vào thư mục
+- **Chủ đề màn hình VM và trình sửa chủ đề**: thanh điều hướng và khung quanh màn hình khách theo một chủ đề — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x hoặc Lollipop 5.x — hoặc chủ đề của riêng bạn, tạo trong trình sửa có xem trước trực tiếp (hình dạng và cỡ phím, màu thanh/phím/nhấn/khung, phát sáng và quầng, thanh nổi hoặc phẳng, ảnh khung, góc màn hình bo tròn). Chủ đề có thể chia sẻ dưới dạng tệp `.aetheme`. Cài đặt ứng dụng <img src="../assets/chevron.svg" height="14" valign="middle"> Giao diện <img src="../assets/chevron.svg" height="14" valign="middle"> Chủ đề màn hình VM.
+- **Sắp xếp thư viện**: nhấn giữ một ROM và kéo lên hoặc xuống để đổi thứ tự (danh sách cổ điển và lưới 0.0.0.3), và nhóm các ROM vào thư mục có tên đóng mở được — thả ROM vào thư mục, hoặc dùng menu <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Chuyển vào thư mục
 - Giao diện Material 3 Expressive với 19 ngôn ngữ
 - Miễn phí và mã nguồn mở (GPL-3.0)
 
 ## Bắt đầu nhanh
 
 1. Tải APK từ [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) và cài đặt.
-2. Mở AEmulator Pro → **Thêm firmware** và chọn tệp. Việc nhập mất vài phút.
+2. Mở AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Thêm firmware** và chọn tệp. Việc nhập mất vài phút.
 3. Nhấn **Bắt đầu**. Lần khởi động đầu chậm hơn: hệ thống tối ưu hóa các ứng dụng của nó.
-4. Dùng menu ⋮ cho âm lượng, nút nguồn và nhật ký; nút ⚙️ mở cài đặt và ngôn ngữ.
+4. Dùng menu <img src="../assets/menu.svg" height="14" valign="middle"> cho âm lượng, nút nguồn và nhật ký; nút <img src="../assets/settings.svg" height="14" valign="middle"> mở cài đặt và ngôn ngữ.
 
 ## Yêu cầu
 

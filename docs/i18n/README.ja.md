@@ -20,17 +20,17 @@ AEmulator Pro は、手持ちのファームウェアファイルから本物の
 - メーカー製スキンは互換性があればそのまま動作：HTC Sense、Samsung TouchWiz、MIUI、AOSP
 - GL ブリッジによるハードウェアグラフィックス、サウンド、タッチとマルチタッチ、最新 TLS プロキシ付きネットワーク
 - APK・音楽・写真用の共有メモリーカードフォルダー
-- **VM 画面テーマとテーマエディター**：ナビゲーションバーとゲスト画面を囲むフレームがテーマに従います — Original、Sunset、Gingerbread 2.x、Honeycomb 3.x、Holo 4.x、Lollipop 5.x — あるいはライブプレビュー付きエディターで作る自作テーマ（キーの形とサイズ、バー/キー/押下/フレームの色、グローとハロー、フローティングまたはフラットなバー、フレーム画像、画面の角丸）。テーマは `.aetheme` ファイルとして共有できます。アプリ設定 › 外観 › VM 画面テーマ。
-- **ライブラリを整理**：ROM を長押しして上下にドラッグで並べ替え（クラシックリストと 0.0.0.3 グリッド）、開閉できる名前付きフォルダーに ROM をグループ化 — ROM をフォルダーにドロップするか、⋮ メニュー › フォルダーへ移動を使用
+- **VM 画面テーマとテーマエディター**：ナビゲーションバーとゲスト画面を囲むフレームがテーマに従います — Original、Sunset、Gingerbread 2.x、Honeycomb 3.x、Holo 4.x、Lollipop 5.x — あるいはライブプレビュー付きエディターで作る自作テーマ（キーの形とサイズ、バー/キー/押下/フレームの色、グローとハロー、フローティングまたはフラットなバー、フレーム画像、画面の角丸）。テーマは `.aetheme` ファイルとして共有できます。アプリ設定 <img src="../assets/chevron.svg" height="14" valign="middle"> 外観 <img src="../assets/chevron.svg" height="14" valign="middle"> VM 画面テーマ。
+- **ライブラリを整理**：ROM を長押しして上下にドラッグで並べ替え（クラシックリストと 0.0.0.3 グリッド）、開閉できる名前付きフォルダーに ROM をグループ化 — ROM をフォルダーにドロップするか、<img src="../assets/menu.svg" height="14" valign="middle"> メニュー <img src="../assets/chevron.svg" height="14" valign="middle"> フォルダーへ移動を使用
 - 19 言語対応の Material 3 Expressive インターフェース
 - 無料・オープンソース（GPL-3.0）
 
 ## クイックスタート
 
 1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) から APK をダウンロードしてインストール。
-2. AEmulator Pro を開く → **ファームウェアを追加** でファイルを選択。取り込みには数分かかります。
+2. AEmulator Pro を開く <img src="../assets/chevron.svg" height="14" valign="middle"> **ファームウェアを追加** でファイルを選択。取り込みには数分かかります。
 3. **起動** を押します。初回起動は遅めです：システムがアプリを最適化します。
-4. ⋮ メニューで音量・電源ボタン・ログを操作。⚙️ ボタンでアプリ設定と言語を開きます。
+4. <img src="../assets/menu.svg" height="14" valign="middle"> メニューで音量・電源ボタン・ログを操作。<img src="../assets/settings.svg" height="14" valign="middle"> ボタンでアプリ設定と言語を開きます。
 
 ## 要件
 

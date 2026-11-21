@@ -20,17 +20,17 @@ AEmulator Pro 直接从你已有的固件文件启动真正的 Android 1.0–17 
 - 厂商界面在兼容时开箱即用：HTC Sense、三星 TouchWiz、MIUI、AOSP
 - 通过 GL 桥接的硬件图形、声音、触摸与多点触控、带现代 TLS 代理的网络
 - 用于 APK、音乐和照片的共享存储卡文件夹
-- **虚拟机屏幕主题与主题编辑器**：导航栏和客体屏幕周围的边框跟随主题 — Original、Sunset、Gingerbread 2.x、Honeycomb 3.x、Holo 4.x 或 Lollipop 5.x — 或你自己在带实时预览的编辑器中制作的主题（按键形状与大小、栏/按键/按下/边框颜色、辉光与光晕、悬浮或扁平栏、边框图片、屏幕圆角）。主题可作为 `.aetheme` 文件分享。应用设置 › 外观 › 虚拟机屏幕主题。
-- **整理你的库**：长按 ROM 并上下拖动来重新排序（经典列表和 0.0.0.3 网格），并把 ROM 分组到可开合的命名文件夹 — 把 ROM 拖到文件夹上，或使用其 ⋮ 菜单 › 移动到文件夹
+- **虚拟机屏幕主题与主题编辑器**：导航栏和客体屏幕周围的边框跟随主题 — Original、Sunset、Gingerbread 2.x、Honeycomb 3.x、Holo 4.x 或 Lollipop 5.x — 或你自己在带实时预览的编辑器中制作的主题（按键形状与大小、栏/按键/按下/边框颜色、辉光与光晕、悬浮或扁平栏、边框图片、屏幕圆角）。主题可作为 `.aetheme` 文件分享。应用设置 <img src="../assets/chevron.svg" height="14" valign="middle"> 外观 <img src="../assets/chevron.svg" height="14" valign="middle"> 虚拟机屏幕主题。
+- **整理你的库**：长按 ROM 并上下拖动来重新排序（经典列表和 0.0.0.3 网格），并把 ROM 分组到可开合的命名文件夹 — 把 ROM 拖到文件夹上，或使用其 <img src="../assets/menu.svg" height="14" valign="middle"> 菜单 <img src="../assets/chevron.svg" height="14" valign="middle"> 移动到文件夹
 - Material 3 Expressive 界面，支持 19 种语言
 - 免费且开源（GPL-3.0）
 
 ## 快速开始
 
 1. 从 [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) 下载 APK 并安装。
-2. 打开 AEmulator Pro → **添加固件**并选择文件。导入需要几分钟。
+2. 打开 AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **添加固件**并选择文件。导入需要几分钟。
 3. 按 **启动**。首次开机较慢：系统会优化其应用。
-4. ⋮ 菜单提供音量、电源键和日志；⚙️ 按钮打开应用设置和语言。
+4. <img src="../assets/menu.svg" height="14" valign="middle"> 菜单提供音量、电源键和日志；<img src="../assets/settings.svg" height="14" valign="middle"> 按钮打开应用设置和语言。
 
 ## 要求
 

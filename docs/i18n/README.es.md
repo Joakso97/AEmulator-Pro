@@ -20,17 +20,17 @@ AEmulator Pro arranca una imagen real del sistema Android 1.0–17 directamente 
 - Las capas de los fabricantes funcionan tal cual si son compatibles: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Gráficos por hardware mediante el puente GL, sonido, táctil y multitáctil, red con un proxy TLS moderno
 - Carpeta compartida de tarjeta de memoria para APKs, música y fotos
-- **Temas de pantalla de la VM y editor de temas**: la barra de navegación y el marco alrededor de la pantalla invitada siguen un tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x o Lollipop 5.x — o el tuyo propio, creado en un editor con vista previa en vivo (formas y tamaño de teclas, colores de barra/teclas/pulsación/marco, brillo y halo, barra flotante o plana, imagen de marco, esquinas de pantalla redondeadas). Los temas se pueden compartir como archivos `.aetheme`. Ajustes de la app › Apariencia › Tema de pantalla de la VM.
-- **Organiza tu biblioteca**: mantén pulsado un ROM y arrástralo hacia arriba o abajo para reordenarlo (lista clásica y cuadrícula 0.0.0.3), y agrupa los ROMs en carpetas con nombre que se abren y cierran — suelta un ROM sobre una carpeta o usa su menú ⋮ › Mover a carpeta
+- **Temas de pantalla de la VM y editor de temas**: la barra de navegación y el marco alrededor de la pantalla invitada siguen un tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x o Lollipop 5.x — o el tuyo propio, creado en un editor con vista previa en vivo (formas y tamaño de teclas, colores de barra/teclas/pulsación/marco, brillo y halo, barra flotante o plana, imagen de marco, esquinas de pantalla redondeadas). Los temas se pueden compartir como archivos `.aetheme`. Ajustes de la app <img src="../assets/chevron.svg" height="14" valign="middle"> Apariencia <img src="../assets/chevron.svg" height="14" valign="middle"> Tema de pantalla de la VM.
+- **Organiza tu biblioteca**: mantén pulsado un ROM y arrástralo hacia arriba o abajo para reordenarlo (lista clásica y cuadrícula 0.0.0.3), y agrupa los ROMs en carpetas con nombre que se abren y cierran — suelta un ROM sobre una carpeta o usa su menú <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Mover a carpeta
 - Interfaz Material 3 Expressive en 19 idiomas
 - Gratis y de código abierto (GPL-3.0)
 
 ## Inicio rápido
 
 1. Descarga el APK desde [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) e instálalo.
-2. Abre AEmulator Pro → **Añadir firmware** y elige el archivo. La importación tarda unos minutos.
+2. Abre AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Añadir firmware** y elige el archivo. La importación tarda unos minutos.
 3. Pulsa **Iniciar**. El primer arranque es más lento: el sistema optimiza sus apps.
-4. Usa el menú ⋮ para volumen, botón de encendido y registros; el botón ⚙️ abre los ajustes y el idioma.
+4. Usa el menú <img src="../assets/menu.svg" height="14" valign="middle"> para volumen, botón de encendido y registros; el botón <img src="../assets/settings.svg" height="14" valign="middle"> abre los ajustes y el idioma.
 
 ## Requisitos
 

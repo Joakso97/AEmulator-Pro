@@ -20,17 +20,17 @@ AEmulator Pro bootet ein echtes Android-1.0–17-System-Image direkt aus einer F
 - Hersteller-Oberflächen laufen unverändert, sofern kompatibel: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Hardwaregrafik über die GL-Brücke, Ton, Touch und Multitouch, Netzwerk mit modernem TLS-Proxy
 - Gemeinsamer Speicherkarten-Ordner für APKs, Musik und Fotos
-- **VM-Bildschirmthemen und Themen-Editor**: Navigationsleiste und Rahmen um den Gast-Bildschirm folgen einem Thema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x oder Lollipop 5.x — oder deinem eigenen, im Editor mit Live-Vorschau erstellt (Tastenformen und -größe, Farben für Leiste/Tasten/Druck/Rahmen, Leuchten und Halo, schwebende oder flache Leiste, Rahmenbild, abgerundete Bildschirmecken). Themen lassen sich als `.aetheme`-Dateien teilen. App-Einstellungen › Darstellung › VM-Bildschirmthema.
-- **Bibliothek ordnen**: ROM gedrückt halten und nach oben oder unten ziehen, um es umzusortieren (klassische Liste und 0.0.0.3-Raster), und ROMs in benannte Ordner gruppieren, die sich öffnen und schließen lassen — ROM auf einen Ordner ziehen oder das ⋮-Menü › In Ordner verschieben nutzen
+- **VM-Bildschirmthemen und Themen-Editor**: Navigationsleiste und Rahmen um den Gast-Bildschirm folgen einem Thema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x oder Lollipop 5.x — oder deinem eigenen, im Editor mit Live-Vorschau erstellt (Tastenformen und -größe, Farben für Leiste/Tasten/Druck/Rahmen, Leuchten und Halo, schwebende oder flache Leiste, Rahmenbild, abgerundete Bildschirmecken). Themen lassen sich als `.aetheme`-Dateien teilen. App-Einstellungen <img src="../assets/chevron.svg" height="14" valign="middle"> Darstellung <img src="../assets/chevron.svg" height="14" valign="middle"> VM-Bildschirmthema.
+- **Bibliothek ordnen**: ROM gedrückt halten und nach oben oder unten ziehen, um es umzusortieren (klassische Liste und 0.0.0.3-Raster), und ROMs in benannte Ordner gruppieren, die sich öffnen und schließen lassen — ROM auf einen Ordner ziehen oder das <img src="../assets/menu.svg" height="14" valign="middle">-Menü <img src="../assets/chevron.svg" height="14" valign="middle"> In Ordner verschieben nutzen
 - Material-3-Expressive-Oberfläche in 19 Sprachen
 - Kostenlos und quelloffen (GPL-3.0)
 
 ## Schnellstart
 
 1. APK unter [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) herunterladen und installieren.
-2. AEmulator Pro öffnen → **Firmware hinzufügen** und die Datei wählen. Der Import dauert einige Minuten.
+2. AEmulator Pro öffnen <img src="../assets/chevron.svg" height="14" valign="middle"> **Firmware hinzufügen** und die Datei wählen. Der Import dauert einige Minuten.
 3. **Starten** drücken. Der erste Start dauert länger: Das System optimiert seine Apps.
-4. Menü ⋮ für Lautstärke, Ein/Aus und Protokolle; die ⚙️-Schaltfläche öffnet Einstellungen und Sprache.
+4. Menü <img src="../assets/menu.svg" height="14" valign="middle"> für Lautstärke, Ein/Aus und Protokolle; die <img src="../assets/settings.svg" height="14" valign="middle">-Schaltfläche öffnet Einstellungen und Sprache.
 
 ## Voraussetzungen
 

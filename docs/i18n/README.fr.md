@@ -20,17 +20,17 @@ AEmulator Pro démarre une véritable image système Android 1.0–17 directemen
 - Les surcouches constructeur fonctionnent telles quelles si compatibles : HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Graphismes matériels via le pont GL, son, tactile et multitouch, réseau avec un proxy TLS moderne
 - Dossier de carte mémoire partagé pour APK, musique et photos
-- **Thèmes d'écran de la VM et éditeur de thèmes** : la barre de navigation et le cadre autour de l'écran invité suivent un thème — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x ou Lollipop 5.x — ou le vôtre, créé dans un éditeur avec aperçu en direct (formes et taille des touches, couleurs barre/touches/appui/cadre, lueur et halo, barre flottante ou plate, image de cadre, coins d'écran arrondis). Les thèmes se partagent sous forme de fichiers `.aetheme`. Réglages de l'app › Apparence › Thème d'écran de la VM.
-- **Organisez votre bibliothèque** : maintenez un ROM appuyé et faites-le glisser vers le haut ou le bas pour le réordonner (liste classique et grille 0.0.0.3), et regroupez les ROMs dans des dossiers nommés qui s'ouvrent et se ferment — déposez un ROM sur un dossier, ou utilisez son menu ⋮ › Déplacer vers un dossier
+- **Thèmes d'écran de la VM et éditeur de thèmes** : la barre de navigation et le cadre autour de l'écran invité suivent un thème — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x ou Lollipop 5.x — ou le vôtre, créé dans un éditeur avec aperçu en direct (formes et taille des touches, couleurs barre/touches/appui/cadre, lueur et halo, barre flottante ou plate, image de cadre, coins d'écran arrondis). Les thèmes se partagent sous forme de fichiers `.aetheme`. Réglages de l'app <img src="../assets/chevron.svg" height="14" valign="middle"> Apparence <img src="../assets/chevron.svg" height="14" valign="middle"> Thème d'écran de la VM.
+- **Organisez votre bibliothèque** : maintenez un ROM appuyé et faites-le glisser vers le haut ou le bas pour le réordonner (liste classique et grille 0.0.0.3), et regroupez les ROMs dans des dossiers nommés qui s'ouvrent et se ferment — déposez un ROM sur un dossier, ou utilisez son menu <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Déplacer vers un dossier
 - Interface Material 3 Expressive en 19 langues
 - Gratuit et open source (GPL-3.0)
 
 ## Démarrage rapide
 
 1. Téléchargez l'APK depuis [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) et installez-le.
-2. Ouvrez AEmulator Pro → **Ajouter un firmware** et choisissez le fichier. L'import prend quelques minutes.
+2. Ouvrez AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Ajouter un firmware** et choisissez le fichier. L'import prend quelques minutes.
 3. Appuyez sur **Démarrer**. Le premier démarrage est plus lent : le système optimise ses applications.
-4. Le menu ⋮ gère le volume, le bouton d'alimentation et les journaux ; le bouton ⚙️ ouvre les réglages et la langue.
+4. Le menu <img src="../assets/menu.svg" height="14" valign="middle"> gère le volume, le bouton d'alimentation et les journaux ; le bouton <img src="../assets/settings.svg" height="14" valign="middle"> ouvre les réglages et la langue.
 
 ## Prérequis
 

@@ -20,17 +20,17 @@ AEmulator Pro mem-boot image sistem Android 1.0–17 asli langsung dari file fir
 - Skin vendor berjalan apa adanya jika kompatibel: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Grafis perangkat keras lewat jembatan GL, suara, sentuhan dan multitouch, jaringan dengan proksi TLS modern
 - Folder kartu memori bersama untuk APK, musik, dan foto
-- **Tema layar VM dan editor tema**: bilah navigasi dan bingkai di sekeliling layar tamu mengikuti tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x, atau Lollipop 5.x — atau tema Anda sendiri, dibuat di editor dengan pratinjau langsung (bentuk dan ukuran tombol, warna bilah/tombol/tekanan/bingkai, cahaya dan halo, bilah mengambang atau datar, gambar bingkai, sudut layar membulat). Tema dapat dibagikan sebagai file `.aetheme`. Pengaturan aplikasi › Tampilan › Tema layar VM.
-- **Atur pustaka Anda**: tekan dan tahan ROM lalu seret ke atas atau bawah untuk mengurutkannya (daftar klasik dan kisi 0.0.0.3), dan kelompokkan ROM ke folder bernama yang bisa dibuka-tutup — jatuhkan ROM ke folder, atau gunakan menu ⋮ › Pindahkan ke folder
+- **Tema layar VM dan editor tema**: bilah navigasi dan bingkai di sekeliling layar tamu mengikuti tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x, atau Lollipop 5.x — atau tema Anda sendiri, dibuat di editor dengan pratinjau langsung (bentuk dan ukuran tombol, warna bilah/tombol/tekanan/bingkai, cahaya dan halo, bilah mengambang atau datar, gambar bingkai, sudut layar membulat). Tema dapat dibagikan sebagai file `.aetheme`. Pengaturan aplikasi <img src="../assets/chevron.svg" height="14" valign="middle"> Tampilan <img src="../assets/chevron.svg" height="14" valign="middle"> Tema layar VM.
+- **Atur pustaka Anda**: tekan dan tahan ROM lalu seret ke atas atau bawah untuk mengurutkannya (daftar klasik dan kisi 0.0.0.3), dan kelompokkan ROM ke folder bernama yang bisa dibuka-tutup — jatuhkan ROM ke folder, atau gunakan menu <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Pindahkan ke folder
 - Antarmuka Material 3 Expressive dalam 19 bahasa
 - Gratis dan sumber terbuka (GPL-3.0)
 
 ## Mulai cepat
 
 1. Unduh APK dari [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) lalu pasang.
-2. Buka AEmulator Pro → **Tambah firmware** dan pilih file. Impor memakan waktu beberapa menit.
+2. Buka AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Tambah firmware** dan pilih file. Impor memakan waktu beberapa menit.
 3. Tekan **Mulai**. Boot pertama lebih lambat: sistem mengoptimalkan aplikasi-aplikasinya.
-4. Gunakan menu ⋮ untuk volume, tombol daya, dan log; tombol ⚙️ membuka pengaturan dan bahasa.
+4. Gunakan menu <img src="../assets/menu.svg" height="14" valign="middle"> untuk volume, tombol daya, dan log; tombol <img src="../assets/settings.svg" height="14" valign="middle"> membuka pengaturan dan bahasa.
 
 ## Persyaratan
 

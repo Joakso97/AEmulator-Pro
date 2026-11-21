@@ -20,17 +20,17 @@ AEmulator Pro, zaten sahip olduğunuz bir firmware dosyasından gerçek bir Andr
 - Üretici arayüzleri uyumluysa olduğu gibi çalışır: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - GL köprüsü üzerinden donanım grafikleri, ses, dokunma ve çoklu dokunma, modern TLS proxy'si ile ağ
 - APK'lar, müzik ve fotoğraflar için paylaşılan hafıza kartı klasörü
-- **VM ekran temaları ve tema düzenleyici**: gezinme çubuğu ve konuk ekranının çevresindeki çerçeve bir temayı izler — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x veya Lollipop 5.x — ya da canlı önizlemeli düzenleyicide yaptığınız kendi temanızı (tuş şekilleri ve boyutu, çubuk/tuş/basma/çerçeve renkleri, parıltı ve hale, yüzen veya düz çubuk, çerçeve resmi, yuvarlatılmış ekran köşeleri). Temalar `.aetheme` dosyaları olarak paylaşılabilir. Uygulama ayarları › Görünüm › VM ekran teması.
-- **Kitaplığınızı düzenleyin**: bir ROM'a basılı tutun ve yeniden sıralamak için yukarı veya aşağı sürükleyin (klasik liste ve 0.0.0.3 ızgarası), ROM'ları açılıp kapanan adlandırılmış klasörlerde gruplayın — bir ROM'u klasörün üzerine bırakın veya ⋮ menüsü › Klasöre taşı'yı kullanın
+- **VM ekran temaları ve tema düzenleyici**: gezinme çubuğu ve konuk ekranının çevresindeki çerçeve bir temayı izler — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x veya Lollipop 5.x — ya da canlı önizlemeli düzenleyicide yaptığınız kendi temanızı (tuş şekilleri ve boyutu, çubuk/tuş/basma/çerçeve renkleri, parıltı ve hale, yüzen veya düz çubuk, çerçeve resmi, yuvarlatılmış ekran köşeleri). Temalar `.aetheme` dosyaları olarak paylaşılabilir. Uygulama ayarları <img src="../assets/chevron.svg" height="14" valign="middle"> Görünüm <img src="../assets/chevron.svg" height="14" valign="middle"> VM ekran teması.
+- **Kitaplığınızı düzenleyin**: bir ROM'a basılı tutun ve yeniden sıralamak için yukarı veya aşağı sürükleyin (klasik liste ve 0.0.0.3 ızgarası), ROM'ları açılıp kapanan adlandırılmış klasörlerde gruplayın — bir ROM'u klasörün üzerine bırakın veya <img src="../assets/menu.svg" height="14" valign="middle"> menüsü <img src="../assets/chevron.svg" height="14" valign="middle"> Klasöre taşı'yı kullanın
 - 19 dilde Material 3 Expressive arayüzü
 - Ücretsiz ve açık kaynak (GPL-3.0)
 
 ## Hızlı başlangıç
 
 1. APK'yı [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) sayfasından indirin ve kurun.
-2. AEmulator Pro'yu açın → **Firmware ekle** ve dosyayı seçin. İçe aktarma birkaç dakika sürer.
+2. AEmulator Pro'yu açın <img src="../assets/chevron.svg" height="14" valign="middle"> **Firmware ekle** ve dosyayı seçin. İçe aktarma birkaç dakika sürer.
 3. **Başlat**'a basın. İlk açılış daha yavaştır: sistem uygulamalarını optimize eder.
-4. ⋮ menüsü ses, güç düğmesi ve günlükler içindir; ⚙️ düğmesi ayarları ve dili açar.
+4. <img src="../assets/menu.svg" height="14" valign="middle"> menüsü ses, güç düğmesi ve günlükler içindir; <img src="../assets/settings.svg" height="14" valign="middle"> düğmesi ayarları ve dili açar.
 
 ## Gereksinimler
 

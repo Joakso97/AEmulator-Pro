@@ -20,17 +20,17 @@ AEmulator Pro는 이미 가지고 있는 펌웨어 파일에서 진짜 Android 1
 - 제조사 스킨은 호환되면 그대로 작동: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - GL 브리지 기반 하드웨어 그래픽, 사운드, 터치와 멀티터치, 최신 TLS 프록시가 있는 네트워크
 - APK, 음악, 사진을 위한 공유 메모리 카드 폴더
-- **VM 화면 테마와 테마 편집기**: 내비게이션 바와 게스트 화면을 둘러싼 프레임이 테마를 따릅니다 — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x 또는 Lollipop 5.x — 또는 실시간 미리보기가 있는 편집기에서 만든 나만의 테마(키 모양과 크기, 바/키/눌림/프레임 색상, 글로우와 헤일로, 떠 있는 또는 평평한 바, 프레임 그림, 둥근 화면 모서리). 테마는 `.aetheme` 파일로 공유할 수 있습니다. 앱 설정 › 모양 › VM 화면 테마.
-- **라이브러리 정리**: ROM을 길게 누르고 위아래로 드래그해 순서를 바꾸고(클래식 목록과 0.0.0.3 그리드), 열고 닫을 수 있는 이름 있는 폴더로 ROM을 묶으세요 — ROM을 폴더에 놓거나 ⋮ 메뉴 › 폴더로 이동 사용
+- **VM 화면 테마와 테마 편집기**: 내비게이션 바와 게스트 화면을 둘러싼 프레임이 테마를 따릅니다 — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x 또는 Lollipop 5.x — 또는 실시간 미리보기가 있는 편집기에서 만든 나만의 테마(키 모양과 크기, 바/키/눌림/프레임 색상, 글로우와 헤일로, 떠 있는 또는 평평한 바, 프레임 그림, 둥근 화면 모서리). 테마는 `.aetheme` 파일로 공유할 수 있습니다. 앱 설정 <img src="../assets/chevron.svg" height="14" valign="middle"> 모양 <img src="../assets/chevron.svg" height="14" valign="middle"> VM 화면 테마.
+- **라이브러리 정리**: ROM을 길게 누르고 위아래로 드래그해 순서를 바꾸고(클래식 목록과 0.0.0.3 그리드), 열고 닫을 수 있는 이름 있는 폴더로 ROM을 묶으세요 — ROM을 폴더에 놓거나 <img src="../assets/menu.svg" height="14" valign="middle"> 메뉴 <img src="../assets/chevron.svg" height="14" valign="middle"> 폴더로 이동 사용
 - 19개 언어의 Material 3 Expressive 인터페이스
 - 무료 및 오픈 소스(GPL-3.0)
 
 ## 빠른 시작
 
 1. [Releases](https://github.com/Joakso97/AEmulator-Pro/releases)에서 APK를 다운로드해 설치하세요.
-2. AEmulator Pro 열기 → **펌웨어 추가**에서 파일을 선택하세요. 가져오기는 몇 분 걸립니다.
+2. AEmulator Pro 열기 <img src="../assets/chevron.svg" height="14" valign="middle"> **펌웨어 추가**에서 파일을 선택하세요. 가져오기는 몇 분 걸립니다.
 3. **시작**을 누르세요. 첫 부팅은 더 느립니다: 시스템이 앱을 최적화합니다.
-4. ⋮ 메뉴로 볼륨, 전원 버튼, 로그를 조작하고 ⚙️ 버튼으로 앱 설정과 언어를 엽니다.
+4. <img src="../assets/menu.svg" height="14" valign="middle"> 메뉴로 볼륨, 전원 버튼, 로그를 조작하고 <img src="../assets/settings.svg" height="14" valign="middle"> 버튼으로 앱 설정과 언어를 엽니다.
 
 ## 요구 사항
 

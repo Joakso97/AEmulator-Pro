@@ -20,17 +20,17 @@ AEmulator Pro uruchamia prawdziwy obraz systemu Android 1.0–17 prosto z pliku 
 - Nakładki producentów działają bez zmian, jeśli są zgodne: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Grafika sprzętowa przez most GL, dźwięk, dotyk i multitouch, sieć z nowoczesnym proxy TLS
 - Wspólny folder karty pamięci na APK, muzykę i zdjęcia
-- **Motywy ekranu VM i edytor motywów**: pasek nawigacji i ramka wokół ekranu gościa podążają za motywem — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x lub Lollipop 5.x — albo twoim własnym, zrobionym w edytorze z podglądem na żywo (kształty i rozmiar klawiszy, kolory paska/klawiszy/naciśnięcia/ramki, poświata i halo, pasek pływający lub płaski, obraz ramki, zaokrąglone rogi ekranu). Motywy można udostępniać jako pliki `.aetheme`. Ustawienia aplikacji › Wygląd › Motyw ekranu VM.
-- **Uporządkuj bibliotekę**: przytrzymaj ROM i przeciągnij go w górę lub w dół, aby zmienić kolejność (klasyczna lista i siatka 0.0.0.3), i grupuj ROM-y w nazwane foldery, które się otwierają i zamykają — upuść ROM na folder albo użyj menu ⋮ › Przenieś do folderu
+- **Motywy ekranu VM i edytor motywów**: pasek nawigacji i ramka wokół ekranu gościa podążają za motywem — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x lub Lollipop 5.x — albo twoim własnym, zrobionym w edytorze z podglądem na żywo (kształty i rozmiar klawiszy, kolory paska/klawiszy/naciśnięcia/ramki, poświata i halo, pasek pływający lub płaski, obraz ramki, zaokrąglone rogi ekranu). Motywy można udostępniać jako pliki `.aetheme`. Ustawienia aplikacji <img src="../assets/chevron.svg" height="14" valign="middle"> Wygląd <img src="../assets/chevron.svg" height="14" valign="middle"> Motyw ekranu VM.
+- **Uporządkuj bibliotekę**: przytrzymaj ROM i przeciągnij go w górę lub w dół, aby zmienić kolejność (klasyczna lista i siatka 0.0.0.3), i grupuj ROM-y w nazwane foldery, które się otwierają i zamykają — upuść ROM na folder albo użyj menu <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Przenieś do folderu
 - Interfejs Material 3 Expressive w 19 językach
 - Darmowy i open source (GPL-3.0)
 
 ## Szybki start
 
 1. Pobierz APK z [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) i zainstaluj.
-2. Otwórz AEmulator Pro → **Dodaj firmware** i wybierz plik. Import trwa kilka minut.
+2. Otwórz AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Dodaj firmware** i wybierz plik. Import trwa kilka minut.
 3. Naciśnij **Start**. Pierwsze uruchomienie jest wolniejsze: system optymalizuje swoje aplikacje.
-4. Menu ⋮ obsługuje głośność, przycisk zasilania i logi; przycisk ⚙️ otwiera ustawienia i język.
+4. Menu <img src="../assets/menu.svg" height="14" valign="middle"> obsługuje głośność, przycisk zasilania i logi; przycisk <img src="../assets/settings.svg" height="14" valign="middle"> otwiera ustawienia i język.
 
 ## Wymagania
 

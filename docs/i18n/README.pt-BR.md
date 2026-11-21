@@ -20,17 +20,17 @@ O AEmulator Pro inicializa uma imagem real do sistema Android 1.0–17 direto de
 - As interfaces dos fabricantes funcionam como são, se compatíveis: HTC Sense, Samsung TouchWiz, MIUI, AOSP
 - Gráficos por hardware pela ponte GL, som, toque e multitoque, rede com um proxy TLS moderno
 - Pasta compartilhada de cartão de memória para APKs, músicas e fotos
-- **Temas de tela da VM e editor de temas**: a barra de navegação e a moldura ao redor da tela convidada seguem um tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x ou Lollipop 5.x — ou o seu próprio, feito em um editor com pré-visualização ao vivo (formas e tamanho das teclas, cores de barra/teclas/pressão/moldura, brilho e halo, barra flutuante ou plana, imagem de moldura, cantos de tela arredondados). Temas podem ser compartilhados como arquivos `.aetheme`. Configurações do app › Aparência › Tema de tela da VM.
-- **Organize sua biblioteca**: pressione e segure um ROM e arraste-o para cima ou para baixo para reordená-lo (lista clássica e grade 0.0.0.3), e agrupe ROMs em pastas nomeadas que abrem e fecham — solte um ROM sobre uma pasta ou use o menu ⋮ › Mover para pasta
+- **Temas de tela da VM e editor de temas**: a barra de navegação e a moldura ao redor da tela convidada seguem um tema — Original, Sunset, Gingerbread 2.x, Honeycomb 3.x, Holo 4.x ou Lollipop 5.x — ou o seu próprio, feito em um editor com pré-visualização ao vivo (formas e tamanho das teclas, cores de barra/teclas/pressão/moldura, brilho e halo, barra flutuante ou plana, imagem de moldura, cantos de tela arredondados). Temas podem ser compartilhados como arquivos `.aetheme`. Configurações do app <img src="../assets/chevron.svg" height="14" valign="middle"> Aparência <img src="../assets/chevron.svg" height="14" valign="middle"> Tema de tela da VM.
+- **Organize sua biblioteca**: pressione e segure um ROM e arraste-o para cima ou para baixo para reordená-lo (lista clássica e grade 0.0.0.3), e agrupe ROMs em pastas nomeadas que abrem e fecham — solte um ROM sobre uma pasta ou use o menu <img src="../assets/menu.svg" height="14" valign="middle"> <img src="../assets/chevron.svg" height="14" valign="middle"> Mover para pasta
 - Interface Material 3 Expressive em 19 idiomas
 - Gratuito e de código aberto (GPL-3.0)
 
 ## Início rápido
 
 1. Baixe o APK em [Releases](https://github.com/Joakso97/AEmulator-Pro/releases) e instale.
-2. Abra o AEmulator Pro → **Adicionar firmware** e escolha o arquivo. A importação leva alguns minutos.
+2. Abra o AEmulator Pro <img src="../assets/chevron.svg" height="14" valign="middle"> **Adicionar firmware** e escolha o arquivo. A importação leva alguns minutos.
 3. Pressione **Iniciar**. A primeira inicialização é mais lenta: o sistema otimiza seus apps.
-4. Use o menu ⋮ para volume, botão de energia e logs; o botão ⚙️ abre as configurações e o idioma.
+4. Use o menu <img src="../assets/menu.svg" height="14" valign="middle"> para volume, botão de energia e logs; o botão <img src="../assets/settings.svg" height="14" valign="middle"> abre as configurações e o idioma.
 
 ## Requisitos
 
