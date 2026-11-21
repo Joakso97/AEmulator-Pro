@@ -1414,7 +1414,7 @@ open class VmActivity : ComponentActivity() {
             AnimatedVisibility(
                 visible = state != GuestVm.State.RUNNING && !showLog && (state == GuestVm.State.FAILED || !cardMinimized),
                 enter = fadeIn(), exit = fadeOut(),
-                modifier = Modifier.align(Alignment.Center).offset(y = (-80).dp),
+                modifier = Modifier.align(Alignment.Center),
             ) { BootCard(seconds, onMinimize = { cardOverride = true }) }
 
             
