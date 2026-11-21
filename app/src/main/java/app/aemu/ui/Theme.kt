@@ -26,30 +26,10 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.compose.material3.MaterialTheme
 
 
-private val Light = lightColorScheme(
-    primary = Color(0xFF0061A4), onPrimary = Color.White,
-    primaryContainer = Color(0xFFD1E4FF), onPrimaryContainer = Color(0xFF001D36),
-    secondary = Color(0xFF535F70), onSecondary = Color.White,
-    secondaryContainer = Color(0xFFD7E3F7), onSecondaryContainer = Color(0xFF101C2B),
-    tertiary = Color(0xFF6B5778), onTertiary = Color.White,
-    tertiaryContainer = Color(0xFFF2DAFF), onTertiaryContainer = Color(0xFF251431),
-    background = Color(0xFFF8F9FF), surface = Color(0xFFF8F9FF),
-    surfaceContainer = Color(0xFFECEDF4), surfaceContainerHigh = Color(0xFFE6E8EE),
-    surfaceContainerHighest = Color(0xFFE0E2E8), surfaceContainerLow = Color(0xFFF2F3F9),
-    error = Color(0xFFBA1A1A),
-)
+private val RedSeed = Color(0xFFD32F2F)
 
-private val Dark = darkColorScheme(
-    primary = Color(0xFF9ECAFF), onPrimary = Color(0xFF003258),
-    primaryContainer = Color(0xFF00497D), onPrimaryContainer = Color(0xFFD1E4FF),
-    secondary = Color(0xFFBBC7DB), onSecondary = Color(0xFF253140),
-    secondaryContainer = Color(0xFF3B4758), onSecondaryContainer = Color(0xFFD7E3F7),
-    tertiary = Color(0xFFD6BEE4), onTertiary = Color(0xFF3B2947),
-    tertiaryContainer = Color(0xFF533F5F), onTertiaryContainer = Color(0xFFF2DAFF),
-    background = Color(0xFF111318), surface = Color(0xFF111318),
-    surfaceContainer = Color(0xFF1D2024), surfaceContainerHigh = Color(0xFF282A2F),
-    surfaceContainerHighest = Color(0xFF33353A), surfaceContainerLow = Color(0xFF191C20),
-)
+private val Light = schemeFromSeed(RedSeed, false)
+private val Dark = schemeFromSeed(RedSeed, true)
 
 private val AppShapes = Shapes(
     extraSmall = RoundedCornerShape(8.dp),
