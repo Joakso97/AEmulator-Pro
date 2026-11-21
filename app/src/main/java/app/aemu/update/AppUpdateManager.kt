@@ -257,17 +257,33 @@ object AppUpdateManager {
             if (!finished) targetFile.delete()
         }
 
-        if (context.packageManager.getPackageArchiveInfo(targetFile.absolutePath, 0)?.packageName != context.packageName) {
+        val archivePkg = getArchivePackageName(context, targetFile)
+        val validPackages = setOf(context.packageName, "app.aemu.pro", "app.aemu.plus", "app.aemu")
+        if (archivePkg != null && archivePkg !in validPackages) {
             targetFile.delete()
-            throw LocalizedIOException("Downloaded APK has the wrong application package", R.string.update_err_wrong_package)
+            throw LocalizedIOException("Downloaded APK has the wrong application package ($archivePkg)", R.string.update_err_wrong_package)
         }
         targetFile
     }
 
+    private fun getArchivePackageName(context: Context, apkFile: File): String? = runCatching {
+        val pm = context.packageManager
+        val flags = android.content.pm.PackageManager.GET_ACTIVITIES
+        val info = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            pm.getPackageArchiveInfo(apkFile.absolutePath, android.content.pm.PackageManager.PackageInfoFlags.of(flags.toLong()))
+        } else {
+            @Suppress("DEPRECATION")
+            pm.getPackageArchiveInfo(apkFile.absolutePath, flags)
+        }
+        info?.packageName ?: info?.applicationInfo?.packageName
+    }.getOrNull()
+
     
     fun installApk(context: Context, file: File): Boolean {
         if (!file.exists()) return false
-        if (context.packageManager.getPackageArchiveInfo(file.absolutePath, 0)?.packageName != context.packageName) return false
+        val archivePkg = getArchivePackageName(context, file)
+        val validPackages = setOf(context.packageName, "app.aemu.pro", "app.aemu.plus", "app.aemu")
+        if (archivePkg != null && archivePkg !in validPackages) return false
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (!context.packageManager.canRequestPackageInstalls()) {
