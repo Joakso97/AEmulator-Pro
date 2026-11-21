@@ -26,7 +26,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.compose.material3.MaterialTheme
 
 
-val RedSeed = Color(0xFFD32F2F)
+private val RedSeed = Color(0xFFD32F2F)
 
 private val Light = schemeFromSeed(RedSeed, false)
 private val Dark = schemeFromSeed(RedSeed, true)
