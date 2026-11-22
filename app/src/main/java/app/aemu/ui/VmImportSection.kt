@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.aemu.R
 import app.aemu.core.*
+import app.aemu.importer.Analyzer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -210,7 +211,9 @@ internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean
             val token = ++installToken
             installJob = scope.launch {
                 val result = withContext(Dispatchers.IO) {
-                    val vm = GuestVm(ctx, ImageStore.get(ctx, img.id) ?: img)
+                    val stored = ImageStore.get(ctx, img.id) ?: img
+                    val resolved = Analyzer.refresh(ctx, stored).let { it.effective(BinderProtocol.wants8(VmPaths(ctx, it.id))) }
+                    val vm = GuestVm(ctx, resolved)
                     installVm = vm
                     runCatching {
                         val input = ctx.contentResolver.openInputStream(uri) ?: throw Exception("Cannot open APK")
