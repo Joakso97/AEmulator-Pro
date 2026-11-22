@@ -310,20 +310,31 @@ class GuestRunner(
     }
 
     
+    @Volatile private var activeProcess: Process? = null
+
+    fun cancelActive() {
+        runCatching { activeProcess?.destroyForcibly() }
+    }
+
     fun run(argv: List<String>, timeoutMs: Long = 120_000, extra: Map<String, String> = emptyMap()): Pair<Int, String> {
         if (!qemu.canExecute()) return -1 to "no qemu"
         val pb = ProcessBuilder(cmdline(argv)).directory(paths.bin).redirectErrorStream(true)
         pb.environment().clear()
         pb.environment().putAll(env(extra))
         val p = pb.start()
+        activeProcess = p
         val sb = StringBuilder()
         val t = Thread {
             runCatching { p.inputStream.bufferedReader().forEachLine { if (sb.length < 256_000) sb.append(it).append('\n') } }
         }.apply { isDaemon = true; start() }
-        if (!p.waitFor(timeoutMs, TimeUnit.MILLISECONDS)) p.destroyForcibly()
-        t.join(2000)
-        val code = runCatching { p.exitValue() }.getOrDefault(-9)
-        return code to sb.toString()
+        try {
+            if (!p.waitFor(timeoutMs, TimeUnit.MILLISECONDS)) p.destroyForcibly()
+            t.join(2000)
+            val code = runCatching { p.exitValue() }.getOrDefault(-9)
+            return code to sb.toString()
+        } finally {
+            activeProcess = null
+        }
     }
 
     companion object {

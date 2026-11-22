@@ -1091,9 +1091,16 @@ open class VmActivity : ComponentActivity() {
     
     private data class ApkInstallUi(val installing: Boolean, val message: String, val ok: Boolean = false)
     private var apkInstall by mutableStateOf<ApkInstallUi?>(null)
+    private var apkInstallToken = 0
+    private fun cancelApkInstall() {
+        apkInstallToken++
+        vm.guestRunner.cancelActive()
+        apkInstall = null
+    }
     private val pickApk = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if (uri == null) return@registerForActivityResult
         apkInstall = ApkInstallUi(true, "")
+        val token = ++apkInstallToken
         thread {
             val out = runCatching {
                 val input = contentResolver.openInputStream(uri) ?: throw Exception("Cannot open APK")
@@ -1102,7 +1109,7 @@ open class VmActivity : ComponentActivity() {
             runCatching { app.aemu.core.TreeFixer(this@VmActivity, vm.paths, vm.img, vm::log).seedOwners() }
             val installed = out.contains("Success")
             val message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed)
-            runOnUiThread { apkInstall = ApkInstallUi(false, message, installed) }
+            runOnUiThread { if (token == apkInstallToken) apkInstall = ApkInstallUi(false, message, installed) }
         }
     }
 
@@ -1637,7 +1644,7 @@ open class VmActivity : ComponentActivity() {
 
             apkInstall?.let { st ->
                 AlertDialog(
-                    onDismissRequest = { apkInstall = null },
+                    onDismissRequest = { if (st.installing) cancelApkInstall() else apkInstall = null },
                     title = { Text(stringResource(if (st.installing) R.string.m_install_apk_start else if (st.ok) R.string.m_install_apk_done else R.string.m_install_apk_failed)) },
                     text = {
                         Column {
@@ -1655,7 +1662,9 @@ open class VmActivity : ComponentActivity() {
                         }
                     },
                     confirmButton = {
-                        TextButton(onClick = { apkInstall = null }) { Text(stringResource(if (st.installing) R.string.cancel else R.string.ok)) }
+                        TextButton(onClick = { if (st.installing) cancelApkInstall() else apkInstall = null }) {
+                            Text(stringResource(if (st.installing) R.string.cancel else R.string.ok))
+                        }
                     }
                 )
             }
