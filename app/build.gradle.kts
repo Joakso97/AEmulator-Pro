@@ -57,8 +57,8 @@ android {
         applicationId = "app.aemu.pro"  
         minSdk = 26
         targetSdk = 35
-        versionCode = 3321
-        versionName = "0.0.0.3.32.1"  
+        versionCode = 3322
+        versionName = "0.0.0.32.2"  
         ndk { abiFilters += listOf("arm64-v8a") }
     }
 
