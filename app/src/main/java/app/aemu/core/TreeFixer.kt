@@ -5377,7 +5377,6 @@ class TreeFixer(
         launcherProximityGuard()
         systemWatchdogGuard()
         keyguardSecureGuard()
-        customBootAnimationPriority()
         dropGnssHal()
         libRsUploadGuard()
         tungstenLedNodes()
@@ -5599,20 +5598,6 @@ class TreeFixer(
             WatchdogPatch.Outcome.UNEXPECTED -> log("keyguard: android.policy.jar has KeyguardServiceWrapper, but not the code this patch knows (${r.detail}), left as is")
         }
     }.onFailure { log("keyguard: android.policy.jar patch failed: ${it.message}") }
-
-    private fun customBootAnimationPriority() = runCatching {
-        if (!File(root, "system/media/bootanimation.zip").isFile) return@runCatching
-        val parked = File(root, "system/.aemu-parked").apply { mkdirs() }
-        var moved = 0
-        for (n in listOf("bootsamsung.qmg", "bootsamsungloop.qmg")) {
-            val f = File(root, "system/media/$n")
-            if (!f.isFile) continue
-            val dst = File(parked, "media#$n")
-            if (dst.exists()) dst.delete()
-            if (f.renameTo(dst)) moved++
-        }
-        if (moved > 0) log("boot animation: parked $moved Samsung QMG file(s), using /system/media/bootanimation.zip")
-    }.onFailure { log("boot animation: ${it.message}") }
 
     
     private fun launcherProximityGuard() = runCatching {

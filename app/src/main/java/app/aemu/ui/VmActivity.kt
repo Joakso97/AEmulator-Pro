@@ -1360,7 +1360,6 @@ open class VmActivity : ComponentActivity() {
     private fun BatteryDialog(onDone: () -> Unit) {
         var level by remember { mutableStateOf(vm.hostBatteryLevel.toFloat()) }
         var charging by remember { mutableStateOf(vm.hostBatteryCharging) }
-        var timeText by remember { mutableStateOf("") }
         AlertDialog(onDismissRequest = onDone,
             title = { Text(stringResource(R.string.m_battery)) },
             text = {
@@ -1370,20 +1369,10 @@ open class VmActivity : ComponentActivity() {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(stringResource(R.string.m_charging), Modifier.weight(1f)); Switch(charging, { charging = it })
                     }
-                    OutlinedTextField(
-                        value = timeText,
-                        onValueChange = { timeText = it.filter(Char::isDigit).take(6) },
-                        label = { Text(stringResource(R.string.m_battery_time)) },
-                        supportingText = { Text(stringResource(R.string.m_battery_time_sub)) },
-                        singleLine = true,
-                        keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
-                            keyboardType = androidx.compose.ui.text.input.KeyboardType.Number),
-                        modifier = Modifier.fillMaxWidth()
-                    )
                 }
             },
             confirmButton = { Button(onClick = {
-                vm.setManualBattery(level.toInt(), charging, timeText.toIntOrNull() ?: 0)
+                vm.setManualBattery(level.toInt(), charging)
                 onDone()
             }) { Text(stringResource(R.string.m_apply)) } },
             dismissButton = { OutlinedButton(onClick = { vm.resetBattery(); onDone() }) { Text(stringResource(R.string.m_reset)) } })
@@ -1416,6 +1405,7 @@ open class VmActivity : ComponentActivity() {
     private fun Overlay() {
         var menu by ::menuOpen
         var dialog by remember { mutableStateOf(Dlg.NONE) }
+        var powerConfirm by remember { mutableStateOf<Pair<String, () -> Unit>?>(null) }
         var activityLauncher by remember { mutableStateOf(false) }
         
         val running = state == GuestVm.State.RUNNING && !vm.recoveryMode
@@ -1600,13 +1590,15 @@ open class VmActivity : ComponentActivity() {
                             TabNav.openHome(this@VmActivity)
                         })
                     DropdownMenuItem(text = { Text(stringResource(R.string.m_reboot)) }, leadingIcon = { Icon(Icons.Rounded.RestartAlt, null) },
-                        onClick = { menu = false; rebootVm(vm.recoveryMode) })
+                        onClick = { menu = false; powerConfirm = this@VmActivity.getString(R.string.m_reboot) to { rebootVm(vm.recoveryMode) } })
                     DropdownMenuItem(text = { Text(stringResource(if (vm.recoveryMode) R.string.m_reboot_system else R.string.m_reboot_recovery)) },
                         leadingIcon = { Icon(Icons.Rounded.RestartAlt, null) },
                         enabled = vm.recoveryMode || app.aemu.core.RecoveryImage.installed(vm.paths),
-                        onClick = { menu = false; rebootVm(!vm.recoveryMode) })
+                        onClick = { menu = false
+                            val label = this@VmActivity.getString(if (vm.recoveryMode) R.string.m_reboot_system else R.string.m_reboot_recovery)
+                            powerConfirm = label to { rebootVm(!vm.recoveryMode) } })
                     DropdownMenuItem(text = { Text(stringResource(R.string.shutdown)) }, leadingIcon = { Icon(Icons.Rounded.Close, null) },
-                        onClick = { menu = false; stopVm() })
+                        onClick = { menu = false; powerConfirm = this@VmActivity.getString(R.string.shutdown) to { stopVm() } })
                 }
             }
             }
@@ -1621,6 +1613,16 @@ open class VmActivity : ComponentActivity() {
                 Dlg.THERMAL -> ThermalDialog(vm.img) { dialog = Dlg.NONE }
                 Dlg.NETDEBUG -> NetDebugDialog(vm.netDebug, vm.img.id) { dialog = Dlg.NONE }
                 Dlg.NONE -> {}
+            }
+
+            powerConfirm?.let { (label, action) ->
+                AlertDialog(
+                    onDismissRequest = { powerConfirm = null },
+                    title = { Text(label) },
+                    text = { Text(stringResource(R.string.m_power_confirm, label)) },
+                    confirmButton = { Button(onClick = { powerConfirm = null; action() }) { Text(stringResource(R.string.ok)) } },
+                    dismissButton = { OutlinedButton(onClick = { powerConfirm = null }) { Text(stringResource(R.string.cancel)) } },
+                )
             }
 
             apkInstall?.let { st ->
