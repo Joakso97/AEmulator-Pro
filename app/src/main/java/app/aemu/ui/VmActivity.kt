@@ -354,7 +354,11 @@ open class VmActivity : ComponentActivity() {
         vm = if (cur != null && cur.img.id == img.id) cur
             else GuestVm(applicationContext, resolved, intent.getBooleanExtra(EXTRA_LOW_POWER, false)).also { it.recoveryMode = intent.getBooleanExtra(EXTRA_RECOVERY, false); VmHost.vm = it }
         vm.onPower = { reboot, reason -> runOnUiThread { if (reboot) rebootVm(reason == "recovery") else stopVm() } }
-        
+
+        intent.getStringExtra(EXTRA_INSTALL_APK)?.let { raw ->
+            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let(::installApkFromUri)
+        }
+
         VmSlots.adopt(applicationContext, vm.img.id)
         TabRegistry.open(applicationContext, vm.img.id)
         TabRegistry.entryOf(applicationContext, vm.img.id)?.let { tab ->
@@ -566,6 +570,10 @@ open class VmActivity : ComponentActivity() {
             if (!endingVm.compareAndSet(false, true)) return
             heldNavKeys.releaseAll()
             thread { vm.stop(); VmHost.vm = null; runOnUiThread { restartProcess(id, recovery, charging) } }
+            return
+        }
+        intent.getStringExtra(EXTRA_INSTALL_APK)?.let { raw ->
+            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let(::installApkFromUri)
         }
     }
 
@@ -1097,8 +1105,7 @@ open class VmActivity : ComponentActivity() {
         vm.guestRunner.cancelActive()
         apkInstall = null
     }
-    private val pickApk = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
-        if (uri == null) return@registerForActivityResult
+    private fun installApkFromUri(uri: android.net.Uri) {
         apkInstall = ApkInstallUi(true, "")
         val token = ++apkInstallToken
         thread {
@@ -1111,6 +1118,10 @@ open class VmActivity : ComponentActivity() {
             val message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed)
             runOnUiThread { if (token == apkInstallToken) apkInstall = ApkInstallUi(false, message, installed) }
         }
+    }
+
+    private val pickApk = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) installApkFromUri(uri)
     }
 
     private fun sendSms(from: String, body: String) {
@@ -2012,6 +2023,7 @@ open class VmActivity : ComponentActivity() {
         const val EXTRA_ID = "id"
         const val EXTRA_RECOVERY = "recovery"
         const val EXTRA_LOW_POWER = "low_power"
+        const val EXTRA_INSTALL_APK = "install_apk"
 
         
         fun intentFor(ctx: Context, slot: Int, id: String?, recovery: Boolean = false, lowPower: Boolean = false, overlay: Boolean = false): Intent =

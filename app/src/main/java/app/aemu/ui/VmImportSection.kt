@@ -1,6 +1,7 @@
 
 package app.aemu.ui
 
+import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,9 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.aemu.R
 import app.aemu.core.*
-import app.aemu.importer.Analyzer
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -179,88 +178,19 @@ internal fun CscImportSection(img: GuestImage, busy: Boolean, setBusy: (Boolean)
 @Composable
 internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean) -> Unit) {
     val ctx = LocalContext.current
-    val scope = rememberCoroutineScope()
-    var message by remember { mutableStateOf<String?>(null) }
     var picking by remember { mutableStateOf(false) }
-    var installing by remember { mutableStateOf(false) }
-    var finished by remember { mutableStateOf<String?>(null) }
-    var installOk by remember { mutableStateOf(false) }
-    var installJob by remember { mutableStateOf<Job?>(null) }
-    var installVm by remember { mutableStateOf<GuestVm?>(null) }
-    var installToken by remember { mutableStateOf(0) }
-
-    fun cancelInstall() {
-        installToken++
-        installJob?.cancel()
-        installVm?.guestRunner?.cancelActive()
-        installJob = null
-        installVm = null
-        installing = false
-        finished = null
-        message = null
-        setBusy(false)
-    }
-
     val pickApk = rememberSingleFilePicker { uri ->
         picking = false
         if (uri != null) {
-            setBusy(true)
-            installing = true
-            finished = null
-            message = null
-            val token = ++installToken
-            installJob = scope.launch {
-                val result = withContext(Dispatchers.IO) {
-                    val stored = ImageStore.get(ctx, img.id) ?: img
-                    val resolved = Analyzer.refresh(ctx, stored).let { it.effective(BinderProtocol.wants8(VmPaths(ctx, it.id))) }
-                    val vm = GuestVm(ctx, resolved)
-                    installVm = vm
-                    runCatching {
-                        val input = ctx.contentResolver.openInputStream(uri) ?: throw Exception("Cannot open APK")
-                        val out = vm.installApkFrom(input)
-                        TreeFixer(ctx, VmPaths(ctx, img.id), img) {}.seedOwners()
-                        out
-                    }
-                }
-                installVm = null
-                installJob = null
-                if (token != installToken) return@launch
-                setBusy(false)
-                installing = false
-                installOk = result.getOrNull()?.contains("Success") == true
-                finished = if (installOk) ctx.getString(R.string.m_install_apk_done)
-                    else result.fold(
-                        { out -> out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: ctx.getString(R.string.m_failed) },
-                        { ctx.getString(R.string.vm_import_failed, it.userMessage(ctx)) })
-            }
+            val slot = VmSlots.slotOf(ctx, img.id) ?: VmSlots.allocate(ctx, img.id)
+            if (slot < 0) return@rememberSingleFilePicker
+            ctx.startActivity(VmActivity.intentFor(ctx, slot, img.id).apply {
+                putExtra(VmActivity.EXTRA_INSTALL_APK, uri.toString())
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            })
         }
     }
     TextButton(enabled = !busy && !picking, modifier = Modifier.fillMaxWidth(), onClick = {
         picking = true; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*"))
     }) { Text(stringResource(R.string.m_install_apk)) }
-    message?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
-    if (installing || finished != null) AlertDialog(
-        onDismissRequest = { if (installing) cancelInstall() else finished = null },
-        title = { Text(stringResource(if (installing) R.string.m_install_apk_start else if (installOk) R.string.m_install_apk_done else R.string.m_install_apk_failed)) },
-        text = {
-            Column {
-                Text(stringResource(if (installing) R.string.m_install_apk_start_desc else if (installOk) R.string.m_install_apk_done_desc else R.string.m_install_apk_failed_desc),
-                    style = MaterialTheme.typography.bodyMedium)
-                if (!installing && !installOk && !finished.isNullOrBlank()) {
-                    Spacer(Modifier.height(8.dp))
-                    Text(finished.orEmpty(), style = MaterialTheme.typography.bodySmall)
-                }
-                if (installing || installOk) {
-                    Spacer(Modifier.height(12.dp))
-                    if (installing) LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-                    else LinearProgressIndicator(progress = { 1f }, modifier = Modifier.fillMaxWidth())
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { if (installing) cancelInstall() else finished = null }) {
-                Text(stringResource(if (installing) R.string.cancel else R.string.ok))
-            }
-        }
-    )
 }
