@@ -355,9 +355,9 @@ open class VmActivity : ComponentActivity() {
             else GuestVm(applicationContext, resolved, intent.getBooleanExtra(EXTRA_LOW_POWER, false)).also { it.recoveryMode = intent.getBooleanExtra(EXTRA_RECOVERY, false); VmHost.vm = it }
         vm.onPower = { reboot, reason -> runOnUiThread { if (reboot) rebootVm(reason == "recovery") else stopVm() } }
 
-        intent.getStringExtra(EXTRA_INSTALL_APK)?.let { raw ->
-            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let(::installApkFromUri)
-        }
+        androidx.core.content.ContextCompat.registerReceiver(this, installRequestReceiver,
+            android.content.IntentFilter(ACTION_INSTALL_APK),
+            androidx.core.content.ContextCompat.RECEIVER_NOT_EXPORTED)
 
         VmSlots.adopt(applicationContext, vm.img.id)
         TabRegistry.open(applicationContext, vm.img.id)
@@ -570,10 +570,6 @@ open class VmActivity : ComponentActivity() {
             if (!endingVm.compareAndSet(false, true)) return
             heldNavKeys.releaseAll()
             thread { vm.stop(); VmHost.vm = null; runOnUiThread { restartProcess(id, recovery, charging) } }
-            return
-        }
-        intent.getStringExtra(EXTRA_INSTALL_APK)?.let { raw ->
-            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let(::installApkFromUri)
         }
     }
 
@@ -714,6 +710,7 @@ open class VmActivity : ComponentActivity() {
         }
         tabCloseReceiver?.let { runCatching { unregisterReceiver(it) } }
         tabCloseReceiver = null
+        runCatching { unregisterReceiver(installRequestReceiver) }
         tabStripView = null
         orientationListener?.disable()
         vmRoot = null
@@ -1105,6 +1102,17 @@ open class VmActivity : ComponentActivity() {
         vm.guestRunner.cancelActive()
         apkInstall = null
     }
+    private val installRequestReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context, intent: android.content.Intent) {
+            if (intent.getBooleanExtra(EXTRA_INSTALL_APK_CANCEL, false)) {
+                cancelApkInstall()
+                return
+            }
+            val raw = intent.getStringExtra(EXTRA_INSTALL_APK) ?: return
+            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let(::installApkFromUri)
+        }
+    }
+
     private fun installApkFromUri(uri: android.net.Uri) {
         apkInstall = ApkInstallUi(true, "")
         val token = ++apkInstallToken
@@ -1116,7 +1124,12 @@ open class VmActivity : ComponentActivity() {
             runCatching { app.aemu.core.TreeFixer(this@VmActivity, vm.paths, vm.img, vm::log).seedOwners() }
             val installed = out.contains("Success")
             val message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed)
-            runOnUiThread { if (token == apkInstallToken) apkInstall = ApkInstallUi(false, message, installed) }
+            runOnUiThread {
+                if (token == apkInstallToken) apkInstall = ApkInstallUi(false, message, installed)
+                sendBroadcast(android.content.Intent(ACTION_INSTALL_APK_RESULT).setPackage(packageName)
+                    .putExtra(EXTRA_INSTALL_APK_RESULT_OK, installed)
+                    .putExtra(EXTRA_INSTALL_APK_RESULT_MSG, message))
+            }
         }
     }
 
@@ -2024,6 +2037,11 @@ open class VmActivity : ComponentActivity() {
         const val EXTRA_RECOVERY = "recovery"
         const val EXTRA_LOW_POWER = "low_power"
         const val EXTRA_INSTALL_APK = "install_apk"
+        const val EXTRA_INSTALL_APK_CANCEL = "install_apk_cancel"
+        const val ACTION_INSTALL_APK = "app.aemu.action.INSTALL_APK"
+        const val ACTION_INSTALL_APK_RESULT = "app.aemu.action.INSTALL_APK_RESULT"
+        const val EXTRA_INSTALL_APK_RESULT_OK = "install_apk_ok"
+        const val EXTRA_INSTALL_APK_RESULT_MSG = "install_apk_msg"
 
         
         fun intentFor(ctx: Context, slot: Int, id: String?, recovery: Boolean = false, lowPower: Boolean = false, overlay: Boolean = false): Intent =

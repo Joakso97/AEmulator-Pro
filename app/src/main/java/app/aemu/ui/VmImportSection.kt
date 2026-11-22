@@ -1,7 +1,11 @@
 
 package app.aemu.ui
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import androidx.core.content.ContextCompat
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -179,18 +183,71 @@ internal fun CscImportSection(img: GuestImage, busy: Boolean, setBusy: (Boolean)
 internal fun ApkInstallSection(img: GuestImage, busy: Boolean, setBusy: (Boolean) -> Unit) {
     val ctx = LocalContext.current
     var picking by remember { mutableStateOf(false) }
+    var installing by remember { mutableStateOf(false) }
+    var result by remember { mutableStateOf<Pair<Boolean, String>?>(null) }
+
+    DisposableEffect(Unit) {
+        val receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                installing = false
+                val ok = intent.getBooleanExtra(VmActivity.EXTRA_INSTALL_APK_RESULT_OK, false)
+                val msg = intent.getStringExtra(VmActivity.EXTRA_INSTALL_APK_RESULT_MSG) ?: ""
+                result = ok to msg
+                setBusy(false)
+            }
+        }
+        ContextCompat.registerReceiver(ctx, receiver, IntentFilter(VmActivity.ACTION_INSTALL_APK_RESULT),
+            ContextCompat.RECEIVER_NOT_EXPORTED)
+        onDispose { runCatching { ctx.unregisterReceiver(receiver) } }
+    }
+
+    fun cancelInstall() {
+        ctx.sendBroadcast(Intent(VmActivity.ACTION_INSTALL_APK).setPackage(ctx.packageName)
+            .putExtra(VmActivity.EXTRA_INSTALL_APK_CANCEL, true))
+        installing = false
+        result = null
+        setBusy(false)
+    }
+
     val pickApk = rememberSingleFilePicker { uri ->
         picking = false
         if (uri != null) {
-            val slot = VmSlots.slotOf(ctx, img.id) ?: VmSlots.allocate(ctx, img.id)
-            if (slot < 0) return@rememberSingleFilePicker
-            ctx.startActivity(VmActivity.intentFor(ctx, slot, img.id).apply {
-                putExtra(VmActivity.EXTRA_INSTALL_APK, uri.toString())
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            })
+            installing = true
+            result = null
+            setBusy(true)
+            ctx.sendBroadcast(Intent(VmActivity.ACTION_INSTALL_APK).setPackage(ctx.packageName)
+                .putExtra(VmActivity.EXTRA_INSTALL_APK, uri.toString())
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION))
         }
     }
     TextButton(enabled = !busy && !picking, modifier = Modifier.fillMaxWidth(), onClick = {
         picking = true; pickApk.launch(arrayOf("application/vnd.android.package-archive", "application/octet-stream", "*/*"))
     }) { Text(stringResource(R.string.m_install_apk)) }
+
+    if (installing || result != null) AlertDialog(
+        onDismissRequest = { if (installing) cancelInstall() else result = null },
+        title = { Text(stringResource(if (installing) R.string.m_install_apk_start
+            else if (result?.first == true) R.string.m_install_apk_done else R.string.m_install_apk_failed)) },
+        text = {
+            Column {
+                Text(stringResource(if (installing) R.string.m_install_apk_start_desc
+                    else if (result?.first == true) R.string.m_install_apk_done_desc else R.string.m_install_apk_failed_desc),
+                    style = MaterialTheme.typography.bodyMedium)
+                if (!installing && result?.first == false && !result?.second.isNullOrBlank()) {
+                    Spacer(Modifier.height(8.dp))
+                    Text(result!!.second, style = MaterialTheme.typography.bodySmall)
+                }
+                if (installing || result?.first == true) {
+                    Spacer(Modifier.height(12.dp))
+                    if (installing) LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                    else LinearProgressIndicator(progress = { 1f }, modifier = Modifier.fillMaxWidth())
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { if (installing) cancelInstall() else result = null }) {
+                Text(stringResource(if (installing) R.string.cancel else R.string.ok))
+            }
+        }
+    )
 }
