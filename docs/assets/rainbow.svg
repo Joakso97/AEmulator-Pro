@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="10" viewBox="0 0 1200 10" preserveAspectRatio="none">
   <defs>
     <linearGradient id="toolbar" x1="0" y1="0" x2="0.707" y2="0.707">
-      <stop offset="0" stop-color="#F28B82"/>
-      <stop offset="1" stop-color="#EA4335"/>
+      <stop offset="0" stop-color="#8AB4F8"/>
+      <stop offset="0.333" stop-color="#C58AF9"/>
+      <stop offset="0.667" stop-color="#F28B82"/>
+      <stop offset="1" stop-color="#FDD663"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="10" rx="5" fill="url(#toolbar)"/>
