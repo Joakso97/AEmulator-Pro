@@ -167,6 +167,7 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
     fun resetBattery() = battery.reset(settings.hostBattery)
     val hostBatteryLevel get() = battery.latest?.percent ?: 80
     val hostBatteryCharging get() = battery.latest?.status in listOf(2, 5)
+    val hostBatteryFollowing get() = battery.following
     private val motion = MotionBridge(ctx, paths, { img.api in 9..25 && engine != Engine.N64 && !recoveryMode && !nativeUi }, { settings.motionSensors }, { settings.gyroLock }, ::log)
     fun motionVisible(visible: Boolean) { motion.visible(visible) }
     fun simulateRotation() = motion.simulateRotation()

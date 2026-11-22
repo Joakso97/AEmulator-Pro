@@ -1361,19 +1361,27 @@ open class VmActivity : ComponentActivity() {
     private fun BatteryDialog(onDone: () -> Unit) {
         var level by remember { mutableStateOf(vm.hostBatteryLevel.toFloat()) }
         var charging by remember { mutableStateOf(vm.hostBatteryCharging) }
+        var hostBattery by remember { mutableStateOf(vm.hostBatteryFollowing) }
         AlertDialog(onDismissRequest = onDone,
             title = { Text(stringResource(R.string.m_battery)) },
             text = {
                 Column {
                     Text("${level.toInt()}%")
-                    Slider(level, { level = it }, valueRange = 0f..100f)
+                    Slider(level, { level = it; hostBattery = false }, valueRange = 0f..100f)
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(stringResource(R.string.m_charging), Modifier.weight(1f)); Switch(charging, { charging = it })
+                        Text(stringResource(R.string.m_charging), Modifier.weight(1f)); Switch(charging, { charging = it; hostBattery = false })
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(stringResource(R.string.vs_host_battery), Modifier.weight(1f)); Switch(hostBattery, { hostBattery = it })
                     }
                 }
             },
             confirmButton = { Button(onClick = {
-                vm.setManualBattery(level.toInt(), charging)
+                if (hostBattery) {
+                    vm.resetBattery()
+                } else {
+                    vm.setManualBattery(level.toInt(), charging)
+                }
                 onDone()
             }) { Text(stringResource(R.string.m_apply)) } },
             dismissButton = { OutlinedButton(onClick = { vm.resetBattery(); onDone() }) { Text(stringResource(R.string.m_reset)) } })
