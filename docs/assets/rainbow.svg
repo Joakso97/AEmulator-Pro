@@ -1,14 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="10" viewBox="0 0 1200 10" preserveAspectRatio="none">
   <defs>
-    <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff3b30"/>
-      <stop offset="0.16" stop-color="#ff9500"/>
-      <stop offset="0.33" stop-color="#ffcc00"/>
-      <stop offset="0.5" stop-color="#34c759"/>
-      <stop offset="0.66" stop-color="#00c7be"/>
-      <stop offset="0.83" stop-color="#007aff"/>
-      <stop offset="1" stop-color="#af52de"/>
+    <linearGradient id="toolbar" x1="0" y1="0" x2="0.866" y2="0.5">
+      <stop offset="0" stop-color="#4285F4"/>
+      <stop offset="0.25" stop-color="#8AB4F8"/>
+      <stop offset="0.5" stop-color="#AECBFA"/>
+      <stop offset="0.75" stop-color="#D7AEFB"/>
+      <stop offset="1" stop-color="#9334E6"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="10" rx="5" fill="url(#rainbow)"/>
+  <rect width="1200" height="10" rx="5" fill="url(#toolbar)"/>
 </svg>

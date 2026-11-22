@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/icon-round.png" width="128" alt="AEmulator Pro logo"/>
+<img src="docs/assets/icon-r15.png" width="128" alt="AEmulator Pro logo"/>
 
 # AEmulator Pro
 <p align="center">
