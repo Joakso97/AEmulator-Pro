@@ -22,8 +22,6 @@
 <p align="center"><img src="docs/assets/rainbow.svg" width="100%" alt=""/></p>
 
 
-**Emulate almost any Android firmware HTC Sense, TouchWiz, MIUI, AOSP on a modern phone.**
-AEmulator Pro boots a real Android 1.0–17 system image straight from a firmware file you already have. It translates legacy ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack. Everything runs inside a normal app.
 Turn a firmware file into a working Android 1.0 to 17 virtual machine on your phone. HTC Sense, TouchWiz, MIUI and AOSP are all supported. AEmulator Pro runs legacy ARM code through a patched QEMU, emulates the kernel’s binder, renders with your phone’s GPU and pipes sound through Android’s audio stack. No root. No PC. Everything stays inside a normal app.
 
 ## Features
