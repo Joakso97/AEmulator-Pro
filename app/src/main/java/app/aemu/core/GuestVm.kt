@@ -780,6 +780,30 @@ class GuestVm(val ctx: Context, val img: GuestImage, val lowPowerBoot: Boolean =
         }
         overrides["ro.sf.lcd_density"] = s.density.toString()
         overrides["qemu.sf.lcd_density"] = s.density.toString()
+        val hz = s.fbHz.coerceIn(10, 120)
+        overrides["debug.aemu.hz"] = hz.toString()
+        overrides["ro.surface_flinger.primary_display_refresh_rate"] = hz.toString()
+        val soc = s.spoofSoc.trim()
+        if (soc.isNotEmpty()) {
+            overrides["ro.board.platform"] = soc
+            overrides["ro.chipname"] = soc
+            overrides["ro.hardware.chipname"] = soc
+            overrides["ro.product.board"] = soc
+            log("spoof: SoC reported as $soc")
+        }
+        val gpuModel = s.spoofGpu.trim()
+        if (gpuModel.isNotEmpty()) {
+            overrides["ro.gpu.model"] = gpuModel
+            overrides["ro.hardware.gpu"] = gpuModel
+            overrides["debug.aemu.gpu_model"] = gpuModel
+            log("spoof: GPU reported as $gpuModel")
+        }
+        val storageGb = s.spoofStorageGb.toIntOrNull() ?: 0
+        if (storageGb > 0) {
+            overrides["ro.aemu.storage_gb"] = storageGb.toString()
+            overrides["debug.aemu.storage_gb"] = storageGb.toString()
+            log("spoof: storage reported as $storageGb GB")
+        }
         
         if (listOf("system/build.prop", "vendor/build.prop").any { runCatching { File(paths.root, it).readText() }.getOrDefault("").contains("persist.miui.density_v2") }) overrides["persist.miui.density_v2"] = s.density.toString()
         

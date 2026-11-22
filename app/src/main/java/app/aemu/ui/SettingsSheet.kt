@@ -144,6 +144,8 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
                     NumField(stringResource(R.string.vs_height), s.height, Modifier.weight(1f)) { s = s.copy(height = it.coerceAtLeast(2) and 0x7ffffffe, hostResolution = false) }
                     NumField(stringResource(R.string.vs_dpi), s.density, Modifier.weight(1f)) { s = s.copy(density = it.coerceIn(96, 640), hostResolution = false) }
                 }
+                Spacer(Modifier.height(8.dp))
+                NumField(stringResource(R.string.vs_fb_hz), s.fbHz, Modifier.fillMaxWidth()) { s = s.copy(fbHz = it.coerceIn(10, 120)) }
                 Text(stringResource(R.string.vs_screen_hint), style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(top = 6.dp))
                 if (s.hostResolution) Text(stringResource(R.string.vs_host_resolution_sub),
@@ -329,6 +331,16 @@ fun SettingsSheet(img: GuestImage, onDismiss: () -> Unit, onSave: (VmSettings, S
                 },
             ) { s = s.copy(serial = it) }
             Spacer(Modifier.height(4.dp))
+            EditableSetting(stringResource(R.string.vs_spoof_soc), s.spoofSoc,
+                supportingText = stringResource(R.string.vs_spoof_soc_sub),
+                sanitize = { VmSettings.cleanToken(it, 64) }) { s = s.copy(spoofSoc = it) }
+            EditableSetting(stringResource(R.string.vs_spoof_gpu), s.spoofGpu,
+                supportingText = stringResource(R.string.vs_spoof_gpu_sub),
+                sanitize = { VmSettings.cleanToken(it, 64) }) { s = s.copy(spoofGpu = it) }
+            EditableSetting(stringResource(R.string.vs_spoof_storage), s.spoofStorageGb,
+                supportingText = stringResource(R.string.vs_spoof_storage_sub),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                sanitize = { it.filter(Char::isDigit).take(4) }) { s = s.copy(spoofStorageGb = it) }
 
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.vs_advanced), style = MaterialTheme.typography.titleMedium)

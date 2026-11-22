@@ -1695,10 +1695,11 @@ class Importer(
             .minByOrNull { it.path.count { c -> c == '/' } }
         val sfs = find("system.sfs")
         val plain = find("system.img")
-        if (sfs == null && plain == null) {
-            throw LocalizedIOException("no Android system found in the ISO image (expected system.sfs or system.img)", R.string.imp_iso_no_system)
+        val efs = find("system.efs", "system.erofs", "system.img.erofs")
+        if (sfs == null && plain == null && efs == null) {
+            throw LocalizedIOException("no Android system found in the ISO image (expected system.sfs, system.efs or system.img)", R.string.imp_iso_no_system)
         }
-        log("iso: ${files.size} files; system from ${(sfs ?: plain)!!.path}")
+        log("iso: ${files.size} files; system from ${(sfs ?: efs ?: plain)!!.path}")
         
         find("ramdisk.img")?.takeIf { ramdisk == null }?.let { rd ->
             if (rd.size > MAX_RAMDISK) log("iso: ${rd.path} is too large for a ramdisk, skipped")
@@ -1707,6 +1708,11 @@ class Importer(
                 if (!list.isNullOrEmpty() && list.any { it.name == "init.rc" }) { ramdisk = list; log("boot: ramdisk ${rd.path}, ${list.size} files") }
                 else log("iso: ${rd.path} is not a ramdisk with init.rc, skipped")
             }
+        }
+        if (efs != null) {
+            onProgress(lt(R.string.imp_reading_image, "system", "EROFS"), -1f)
+            importErofs(iso.open(efs), "system")
+            return
         }
         if (sfs == null) {
             val s = iso.open(plain!!)

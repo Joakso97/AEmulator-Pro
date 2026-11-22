@@ -23,6 +23,7 @@ class GuestScreen(ctx: Context, val w: Int, val h: Int) : View(ctx) {
         set(v) { field = v; postInvalidate() }
     @Volatile var fps = 0f
         private set
+    @Volatile var hz = 60
     
     @Volatile var shown = 0L
         private set
@@ -87,7 +88,8 @@ class GuestScreen(ctx: Context, val w: Int, val h: Int) : View(ctx) {
         Thread({
             while (live) {
                 runCatching { tick() }
-                synchronized(gate) { runCatching { gate.wait(if (quiet > 30 || (passthrough && direct != null)) 16L else 5L) } }
+                val frameMs = 1000L / hz.coerceIn(10, 120)
+                synchronized(gate) { runCatching { gate.wait(if (quiet > 30 || (passthrough && direct != null)) frameMs else minOf(5L, frameMs)) } }
             }
         }, "guest-fb").apply { isDaemon = true; start() }
     }

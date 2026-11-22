@@ -387,6 +387,7 @@ open class VmActivity : ComponentActivity() {
         }
         guestW = gw; guestH = gh
         guest = GuestScreen(this, gw, gh).apply {
+            hz = s.fbHz
             input = vm.input
             fb = if (vm.recoveryMode) app.aemu.core.RecoveryImage.fb(vm.paths) else vm.paths.fb
             if (vm.recoveryMode || vm.nativeUi) pages = 2
@@ -1474,7 +1475,8 @@ open class VmActivity : ComponentActivity() {
                             color = MaterialTheme.colorScheme.primary
                         )
                         Spacer(Modifier.width(8.dp))
-                        Text(stringResource(R.string.vm_booting_short, seconds.toInt()), style = MaterialTheme.typography.labelMedium)
+                        Text(stringResource(R.string.vm_booting_short, seconds.toInt()), style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary)
                     }
                 }
             }

@@ -132,6 +132,12 @@ data class VmSettings(
     val skipPermissionWait: Boolean = false,
     
     val useArtBootImage: Boolean = false,
+
+    val spoofSoc: String = "",
+
+    val spoofGpu: String = "",
+
+    val spoofStorageGb: String = "",
 ) {
     fun toJson(): JSONObject = JSONObject()
         .put("width", width).put("height", height).put("density", density)
@@ -162,6 +168,7 @@ data class VmSettings(
         .put("disableWatchdog", disableWatchdog)
         .put("skipPermissionWait", skipPermissionWait)
         .put("useArtBootImage", useArtBootImage)
+        .put("spoofSoc", spoofSoc).put("spoofGpu", spoofGpu).put("spoofStorageGb", spoofStorageGb)
 
     companion object {
         const val NAV_DEFAULT = "back,home,recents,menu"
@@ -337,6 +344,9 @@ data class VmSettings(
                 disableWatchdog = o.optBoolean("disableWatchdog", d.disableWatchdog),
                 skipPermissionWait = o.optBoolean("skipPermissionWait", d.skipPermissionWait),
                 useArtBootImage = o.optBoolean("useArtBootImage", d.useArtBootImage),
+                spoofSoc = cleanToken(o.optString("spoofSoc", ""), TOKEN_MAX),
+                spoofGpu = cleanToken(o.optString("spoofGpu", ""), TOKEN_MAX),
+                spoofStorageGb = o.optString("spoofStorageGb", "").filter { it in '0'..'9' }.take(4),
             )
         }
     }

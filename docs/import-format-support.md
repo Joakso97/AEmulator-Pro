@@ -20,6 +20,7 @@ An Android-x86 live CD is an ISO 9660 image whose useful content is two files (`
 | `ramdisk.img` (gzip'ed cpio: `init`, `init*.rc`, `sbin/`, `fstab.android_x86` ...) | the VM's ramdisk, like the ramdisk of a `boot.img` |
 | `system.sfs` (a SquashFS holding one file, `system.img`, an ext4 image) | `system.img` is cut out of the SquashFS and imported as the system partition |
 | `system.img` (a few builds ship it plain instead of `system.sfs`) | imported directly (sparse images are accepted) |
+| `system.efs` (also `system.erofs` / `system.img.erofs`) on newer releases | read directly as an EROFS system partition |
 | `kernel`, `initrd.img`, `install.img`, `isolinux/`, `efi/` | not used: the guest's programs run under the translator, not on the bzImage |
 
 Files in a sub-folder of the CD are found too; the copy nearest to the root wins. File names come from Rock Ridge when the
@@ -29,8 +30,7 @@ Disk use during the import: the SquashFS is copied to the cache (about the size 
 the SquashFS is deleted at once, and `system.img` is deleted when its files are in the guest tree. For `android-x86-5.1-rc1` that
 is roughly 0.4 GB + 0.9 GB at the peak, and 0.9 GB left afterwards.
 
-Not covered: `system.efs` (the EROFS variant of newer releases; the ISO is rejected with "no Android system found" when it is the
-only system file), x86-64 builds (reported as "not ARM" by the analyzer, see x86-guest.md), and no kernel banner: the `kernel` of the ISO is a
+Not covered: x86-64 builds (reported as "not ARM" by the analyzer, see x86-guest.md), and no kernel banner: the `kernel` of the ISO is a
 bzImage, not stored as `boot.img`, so `/proc/version` keeps its default text.
 
 Several scripts in the supplied companion archive are standalone desktop tools for vendor-specific or encrypted formats (for example PAC, SBF, NBH, LG BIN, TOT, OFP, and OPS). They depend on Python, external utilities, device/vendor-specific parsing, or decryption keys and have **not** been ported into the Android importer by this change. They are not silently treated as supported. SquashFS and RFS images are converted by the Android importer (see firmware-tools-port.md).

@@ -4389,26 +4389,25 @@ class TreeFixer(
     }
 
     private fun surfaceFlingerGuard() = runCatching {
-        val lib = File(root, "system/lib/libsurfaceflinger.so")
-        if (lib.isFile) {
-            val keep = File(root, "system/.aemu-parked/system#lib#libsurfaceflinger.so")
+        for (rel in listOf("system/lib/libsurfaceflinger.so", "system/lib64/libsurfaceflinger.so")) {
+            val lib = File(root, rel)
+            if (!lib.isFile) continue
+            val keep = File(root, "system/.aemu-parked/" + rel.replace('/', '#'))
             backupOnce(lib, keep)
-            if (ElfPatch.skipNullDeviceHook(lib) > 0) log("libsurfaceflinger: the missing HAL device hook is skipped")
-            
-            
-            if (ElfPatch.revertHwcEventControlPatch(lib, keep) > 0) log("libsurfaceflinger: old vsync byte patch removed (the stand-in hwcomposer is used instead)")
-            
-            if (BroadcomGpu.hasV3dComposer(lib)) {
-                ensureGememallocPool()
-                if (img.settings.gpu) log("GPU: this firmware composes through V3D into fb0, so the GPU bridge is not used (software path)")
-                if (BroadcomGpu.undoLegacyComposerPatch(lib, keep) > 0) log("libsurfaceflinger: old software-composer patch removed (V3D is emulated now)")
-                File(root, "system/lib/libui.so").takeIf { it.isFile }?.let { ui ->
-                    if (BroadcomGpu.undoLegacyLibuiPatch(ui, File(root, "system/.aemu-parked/system#lib#libui.so")) > 0)
-                        log("libui: old framebuffer-layout patch removed (the firmware gralloc is used again)")
+            if (ElfPatch.skipNullDeviceHook(lib) > 0) log("$rel: the missing HAL device hook is skipped")
+            if (ElfPatch.revertHwcEventControlPatch(lib, keep) > 0) log("$rel: old vsync byte patch removed (the stand-in hwcomposer is used instead)")
+            if (rel == "system/lib/libsurfaceflinger.so") {
+                if (BroadcomGpu.hasV3dComposer(lib)) {
+                    ensureGememallocPool()
+                    if (img.settings.gpu) log("GPU: this firmware composes through V3D into fb0, so the GPU bridge is not used (software path)")
+                    if (BroadcomGpu.undoLegacyComposerPatch(lib, keep) > 0) log("libsurfaceflinger: old software-composer patch removed (V3D is emulated now)")
+                    File(root, "system/lib/libui.so").takeIf { it.isFile }?.let { ui ->
+                        if (BroadcomGpu.undoLegacyLibuiPatch(ui, File(root, "system/.aemu-parked/system#lib#libui.so")) > 0)
+                            log("libui: old framebuffer-layout patch removed (the firmware gralloc is used again)")
+                    }
                 }
+                if (img.api <= 8 && ElfPatch.skipUndrawnLayerClear(lib) > 0) log("libsurfaceflinger: a layer that was never drawn is no longer cleared to black")
             }
-            
-            if (img.api <= 8 && ElfPatch.skipUndrawnLayerClear(lib) > 0) log("libsurfaceflinger: a layer that was never drawn is no longer cleared to black")
         }
     }.onFailure { log("libsurfaceflinger: patch failed: ${it.message}") }
 

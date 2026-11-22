@@ -434,9 +434,16 @@
     <string name="vs_camera_sub">HAL1 ROMs: 640×480 preview and photos, back/front camera. Requires permission and a full VM restart. The camera closes when AEmulator goes to the background; reopen the guest camera app. Video records at 640×480.</string>
     <string name="vs_controls">Controls</string>
     <string name="vs_device_id">Device identity</string>
+    <string name="vs_spoof_soc">Spoof SoC</string>
+    <string name="vs_spoof_soc_sub">Reported to the guest as the chipset/board name.</string>
+    <string name="vs_spoof_gpu">Spoof GPU model</string>
+    <string name="vs_spoof_gpu_sub">Reported to the guest as the graphics model.</string>
+    <string name="vs_spoof_storage">Spoof storage size (GB)</string>
+    <string name="vs_spoof_storage_sub">Reported to the guest as the total storage in GB.</string>
     <string name="vs_disable_google">Disable Google apps</string>
     <string name="vs_disable_google_sub">After a full restart, disables detected Google apps, Play Store, Play Services and Google account components. Launchers, keyboards, WebView and critical system components are kept. The setup wizard is controlled separately. Apps that need Google services may stop working. Turning this off restores only apps disabled by this option; APKs and app data are not deleted.</string>
     <string name="vs_dpi">DPI</string>
+    <string name="vs_fb_hz">Refresh rate (Hz)</string>
     <string name="vs_dual_sim">Dual SIM</string>
     <string name="vs_dual_sim_sub">A second fake SIM card. Only firmware built for two SIMs uses it (many Samsung and MediaTek ones). Applies at the next start.</string>
     <string name="vs_fixed_2x">Android 2.x uses a fixed 480×800 screen at 240 dpi.</string>
