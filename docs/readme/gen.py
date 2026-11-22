@@ -54,9 +54,9 @@ def render(code):
     L.append(f"# {BRAND}\n")
     L.append(" · ".join(
         (f"**{flag_img(c)} {name}**" if c == code else f"[{flag_img(c)} {name}]({path_of(c, code)})") for c, name, _ in LANGS) + "\n")
-    L.append(f"**{t['tagline']}**\n")
     L.append("</div>\n")
     L.append(f'<p align="center"><img src="{up}docs/assets/rainbow.svg" width="100%" alt=""/></p>\n')
+    L.append(f"**{t['tagline']}**\n")
     L.append(t["about"] + "\n")
     L.append(f"## {t['feat_title']}\n")
     L += [f"- {f}" for f in t["feats"]]
