@@ -1109,12 +1109,12 @@ open class VmActivity : ComponentActivity() {
                 return
             }
             val raw = intent.getStringExtra(EXTRA_INSTALL_APK) ?: return
-            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let(::installApkFromUri)
+            runCatching { android.net.Uri.parse(raw) }.getOrNull()?.let { installApkFromUri(it, showUi = false) }
         }
     }
 
-    private fun installApkFromUri(uri: android.net.Uri) {
-        apkInstall = ApkInstallUi(true, "")
+    private fun installApkFromUri(uri: android.net.Uri, showUi: Boolean = true) {
+        if (showUi) apkInstall = ApkInstallUi(true, "")
         val token = ++apkInstallToken
         thread {
             val out = runCatching {
@@ -1125,7 +1125,7 @@ open class VmActivity : ComponentActivity() {
             val installed = out.contains("Success")
             val message = out.trim().lines().lastOrNull { it.isNotBlank() }?.take(200) ?: getString(R.string.m_failed)
             runOnUiThread {
-                if (token == apkInstallToken) apkInstall = ApkInstallUi(false, message, installed)
+                if (showUi && token == apkInstallToken) apkInstall = ApkInstallUi(false, message, installed)
                 sendBroadcast(android.content.Intent(ACTION_INSTALL_APK_RESULT).setPackage(packageName)
                     .putExtra(EXTRA_INSTALL_APK_RESULT_OK, installed)
                     .putExtra(EXTRA_INSTALL_APK_RESULT_MSG, message))
