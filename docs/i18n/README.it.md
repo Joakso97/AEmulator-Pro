@@ -10,7 +10,7 @@
 
 </div>
 
----
+<p align="center"><img src="../../docs/assets/rainbow.svg" width="100%" alt=""/></p>
 
 AEmulator Pro avvia un vero sistema Android 1.0–17+ direttamente da un file firmware: ZIP per recovery, archivio Odin o immagine di fabbrica Google. Il vecchio codice ARM passa da un QEMU modificato, il binder del kernel è emulato, la grafica usa la GPU del telefono e l’audio passa per lo stack audio di Android — tutto in una normale app.
 

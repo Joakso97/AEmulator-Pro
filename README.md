@@ -21,7 +21,7 @@
 
 </div>
 
----
+<p align="center"><img src="docs/assets/rainbow.svg" width="100%" alt=""/></p>
 
 AEmulator Pro boots a real Android 1.0–17 system image straight from a firmware file you already have. It translates legacy ARM code with a patched QEMU, emulates the kernel’s binder, draws with your phone’s GPU and plays sound through Android’s audio stack. Everything runs inside a normal app.
 

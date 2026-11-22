@@ -10,7 +10,7 @@
 
 </div>
 
----
+<p align="center"><img src="../../docs/assets/rainbow.svg" width="100%" alt=""/></p>
 
 AEmulator Pro 直接从固件文件启动真实的 Android 1.0–17+ 系统：Recovery 卡刷包、Odin 包或 Google 出厂镜像。旧的 ARM 代码由改进的 QEMU 转译，内核 binder 被模拟，图形使用手机 GPU 绘制，声音经由 Android 音频系统播放——一切都在一个普通应用里完成。
 

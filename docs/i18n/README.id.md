@@ -10,7 +10,7 @@
 
 </div>
 
----
+<p align="center"><img src="../../docs/assets/rainbow.svg" width="100%" alt=""/></p>
 
 AEmulator Pro mem-boot sistem Android 1.0–17+ asli langsung dari file firmware: ZIP recovery, arsip Odin, atau factory image Google. Kode ARM lama diterjemahkan oleh QEMU yang dimodifikasi, binder kernel diemulasikan, grafis memakai GPU ponsel, dan suara lewat sistem audio Android — semuanya di dalam aplikasi biasa.
 

@@ -10,7 +10,7 @@
 
 </div>
 
----
+<p align="center"><img src="../../docs/assets/rainbow.svg" width="100%" alt=""/></p>
 
 AEmulator Pro はファームウェアファイルから本物の Android 1.0〜17+ を直接起動します：リカバリー ZIP、Odin アーカイブ、Google ファクトリーイメージ。古い ARM コードは改良版 QEMU で変換し、カーネルの binder をエミュレートし、描画はスマホの GPU、音声は Android のオーディオを使います。すべて普通のアプリの中で動きます。
 
