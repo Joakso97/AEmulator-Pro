@@ -2,6 +2,7 @@
 package app.aemu.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -145,6 +146,51 @@ fun UpdateDialog(
                 dismissButton = {
                     TextButton(onClick = onDismiss) {
                         Text(stringResource(R.string.update_later))
+                    }
+                }
+            )
+        }
+
+        is UpdateState.AlreadyDownloaded -> {
+            val rel = state.release
+            AlertDialog(
+                onDismissRequest = onDismiss,
+                title = {
+                    Text(
+                        text = stringResource(R.string.update_already_downloaded_title),
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                },
+                text = {
+                    Column(Modifier.fillMaxWidth()) {
+                        Text(
+                            text = stringResource(R.string.update_already_downloaded_msg, rel.tagName),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        if (rel.sizeBytes > 0) {
+                            Spacer(Modifier.height(4.dp))
+                            Text(
+                                text = stringResource(R.string.update_size, AppUpdateManager.formatBytes(rel.sizeBytes)),
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                },
+                confirmButton = {
+                    Button(onClick = { onInstall(state.file) }) {
+                        Text(stringResource(R.string.update_install))
+                    }
+                },
+                dismissButton = {
+                    Row {
+                        TextButton(onClick = { onStartDownload(rel) }) {
+                            Text(stringResource(R.string.update_redownload))
+                        }
+                        TextButton(onClick = onDismiss) {
+                            Text(stringResource(R.string.update_later))
+                        }
                     }
                 }
             )

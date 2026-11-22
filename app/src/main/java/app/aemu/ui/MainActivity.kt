@@ -136,6 +136,7 @@ import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.rounded.FolderOpen
 import androidx.compose.material.icons.rounded.CreateNewFolder
+import androidx.compose.material.icons.rounded.PushPin
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -279,6 +280,10 @@ fun Library(model: LibraryModel) {
     }
     fun deleteFolder(id: String) { arranger.update(arranger.layout().deleteFolder(id)); arranger.commit() }
 
+    var pinned by remember { mutableStateOf(PinnedStore.load(ctx)) }
+    fun commitPinned(layout: PinnedLayout) { PinnedStore.save(ctx, layout); pinned = layout }
+    fun togglePin(id: String) = commitPinned(pinned.toggle(id))
+
     val scope = rememberCoroutineScope()
     var updateState by remember { mutableStateOf<UpdateState>(UpdateState.Idle) }
     var downloadJob by remember { mutableStateOf<Job?>(null) }
@@ -291,7 +296,9 @@ fun Library(model: LibraryModel) {
                 val res = AppUpdateManager.checkLatestRelease()
                 res.getOrNull()?.let { rel ->
                     if (AppUpdateManager.isNewerVersion(rel.versionName, BuildConfig.VERSION_NAME)) {
-                        updateState = UpdateState.Available(rel)
+                        updateState = AppUpdateManager.downloadedUpdateFile(ctx, rel)
+                            ?.let { UpdateState.AlreadyDownloaded(rel, it) }
+                            ?: UpdateState.Available(rel)
                     }
                 }
             }
@@ -338,6 +345,15 @@ fun Library(model: LibraryModel) {
             },
         ) { pad ->
             Column(Modifier.fillMaxSize().padding(pad)) {
+                PinnedBar(pinned, images, PinnedActions(
+                    onStart = { id -> VmActivity.start(ctx, id) },
+                    onSettings = { id -> images.firstOrNull { it.id == id }?.let { settingsFor = it } },
+                    onRename = { id -> images.firstOrNull { it.id == id }?.let { renameFor = it } },
+                    onNewMachine = { id -> images.firstOrNull { it.id == id }?.let { containerFrom = it } },
+                    onReset = { id -> images.firstOrNull { it.id == id }?.let { resetFor = it } },
+                    onDelete = { id -> images.firstOrNull { it.id == id }?.let { deleteFor = it } },
+                    onTogglePin = ::togglePin,
+                ))
                 Box(Modifier.weight(1f).fillMaxWidth()) {
                     if (images.isEmpty() && !imp.active) {
                         Box(
@@ -409,6 +425,8 @@ fun Library(model: LibraryModel) {
                                             onReset = { resetFor = img },
                                             onDelete = { deleteFor = img },
                                             onMoveToFolder = { moveFor = img },
+                                            isPinned = pinned.isPinned(img.id),
+                                            onTogglePin = { togglePin(img.id) },
                                         )
                                     }
                                 }
@@ -480,6 +498,8 @@ fun Library(model: LibraryModel) {
                                                         onNewFolder = { openNewFolder(img.id) },
                                                         baseName = images.firstOrNull { it.id == img.baseId }?.name,
                                                         active = img.id in activeVmIds,
+                                                        isPinned = pinned.isPinned(img.id),
+                                                        onTogglePin = { togglePin(img.id) },
                                                         modifier = if (row.folderId != null) Modifier.border(2.dp, folderEdge, MaterialTheme.shapes.large) else Modifier,
                                                     )
                                                 }
@@ -535,8 +555,7 @@ fun Library(model: LibraryModel) {
     settingsFor?.let { img ->
         SettingsSheet(img, onDismiss = { settingsFor = null }, onSave = { s, name -> model.updateSettings(img, s, name); settingsFor = null })
     }
-    
-    
+
     if ((imp.active || imp.error != null || imp.done != null) && imp.choice == null) {
         ImportDialog(imp, onCancel = model::cancelImport, onDismiss = model::dismissImport,
             onStart = { img -> model.dismissImport(); VmActivity.start(ctx, img.id) })
@@ -939,7 +958,7 @@ private fun ImportDialog(s: ImportState, onCancel: () -> Unit, onDismiss: () -> 
 
 @Composable
 @OptIn(ExperimentalFoundationApi::class)
-private fun ImageCard(img: GuestImage, onStart: () -> Unit, onSettings: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onMoveToFolder: () -> Unit, onNewFolder: (String) -> Unit, baseName: String? = null, active: Boolean = false, modifier: Modifier = Modifier) {
+private fun ImageCard(img: GuestImage, onStart: () -> Unit, onSettings: () -> Unit, onRename: () -> Unit, onDelete: () -> Unit, onMoveToFolder: () -> Unit, onNewFolder: (String) -> Unit, baseName: String? = null, active: Boolean = false, modifier: Modifier = Modifier, isPinned: Boolean = false, onTogglePin: () -> Unit = {}) {
     val ctx = LocalContext.current
     var moreOpen by remember { mutableStateOf(false) }
     val lowPowerLabel = stringResource(R.string.lpm_start)
@@ -995,6 +1014,9 @@ private fun ImageCard(img: GuestImage, onStart: () -> Unit, onSettings: () -> Un
                         DropdownMenuItem(text = { Text(stringResource(R.string.vm_more_folder)) },
                             leadingIcon = { Icon(Icons.Rounded.CreateNewFolder, null) },
                             onClick = { moreOpen = false; onNewFolder(img.id) })
+                        DropdownMenuItem(text = { Text(stringResource(if (isPinned) R.string.unpin else R.string.pin)) },
+                            leadingIcon = { Icon(Icons.Rounded.PushPin, null) },
+                            onClick = { moreOpen = false; onTogglePin() })
                         DropdownMenuItem(text = { Text(stringResource(R.string.delete)) },
                             leadingIcon = { Icon(Icons.Rounded.Delete, null) },
                             onClick = { moreOpen = false; onDelete() })

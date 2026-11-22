@@ -118,6 +118,9 @@
     <string name="folder_none">Not in a folder</string>
     <string name="folder_open">Open folder</string>
     <string name="folder_rename">Rename folder</string>
+    <string name="pin">Pin</string>
+    <string name="unpin">Unpin</string>
+    <string name="pinned">Pinned</string>
     <string name="fw_folder_import">Import</string>
     <string name="fw_folder_title">Firmware in the folder</string>
     <string name="guest_log">Guest (logcat)</string>
@@ -357,6 +360,8 @@
     <string name="thermal_reset">Use default</string>
     <string name="thermal_title">Temperature sensor</string>
     <string name="thermal_value">Temperature (°C)</string>
+    <string name="update_already_downloaded_msg">Version %1$s has already been downloaded. Tap “Install” to apply the update.</string>
+    <string name="update_already_downloaded_title">Update already downloaded</string>
     <string name="update_available_msg">A new version %1$s is available. Do you want to update?</string>
     <string name="update_available_title">Update available</string>
     <string name="update_btn">Update</string>
@@ -376,6 +381,7 @@
     <string name="update_open_github">View on GitHub</string>
     <string name="update_ready_msg">The update file (%1$s) is downloaded. Tap “Install” to update the app.</string>
     <string name="update_ready_title">Ready to install</string>
+    <string name="update_redownload">Download again</string>
     <string name="update_size">Size: %1$s</string>
     <string name="vm_boot_system">Start system</string>
     <string name="vm_booting_short">Booting · %1$d s</string>

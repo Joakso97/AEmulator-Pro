@@ -38,6 +38,7 @@ import androidx.compose.material.icons.rounded.Inventory2
 import androidx.compose.material.icons.rounded.List
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.PushPin
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.Tune
 import androidx.compose.material3.DropdownMenu
@@ -94,6 +95,8 @@ fun MachineCard(
     onReset: () -> Unit,
     onDelete: () -> Unit,
     onMoveToFolder: (() -> Unit)? = null,
+    isPinned: Boolean = false,
+    onTogglePin: () -> Unit = {},
     active: Boolean = false,
 ) {
     val ctx = LocalContext.current
@@ -124,6 +127,8 @@ fun MachineCard(
                         onClick = { menu = false; onRename() })
                     DropdownMenuItem(text = { Text(stringResource(R.string.new_machine)) }, leadingIcon = { Icon(Icons.Rounded.ContentCopy, null) },
                         onClick = { menu = false; onNewMachine() })
+                    DropdownMenuItem(text = { Text(stringResource(if (isPinned) R.string.unpin else R.string.pin)) }, leadingIcon = { Icon(Icons.Rounded.PushPin, null) },
+                        onClick = { menu = false; onTogglePin() })
                     if (onMoveToFolder != null) DropdownMenuItem(text = { Text(stringResource(R.string.folder_move)) }, leadingIcon = { Icon(Icons.Rounded.FolderOpen, null) },
                         onClick = { menu = false; onMoveToFolder() })
                     HorizontalDivider()

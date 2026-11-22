@@ -174,6 +174,9 @@ object AppPrefs {
     fun libraryLayout(ctx: Context): String? = sp(ctx).getString("library_layout", null)
     fun setLibraryLayout(ctx: Context, json: String) = sp(ctx).edit().putString("library_layout", json).apply()
 
+    fun pinnedGroups(ctx: Context): String? = sp(ctx).getString("pinned_groups", null)
+    fun setPinnedGroups(ctx: Context, json: String) = sp(ctx).edit().putString("pinned_groups", json).apply()
+
     fun lastUpdateCheck(ctx: Context): Long = sp(ctx).getLong("last_update_check", 0L)
     fun setLastUpdateCheck(ctx: Context, v: Long) = sp(ctx).edit().putLong("last_update_check", v).apply()
 

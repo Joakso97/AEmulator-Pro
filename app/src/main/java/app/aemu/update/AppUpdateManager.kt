@@ -49,6 +49,7 @@ sealed interface UpdateState {
     object Idle : UpdateState
     object Checking : UpdateState
     data class Available(val release: ReleaseInfo) : UpdateState
+    data class AlreadyDownloaded(val release: ReleaseInfo, val file: File) : UpdateState
     data class UpToDate(val currentVersion: String, val latestTag: String) : UpdateState
     data class Downloading(val release: ReleaseInfo, val progress: Float, val downloadedBytes: Long, val totalBytes: Long) : UpdateState
     data class ReadyToInstall(val release: ReleaseInfo, val file: File) : UpdateState
@@ -169,6 +170,23 @@ object AppUpdateManager {
     }
 
     
+    private fun getUpdatesDir(context: Context): File =
+        File(context.getExternalFilesDir(null) ?: context.cacheDir, "updates")
+
+    private fun updateFileName(release: ReleaseInfo): String =
+        "aemulator-pro-${release.versionName}.apk"
+
+    fun downloadedUpdateFile(context: Context, release: ReleaseInfo): File? {
+        if (!UpdateAssetPolicy.matches(release.fileName, context.packageName)) return null
+        val file = File(getUpdatesDir(context), updateFileName(release))
+        if (!file.exists() || !file.isFile || file.length() <= 0L) return null
+        val archivePkg = getArchivePackageName(context, file)
+        val validPackages = setOf(context.packageName, "app.aemu.pro", "app.aemu.plus", "app.aemu")
+        if (archivePkg != null && archivePkg !in validPackages) return null
+        return file
+    }
+
+    
     suspend fun downloadApk(
         context: Context,
         release: ReleaseInfo,
@@ -176,13 +194,13 @@ object AppUpdateManager {
     ): File = withContext(Dispatchers.IO) {
         if (!UpdateAssetPolicy.matches(release.fileName, context.packageName))
             throw LocalizedIllegalArgumentException("Update APK does not match this application variant", R.string.update_err_wrong_variant)
-        val updatesDir = File(context.getExternalFilesDir(null) ?: context.cacheDir, "updates")
+        val updatesDir = getUpdatesDir(context)
         if (!updatesDir.exists()) updatesDir.mkdirs()
 
         
         updatesDir.listFiles()?.forEach { if (it.extension.equals("apk", ignoreCase = true)) it.delete() }
 
-        val targetFile = File(updatesDir, "aemulator-pro-${release.versionName}.apk")
+        val targetFile = File(updatesDir, updateFileName(release))
 
         
         

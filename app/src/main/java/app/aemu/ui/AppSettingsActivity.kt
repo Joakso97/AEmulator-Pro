@@ -159,7 +159,9 @@ private fun AppSettings(onBack: () -> Unit, onRestyle: () -> Unit, onLanguage: (
                 onSuccess = { rel ->
                     if (rel != null) {
                         if (AppUpdateManager.isNewerVersion(rel.versionName, BuildConfig.VERSION_NAME)) {
-                            updateState = UpdateState.Available(rel)
+                            updateState = AppUpdateManager.downloadedUpdateFile(ctx, rel)
+                                ?.let { UpdateState.AlreadyDownloaded(rel, it) }
+                                ?: UpdateState.Available(rel)
                         } else {
                             updateState = UpdateState.UpToDate(BuildConfig.VERSION_NAME, rel.tagName)
                         }
